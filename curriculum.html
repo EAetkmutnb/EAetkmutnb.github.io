@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โครงสร้างหลักสูตร | EEA KMUTNB</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
+        body { background-color: #0F1115; color: #E2E8F0; }
+        .navbar { background-color: #0F1115; border-bottom: 2px solid #FF6B00; position: sticky; top: 0; z-index: 50; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-flex { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { background: linear-gradient(135deg, #FF6B00, #E65C00); padding: 8px 12px; border-radius: 10px; color: white; font-weight: bold; font-size: 20px; }
+        .logo-text-main { font-weight: 700; font-size: 18px; color: white; }
+        .logo-text-orange { color: #FF6B00; }
+        .logo-sub { font-size: 11px; color: #00E5FF; display: block; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; padding-bottom: 5px; }
+        .nav-menu a.active { color: #FF6B00; border-bottom: 2px solid #FF6B00; }
+        .nav-menu a:hover { color: #FF6B00; }
+        .content-section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { font-size: 32px; font-weight: 800; color: white; text-align: center; }
+        .section-line { width: 60px; height: 4px; background-color: #FF6B00; margin: 15px auto 40px auto; border-radius: 2px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .curr-card { background-color: #1E222B; padding: 25px; border-radius: 15px; border: 1px solid #2D3142; }
+        .curr-year { font-size: 20px; font-weight: 700; color: #FF6B00; margin-bottom: 15px; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .curr-list { list-style: none; }
+        .curr-list li { color: #94A3B8; font-size: 14px; margin-bottom: 10px; line-height: 1.6; }
+        @media (max-width: 768px) { .nav-menu { display: none; } .grid-2 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-flex">
+                <div class="logo-icon">⚡</div>
+                <div>
+                    <span class="logo-text-main">EEA <span class="logo-text-orange">KMUTNB</span></span>
+                    <span class="logo-sub">Electrical & Automation</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="curriculum.html" class="active">โครงสร้างหลักสูตร</a></li>
+                <li><a href="labs.html">ห้องปฏิบัติการ</a></li>
+                <li><a href="research.html">ผลงานวิจัย</a></li>
+                <li><a href="contact.html">ติดต่อภาควิชา</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content-section">
+        <h1 class="section-title">แผนการเรียนตลอด 4 ปี</h1>
+        <div class="section-line"></div>
+        <div class="grid-2">
+            <div class="curr-card">
+                <div class="curr-year">ชั้นปีที่ 1 : พื้นฐานวิศวกรรม</div>
+                <ul class="curr-list">
+                    <li>• แคลคูลัสและฟิสิกส์พื้นฐานสำหรับวิศวกร</li>
+                    <li>• การเขียนโปรแกรมคอมพิวเตอร์พื้นฐาน</li>
+                    <li>• การเขียนแบบวิศวกรรมด้วยคอมพิวเตอร์</li>
+                </ul>
+            </div>
+            <div class="curr-card">
+                <div class="curr-year">ชั้นปีที่ 2 : ทฤษฎีไฟฟ้าและอิเล็กทรอนิกส์</div>
+                <ul class="curr-list">
+                    <li>• ทฤษฎีวงจรไฟฟ้าและการวัดทางไฟฟ้า</li>
+                    <li>• อุปกรณ์อิเล็กทรอนิกส์และวงจรดิจิทัล</li>
+                    <li>• ปฏิบัติการเครื่องกลไฟฟ้าพื้นฐาน</li>
+                </ul>
+            </div>
+            <div class="curr-card">
+                <div class="curr-year">ชั้นปีที่ 3 : ระบบอัตโนมัติขั้นสูง</div>
+                <ul class="curr-list">
+                    <li>• การเขียนโปรแกรมควบคุม PLC และระบบ SCADA</li>
+                    <li>• วิศวกรรมหุ่นยนต์และระบบขับเคลื่อนอัตโนมัติ</li>
+                    <li>• การออกแบบระบบไฟฟ้ากำลังในอุตสาหกรรม</li>
+                </ul>
+            </div>
+            <div class="curr-card">
+                <div class="curr-year">ชั้นปีที่ 4 : ปริญญานิพนธ์และสหกิจศึกษา</div>
+                <ul class="curr-list">
+                    <li>• ปริญญานิพนธ์วิศวกรรมไฟฟ้าและอัตโนมัติ</li>
+                    <li>• การฝึกงานหรือโครงการสหกิจศึกษาในโรงงานจริง</li>
+                    <li>• เทคโนโลยี IoT และ AI สำหรับอุตสาหกรรม 4.0</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
