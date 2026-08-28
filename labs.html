@@ -1,106 +1,966 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ห้องปฏิบัติการ | EAet KMUTNB</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: #0F1115; color: #E2E8F0; }
-        .navbar { background-color: #0F1115; border-bottom: 2px solid #FF6B00; position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-flex { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #FF6B00, #E65C00); padding: 8px 12px; border-radius: 10px; color: white; font-weight: bold; font-size: 20px; }
-        .logo-text-main { font-weight: 700; font-size: 18px; color: white; }
-        .logo-text-orange { color: #FF6B00; }
-        .logo-sub { font-size: 11px; color: #00E5FF; display: block; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; padding-bottom: 5px; }
-        .nav-menu a.active { color: #FF6B00; border-bottom: 2px solid #FF6B00; }
-        .nav-menu a:hover { color: #FF6B00; }
-        .content-section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { font-size: 32px; font-weight: 800; color: white; text-align: center; }
-        .section-line { width: 60px; height: 4px; background-color: #FF6B00; margin: 15px auto 40px auto; border-radius: 2px; }
-        .lab-row { display: flex; background-color: #1E222B; border: 1px solid #2D3142; border-radius: 15px; overflow: hidden; margin-bottom: 30px; align-items: center; }
-        .lab-img { width: 350px; height: 220px; object-fit: cover; }
-        .lab-info { padding: 30px; flex: 1; }
-        .lab-title { font-size: 20px; font-weight: 700; color: white; margin-bottom: 10px; }
-        .lab-desc { color: #94A3B8; font-size: 14px; line-height: 1.6; }
-        @media (max-width: 768px) { .nav-menu { display: none; } .lab-row { flex-direction: column; } .lab-img { width: 100%; height: 200px; } }
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 20% 10%, rgba(255,107,0,0.08), transparent 30%),
+                #0F1115;
+
+            color: #E2E8F0;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background: rgba(15, 17, 21, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,107,0,0.5);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 15px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-flex {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #FF6B00, #E65C00);
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-weight: bold;
+            font-size: 20px;
+
+            box-shadow: 0 0 20px rgba(255,107,0,0.25);
+        }
+
+        .logo-text-main {
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+
+        .logo-text-orange {
+            color: #FF6B00;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            color: #00E5FF;
+
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+
+            list-style: none;
+
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #CBD5E1;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: all 0.25s ease;
+
+            padding-bottom: 5px;
+        }
+
+        .nav-menu a.active {
+            color: #FF6B00;
+
+            border-bottom: 2px solid #FF6B00;
+        }
+
+        .nav-menu a:hover {
+            color: #FF6B00;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content-section {
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 70px 20px 100px;
+        }
+
+        .section-title {
+            font-size: 34px;
+
+            font-weight: 800;
+
+            color: white;
+
+            text-align: center;
+
+            letter-spacing: 0.5px;
+        }
+
+        .section-line {
+            width: 70px;
+            height: 4px;
+
+            background: linear-gradient(
+                90deg,
+                #FF6B00,
+                #FF9A52
+            );
+
+            margin: 15px auto 55px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 0 15px rgba(255,107,0,0.4);
+        }
+
+
+        /* =========================
+           LAB CARD
+        ========================= */
+
+        .lab-row {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 45px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(30,34,43,0.95),
+                    rgba(22,25,32,0.95)
+                );
+
+            border: 1px solid #2D3142;
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            margin-bottom: 35px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        /* Orange glow line */
+
+        .lab-row::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 4px;
+            height: 100%;
+
+            background: linear-gradient(
+                180deg,
+                #FF6B00,
+                #00E5FF
+            );
+
+            opacity: 0.8;
+        }
+
+        .lab-row:hover {
+
+            transform: translateY(-6px);
+
+            border-color: rgba(255,107,0,0.65);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.35),
+                0 0 25px rgba(255,107,0,0.08);
+        }
+
+
+        /* =========================
+           IMAGE GALLERY
+        ========================= */
+
+        .lab-gallery {
+
+            flex: 0 0 520px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .lab-gallery.single {
+
+            grid-template-columns: 1fr;
+        }
+
+        .image-box {
+
+            position: relative;
+
+            height: 165px;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            background: #151820;
+
+            border: 1px solid #343947;
+
+            cursor: pointer;
+        }
+
+        .image-box img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.5s ease,
+                filter 0.5s ease;
+        }
+
+        /* Image overlay */
+
+        .image-box::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 50%,
+                    rgba(0,0,0,0.55)
+                );
+
+            opacity: 0;
+
+            transition: opacity 0.35s ease;
+        }
+
+        /* Hover image */
+
+        .image-box:hover img {
+
+            transform: scale(1.08);
+
+            filter: brightness(1.08);
+        }
+
+        .image-box:hover::after {
+
+            opacity: 1;
+        }
+
+
+        /* =========================
+           LAB INFORMATION
+        ========================= */
+
+        .lab-info {
+
+            flex: 1;
+
+            padding: 10px 15px 10px 5px;
+        }
+
+        .lab-number {
+
+            display: inline-block;
+
+            color: #FF6B00;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+        }
+
+        .lab-title {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            color: white;
+
+            line-height: 1.5;
+
+            margin-bottom: 15px;
+
+            transition: color 0.3s ease;
+        }
+
+        .lab-row:hover .lab-title {
+
+            color: #FF8A3D;
+        }
+
+        .lab-desc {
+
+            color: #94A3B8;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            font-weight: 300;
+        }
+
+
+        /* =========================
+           TAG
+        ========================= */
+
+        .lab-tag {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            color: #00E5FF;
+
+            background: rgba(0,229,255,0.07);
+
+            border: 1px solid rgba(0,229,255,0.2);
+        }
+
+
+        /* =========================
+           RESPONSIVE TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .lab-row {
+
+                gap: 30px;
+            }
+
+            .lab-gallery {
+
+                flex: 0 0 430px;
+            }
+
+            .image-box {
+
+                height: 145px;
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .nav-menu {
+
+                display: none;
+            }
+
+            .content-section {
+
+                padding: 50px 15px 70px;
+            }
+
+            .section-title {
+
+                font-size: 27px;
+            }
+
+            .lab-row {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 25px;
+
+                padding: 15px;
+
+                border-radius: 16px;
+            }
+
+            .lab-gallery {
+
+                flex: none;
+
+                width: 100%;
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
+            }
+
+            .image-box {
+
+                height: 150px;
+            }
+
+            .lab-info {
+
+                padding: 5px;
+            }
+
+            .lab-title {
+
+                font-size: 18px;
+            }
+
+            .lab-desc {
+
+                font-size: 13px;
+
+                line-height: 1.8;
+            }
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo-sub {
+
+                display: none;
+            }
+
+            .section-title {
+
+                font-size: 24px;
+            }
+
+            .lab-gallery {
+
+                grid-template-columns: 1fr;
+            }
+
+            .image-box {
+
+                height: 190px;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-flex">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <span class="logo-text-main">EAet <span class="logo-text-orange">KMUTNB</span></span>
-                    <span class="logo-sub">Electrical & Automation Engineering Technology</span>
-                </div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="curriculum.html">โครงสร้างหลักสูตร</a></li>
-                <li><a href="labs.html" class="active">ห้องปฏิบัติการ</a></li>
-                <li><a href="research.html">ผลงานวิจัย</a></li>
-                <li><a href="contact.html">ติดต่อภาควิชา</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <main class="content-section">
-        <h1 class="section-title">ห้องปฏิบัติการเฉพาะทาง</h1>
-        <div class="section-line"></div>
-        
-        <div class="lab-row">
-            <img src="786241617_1080804894345740_7450062100626409738_n.jpg" alt="Automation Lab" class="lab-img">
-            <img src="785942892_1080664024443346_371208058664644655_n.jpg" class="lab-img">
-            <img src="786888535_4011924105608682_9077481613049183036_n.jpg" alt="Automation Lab" class="lab-img">
-            <img src="787596461_2099957917541174_376759358568810637_n.jpg" alt="Automation Lab" class="lab-img">
-            <div class="lab-info">
-                <h3 class="lab-title">1. ห้องปฏิบัติการระบบอัตโนมัติและหุ่นยนต์ (Industrial Automation Lab)</h3>
-                <p class="lab-desc">ติดตั้งชุดฝึกควบคุม PLC แบรนด์ชั้นนำระดับโลก เช่น Siemens, Mitsubishi และ Omron พร้อมแขนกลหุ่นยนต์อุตสาหกรรมความแม่นยำสูง เพื่อให้นักศึกษาจำลองระบบการผลิตอัจฉริยะในยุคปัจจุบัน</p>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo-flex">
+
+            <div class="logo-icon">
+                ⚡
             </div>
+
+            <div>
+
+                <span class="logo-text-main">
+                    EAet <span class="logo-text-orange">KMUTNB</span>
+                </span>
+
+                <span class="logo-sub">
+                    Electrical & Automation Engineering Technology
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="lab-row">
-            <img src="785942870_1958454694796707_6501549312908341960_n.jpg" alt="Power Lab" class="lab-img">
-            <img src="787923166_4040670712896286_2092678711344076065_n.jpg" alt="Power Lab" class="lab-img">
-            <div class="lab-info">
-                <h3 class="lab-title">2. ห้องปฏิบัติการ Power electronics (Power electronics And Motor control Lab)</h3>
-                <p class="lab-desc">มุ่งเน้นการศึกษาระบบจำลองโครงข่ายไฟฟ้าอัจฉริยะ (Smart Grid Simulation), ระบบควบคุมมอเตอร์ไฟฟ้ากำลังสูง, การวิเคราะห์เสถียรภาพ และระบบตัดต่อป้องกันไฟฟ้าเพื่อความปลอดภัยสูงสุด การออกเเบบวงจรกำลังเพื่อควบคุมโหลด</p>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    หน้าแรก
+                </a>
+            </li>
+
+            <li>
+                <a href="curriculum.html">
+                    โครงสร้างหลักสูตร
+                </a>
+            </li>
+
+            <li>
+                <a href="labs.html" class="active">
+                    ห้องปฏิบัติการ
+                </a>
+            </li>
+
+            <li>
+                <a href="research.html">
+                    ผลงานวิจัย
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    ติดต่อภาควิชา
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="content-section">
+
+
+    <h1 class="section-title">
+        ห้องปฏิบัติการเฉพาะทาง
+    </h1>
+
+    <div class="section-line"></div>
+
+
+
+    <!-- =====================================
+         LAB 1
+    ====================================== -->
+
+    <div class="lab-row">
+
+        <div class="lab-gallery">
+
+            <div class="image-box">
+                <img
+                    src="786241617_1080804894345740_7450062100626409738_n.jpg"
+                    alt="Industrial Automation Lab"
+                >
             </div>
-        </div>
-         <div class="lab-row">
-            <img src="788139339_1723252748724033_2294562911956876506_n.jpg" alt="Power Lab" class="lab-img">
-            <img src="787742512_1688457028886073_6405196339984807980_n.jpg" alt="Power Lab" class="lab-img">
-            <img src="786241617_1560690102456736_2074931442989166840_n.jpg" alt="Power Lab" class="lab-img">
-            <img src="785942894_997148460011543_1098323787990451185_n.jpg" alt="Power Lab" class="lab-img">
-            <div class="lab-info">
-                <h3 class="lab-title">2. ห้องปฏิบัติการ (Electrical Machine Lab)</h3>
-                <p class="lab-desc">มุ่งเน้นการศึกษาระบบควบคุมมอเตอร์ไฟฟ้ากำลังสูง, การวิเคราะห์เสถียรภาพมอเตอร์ เเละ หม้อแปลไฟฟ้า และระบบตัดต่อป้องกันมอเตอร์เพื่อความปลอดภัยสูงสุด</p>
+
+            <div class="image-box">
+                <img
+                    src="785942892_1080664024443346_371208058664644655_n.jpg"
+                    alt="PLC Laboratory"
+                >
             </div>
-        </div>
-        <div class="lab-row">
-            <img src="785942869_1464920078811958_8923437036924733570_n.jpg" alt="Power Lab" class="lab-img">
-            
-            <div class="lab-info">
-                <h3 class="lab-title">2. ห้องปฏิบัติการ ไฟฟ้าเเละอิเล็กทรอนิกส์ (Electrical And Electronics Lab)</h3>
-                <p class="lab-desc">มุ่งเน้นการศึกษาการจำลองระบบวงจรอิเล็กทรอนิกส์ คุณลักษณะสมบัติของอุปกรณ์อิเล็กทรอนิกส์ ตรวจซ่อมเช็คปัญหาของวงจร การใช้เครื่องมือวัดเเรงดัน กระเเส สัญญาณทางไฟฟ้า เเละการออกเเบบวงจรอิเล็กทรอนิกส์ในรูปแบบต่างๆ</p>
+
+            <div class="image-box">
+                <img
+                    src="786888535_4011924105608682_9077481613049183036_n.jpg"
+                    alt="Robot Laboratory"
+                >
             </div>
-        </div>
-        <div class="lab-row">
-            <img src="788689070_1534350628378826_4817150972709861406_n.jpg" alt="Power Lab" class="lab-img">
-            
-            <div class="lab-info">
-                <h3 class="lab-title">2. ห้องปฏิบัติการ การออกเเบบวงจรดิจิทัล (Digital circuit Lab)</h3>
-                <p class="lab-desc">มุ่งเน้นการศึกษาการออกเเบบวงจรดิจิทัล Timing diagram , filp fllip , counters , logic gate</p>
+
+            <div class="image-box">
+                <img
+                    src="787596461_2099957917541174_376759358568810637_n.jpg"
+                    alt="Automation Laboratory"
+                >
             </div>
+
         </div>
-    </main>
+
+
+        <div class="lab-info">
+
+            <span class="lab-number">
+                LAB 01
+            </span>
+
+            <h3 class="lab-title">
+                ห้องปฏิบัติการระบบอัตโนมัติและหุ่นยนต์
+                <br>
+                <small>
+                    Industrial Automation Lab
+                </small>
+            </h3>
+
+            <p class="lab-desc">
+
+                ติดตั้งชุดฝึกควบคุม PLC จากแบรนด์ชั้นนำระดับโลก
+                เช่น Siemens, Mitsubishi และ Omron
+                พร้อมชุดฝึกระบบอัตโนมัติและแขนกลหุ่นยนต์อุตสาหกรรม
+                เพื่อให้นักศึกษาได้เรียนรู้การควบคุมกระบวนการผลิต
+                และสามารถจำลองระบบการผลิตอัจฉริยะในภาคอุตสาหกรรมจริง
+
+            </p>
+
+            <span class="lab-tag">
+                PLC • Automation • Robotics
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         LAB 2
+    ====================================== -->
+
+    <div class="lab-row">
+
+        <div class="lab-gallery">
+
+            <div class="image-box">
+
+                <img
+                    src="785942870_1958454694796707_6501549312908341960_n.jpg"
+                    alt="Power Electronics Lab"
+                >
+
+            </div>
+
+            <div class="image-box">
+
+                <img
+                    src="787923166_4040670712896286_2092678711344076065_n.jpg"
+                    alt="Motor Control Lab"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="lab-info">
+
+            <span class="lab-number">
+                LAB 02
+            </span>
+
+            <h3 class="lab-title">
+                ห้องปฏิบัติการอิเล็กทรอนิกส์กำลังและการควบคุมมอเตอร์
+                <br>
+                <small>
+                    Power Electronics & Motor Control Lab
+                </small>
+            </h3>
+
+            <p class="lab-desc">
+
+                มุ่งเน้นการศึกษาระบบอิเล็กทรอนิกส์กำลัง
+                การควบคุมมอเตอร์ไฟฟ้า การจำลองระบบโครงข่ายไฟฟ้าอัจฉริยะ
+                (Smart Grid Simulation) การวิเคราะห์เสถียรภาพ
+                ตลอดจนการออกแบบวงจรกำลังสำหรับควบคุมโหลด
+                และระบบขับเคลื่อนทางไฟฟ้า
+
+            </p>
+
+            <span class="lab-tag">
+                Power Electronics • Motor • Smart Grid
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         LAB 3
+    ====================================== -->
+
+    <div class="lab-row">
+
+        <div class="lab-gallery">
+
+            <div class="image-box">
+
+                <img
+                    src="788139339_1723252748724033_2294562911956876506_n.jpg"
+                    alt="Electrical Machine Lab"
+                >
+
+            </div>
+
+            <div class="image-box">
+
+                <img
+                    src="787742512_1688457028886073_6405196339984807980_n.jpg"
+                    alt="Electrical Machine"
+                >
+
+            </div>
+
+            <div class="image-box">
+
+                <img
+                    src="786241617_1560690102456736_2074931442989166840_n.jpg"
+                    alt="Transformer Laboratory"
+                >
+
+            </div>
+
+            <div class="image-box">
+
+                <img
+                    src="785942894_997148460011543_1098323787990451185_n.jpg"
+                    alt="Motor Laboratory"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="lab-info">
+
+            <span class="lab-number">
+                LAB 03
+            </span>
+
+            <h3 class="lab-title">
+                ห้องปฏิบัติการเครื่องจักรกลไฟฟ้า
+                <br>
+                <small>
+                    Electrical Machine Lab
+                </small>
+            </h3>
+
+            <p class="lab-desc">
+
+                มุ่งเน้นการศึกษาและทดลองเกี่ยวกับเครื่องจักรกลไฟฟ้า
+                ได้แก่ มอเตอร์ไฟฟ้า เครื่องกำเนิดไฟฟ้า และหม้อแปลงไฟฟ้า
+                รวมถึงการวิเคราะห์คุณลักษณะของเครื่องจักร
+                การควบคุมความเร็ว การวิเคราะห์เสถียรภาพ
+                และระบบป้องกันเพื่อความปลอดภัยในการใช้งาน
+
+            </p>
+
+            <span class="lab-tag">
+                Motor • Generator • Transformer
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         LAB 4
+    ====================================== -->
+
+    <div class="lab-row">
+
+        <div class="lab-gallery single">
+
+            <div class="image-box">
+
+                <img
+                    src="785942869_1464920078811958_8923437036924733570_n.jpg"
+                    alt="Electrical and Electronics Lab"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="lab-info">
+
+            <span class="lab-number">
+                LAB 04
+            </span>
+
+            <h3 class="lab-title">
+                ห้องปฏิบัติการไฟฟ้าและอิเล็กทรอนิกส์
+                <br>
+                <small>
+                    Electrical & Electronics Lab
+                </small>
+            </h3>
+
+            <p class="lab-desc">
+
+                มุ่งเน้นการศึกษาและทดลองวงจรไฟฟ้าและอิเล็กทรอนิกส์
+                การวิเคราะห์คุณสมบัติของอุปกรณ์อิเล็กทรอนิกส์
+                การตรวจสอบและวิเคราะห์ปัญหาของวงจร
+                รวมถึงการใช้เครื่องมือวัดทางไฟฟ้า เช่น
+                Multimeter และ Oscilloscope
+                เพื่อวัดแรงดัน กระแส และสัญญาณทางไฟฟ้า
+                ตลอดจนการออกแบบวงจรอิเล็กทรอนิกส์ในรูปแบบต่าง ๆ
+
+            </p>
+
+            <span class="lab-tag">
+                Electronics • Circuit • Measurement
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         LAB 5
+    ====================================== -->
+
+    <div class="lab-row">
+
+        <div class="lab-gallery single">
+
+            <div class="image-box">
+
+                <img
+                    src="788689070_1534350628378826_4817150972709861406_n.jpg"
+                    alt="Digital Circuit Lab"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="lab-info">
+
+            <span class="lab-number">
+                LAB 05
+            </span>
+
+            <h3 class="lab-title">
+                ห้องปฏิบัติการการออกแบบวงจรดิจิทัล
+                <br>
+                <small>
+                    Digital Circuit Lab
+                </small>
+            </h3>
+
+            <p class="lab-desc">
+
+                มุ่งเน้นการศึกษาพื้นฐานและการออกแบบระบบดิจิทัล
+                ตั้งแต่ Logic Gate, Boolean Algebra,
+                Flip-Flop, Counter และ Timing Diagram
+                รวมถึงการทดลองและวิเคราะห์การทำงานของวงจรดิจิทัล
+                เพื่อนำไปประยุกต์ใช้ในการออกแบบระบบควบคุมสมัยใหม่
+
+            </p>
+
+            <span class="lab-tag">
+                Digital • Logic Gate • FPGA
+            </span>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
 </body>
 </html>
+```
