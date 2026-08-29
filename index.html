@@ -1,51 +1,774 @@
 <!DOCTYPE html>
-<html lang="th"> 
-<head> 
+<html lang="th">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เทคโนโลยีวิศวกรรมไฟฟ้าและอัตโนมัติ | KMUTNB</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: #0F1115; color: #E2E8F0; }
-        .navbar { background-color: #0F1115; border-bottom: 2px solid #FF6B00; position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-flex { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #FF6B00, #E65C00); padding: 8px 12px; border-radius: 10px; color: white; font-weight: bold; font-size: 20px; }
-        .logo-text-main { font-weight: 700; font-size: 18px; color: white; }
-        .logo-text-orange { color: #FF6B00; }
-        .logo-sub { font-size: 11px; color: #00E5FF; display: block; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; padding-bottom: 5px; }
-        .nav-menu a.active { color: #FF6B00; border-bottom: 2px solid #FF6B00; }
-        .nav-menu a:hover { color: #FF6B00; }
-        .btn-admission { background: linear-gradient(to right, #FF6B00, #FF8833); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; }
-        .btn-admission:hover { transform: scale(1.05); }
-        .hero { background: linear-gradient(to bottom, #0F1115, #1E222B); padding: 80px 20px; border-bottom: 1px solid #2D3142; }
-        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .hero-badge { background-color: rgba(255, 107, 0, 0.1); color: #FF6B00; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(255, 107, 0, 0.3); display: inline-block; }
-        .hero-title { font-size: 48px; font-weight: 900; margin-top: 20px; line-height: 1.2; color: white; }
-        .hero-title-orange { background: linear-gradient(to right, #FF6B00, #FFD600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-desc { color: #94A3B8; font-size: 16px; margin-top: 20px; line-height: 1.6; }
-        .hero-buttons { margin-top: 30px; display: flex; gap: 15px; }
-        .btn-primary { background: linear-gradient(to right, #FF6B00, #E65C00); color: white; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-secondary { background-color: #1E222B; color: #E2E8F0; padding: 12px 28px; border-radius: 10px; text-decoration: none; border: 1px solid #334155; transition: 0.3s; }
-        .btn-secondary:hover { border-color: #94A3B8; }
-        .hero-img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; border: 2px solid #2D3142; }
-        .strengths { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-title { font-size: 32px; font-weight: 800; color: white; }
-        .section-line { width: 60px; height: 4px; background-color: #FF6B00; margin: 15px auto; border-radius: 2px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card { background-color: #1E222B; padding: 30px; border-radius: 15px; border: 1px solid #2D3142; transition: 0.3s; }
-        .card:hover { border-color: #FF6B00; transform: translateY(-5px); }
-        .card-icon { font-size: 28px; margin-bottom: 20px; }
-        .card-title { font-size: 20px; font-weight: 700; color: white; margin-bottom: 15px; }
-        .card-desc { color: #94A3B8; font-size: 14px; line-height: 1.6; }
 
-         footer {
+    <title>เทคโนโลยีวิศวกรรมไฟฟ้าและอัตโนมัติ | KMUTNB</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0F1115;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           ANIMATED BACKGROUND
+        ===================================================== */
+
+        #circuit-bg {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -10;
+
+            pointer-events: none;
+
+            opacity: 0.55;
+        }
+
+
+        /* Grid overlay */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -9;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            background: rgba(15, 17, 21, 0.92);
+
+            border-bottom: 2px solid #FF6B00;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 50;
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+
+        .nav-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 15px 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo-flex {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .logo-icon {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #FF6B00,
+                    #E65C00
+                );
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 20px rgba(255,107,0,0.25);
+        }
+
+
+        .logo-text-main {
+
+            font-weight: 700;
+
+            font-size: 18px;
+
+            color: white;
+        }
+
+
+        .logo-text-orange {
+
+            color: #FF6B00;
+        }
+
+
+        .logo-sub {
+
+            font-size: 11px;
+
+            color: #00E5FF;
+
+            display: block;
+        }
+
+
+        /* =====================================================
+           NAV MENU
+        ===================================================== */
+
+        .nav-menu {
+
+            display: flex;
+
+            list-style: none;
+
+            gap: 30px;
+        }
+
+
+        .nav-menu a {
+
+            color: #CBD5E1;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            transition: 0.25s;
+
+            padding-bottom: 5px;
+
+            position: relative;
+        }
+
+
+        .nav-menu a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background: #FF6B00;
+
+            transition: 0.25s;
+        }
+
+
+        .nav-menu a:hover {
+
+            color: #FF6B00;
+        }
+
+
+        .nav-menu a:hover::after {
+
+            width: 100%;
+        }
+
+
+        .nav-menu a.active {
+
+            color: #FF6B00;
+        }
+
+
+        .nav-menu a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           ADMISSION BUTTON
+        ===================================================== */
+
+        .btn-admission {
+
+            background:
+                linear-gradient(
+                    to right,
+                    #FF6B00,
+                    #FF8833
+                );
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 20px rgba(255,107,0,0.15);
+        }
+
+
+        .btn-admission:hover {
+
+            transform: translateY(-2px) scale(1.03);
+
+            box-shadow:
+                0 8px 25px rgba(255,107,0,0.30);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(15,17,21,0.82),
+                    rgba(30,34,43,0.90)
+                );
+
+            padding: 80px 20px;
+
+            border-bottom: 1px solid #2D3142;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* Orange glow */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+
+            height: 400px;
+
+            background: rgba(255,107,0,0.08);
+
+            border-radius: 50%;
+
+            filter: blur(80px);
+
+            top: -150px;
+
+            right: -100px;
+
+            pointer-events: none;
+        }
+
+
+        /* Cyan glow */
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            background: rgba(0,229,255,0.05);
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            bottom: -180px;
+
+            left: -100px;
+
+            pointer-events: none;
+        }
+
+
+        .hero-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .hero-badge {
+
+            background-color:
+                rgba(255,107,0,0.08);
+
+            color: #FF6B00;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(255,107,0,0.3);
+
+            display: inline-block;
+
+            box-shadow:
+                0 0 15px rgba(255,107,0,0.05);
+        }
+
+
+        .hero-title {
+
+            font-size: 48px;
+
+            font-weight: 900;
+
+            margin-top: 20px;
+
+            line-height: 1.2;
+
+            color: white;
+        }
+
+
+        .hero-title-orange {
+
+            background:
+                linear-gradient(
+                    to right,
+                    #FF6B00,
+                    #FFD600
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+
+        .hero-desc {
+
+            color: #94A3B8;
+
+            font-size: 16px;
+
+            margin-top: 20px;
+
+            line-height: 1.7;
+
+            max-width: 650px;
+        }
+
+
+        /* =====================================================
+           HERO BUTTONS
+        ===================================================== */
+
+        .hero-buttons {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            gap: 15px;
+        }
+
+
+        .btn-primary {
+
+            background:
+                linear-gradient(
+                    to right,
+                    #FF6B00,
+                    #E65C00
+                );
+
+            color: white;
+
+            padding: 12px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 20px rgba(255,107,0,0.18);
+        }
+
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(255,107,0,0.30);
+        }
+
+
+        .btn-secondary {
+
+            background:
+                rgba(30,34,43,0.75);
+
+            color: #E2E8F0;
+
+            padding: 12px 28px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            border:
+                1px solid #334155;
+
+            transition: 0.3s;
+
+            backdrop-filter: blur(5px);
+        }
+
+
+        .btn-secondary:hover {
+
+            border-color: #00E5FF;
+
+            color: #00E5FF;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
+
+        .hero-img {
+
+            width: 100%;
+
+            height: 350px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            border:
+                2px solid #2D3142;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.35);
+
+            transition: 0.4s;
+        }
+
+
+        .hero-img:hover {
+
+            transform: scale(1.02);
+
+            border-color: #FF6B00;
+
+            box-shadow:
+                0 20px 60px rgba(255,107,0,0.12);
+        }
+
+
+        /* =====================================================
+           STRENGTHS
+        ===================================================== */
+
+        .strengths {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 80px 20px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .section-header {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-title {
+
+            font-size: 32px;
+
+            font-weight: 800;
+
+            color: white;
+        }
+
+
+        .section-line {
+
+            width: 60px;
+
+            height: 4px;
+
+            background-color: #FF6B00;
+
+            margin: 15px auto;
+
+            border-radius: 2px;
+
+            box-shadow:
+                0 0 15px rgba(255,107,0,0.35);
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .grid-3 {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .card {
+
+            background:
+                rgba(30,34,43,0.80);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid #2D3142;
+
+            transition: 0.3s;
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* เส้นแสงด้านบน Card */
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #FF6B00,
+                    transparent
+                );
+
+            transition: 0.5s;
+        }
+
+
+        .card:hover::before {
+
+            left: 100%;
+        }
+
+
+        .card:hover {
+
+            border-color: #FF6B00;
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.25),
+                0 0 25px rgba(255,107,0,0.05);
+        }
+
+
+        .card-icon {
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .card-title {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: white;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card-desc {
+
+            color: #94A3B8;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
             border-top:
                 1px solid #252A34;
 
@@ -58,86 +781,826 @@
             font-size: 11px;
 
             line-height: 1.8;
+
+            background:
+                rgba(15,17,21,0.90);
+
+            position: relative;
+
+            z-index: 2;
         }
-        @media (max-width: 768px) { .nav-menu { display: none; } .hero-container { grid-template-columns: 1fr; text-align: center; } .hero-buttons { justify-content: center; } .grid-3 { grid-template-columns: 1fr; } }
-        
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-menu {
+
+                display: none;
+            }
+
+            .hero-container {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero-desc {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+            .hero-img {
+
+                height: 300px;
+            }
+
+            .grid-3 {
+
+                grid-template-columns: 1fr;
+            }
+
+            .btn-admission {
+
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .hero {
+
+                padding: 60px 20px;
+            }
+
+            .hero-title {
+
+                font-size: 34px;
+            }
+
+            .hero-desc {
+
+                font-size: 14px;
+            }
+
+            .hero-buttons {
+
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+
+                text-align: center;
+            }
+
+            .hero-img {
+
+                height: 230px;
+            }
+
+            .section-title {
+
+                font-size: 26px;
+            }
+        }
+
     </style>
+
 </head>
+
+
 <body>
+
+    <!-- =====================================================
+         ANIMATED CIRCUIT BACKGROUND
+    ===================================================== -->
+
+    <canvas id="circuit-bg"></canvas>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
     <nav class="navbar">
+
         <div class="nav-container">
+
             <div class="logo-flex">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <span class="logo-text-main">EAet <span class="logo-text-orange">KMUTNB</span></span>
-                    <span class="logo-sub">Electrical & Automation Engineering Technology</span>
+
+                <div class="logo-icon">
+                    ⚡
                 </div>
+
+                <div>
+
+                    <span class="logo-text-main">
+
+                        EAet
+                        <span class="logo-text-orange">
+                            KMUTNB
+                        </span>
+
+                    </span>
+
+                    <span class="logo-sub">
+
+                        Electrical & Automation Engineering Technology
+
+                    </span>
+
+                </div>
+
             </div>
+
+
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">หน้าแรก</a></li>
-                <li><a href="curriculum.html">โครงสร้างหลักสูตร</a></li>
-                <li><a href="labs.html">ห้องปฏิบัติการ</a></li>
-                <li><a href="research.html">ผลงานวิจัย</a></li>
-                <li><a href="contact.html">ติดต่อภาควิชา</a></li>
+
+                <li>
+                    <a href="index.html" class="active">
+                        หน้าแรก
+                    </a>
+                </li>
+
+                <li>
+                    <a href="curriculum.html">
+                        โครงสร้างหลักสูตร
+                    </a>
+                </li>
+
+                <li>
+                    <a href="labs.html">
+                        ห้องปฏิบัติการ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="research.html">
+                        ผลงานวิจัย
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        ติดต่อภาควิชา
+                    </a>
+                </li>
+
             </ul>
-            <a href="https://kmutnb.ac.th" target="_blank" class="btn-admission">รับสมัครนักศึกษา</a>
+
+
+            <a
+                href="https://kmutnb.ac.th"
+                target="_blank"
+                class="btn-admission"
+            >
+
+                รับสมัครนักศึกษา
+
+            </a>
+
         </div>
+
     </nav>
 
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
     <header class="hero">
+
         <div class="hero-container">
+
             <div>
-                <span class="hero-badge">⚡ มุ่งเน้นการปฏิบัติจริง สไตล์เยอรมัน</span>
-                <h1 class="hero-title">เทคโนโลยีวิศวกรรมไฟฟ้า <br><span class="hero-title-orange">และระบบอัตโนมัติ</span></h1>
-                <p class="hero-desc">พัฒนาทักษะวิศวกรยุคอุตสาหกรรม 4.0 ณ มหาวิทยาลัยแห่งเทคโนโลยีชั้นนำ (มจพ.) เชี่ยวชาญระบบควบคุมอัตโนมัติ หุ่นยนต์อัจฉริยะ และพลังงานสีเขียว</p>
+
+                <span class="hero-badge">
+
+                    ⚡ มุ่งเน้นการปฏิบัติจริง สไตล์เยอรมัน
+
+                </span>
+
+
+                <h1 class="hero-title">
+
+                    เทคโนโลยีวิศวกรรมไฟฟ้า
+
+                    <br>
+
+                    <span class="hero-title-orange">
+
+                        และระบบอัตโนมัติ
+
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-desc">
+
+                    พัฒนาทักษะวิศวกรยุคอุตสาหกรรม 4.0
+                    ณ มหาวิทยาลัยแห่งเทคโนโลยีชั้นนำ (มจพ.)
+                    เชี่ยวชาญระบบควบคุมอัตโนมัติ
+                    หุ่นยนต์อัจฉริยะ และพลังงานสีเขียว
+
+                </p>
+
+
                 <div class="hero-buttons">
-                    <a href="curriculum.html" class="btn-primary">ดูแผนการเรียน</a>
-                    <a href="labs.html" class="btn-secondary">ทัวร์ห้องปฏิบัติการ</a>
+
+                    <a
+                        href="curriculum.html"
+                        class="btn-primary"
+                    >
+
+                        ดูแผนการเรียน
+
+                    </a>
+
+
+                    <a
+                        href="labs.html"
+                        class="btn-secondary"
+                    >
+
+                        ทัวร์ห้องปฏิบัติการ
+
+                    </a>
+
                 </div>
+
             </div>
+
+
             <div>
-                <img src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg" alt="KMUTNB Automation Engineering" class="hero-img">
+
+                <img
+                    src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg"
+                    alt="KMUTNB Automation Engineering"
+                    class="hero-img"
+                >
+
             </div>
+
         </div>
+
     </header>
 
+
+    <!-- =====================================================
+         STRENGTHS
+    ===================================================== -->
+
     <section class="strengths">
+
         <div class="section-header">
-            <h2 class="section-title">ทำไมต้องเลือกเรียนที่ มจพ. ?</h2>
+
+            <h2 class="section-title">
+
+                ทำไมต้องเลือกเรียนที่ มจพ. ?
+
+            </h2>
+
             <div class="section-line"></div>
+
         </div>
+
+
         <div class="grid-3">
+
+
+            <!-- CARD 1 -->
+
             <div class="card">
-                <div class="card-icon">🤖</div>
-                <h3 class="card-title">Industrial Automation</h3>
-                <p class="card-desc">ควบคุมแขนกลหุ่นยนต์, เขียนระบบ PLC ระดับสูง, ระบบ SCADA และการจำลองระบบสายการผลิตอัจฉริยะแบบโรงงานของจริง</p>
+
+                <div class="card-icon">
+                    🤖
+                </div>
+
+                <h3 class="card-title">
+
+                    Industrial Automation
+
+                </h3>
+
+                <p class="card-desc">
+
+                    ควบคุมแขนกลหุ่นยนต์,
+                    เขียนระบบ PLC ระดับสูง,
+                    ระบบ SCADA และการจำลองระบบ
+                    สายการผลิตอัจฉริยะแบบโรงงานของจริง
+
+                </p>
+
             </div>
+
+
+            <!-- CARD 2 -->
+
             <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3 class="card-title">Smart Power Systems</h3>
-                <p class="card-desc">ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง, สถานีไฟฟ้าย่อย, ระบบป้องกัน และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ (Smart Grid)</p>
+
+                <div class="card-icon">
+                    ⚡
+                </div>
+
+                <h3 class="card-title">
+
+                    Smart Power Systems
+
+                </h3>
+
+                <p class="card-desc">
+
+                    ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง,
+                    สถานีไฟฟ้าย่อย, ระบบป้องกัน
+                    และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ
+                    (Smart Grid)
+
+                </p>
+
             </div>
+
+
+            <!-- CARD 3 -->
+
             <div class="card">
-                <div class="card-icon">💡</div>
-                <h3 class="card-title">IoT & AI Industry</h3>
-                <p class="card-desc">การประยุกต์ใช้เซนเซอร์ IoT ไร้สาย และปัญญาประดิษฐ์ในการตรวจจับ วิเคราะห์ข้อมูลพยากรณ์ เพื่อการบำรุงรักษาเครื่องจักร</p>
+
+                <div class="card-icon">
+                    💡
+                </div>
+
+                <h3 class="card-title">
+
+                    IoT & AI Industry
+
+                </h3>
+
+                <p class="card-desc">
+
+                    การประยุกต์ใช้เซนเซอร์ IoT ไร้สาย
+                    และปัญญาประดิษฐ์ในการตรวจจับ
+                    วิเคราะห์ข้อมูล พยากรณ์
+                    เพื่อการบำรุงรักษาเครื่องจักร
+
+                </p>
+
             </div>
+
+
         </div>
+
     </section>
-<!-- =========================
-     FOOTER
-========================= -->
 
-<footer>
 
-    EAet KMUTNB
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
 
-    <br>
+    <footer>
 
-    Electrical & Automation Engineering Technology
+        EAet KMUTNB
 
-</footer>
+        <br>
+
+        Electrical & Automation Engineering Technology
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         CIRCUIT ANIMATION JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const canvas =
+            document.getElementById("circuit-bg");
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        let width;
+        let height;
+
+
+        const circuits = [];
+        const particles = [];
+
+
+        /* =====================================================
+           RESIZE
+        ===================================================== */
+
+        function resizeCanvas() {
+
+            width =
+                canvas.width =
+                window.innerWidth;
+
+            height =
+                canvas.height =
+                window.innerHeight;
+
+            createCircuits();
+        }
+
+
+        /* =====================================================
+           CREATE CIRCUITS
+        ===================================================== */
+
+        function createCircuits() {
+
+            circuits.length = 0;
+            particles.length = 0;
+
+
+            /*
+                ลดจำนวนเส้นในมือถือ
+            */
+
+            const density =
+                width < 600
+                    ? 130
+                    : 90;
+
+
+            const count =
+                Math.floor(width / density);
+
+
+            for (let i = 0; i < count; i++) {
+
+
+                const x =
+                    Math.random() * width;
+
+
+                const y =
+                    Math.random() * height;
+
+
+                const horizontal =
+                    Math.random() > 0.5;
+
+
+                const length =
+                    70 + Math.random() * 180;
+
+
+                const isOrange =
+                    Math.random() > 0.5;
+
+
+                circuits.push({
+
+                    x: x,
+
+                    y: y,
+
+                    length: length,
+
+                    horizontal: horizontal,
+
+                    color:
+                        isOrange
+                            ? "rgba(255,107,0,0.22)"
+                            : "rgba(0,229,255,0.17)"
+
+                });
+
+
+                particles.push({
+
+                    x: x,
+
+                    y: y,
+
+                    horizontal: horizontal,
+
+                    speed:
+                        0.25 +
+                        Math.random() * 0.55,
+
+                    color:
+                        isOrange
+                            ? "#FF6B00"
+                            : "#00E5FF"
+
+                });
+
+            }
+
+        }
+
+
+        /* =====================================================
+           DRAW CIRCUIT
+        ===================================================== */
+
+        function drawCircuit(circuit) {
+
+            ctx.beginPath();
+
+            ctx.strokeStyle =
+                circuit.color;
+
+            ctx.lineWidth = 1;
+
+
+            if (circuit.horizontal) {
+
+
+                /* Main line */
+
+                ctx.moveTo(
+                    circuit.x,
+                    circuit.y
+                );
+
+
+                ctx.lineTo(
+                    circuit.x +
+                    circuit.length,
+                    circuit.y
+                );
+
+
+                /* Corner */
+
+                ctx.lineTo(
+                    circuit.x +
+                    circuit.length,
+                    circuit.y + 35
+                );
+
+
+                /* Secondary line */
+
+                ctx.lineTo(
+                    circuit.x +
+                    circuit.length +
+                    50,
+                    circuit.y + 35
+                );
+
+
+            } else {
+
+
+                ctx.moveTo(
+                    circuit.x,
+                    circuit.y
+                );
+
+
+                ctx.lineTo(
+                    circuit.x,
+                    circuit.y +
+                    circuit.length
+                );
+
+
+                ctx.lineTo(
+                    circuit.x + 35,
+                    circuit.y +
+                    circuit.length
+                );
+
+
+                ctx.lineTo(
+                    circuit.x + 35,
+                    circuit.y +
+                    circuit.length +
+                    50
+                );
+
+            }
+
+
+            ctx.stroke();
+
+
+            /* =================================================
+               CONNECTION POINT
+            ================================================= */
+
+            ctx.beginPath();
+
+            ctx.fillStyle =
+                circuit.color;
+
+
+            if (circuit.horizontal) {
+
+                ctx.arc(
+
+                    circuit.x +
+                    circuit.length +
+                    50,
+
+                    circuit.y + 35,
+
+                    2,
+
+                    0,
+
+                    Math.PI * 2
+
+                );
+
+            } else {
+
+                ctx.arc(
+
+                    circuit.x + 35,
+
+                    circuit.y +
+                    circuit.length +
+                    50,
+
+                    2,
+
+                    0,
+
+                    Math.PI * 2
+
+                );
+
+            }
+
+
+            ctx.fill();
+
+        }
+
+
+        /* =====================================================
+           DRAW ELECTRON
+        ===================================================== */
+
+        function drawParticle(particle) {
+
+            ctx.beginPath();
+
+
+            ctx.fillStyle =
+                particle.color;
+
+
+            ctx.shadowColor =
+                particle.color;
+
+
+            ctx.shadowBlur = 8;
+
+
+            ctx.arc(
+
+                particle.x,
+
+                particle.y,
+
+                2,
+
+                0,
+
+                Math.PI * 2
+
+            );
+
+
+            ctx.fill();
+
+
+            ctx.shadowBlur = 0;
+
+        }
+
+
+        /* =====================================================
+           UPDATE ELECTRON
+        ===================================================== */
+
+        function updateParticle(particle) {
+
+
+            if (particle.horizontal) {
+
+
+                particle.x +=
+                    particle.speed;
+
+
+                if (
+                    particle.x >
+                    width + 20
+                ) {
+
+                    particle.x = -20;
+
+                }
+
+
+            } else {
+
+
+                particle.y +=
+                    particle.speed;
+
+
+                if (
+                    particle.y >
+                    height + 20
+                ) {
+
+                    particle.y = -20;
+
+                }
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ANIMATION LOOP
+        ===================================================== */
+
+        function animate() {
+
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            /* Draw circuit */
+
+            circuits.forEach(
+                drawCircuit
+            );
+
+
+            /* Draw electrons */
+
+            particles.forEach(
+                particle => {
+
+                    updateParticle(
+                        particle
+                    );
+
+                    drawParticle(
+                        particle
+                    );
+
+                }
+            );
+
+
+            requestAnimationFrame(
+                animate
+            );
+
+        }
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        resizeCanvas();
+
+        animate();
+
+    </script>
+
+
 </body>
 
-    
 </html>
