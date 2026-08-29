@@ -1,42 +1,430 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ติดต่อเรา | EAet KMUTNB</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: #0F1115; color: #E2E8F0; }
-        .navbar { background-color: #0F1115; border-bottom: 2px solid #FF6B00; position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-flex { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #FF6B00, #E65C00); padding: 8px 12px; border-radius: 10px; color: white; font-weight: bold; font-size: 20px; }
-        .logo-text-main { font-weight: 700; font-size: 18px; color: white; }
-        .logo-text-orange { color: #FF6B00; }
-        .logo-sub { font-size: 11px; color: #00E5FF; display: block; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; padding-bottom: 5px; }
-        .nav-menu a.active { color: #FF6B00; border-bottom: 2px solid #FF6B00; }
-        .nav-menu a:hover { color: #FF6B00; }
-        .content-section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .info-title { font-size: 32px; font-weight: 800; color: white; margin-bottom: 20px; }
-        .info-desc { color: #94A3B8; font-size: 15px; margin-bottom: 30px; line-height: 1.6; }
-        .info-list p { font-size: 14px; color: #CBD5E1; margin-bottom: 15px; }
-        .info-list strong { color: white; }
-        .form-card { background-color: #1E222B; padding: 35px; border-radius: 15px; border: 1px solid #2D3142; }
-        .form-title { font-size: 20px; font-weight: 700; color: white; margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 13px; color: #94A3B8; margin-bottom: 8px; }
-        .form-control { w-width: 100%; width: 100%; background-color: #0F1115; border: 1px solid #334155; border-radius: 8px; padding: 12px; color: white; font-size: 14px; outline: none; transition: 0.2s; }
-        .form-control:focus { border-color: #FF6B00; }
-        .btn-submit { background: linear-gradient(to right, #FF6B00, #E65C00); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
-        .btn-submit:hover { opacity: 0.9; }
-         footer {
-            border-top:
-                1px solid #252A34;
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: #0F1115;
+            color: #E2E8F0;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background-color: #0F1115;
+            border-bottom: 2px solid #FF6B00;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-flex {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #FF6B00, #E65C00);
+            padding: 8px 12px;
+            border-radius: 10px;
+
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .logo-text-main {
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+
+        .logo-text-orange {
+            color: #FF6B00;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            color: #00E5FF;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #CBD5E1;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: 0.2s;
+
+            padding-bottom: 5px;
+        }
+
+        .nav-menu a.active {
+            color: #FF6B00;
+            border-bottom: 2px solid #FF6B00;
+        }
+
+        .nav-menu a:hover {
+            color: #FF6B00;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            padding: 60px 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+
+        /* =========================
+           LEFT INFORMATION
+        ========================= */
+
+        .info-title {
+            font-size: 32px;
+            font-weight: 800;
+
+            color: white;
+
+            margin-bottom: 20px;
+        }
+
+        .info-desc {
+            color: #94A3B8;
+
+            font-size: 15px;
+
+            margin-bottom: 30px;
+
+            line-height: 1.7;
+        }
+
+        .info-list p {
+            font-size: 14px;
+
+            color: #CBD5E1;
+
+            margin-bottom: 15px;
+
+            line-height: 1.7;
+        }
+
+        .info-list strong {
+            color: white;
+        }
+
+
+        /* =========================
+           RELATED AGENCIES
+        ========================= */
+
+        .related-agencies {
+            margin-top: 35px;
+        }
+
+        .agency-title {
+            color: #FFFFFF;
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        .agency-card {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            width: 100%;
+
+            padding: 15px 16px;
+
+            margin-bottom: 12px;
+
+            background: #181C24;
+
+            border: 1px solid #303746;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            color: #E2E8F0;
+
+            transition: all 0.25s ease;
+        }
+
+        .agency-card:hover {
+            background: #202631;
+
+            border-color: #FF6B00;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* ICON */
+
+        .agency-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            background: #252B36;
+
+            border-radius: 9px;
+
+            font-size: 20px;
+        }
+
+
+        /* AGENCY CONTENT */
+
+        .agency-content {
+            display: flex;
+
+            flex-direction: column;
+
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .agency-name {
+            color: #F8FAFC;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+        }
+
+        .agency-desc {
+            color: #94A3B8;
+
+            font-size: 11px;
+
+            margin-top: 3px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ARROW */
+
+        .agency-arrow {
+            color: #FF6B00;
+
+            font-size: 20px;
+
+            font-weight: 600;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .agency-card:hover .agency-arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           FORM CARD
+        ========================= */
+
+        .form-card {
+            background-color: #1E222B;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            border: 1px solid #2D3142;
+        }
+
+        .form-title {
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: white;
+
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+
+            color: #94A3B8;
+
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+
+            background-color: #0F1115;
+
+            border: 1px solid #334155;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            color: white;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #FF6B00;
+
+            box-shadow:
+                0 0 0 2px rgba(255, 107, 0, 0.10);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+
+            min-height: 110px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn-submit {
+            background:
+                linear-gradient(
+                    to right,
+                    #FF6B00,
+                    #E65C00
+                );
+
+            color: white;
+
+            border: none;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            width: 100%;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 5px 15px rgba(255, 107, 0, 0.20);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #252A34;
 
             padding: 30px 20px;
 
@@ -48,178 +436,490 @@
 
             line-height: 1.8;
         }
-        @media (max-width: 768px) { .nav-menu { display: none; } .content-section { grid-template-columns: 1fr; } }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .nav-menu {
+                display: none;
+            }
+
+            .content-section {
+                grid-template-columns: 1fr;
+
+                padding-top: 40px;
+
+                gap: 35px;
+            }
+
+            .info-title {
+                font-size: 28px;
+            }
+
+            .form-card {
+                padding: 25px;
+            }
+
+            .agency-card {
+                padding: 14px;
+            }
+
+            .agency-name {
+                font-size: 13px;
+            }
+
+            .agency-desc {
+                font-size: 10px;
+            }
+        }
     </style>
+
 </head>
+
+
 <body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
     <nav class="navbar">
+
         <div class="nav-container">
+
             <div class="logo-flex">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <span class="logo-text-main">EAet <span class="logo-text-orange">KMUTNB</span></span>
-                    <span class="logo-sub">Electrical & Automation Engineering Technology</span>
+
+                <div class="logo-icon">
+                    ⚡
                 </div>
+
+                <div>
+
+                    <span class="logo-text-main">
+                        EAet
+                        <span class="logo-text-orange">
+                            KMUTNB
+                        </span>
+                    </span>
+
+                    <span class="logo-sub">
+                        Electrical & Automation Engineering Technology
+                    </span>
+
+                </div>
+
             </div>
+
+
             <ul class="nav-menu">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="curriculum.html">โครงสร้างหลักสูตร</a></li>
-                <li><a href="labs.html">ห้องปฏิบัติการ</a></li>
-                <li><a href="research.html">ผลงานวิจัย</a></li>
-                <li><a href="contact.html" class="active">ติดต่อภาควิชา</a></li>
+
+                <li>
+                    <a href="index.html">
+                        หน้าแรก
+                    </a>
+                </li>
+
+                <li>
+                    <a href="curriculum.html">
+                        โครงสร้างหลักสูตร
+                    </a>
+                </li>
+
+                <li>
+                    <a href="labs.html">
+                        ห้องปฏิบัติการ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="research.html">
+                        ผลงานวิจัย
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="active">
+                        ติดต่อภาควิชา
+                    </a>
+                </li>
+
             </ul>
+
         </div>
+
     </nav>
 
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
     <main class="content-section">
+
+
+        <!-- LEFT -->
+
         <div>
-            <h1 class="info-title">ติดต่อเรา</h1>
-            <p class="info-desc">หากมีข้อสงสัยเกี่ยวกับหลักสูตร การรับสมัคร หรือทุนการศึกษา สามารถส่งข้อมูลเพื่อสอบถามเจ้าหน้าที่ของสาขาได้โดยตรงครับ</p>
+
+            <h1 class="info-title">
+                ติดต่อเรา
+            </h1>
+
+
+            <p class="info-desc">
+                หากมีข้อสงสัยเกี่ยวกับหลักสูตร การรับสมัคร
+                หรือทุนการศึกษา สามารถส่งข้อมูลเพื่อสอบถาม
+                เจ้าหน้าที่ของสาขาได้โดยตรงครับ
+            </p>
+
+
             <div class="info-list">
-                <p>📍 <strong>สถานที่ตั้ง:</strong> คณะวิศวกรรมศาสตร์เเละเทคโนโลยี มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตระยอง</p>
-                <p>📞 <strong>เบอร์โทรศัพท์:</strong> 038-627-000 ต่อ 5300 </p>
-                <p>✉️ <strong>อีเมล:</strong> info@eat.kmutnb.ac.th</p>
+
+                <p>
+                    📍
+                    <strong>
+                        สถานที่ตั้ง:
+                    </strong>
+
+                    คณะวิศวกรรมศาสตร์และเทคโนโลยี
+                    มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                    วิทยาเขตระยอง
+                </p>
+
+
+                <p>
+                    📞
+                    <strong>
+                        เบอร์โทรศัพท์:
+                    </strong>
+
+                    038-627-000 ต่อ 5300
+                </p>
+
+
+                <p>
+                    ✉️
+                    <strong>
+                        อีเมล:
+                    </strong>
+
+                    info@eat.kmutnb.ac.th
+                </p>
+
+
+                <!-- =========================
+                     RELATED AGENCIES
+                ========================= -->
+
                 <div class="related-agencies">
-    <h3 class="agency-title">หน่วยงานที่เกี่ยวข้อง</h3>
 
-    <a href="https://kmutnb.ac.th" target="_blank" class="agency-card">
-        <div class="agency-icon">🎓</div>
-        <div class="agency-content">
-            <span class="agency-name">
-                มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
-            </span>
-            <span class="agency-desc">
-                King Mongkut's University of Technology North Bangkok
-            </span>
-        </div>
-        <span class="agency-arrow">→</span>
-    </a>
+                    <h3 class="agency-title">
+                        หน่วยงานที่เกี่ยวข้อง
+                    </h3>
 
-    <a href="https://stri.kmutnb.ac.th/" target="_blank" class="agency-card">
-        <div class="agency-icon">🔬</div>
-        <div class="agency-content">
-            <span class="agency-name">
-                สำนักวิจัยวิทยาศาสตร์และเทคโนโลยี (STRI)
-            </span>
-            <span class="agency-desc">
-                Science and Technology Research Institute
-            </span>
-        </div>
-        <span class="agency-arrow">→</span>
-    </a>
 
-    <a href="https://icit.kmutnb.ac.th/" target="_blank" class="agency-card">
-        <div class="agency-icon">💻</div>
-        <div class="agency-content">
-            <span class="agency-name">
-                สำนักคอมพิวเตอร์และเทคโนโลยีสารสนเทศ มจพ.
-            </span>
-            <span class="agency-desc">
-                Computer and Information Technology Center
-            </span>
-        </div>
-        <span class="agency-arrow">→</span>
-    </a>
-</div>
+                    <!-- KMUTNB -->
+
+                    <a
+                        href="https://kmutnb.ac.th"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="agency-card"
+                    >
+
+                        <div class="agency-icon">
+                            🎓
+                        </div>
+
+
+                        <div class="agency-content">
+
+                            <span class="agency-name">
+                                มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                            </span>
+
+                            <span class="agency-desc">
+                                King Mongkut's University of Technology North Bangkok
+                            </span>
+
+                        </div>
+
+
+                        <span class="agency-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- STRI -->
+
+                    <a
+                        href="https://stri.kmutnb.ac.th/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="agency-card"
+                    >
+
+                        <div class="agency-icon">
+                            🔬
+                        </div>
+
+
+                        <div class="agency-content">
+
+                            <span class="agency-name">
+                                สำนักวิจัยวิทยาศาสตร์และเทคโนโลยี (STRI)
+                            </span>
+
+                            <span class="agency-desc">
+                                Science and Technology Research Institute
+                            </span>
+
+                        </div>
+
+
+                        <span class="agency-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- ICIT -->
+
+                    <a
+                        href="https://icit.kmutnb.ac.th/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="agency-card"
+                    >
+
+                        <div class="agency-icon">
+                            💻
+                        </div>
+
+
+                        <div class="agency-content">
+
+                            <span class="agency-name">
+                                สำนักคอมพิวเตอร์และเทคโนโลยีสารสนเทศ มจพ.
+                            </span>
+
+                            <span class="agency-desc">
+                                Computer and Information Technology Center
+                            </span>
+
+                        </div>
+
+
+                        <span class="agency-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
             </div>
+
         </div>
+
+
+
+        <!-- =========================
+             CONTACT FORM
+        ========================= -->
 
         <div class="form-card">
-            <h3 class="form-title">ฝากข้อความถึงเจ้าหน้าที่</h3>
-           <form id="contactForm"
-      action="https://formspree.io/f/mdeokzyp"
-      method="POST">
 
-    <div class="form-group">
-        <label>ชื่อ-นามสกุล</label>
-        <input
-            type="text"
-            name="name"
-            class="form-control"
-            required>
-    </div>
+            <h3 class="form-title">
+                ฝากข้อความถึงเจ้าหน้าที่
+            </h3>
 
-    <div class="form-group">
-        <label>อีเมลสำหรับติดต่อกลับ</label>
-        <input
-            type="email"
-            name="email"
-            class="form-control"
-            required>
-    </div>
 
-    <div class="form-group">
-        <label>ข้อความสอบถาม</label>
-        <textarea
-            name="message"
-            rows="4"
-            class="form-control"
-            required></textarea>
-    </div>
+            <form
+                id="contactForm"
+                action="https://formspree.io/f/mdeokzyp"
+                method="POST"
+            >
 
-    <button type="submit" class="btn-submit">
-        ส่งข้อความ
-    </button>
 
-</form>
+                <div class="form-group">
 
-<script>
-const form = document.getElementById("contactForm");
+                    <label>
+                        ชื่อ-นามสกุล
+                    </label>
 
-form.addEventListener("submit", async function(event) {
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        required
+                    >
 
-    event.preventDefault();
+                </div>
 
-    const button = form.querySelector("button[type='submit']");
-    button.disabled = true;
-    button.textContent = "กำลังส่ง...";
 
-    try {
 
-        const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: {
-                "Accept": "application/json"
-            }
-        });
+                <div class="form-group">
 
-        if (response.ok) {
+                    <label>
+                        อีเมลสำหรับติดต่อกลับ
+                    </label>
 
-            alert("ส่งข้อความเรียบร้อยแล้วครับ");
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        required
+                    >
 
-            // ล้างข้อมูลในฟอร์ม
-            form.reset();
+                </div>
 
-        } else {
 
-            alert("เกิดข้อผิดพลาด ไม่สามารถส่งข้อความได้");
 
-        }
+                <div class="form-group">
 
-    } catch (error) {
+                    <label>
+                        ข้อความสอบถาม
+                    </label>
 
-        alert("ไม่สามารถเชื่อมต่อระบบส่งอีเมลได้");
+                    <textarea
+                        name="message"
+                        rows="4"
+                        class="form-control"
+                        required
+                    ></textarea>
 
-    }
+                </div>
 
-    button.disabled = false;
-    button.textContent = "ส่งข้อความ";
 
-});
-</script>
+
+                <button
+                    type="submit"
+                    class="btn-submit"
+                >
+                    ส่งข้อความ
+                </button>
+
+            </form>
+
         </div>
+
     </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
-    EAet KMUTNB
+        EAet KMUTNB
 
-    <br>
+        <br>
 
-    Electrical & Automation Engineering Technology
+        Electrical & Automation Engineering Technology
 
-</footer>
+    </footer>
+
+
+
+    <!-- =========================
+         FORMSPREE SCRIPT
+    ========================= -->
+
+    <script>
+
+        const form =
+            document.getElementById("contactForm");
+
+
+        form.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                const button =
+                    form.querySelector(
+                        "button[type='submit']"
+                    );
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "กำลังส่ง...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            form.action,
+                            {
+                                method: "POST",
+
+                                body:
+                                    new FormData(form),
+
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    if (response.ok) {
+
+                        alert(
+                            "ส่งข้อความเรียบร้อยแล้วครับ"
+                        );
+
+                        form.reset();
+
+                    } else {
+
+                        alert(
+                            "เกิดข้อผิดพลาด ไม่สามารถส่งข้อความได้"
+                        );
+
+                    }
+
+
+                } catch (error) {
+
+                    alert(
+                        "ไม่สามารถเชื่อมต่อระบบส่งอีเมลได้"
+                    );
+
+                }
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "ส่งข้อความ";
+
+            }
+        );
+
+    </script>
+
+
 </body>
 
 </html>
