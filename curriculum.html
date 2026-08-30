@@ -1,40 +1,778 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โครงสร้างหลักสูตร | EAet KMUTNB</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>หลักสูตร EAet | KMUTNB</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: #0F1115; color: #E2E8F0; }
-        .navbar { background-color: #0F1115; border-bottom: 2px solid #FF6B00; position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-flex { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { background: linear-gradient(135deg, #FF6B00, #E65C00); padding: 8px 12px; border-radius: 10px; color: white; font-weight: bold; font-size: 20px; }
-        .logo-text-main { font-weight: 700; font-size: 18px; color: white; }
-        .logo-text-orange { color: #FF6B00; }
-        .logo-sub { font-size: 11px; color: #00E5FF; display: block; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.2s; padding-bottom: 5px; }
-        .nav-menu a.active { color: #FF6B00; border-bottom: 2px solid #FF6B00; }
-        .nav-menu a:hover { color: #FF6B00; }
-        .content-section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { font-size: 32px; font-weight: 800; color: white; text-align: center; }
-        .section-line { width: 60px; height: 4px; background-color: #FF6B00; margin: 15px auto 40px auto; border-radius: 2px; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .curr-card { background-color: #1E222B; padding: 25px; border-radius: 15px; border: 1px solid #2D3142; }
-        .curr-year { font-size: 20px; font-weight: 700; color: #FF6B00; margin-bottom: 15px; border-bottom: 1px solid #334155; padding-bottom: 10px; }
-        .curr-list { list-style: none; }
-        .curr-list li { color: #94A3B8; font-size: 14px; margin-bottom: 10px; line-height: 1.6; }
 
-         footer {
-            border-top:
-                1px solid #252A34;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
 
-            padding: 30px 20px;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0e13;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(11, 14, 19, 0.92);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255, 107, 0, 0.4);
+        }
+
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 15px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #ff7a00,
+                #ff4500
+            );
+
+            font-size: 22px;
+
+            box-shadow:
+                0 0 25px rgba(255, 107, 0, 0.25);
+        }
+
+        .logo-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-title span {
+            color: #ff6b00;
+        }
+
+        .logo-sub {
+            display: block;
+            font-size: 10px;
+            color: #00d9ff;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu .active {
+            color: #ff6b00;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 100px 25px 80px;
+
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            background: #ff6b00;
+
+            opacity: .06;
+
+            filter: blur(100px);
+
+            border-radius: 50%;
+
+            left: 50%;
+            top: 30%;
+
+            transform: translate(-50%, -50%);
+
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 15px;
+
+            border-radius: 30px;
+
+            border: 1px solid rgba(255,107,0,.4);
+
+            color: #ff8a33;
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+
+            background: rgba(255,107,0,.06);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 68px);
+
+            font-weight: 800;
+
+            line-height: 1.15;
+
+            color: white;
+        }
+
+        .hero h1 span {
+            color: #ff6b00;
+        }
+
+        .hero h2 {
+            margin-top: 15px;
+
+            font-size: 22px;
+
+            font-weight: 400;
+
+            color: #94a3b8;
+        }
+
+        .hero-description {
+            max-width: 750px;
+
+            margin: 25px auto 0;
+
+            color: #64748b;
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           STAT
+        ========================= */
+
+        .stats {
+            max-width: 950px;
+
+            margin: 30px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 22px;
+
+            border-radius: 16px;
+
+            background: #151922;
+
+            border: 1px solid #252b38;
+
+            transition: .3s;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+
+            border-color: #ff6b00;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.25);
+        }
+
+        .stat-number {
+            color: #ff6b00;
+
+            font-size: 25px;
+
+            font-weight: 800;
+        }
+
+        .stat-label {
+            margin-top: 5px;
+
+            color: #64748b;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 80px 25px;
+        }
+
+        .section-header {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: white;
+
+            font-size: 34px;
+
+            font-weight: 800;
+        }
+
+        .section-header p {
+            margin-top: 10px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+        .orange-line {
+            width: 60px;
+            height: 4px;
+
+            background: #ff6b00;
+
+            margin: 15px auto;
+
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           CURRICULUM FLOW
+        ========================= */
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            position: relative;
+
+            min-width: 150px;
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            background: #151922;
+
+            border: 1px solid #29303d;
+
+            border-radius: 18px;
+
+            transition: .3s;
+        }
+
+        .flow-item:hover {
+            transform: translateY(-8px);
+
+            border-color: #ff6b00;
+
+            box-shadow:
+                0 15px 35px rgba(255,107,0,.1);
+        }
+
+        .flow-icon {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .flow-item h3 {
+            color: white;
+
+            font-size: 15px;
+        }
+
+        .flow-item p {
+            margin-top: 5px;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        .arrow {
+            color: #ff6b00;
+
+            font-size: 25px;
+        }
+
+
+        /* =========================
+           BRANCH
+        ========================= */
+
+        .branch-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .branch-card {
+            position: relative;
+
+            padding: 35px;
+
+            background: linear-gradient(
+                145deg,
+                #171b24,
+                #101319
+            );
+
+            border: 1px solid #2a303d;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            transition: .35s;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #ff6b00;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.35);
+        }
+
+        .branch-number {
+            position: absolute;
+
+            right: 25px;
+            top: 15px;
+
+            font-size: 70px;
+
+            font-weight: 800;
+
+            color: rgba(255,107,0,.05);
+        }
+
+        .branch-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: rgba(255,107,0,.1);
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        .branch-card h3 {
+            color: white;
+
+            font-size: 22px;
+
+            margin-bottom: 5px;
+        }
+
+        .branch-eng {
+            color: #ff6b00;
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .branch-description {
+            color: #94a3b8;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        .skill-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+        .skill {
+            padding: 6px 10px;
+
+            border-radius: 8px;
+
+            background: #202631;
+
+            color: #cbd5e1;
+
+            font-size: 11px;
+        }
+
+        .branch-button {
+            margin-top: 25px;
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #303846;
+
+            border-radius: 10px;
+
+            background: transparent;
+
+            color: #ff6b00;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            transition: .25s;
+        }
+
+        .branch-button:hover {
+            background: #ff6b00;
+
+            color: white;
+        }
+
+
+        /* =========================
+           YEAR TIMELINE
+        ========================= */
+
+        .timeline {
+            position: relative;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            background:
+                linear-gradient(
+                    #ff6b00,
+                    #253040,
+                    #ff6b00
+                );
+
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 50%;
+
+            padding: 20px 35px;
+
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #ff6b00;
+
+            top: 35px;
+
+            box-shadow:
+                0 0 20px rgba(255,107,0,.7);
+        }
+
+        .timeline-item:nth-child(odd)
+        .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even)
+        .timeline-dot {
+            left: -7px;
+        }
+
+        .year-card {
+            padding: 25px;
+
+            background: #151922;
+
+            border: 1px solid #29303d;
+
+            border-radius: 18px;
+        }
+
+        .year {
+            color: #ff6b00;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .year-card h3 {
+            color: white;
+
+            margin: 5px 0 10px;
+
+            font-size: 20px;
+        }
+
+        .year-card p {
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CAREER
+        ========================= */
+
+        .career-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .career {
+            padding: 25px;
+
+            text-align: center;
+
+            background: #151922;
+
+            border: 1px solid #252b38;
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .career:hover {
+            border-color: #ff6b00;
+
+            transform: translateY(-5px);
+        }
+
+        .career-icon {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .career h4 {
+            color: white;
+
+            font-size: 14px;
+        }
+
+        .career p {
+            margin-top: 5px;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            max-width: 1000px;
+
+            margin: 60px auto;
+
+            padding: 55px 30px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,107,0,.12),
+                    transparent 65%
+                );
+
+            border: 1px solid #303744;
+        }
+
+        .cta h2 {
+            color: white;
+
+            font-size: 30px;
+        }
+
+        .cta p {
+            margin-top: 10px;
+
+            color: #64748b;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 12px 25px;
+
+            background: #ff6b00;
+
+            color: white;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: .25s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(255,107,0,.25);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #202631;
+
+            padding: 30px;
 
             text-align: center;
 
@@ -44,78 +782,1117 @@
 
             line-height: 1.8;
         }
-        @media (max-width: 768px) { .nav-menu { display: none; } .grid-2 { grid-template-columns: 1fr; } }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,.75);
+
+            backdrop-filter: blur(8px);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 200;
+
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            max-width: 600px;
+
+            width: 100%;
+
+            background: #151922;
+
+            border: 1px solid #343b48;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            position: relative;
+
+            animation: modalIn .3s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        .close {
+            position: absolute;
+
+            right: 20px;
+            top: 15px;
+
+            background: none;
+
+            border: none;
+
+            color: #64748b;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+        .modal-box h2 {
+            color: white;
+
+            margin-bottom: 15px;
+        }
+
+        .modal-box p,
+        .modal-box li {
+            color: #94a3b8;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        .modal-box ul {
+            margin-left: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .stats {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .career-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+        @media(max-width: 768px) {
+
+            .nav-menu {
+                display: none;
+            }
+
+            .branch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+
+                margin-left: 0;
+
+                padding-left: 35px;
+
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd)
+            .timeline-dot,
+            .timeline-item:nth-child(even)
+            .timeline-dot {
+                left: 3px;
+                right: auto;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+        }
+
+        @media(max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-flex">
-                <div class="logo-icon">⚡</div>
-                <div>
-                    <span class="logo-text-main">EAet <span class="logo-text-orange">KMUTNB</span></span>
-                    <span class="logo-sub">Electrical & Automation Engineering Technology</span>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <div class="logo-title">
+                    EAet <span>KMUTNB</span>
                 </div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">หน้าแรก</a></li>
-                <li><a href="curriculum.html" class="active">โครงสร้างหลักสูตร</a></li>
-                <li><a href="labs.html">ห้องปฏิบัติการ</a></li>
-                <li><a href="research.html">ผลงานวิจัย</a></li>
-                <li><a href="contact.html">ติดต่อภาควิชา</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <main class="content-section">
-        <h1 class="section-title">แผนการเรียนตลอด 4 ปี</h1>
-        <div class="section-line"></div>
-        <div class="grid-2">
-            <div class="curr-card">
-                <div class="curr-year">ชั้นปีที่ 1 : พื้นฐานวิศวกรรม</div>
-                <ul class="curr-list">
-                    <li>• แคลคูลัสและฟิสิกส์พื้นฐานสำหรับวิศวกร</li>
-                    <li>• การเขียนโปรแกรมคอมพิวเตอร์พื้นฐาน</li>
-                    <li>• การเขียนแบบวิศวกรรมด้วยคอมพิวเตอร์</li>
-                </ul>
-            </div>
-            <div class="curr-card">
-                <div class="curr-year">ชั้นปีที่ 2 : ทฤษฎีไฟฟ้าและอิเล็กทรอนิกส์</div>
-                <ul class="curr-list">
-                    <li>• ทฤษฎีวงจรไฟฟ้าและการวัดทางไฟฟ้า</li>
-                    <li>• อุปกรณ์อิเล็กทรอนิกส์และวงจรดิจิทัล</li>
-                    <li>• ปฏิบัติการเครื่องกลไฟฟ้าพื้นฐาน</li>
-                </ul>
-            </div>
-            <div class="curr-card">
-                <div class="curr-year">ชั้นปีที่ 3 : ระบบอัตโนมัติขั้นสูง</div>
-                <ul class="curr-list">
-                    <li>• การเขียนโปรแกรมควบคุม PLC และระบบ SCADA</li>
-                    <li>• วิศวกรรมหุ่นยนต์และระบบขับเคลื่อนอัตโนมัติ</li>
-                    <li>• การออกแบบระบบไฟฟ้ากำลังในอุตสาหกรรม</li>
-                </ul>
-            </div>
-            <div class="curr-card">
-                <div class="curr-year">ชั้นปีที่ 4 : ปริญญานิพนธ์และสหกิจศึกษา</div>
-                <ul class="curr-list">
-                    <li>• ปริญญานิพนธ์วิศวกรรมไฟฟ้าและอัตโนมัติ</li>
-                    <li>• การฝึกงานหรือโครงการสหกิจศึกษาในโรงงานจริง</li>
-                    <li>• เทคโนโลยี IoT และ AI สำหรับอุตสาหกรรม 4.0</li>
-                </ul>
-            </div>
-        </div>
-    </main>
+                <span class="logo-sub">
+                    Electrical & Automation Engineering Technology
+                </span>
 
-    <footer>
+            </div>
+
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">
+                    หน้าแรก
+                </a>
+            </li>
+
+            <li>
+                <a href="curriculum.html"
+                   class="active">
+                    หลักสูตร
+                </a>
+            </li>
+
+            <li>
+                <a href="labs.html">
+                    ห้องปฏิบัติการ
+                </a>
+            </li>
+
+            <li>
+                <a href="research.html">
+                    ผลงานวิจัย
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    ติดต่อ
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-badge">
+        B.Eng. • EAet • KMUTNB
+    </div>
+
+    <h1>
+        เทคโนโลยีวิศวกรรมไฟฟ้า
+        <span>และอัตโนมัติ</span>
+    </h1>
+
+    <h2>
+        Electrical and Automation Engineering Technology
+    </h2>
+
+    <p class="hero-description">
+
+        หลักสูตรที่ผสานความรู้ด้านวิศวกรรมไฟฟ้า
+        ระบบควบคุม ระบบอัตโนมัติ เครื่องมือวัด
+        พลังงาน และเทคโนโลยีอุตสาหกรรม
+        เพื่อเตรียมความพร้อมสู่การทำงานจริงในภาคอุตสาหกรรม
+
+    </p>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                4 ปี
+            </div>
+
+            <div class="stat-label">
+                หลักสูตรปริญญาตรี
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                2
+            </div>
+
+            <div class="stat-label">
+                แขนงวิชา
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                20%
+            </div>
+
+            <div class="stat-label">
+                เสริมทักษะภาษาอังกฤษ
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                CO-OP
+            </div>
+
+            <div class="stat-label">
+                สหกิจศึกษา
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FLOW
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            เส้นทางการเรียนรู้
+        </h2>
+
+        <div class="orange-line"></div>
+
+        <p>
+            จากพื้นฐานวิศวกรรม สู่ความเชี่ยวชาญเฉพาะทาง
+        </p>
+
+    </div>
+
+
+    <div class="flow">
+
+
+        <div class="flow-item">
+
+            <div class="flow-icon">
+                📐
+            </div>
+
+            <h3>
+                Engineering
+            </h3>
+
+            <p>
+                พื้นฐานคณิตศาสตร์และวิทยาศาสตร์
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="flow-item">
+
+            <div class="flow-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Electrical
+            </h3>
+
+            <p>
+                พื้นฐานระบบไฟฟ้า
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="flow-item">
+
+            <div class="flow-icon">
+                🎛️
+            </div>
+
+            <h3>
+                Specialization
+            </h3>
+
+            <p>
+                เลือกแขนงวิชา
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="flow-item">
+
+            <div class="flow-icon">
+                🏭
+            </div>
+
+            <h3>
+                Industry
+            </h3>
+
+            <p>
+                ประยุกต์ใช้กับภาคอุตสาหกรรม
+            </p>
+
+        </div>
+
+
+        <div class="arrow">
+            →
+        </div>
+
+
+        <div class="flow-item">
+
+            <div class="flow-icon">
+                🚀
+            </div>
+
+            <h3>
+                Career
+            </h3>
+
+            <p>
+                สู่สายอาชีพวิศวกรรม
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BRANCH
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            เลือกเส้นทางความเชี่ยวชาญ
+        </h2>
+
+        <div class="orange-line"></div>
+
+        <p>
+            หลักสูตร EAet แบ่งออกเป็น 2 แขนงวิชา
+        </p>
+
+    </div>
+
+
+    <div class="branch-grid">
+
+
+        <!-- POWER -->
+
+        <div class="branch-card">
+
+            <div class="branch-number">
+                01
+            </div>
+
+            <div class="branch-icon">
+                ⚡
+            </div>
+
+            <h3>
+                วิศวกรรมไฟฟ้ากำลัง
+            </h3>
+
+            <div class="branch-eng">
+                POWER ENGINEERING
+            </div>
+
+            <p class="branch-description">
+
+                มุ่งเน้นความรู้ด้านระบบไฟฟ้ากำลัง
+                ตั้งแต่การผลิต การส่ง และการจ่ายพลังงาน
+                รวมถึงระบบไฟฟ้าแรงสูง พลังงานหมุนเวียน
+                การป้องกันระบบไฟฟ้า และอิเล็กทรอนิกส์กำลัง
+
+            </p>
+
+
+            <div class="skill-list">
+
+                <span class="skill">
+                    High Voltage
+                </span>
+
+                <span class="skill">
+                    Power System
+                </span>
+
+                <span class="skill">
+                    Renewable Energy
+                </span>
+
+                <span class="skill">
+                    Power Electronics
+                </span>
+
+                <span class="skill">
+                    Protection
+                </span>
+
+            </div>
+
+
+            <button
+                class="branch-button"
+                onclick="openModal('power')">
+
+                ดูรายละเอียดแขนง →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- AUTOMATION -->
+
+        <div class="branch-card">
+
+            <div class="branch-number">
+                02
+            </div>
+
+            <div class="branch-icon">
+                🎛️
+            </div>
+
+            <h3>
+                วิศวกรรมการวัดคุมและอัตโนมัติ
+            </h3>
+
+            <div class="branch-eng">
+                INSTRUMENTATION & AUTOMATION
+            </div>
+
+            <p class="branch-description">
+
+                มุ่งเน้นระบบเครื่องมือวัด ระบบควบคุม
+                และระบบอัตโนมัติในโรงงานอุตสาหกรรม
+                ตั้งแต่ PLC, HMI, SCADA ไปจนถึงระบบ
+                เครื่องจักรอัตโนมัติ การประมวลผลภาพ
+                และการประยุกต์ใช้ AI
+
+            </p>
+
+
+            <div class="skill-list">
+
+                <span class="skill">
+                    Instrumentation
+                </span>
+
+                <span class="skill">
+                    PLC
+                </span>
+
+                <span class="skill">
+                    HMI
+                </span>
+
+                <span class="skill">
+                    SCADA
+                </span>
+
+                <span class="skill">
+                    Machine Vision
+                </span>
+
+                <span class="skill">
+                    AI
+                </span>
+
+            </div>
+
+
+            <button
+                class="branch-button"
+                onclick="openModal('automation')">
+
+                ดูรายละเอียดแขนง →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     4 YEAR
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            Journey ตลอด 4 ปี
+        </h2>
+
+        <div class="orange-line"></div>
+
+        <p>
+            จากนักศึกษา → นักเทคโนโลยีวิศวกรรม → มืออาชีพ
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="year-card">
+
+                <div class="year">
+                    YEAR 01
+                </div>
+
+                <h3>
+                    Engineering Foundation
+                </h3>
+
+                <p>
+                    เรียนรู้พื้นฐานคณิตศาสตร์
+                    วิทยาศาสตร์ ฟิสิกส์
+                    การเขียนโปรแกรม และพื้นฐานวิศวกรรม
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="year-card">
+
+                <div class="year">
+                    YEAR 02
+                </div>
+
+                <h3>
+                    Electrical Core
+                </h3>
+
+                <p>
+                    เริ่มเข้าสู่แกนวิชาวิศวกรรมไฟฟ้า
+                    วงจรไฟฟ้า เครื่องจักรไฟฟ้า
+                    อิเล็กทรอนิกส์ และการวัด
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="year-card">
+
+                <div class="year">
+                    YEAR 03
+                </div>
+
+                <h3>
+                    Specialization
+                </h3>
+
+                <p>
+                    ลงลึกตามแขนงที่เลือก
+                    พร้อมพัฒนาทักษะด้านระบบไฟฟ้า
+                    การวัดคุม ระบบควบคุม
+                    และระบบอัตโนมัติ
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="year-card">
+
+                <div class="year">
+                    YEAR 04
+                </div>
+
+                <h3>
+                    Industry & Co-op
+                </h3>
+
+                <p>
+                    ประยุกต์ความรู้กับโครงงาน
+                    และฝึกประสบการณ์จริง
+                    ผ่านโครงการสหกิจศึกษา
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CAREER
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            Career Path
+        </h2>
+
+        <div class="orange-line"></div>
+
+        <p>
+            ตัวอย่างแนวทางการประกอบอาชีพหลังสำเร็จการศึกษา
+        </p>
+
+    </div>
+
+
+    <div class="career-grid">
+
+
+        <div class="career">
+
+            <div class="career-icon">
+                ⚡
+            </div>
+
+            <h4>
+                วิศวกรไฟฟ้า
+            </h4>
+
+            <p>
+                Electrical Engineer
+            </p>
+
+        </div>
+
+
+        <div class="career">
+
+            <div class="career-icon">
+                🎛️
+            </div>
+
+            <h4>
+                วิศวกรระบบวัดคุม
+            </h4>
+
+            <p>
+                Instrumentation Engineer
+            </p>
+
+        </div>
+
+
+        <div class="career">
+
+            <div class="career-icon">
+                🤖
+            </div>
+
+            <h4>
+                วิศวกรระบบอัตโนมัติ
+            </h4>
+
+            <p>
+                Automation Engineer
+            </p>
+
+        </div>
+
+
+        <div class="career">
+
+            <div class="career-icon">
+                🔬
+            </div>
+
+            <h4>
+                นักวิจัยและพัฒนา
+            </h4>
+
+            <p>
+                R&D / Research
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<div class="cta">
+
+    <h2>
+        Electrical + Automation
+    </h2>
+
+    <p>
+        เรียนรู้ระบบไฟฟ้า ควบคุม และเทคโนโลยีอุตสาหกรรม
+        เพื่อสร้างระบบจริงในโลกการทำงาน
+    </p>
+
+    <a
+        href="https://eat.kmutnb.ac.th/"
+        target="_blank"
+        class="cta-button">
+
+        เว็บไซต์คณะ →
+
+    </a>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
 
     EAet KMUTNB
 
     <br>
 
-    Electrical & Automation Engineering Technology
+    Electrical and Automation Engineering Technology
+
+    <br>
+
+    มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
 
 </footer>
+
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="branchModal"
+    onclick="closeOutside(event)">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal()">
+
+            ×
+
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function openModal(type) {
+
+    const modal =
+        document.getElementById("branchModal");
+
+    const content =
+        document.getElementById("modalContent");
+
+
+    if (type === "power") {
+
+        content.innerHTML = `
+
+            <h2>
+                ⚡ วิศวกรรมไฟฟ้ากำลัง
+            </h2>
+
+            <p>
+                Power Engineering
+            </p>
+
+            <br>
+
+            <p>
+                มุ่งเน้นองค์ความรู้เกี่ยวกับระบบไฟฟ้ากำลัง
+                และพลังงาน ตั้งแต่การผลิต การส่ง
+                การจ่าย และการป้องกันระบบไฟฟ้า
+            </p>
+
+            <br>
+
+            <ul>
+
+                <li>
+                    วิศวกรรมไฟฟ้าแรงสูง
+                </li>
+
+                <li>
+                    ระบบการผลิตและส่งกำลังไฟฟ้า
+                </li>
+
+                <li>
+                    พลังงานหมุนเวียนและพลังงานทดแทน
+                </li>
+
+                <li>
+                    การป้องกันระบบไฟฟ้ากำลัง
+                </li>
+
+                <li>
+                    การออกแบบและวิเคราะห์ระบบไฟฟ้า
+                </li>
+
+                <li>
+                    อิเล็กทรอนิกส์กำลัง
+                </li>
+
+            </ul>
+
+        `;
+
+    }
+
+
+    if (type === "automation") {
+
+        content.innerHTML = `
+
+            <h2>
+                🎛️ วิศวกรรมการวัดคุมและอัตโนมัติ
+            </h2>
+
+            <p>
+                Instrumentation & Automation Engineering
+            </p>
+
+            <br>
+
+            <p>
+                มุ่งเน้นการออกแบบระบบวัด
+                ระบบควบคุม และระบบอัตโนมัติ
+                สำหรับเครื่องจักรและกระบวนการผลิต
+                ในภาคอุตสาหกรรม
+            </p>
+
+            <br>
+
+            <ul>
+
+                <li>
+                    การออกแบบและสอบเทียบเครื่องมือวัด
+                </li>
+
+                <li>
+                    ระบบ Pneumatic และ Hydraulic
+                </li>
+
+                <li>
+                    PLC, HMI และ SCADA
+                </li>
+
+                <li>
+                    ระบบไฟฟ้าและระบบควบคุมเครื่องจักร
+                </li>
+
+                <li>
+                    Industrial Image Processing
+                </li>
+
+                <li>
+                    การประยุกต์ใช้ปัญญาประดิษฐ์
+                </li>
+
+            </ul>
+
+        `;
+
+    }
+
+
+    modal.classList.add("active");
+
+}
+
+
+function closeModal() {
+
+    document
+        .getElementById("branchModal")
+        .classList.remove("active");
+
+}
+
+
+function closeOutside(event) {
+
+    if (
+        event.target.id === "branchModal"
+    ) {
+
+        closeModal();
+
+    }
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
+
 </body>
 
-    
 </html>
