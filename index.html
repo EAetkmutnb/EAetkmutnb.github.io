@@ -1,1320 +1,1681 @@
 <!DOCTYPE html>
-
 <html lang="th">
 
 <head>
 
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-      content="#0F1115">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0F1115">
 
 <title>
     เทคโนโลยีวิศวกรรมไฟฟ้าและอัตโนมัติ | KMUTNB
 </title>
 
-
 <!-- Google Font -->
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
     href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
 >
 
-
 <style>
 
+/* =====================================================
+   GLOBAL
+===================================================== */
 
-    /* =====================================================
-       GLOBAL
-    ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
 
-    * {
+html {
+    scroll-behavior: smooth;
+}
 
-        margin: 0;
-        padding: 0;
+body {
+    background: #0F1115;
+    color: #E2E8F0;
+    overflow-x: hidden;
+}
 
-        box-sizing: border-box;
 
-        font-family: 'Prompt', sans-serif;
+/* =====================================================
+   PCB CANVAS
+===================================================== */
 
-    }
+#circuit-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    pointer-events: none;
+    opacity: 0.65;
+}
 
 
-    html {
+/* =====================================================
+   GRID
+===================================================== */
 
-        scroll-behavior: smooth;
+body::before {
 
-    }
+    content: "";
 
+    position: fixed;
 
-    body {
+    inset: 0;
 
-        background: #0F1115;
+    z-index: -9;
 
-        color: #E2E8F0;
+    pointer-events: none;
 
-        overflow-x: hidden;
+    background-image:
 
-    }
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
 
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
 
-    /* =====================================================
-       PCB CANVAS
-    ===================================================== */
+    background-size: 50px 50px;
 
-    #circuit-bg {
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
 
-        position: fixed;
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
 
-        inset: 0;
 
-        width: 100%;
-        height: 100%;
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-        z-index: -10;
+.navbar {
 
-        pointer-events: none;
+    background:
+        rgba(15,17,21,0.94);
 
-        opacity: 0.65;
+    border-bottom:
+        2px solid #FF6B00;
 
-    }
+    position: sticky;
 
+    top: 0;
 
-    /* =====================================================
-       GRID
-    ===================================================== */
+    z-index: 100;
 
-    body::before {
+    backdrop-filter:
+        blur(12px);
 
-        content: "";
+    -webkit-backdrop-filter:
+        blur(12px);
+}
 
-        position: fixed;
 
-        inset: 0;
+.nav-container {
 
-        z-index: -9;
+    max-width: 1200px;
 
-        pointer-events: none;
+    margin: auto;
 
-        background-image:
+    padding:
+        14px 20px;
 
-            linear-gradient(
-                rgba(255,255,255,0.025) 1px,
-                transparent 1px
-            ),
+    display: flex;
 
-            linear-gradient(
-                90deg,
-                rgba(255,255,255,0.025) 1px,
-                transparent 1px
-            );
+    justify-content:
+        space-between;
 
-        background-size: 50px 50px;
+    align-items:
+        center;
 
-        mask-image:
-            linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
+    position: relative;
 
-        -webkit-mask-image:
-            linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
+    transform-style: preserve-3d;
+}
 
-    }
 
+/* =====================================================
+   LOGO
+===================================================== */
 
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
+.logo-flex {
 
-    .navbar {
+    display: flex;
 
-        background:
-            rgba(15,17,21,0.94);
+    align-items:
+        center;
 
-        border-bottom:
-            2px solid #FF6B00;
+    gap: 12px;
 
-        position: sticky;
+    z-index: 102;
+}
 
-        top: 0;
 
-        z-index: 100;
+.logo-icon {
 
-        backdrop-filter:
-            blur(12px);
+    background:
+        linear-gradient(
+            135deg,
+            #FF6B00,
+            #E65C00
+        );
 
-        -webkit-backdrop-filter:
-            blur(12px);
+    padding:
+        8px 12px;
 
-    }
+    border-radius: 10px;
 
+    color: white;
 
-    .nav-container {
+    font-weight: 800;
 
-        max-width: 1200px;
+    font-size: 20px;
 
-        margin: auto;
+    box-shadow:
+        0 0 20px
+        rgba(255,107,0,0.25);
+}
 
-        padding:
-            14px 20px;
 
-        display: flex;
+.logo-text-main {
 
-        justify-content:
-            space-between;
+    font-weight: 700;
 
-        align-items:
-            center;
+    font-size: 18px;
 
-        position: relative;
+    color: white;
+}
 
-    }
 
+.logo-text-orange {
+    color: #FF6B00;
+}
 
-    /* =====================================================
-       LOGO
-    ===================================================== */
 
-    .logo-flex {
+.logo-sub {
 
-        display: flex;
+    font-size: 11px;
 
-        align-items:
-            center;
+    color: #00E5FF;
 
-        gap: 12px;
+    display: block;
+}
 
-        z-index: 102;
 
-    }
+/* =====================================================
+   DESKTOP MENU
+===================================================== */
 
+.nav-menu {
 
-    .logo-icon {
+    display: flex;
 
-        background:
-            linear-gradient(
-                135deg,
-                #FF6B00,
-                #E65C00
-            );
+    list-style: none;
 
-        padding:
-            8px 12px;
+    gap: 30px;
 
-        border-radius: 10px;
+    align-items: center;
+}
 
-        color: white;
 
-        font-weight: 800;
+.nav-menu a {
 
-        font-size: 20px;
+    color: #CBD5E1;
 
-        box-shadow:
-            0 0 20px
-            rgba(255,107,0,0.25);
+    text-decoration: none;
 
-    }
+    font-size: 14px;
 
+    font-weight: 500;
 
-    .logo-text-main {
+    transition: 0.25s;
 
-        font-weight: 700;
+    padding-bottom: 5px;
 
-        font-size: 18px;
+    position: relative;
+}
 
-        color: white;
 
-    }
+.nav-menu a::after {
 
+    content: "";
 
-    .logo-text-orange {
+    position: absolute;
 
-        color: #FF6B00;
+    left: 0;
 
-    }
+    bottom: 0;
 
+    width: 0;
 
-    .logo-sub {
+    height: 2px;
 
-        font-size: 11px;
+    background: #FF6B00;
 
-        color: #00E5FF;
+    transition: 0.25s;
+}
 
-        display: block;
 
-    }
+.nav-menu a:hover {
+    color: #FF6B00;
+}
 
 
-    /* =====================================================
-       DESKTOP MENU
-    ===================================================== */
+.nav-menu a:hover::after {
+    width: 100%;
+}
 
-    .nav-menu {
 
-        display: flex;
+.nav-menu a.active {
+    color: #FF6B00;
+}
 
-        list-style: none;
 
-        gap: 30px;
+.nav-menu a.active::after {
+    width: 100%;
+}
 
-        align-items: center;
 
-    }
+/* =====================================================
+   ADMISSION
+===================================================== */
 
+.btn-admission {
 
-    .nav-menu a {
+    background:
+        linear-gradient(
+            to right,
+            #FF6B00,
+            #FF8833
+        );
 
-        color: #CBD5E1;
+    color: white;
 
-        text-decoration: none;
+    padding:
+        10px 20px;
 
-        font-size: 14px;
+    border-radius: 8px;
 
-        font-weight: 500;
+    text-decoration: none;
 
-        transition: 0.25s;
+    font-size: 14px;
 
-        padding-bottom: 5px;
+    font-weight: 600;
 
-        position: relative;
+    transition: 0.3s;
 
-    }
+    box-shadow:
+        0 5px 20px
+        rgba(255,107,0,0.15);
+}
 
 
-    .nav-menu a::after {
+.btn-admission:hover {
 
-        content: "";
+    transform:
+        translateY(-2px)
+        scale(1.03);
 
-        position: absolute;
+    box-shadow:
+        0 8px 25px
+        rgba(255,107,0,0.30);
+}
 
-        left: 0;
 
-        bottom: 0;
+/* =====================================================
+   HAMBURGER
+===================================================== */
 
-        width: 0;
+.menu-toggle {
 
-        height: 2px;
+    display: none;
 
-        background: #FF6B00;
+    width: 48px;
 
-        transition: 0.25s;
+    height: 48px;
 
-    }
+    border:
+        1px solid
+        rgba(255,107,0,0.35);
 
+    border-radius: 10px;
 
-    .nav-menu a:hover {
+    background:
+        rgba(30,34,43,0.8);
 
-        color: #FF6B00;
+    cursor: pointer;
 
-    }
+    align-items: center;
 
+    justify-content: center;
 
-    .nav-menu a:hover::after {
+    flex-direction: column;
 
-        width: 100%;
+    gap: 5px;
 
-    }
+    z-index: 102;
+}
 
 
-    .nav-menu a.active {
+.menu-toggle span {
 
-        color: #FF6B00;
+    display: block;
 
-    }
+    width: 24px;
 
+    height: 2px;
 
-    .nav-menu a.active::after {
+    background: #FF6B00;
 
-        width: 100%;
+    border-radius: 5px;
 
-    }
+    transition: 0.3s;
+}
 
 
-    /* =====================================================
-       ADMISSION
-    ===================================================== */
+.menu-toggle.active span:nth-child(1) {
 
-    .btn-admission {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
 
-        background:
-            linear-gradient(
-                to right,
-                #FF6B00,
-                #FF8833
-            );
 
-        color: white;
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
 
-        padding:
-            10px 20px;
 
-        border-radius: 8px;
+.menu-toggle.active span:nth-child(3) {
 
-        text-decoration: none;
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
 
-        font-size: 14px;
 
-        font-weight: 600;
+/* =====================================================
+   MOBILE OVERLAY
+===================================================== */
 
-        transition: 0.3s;
+.mobile-overlay {
 
-        box-shadow:
-            0 5px 20px
-            rgba(255,107,0,0.15);
+    display: none;
 
-    }
+    position: fixed;
 
+    inset: 0;
 
-    .btn-admission:hover {
+    background:
+        rgba(0,0,0,0.60);
 
-        transform:
-            translateY(-2px)
-            scale(1.03);
+    z-index: 90;
 
-        box-shadow:
-            0 8px 25px
-            rgba(255,107,0,0.30);
+    backdrop-filter:
+        blur(3px);
+}
 
-    }
 
+.mobile-overlay.active {
+    display: block;
+}
 
-    /* =====================================================
-       HAMBURGER
-    ===================================================== */
 
-    .menu-toggle {
+/* =====================================================
+   HERO
+===================================================== */
 
-        display: none;
+.hero {
 
-        width: 48px;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(15,17,21,0.76),
+            rgba(30,34,43,0.90)
+        );
 
-        height: 48px;
+    padding:
+        80px 20px;
 
-        border: 1px solid
-            rgba(255,107,0,0.35);
+    border-bottom:
+        1px solid #2D3142;
 
-        border-radius: 10px;
+    position: relative;
 
-        background:
-            rgba(30,34,43,0.8);
+    overflow: hidden;
+}
 
-        cursor: pointer;
 
-        align-items: center;
+.hero::before {
 
-        justify-content: center;
+    content: "";
 
-        flex-direction: column;
+    position: absolute;
 
-        gap: 5px;
+    width: 400px;
 
-        z-index: 102;
+    height: 400px;
 
-    }
+    background:
+        rgba(255,107,0,0.08);
 
+    border-radius: 50%;
 
-    .menu-toggle span {
+    filter: blur(80px);
 
-        display: block;
+    top: -150px;
 
-        width: 24px;
+    right: -100px;
+}
 
-        height: 2px;
 
-        background: #FF6B00;
+.hero::after {
 
-        border-radius: 5px;
+    content: "";
 
-        transition: 0.3s;
+    position: absolute;
 
-    }
+    width: 350px;
 
+    height: 350px;
 
-    .menu-toggle.active span:nth-child(1) {
+    background:
+        rgba(0,229,255,0.05);
 
-        transform:
-            translateY(7px)
-            rotate(45deg);
+    border-radius: 50%;
 
-    }
+    filter: blur(90px);
 
+    bottom: -180px;
 
-    .menu-toggle.active span:nth-child(2) {
+    left: -100px;
+}
+
+
+.hero-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    perspective: 1200px;
+
+    transform-style: preserve-3d;
+}
+
+
+/* =====================================================
+   HERO BADGE
+===================================================== */
+
+.hero-badge {
+
+    background:
+        rgba(255,107,0,0.08);
+
+    color: #FF6B00;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    padding:
+        6px 12px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(255,107,0,0.3);
+
+    display: inline-block;
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero-title {
+
+    font-size: 48px;
+
+    font-weight: 900;
+
+    margin-top: 20px;
+
+    line-height: 1.2;
+
+    color: white;
+}
+
+
+.hero-title-orange {
+
+    background:
+        linear-gradient(
+            to right,
+            #FF6B00,
+            #FFD600
+        );
+
+    -webkit-background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    background-clip:
+        text;
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+===================================================== */
+
+.hero-desc {
+
+    color: #94A3B8;
+
+    font-size: 16px;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            to right,
+            #FF6B00,
+            #E65C00
+        );
+
+    color: white;
+
+    padding:
+        12px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,107,0,0.30);
+}
+
+
+.btn-secondary {
+
+    background:
+        rgba(30,34,43,0.75);
+
+    color: #E2E8F0;
+
+    padding:
+        12px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    border:
+        1px solid #334155;
+
+    transition: 0.3s;
+}
+
+
+.btn-secondary:hover {
+
+    border-color:
+        #00E5FF;
+
+    color:
+        #00E5FF;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-img {
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border:
+        2px solid #2D3142;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.35);
+
+    transition:
+        border-color 0.4s,
+        box-shadow 0.4s;
+}
+
+
+.hero-img:hover {
+
+    border-color:
+        #FF6B00;
+
+    box-shadow:
+        0 25px 60px
+        rgba(255,107,0,0.16);
+}
+
+
+/* =====================================================
+   STRENGTHS
+===================================================== */
+
+.strengths {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding:
+        80px 20px;
+
+    position: relative;
+
+    z-index: 2;
+
+    perspective: 1200px;
+}
+
+
+.section-header {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title {
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    color: white;
+}
+
+
+.section-line {
+
+    width: 60px;
+
+    height: 4px;
+
+    background: #FF6B00;
+
+    margin:
+        15px auto;
+
+    border-radius: 2px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.grid-3 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 30px;
+}
+
+
+.card {
+
+    background:
+        rgba(30,34,43,0.80);
+
+    padding:
+        30px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid #2D3142;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.7s
+        cubic-bezier(0.16,1,0.3,1);
+
+    backdrop-filter:
+        blur(8px);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+}
+
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #FF6B00,
+            transparent
+        );
+
+    transition:
+        0.5s;
+}
+
+
+.card:hover::before {
+    left: 100%;
+}
+
+
+.card:hover {
+
+    border-color:
+        #FF6B00;
+
+    transform:
+        translateY(-10px)
+        translateZ(25px)
+        rotateX(2deg)
+        rotateY(-1deg)
+        scale(1.015);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.35);
+}
+
+
+.card-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+
+    transform:
+        translateZ(25px);
+}
+
+
+.card-title {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 15px;
+
+    transform:
+        translateZ(18px);
+}
+
+
+.card-desc {
+
+    color: #94A3B8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    transform:
+        translateZ(10px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    border-top:
+        1px solid #252A34;
+
+    padding:
+        30px 20px;
+
+    text-align: center;
+
+    color: #475569;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    background:
+        rgba(15,17,21,0.90);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   PAGE ENTRANCE ANIMATION
+===================================================== */
+
+.nav-container {
+
+    animation:
+        navReveal
+        0.9s
+        cubic-bezier(0.16,1,0.3,1)
+        both;
+}
+
+
+@keyframes navReveal {
+
+    0% {
 
         opacity: 0;
 
+        transform:
+            translateY(-30px)
+            scale(0.96);
+
+        filter:
+            blur(8px);
     }
 
+    100% {
 
-    .menu-toggle.active span:nth-child(3) {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   HERO WARP LEFT
+===================================================== */
+
+.hero-container > div:first-child {
+
+    animation:
+        heroWarpLeft
+        1.2s
+        cubic-bezier(0.16,1,0.3,1)
+        0.15s
+        both;
+}
+
+
+@keyframes heroWarpLeft {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            perspective(1200px)
+            translate3d(-70px,35px,-180px)
+            rotateY(12deg)
+            rotateX(5deg)
+            scale(0.88);
+
+        filter:
+            blur(12px);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            perspective(1200px)
+            translate3d(0,0,0)
+            rotateY(0)
+            rotateX(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   HERO WARP IMAGE
+===================================================== */
+
+.hero-container > div:last-child {
+
+    animation:
+        heroWarpImage
+        1.35s
+        cubic-bezier(0.16,1,0.3,1)
+        0.3s
+        both;
+}
+
+
+@keyframes heroWarpImage {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            perspective(1200px)
+            translate3d(70px,25px,-220px)
+            rotateY(-15deg)
+            rotateX(7deg)
+            scale(0.78);
+
+        filter:
+            blur(14px);
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            perspective(1200px)
+            translate3d(0,0,0)
+            rotateY(0)
+            rotateX(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   HERO CONTENT STAGGER
+===================================================== */
+
+.hero-badge {
+
+    animation:
+        contentPop
+        0.8s
+        cubic-bezier(0.16,1,0.3,1)
+        0.55s
+        both;
+}
+
+
+.hero-title {
+
+    animation:
+        contentPop
+        0.9s
+        cubic-bezier(0.16,1,0.3,1)
+        0.68s
+        both;
+}
+
+
+.hero-desc {
+
+    animation:
+        contentPop
+        0.9s
+        cubic-bezier(0.16,1,0.3,1)
+        0.82s
+        both;
+}
+
+
+.hero-buttons {
+
+    animation:
+        contentPop
+        0.9s
+        cubic-bezier(0.16,1,0.3,1)
+        0.96s
+        both;
+}
+
+
+@keyframes contentPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(28px)
+            translateZ(-60px)
+            scale(0.94);
+
+        filter:
+            blur(8px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            translateZ(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   HERO IMAGE FLOAT
+===================================================== */
+
+.hero-img {
+
+    animation:
+        imageFloat
+        5s
+        ease-in-out
+        1.8s
+        infinite;
+}
+
+
+@keyframes imageFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotateX(0)
+            rotateY(0);
+    }
+
+    50% {
 
         transform:
             translateY(-7px)
-            rotate(-45deg);
+            rotateX(1deg)
+            rotateY(-1deg);
+    }
+}
 
+
+/* =====================================================
+   BADGE GLOW
+===================================================== */
+
+.hero-badge {
+
+    box-shadow:
+        0 0 0
+        rgba(255,107,0,0);
+
+    animation:
+        contentPop
+        0.8s
+        cubic-bezier(0.16,1,0.3,1)
+        0.55s
+        both,
+        badgeGlow
+        3s
+        ease-in-out
+        1.5s
+        infinite;
+}
+
+
+@keyframes badgeGlow {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 0
+            rgba(255,107,0,0);
     }
 
+    50% {
 
-    /* =====================================================
-       MOBILE OVERLAY
-    ===================================================== */
+        box-shadow:
+            0 0 25px
+            rgba(255,107,0,0.12);
+    }
+}
 
-    .mobile-overlay {
 
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.section-header,
+.card,
+footer {
+
+    opacity: 0;
+
+    filter:
+        blur(8px);
+
+    transition:
+        opacity 0.9s
+        cubic-bezier(0.16,1,0.3,1),
+
+        transform 0.9s
+        cubic-bezier(0.16,1,0.3,1),
+
+        filter 0.9s
+        cubic-bezier(0.16,1,0.3,1);
+}
+
+
+.section-header {
+
+    transform:
+        translateY(50px)
+        scale(0.94);
+}
+
+
+.card {
+
+    transform:
+        perspective(1000px)
+        translateY(70px)
+        translateZ(-120px)
+        rotateX(10deg)
+        scale(0.90);
+}
+
+
+footer {
+
+    transform:
+        translateY(40px);
+}
+
+
+/* =====================================================
+   REVEALED
+===================================================== */
+
+.section-header.reveal {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter:
+        blur(0);
+}
+
+
+.card.reveal {
+
+    opacity: 1;
+
+    transform:
+        perspective(1000px)
+        translateY(0)
+        translateZ(0)
+        rotateX(0)
+        scale(1);
+
+    filter:
+        blur(0);
+}
+
+
+footer.reveal {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
+
+/* =====================================================
+   CARD STAGGER
+===================================================== */
+
+.card:nth-child(1).reveal {
+    transition-delay: 0.05s;
+}
+
+.card:nth-child(2).reveal {
+    transition-delay: 0.18s;
+}
+
+.card:nth-child(3).reveal {
+    transition-delay: 0.31s;
+}
+
+
+/* =====================================================
+   MOUSE PARALLAX
+===================================================== */
+
+.hero-container.parallax-active > div:first-child {
+
+    transform:
+        translate3d(
+            var(--move-x, 0px),
+            var(--move-y, 0px),
+            0
+        );
+}
+
+
+.hero-container.parallax-active > div:last-child {
+
+    transform:
+        translate3d(
+            calc(var(--move-x, 0px) * -1),
+            calc(var(--move-y, 0px) * -1),
+            0
+        );
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .btn-admission {
+
+        padding:
+            9px 14px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+        min-height: 70px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .btn-admission {
         display: none;
+    }
+
+    .nav-menu {
 
         position: fixed;
 
-        inset: 0;
+        top: 70px;
 
-        background:
-            rgba(0,0,0,0.60);
+        right: 15px;
 
-        z-index: 90;
-
-        backdrop-filter:
-            blur(3px);
-
-    }
-
-
-    .mobile-overlay.active {
-
-        display: block;
-
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
-
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(15,17,21,0.76),
-                rgba(30,34,43,0.90)
-            );
-
-        padding:
-            80px 20px;
-
-        border-bottom:
-            1px solid #2D3142;
-
-        position: relative;
-
-        overflow: hidden;
-
-    }
-
-
-    .hero::before {
-
-        content: "";
-
-        position: absolute;
-
-        width: 400px;
-
-        height: 400px;
-
-        background:
-            rgba(255,107,0,0.08);
-
-        border-radius: 50%;
-
-        filter: blur(80px);
-
-        top: -150px;
-
-        right: -100px;
-
-    }
-
-
-    .hero::after {
-
-        content: "";
-
-        position: absolute;
-
-        width: 350px;
-
-        height: 350px;
-
-        background:
-            rgba(0,229,255,0.05);
-
-        border-radius: 50%;
-
-        filter: blur(90px);
-
-        bottom: -180px;
-
-        left: -100px;
-
-    }
-
-
-    .hero-container {
-
-        max-width: 1200px;
-
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns:
-            1fr 1fr;
-
-        gap: 50px;
-
-        align-items: center;
-
-        position: relative;
-
-        z-index: 2;
-
-    }
-
-
-    .hero-badge {
-
-        background:
-            rgba(255,107,0,0.08);
-
-        color: #FF6B00;
-
-        font-size: 12px;
-
-        font-weight: 700;
-
-        padding:
-            6px 12px;
-
-        border-radius: 20px;
-
-        border:
-            1px solid
-            rgba(255,107,0,0.3);
-
-        display: inline-block;
-
-    }
-
-
-    .hero-title {
-
-        font-size: 48px;
-
-        font-weight: 900;
-
-        margin-top: 20px;
-
-        line-height: 1.2;
-
-        color: white;
-
-    }
-
-
-    .hero-title-orange {
-
-        background:
-            linear-gradient(
-                to right,
-                #FF6B00,
-                #FFD600
-            );
-
-        -webkit-background-clip:
-            text;
-
-        -webkit-text-fill-color:
-            transparent;
-
-        background-clip: text;
-
-    }
-
-
-    .hero-desc {
-
-        color: #94A3B8;
-
-        font-size: 16px;
-
-        margin-top: 20px;
-
-        line-height: 1.7;
-
-        max-width: 650px;
-
-    }
-
-
-    /* =====================================================
-       HERO BUTTONS
-    ===================================================== */
-
-    .hero-buttons {
-
-        margin-top: 30px;
+        left: 15px;
 
         display: flex;
 
-        gap: 15px;
+        flex-direction: column;
 
-    }
+        align-items: stretch;
 
-
-    .btn-primary {
-
-        background:
-            linear-gradient(
-                to right,
-                #FF6B00,
-                #E65C00
-            );
-
-        color: white;
-
-        padding:
-            12px 28px;
-
-        border-radius: 10px;
-
-        text-decoration: none;
-
-        font-weight: 700;
-
-        transition: 0.3s;
-
-    }
-
-
-    .btn-primary:hover {
-
-        transform:
-            translateY(-3px);
-
-        box-shadow:
-            0 10px 30px
-            rgba(255,107,0,0.30);
-
-    }
-
-
-    .btn-secondary {
+        gap: 0;
 
         background:
-            rgba(30,34,43,0.75);
-
-        color: #E2E8F0;
-
-        padding:
-            12px 28px;
-
-        border-radius: 10px;
-
-        text-decoration: none;
+            rgba(20,23,30,0.98);
 
         border:
-            1px solid #334155;
+            1px solid #343A46;
 
-        transition: 0.3s;
+        border-top:
+            2px solid #FF6B00;
 
-    }
+        border-radius:
+            0 0 14px 14px;
 
+        padding: 10px;
 
-    .btn-secondary:hover {
+        opacity: 0;
 
-        border-color: #00E5FF;
-
-        color: #00E5FF;
+        visibility: hidden;
 
         transform:
-            translateY(-3px);
+            translateY(-15px);
 
-    }
-
-
-    /* =====================================================
-       HERO IMAGE
-    ===================================================== */
-
-    .hero-img {
-
-        width: 100%;
-
-        height: 350px;
-
-        object-fit: cover;
-
-        border-radius: 15px;
-
-        border:
-            2px solid #2D3142;
+        transition:
+            0.25s ease;
 
         box-shadow:
             0 20px 50px
-            rgba(0,0,0,0.35);
+            rgba(0,0,0,0.45);
 
-        transition: 0.4s;
-
+        z-index: 101;
     }
 
+    .nav-menu.open {
 
-    .hero-img:hover {
+        opacity: 1;
+
+        visibility: visible;
 
         transform:
-            scale(1.02);
-
-        border-color:
-            #FF6B00;
-
+            translateY(0);
     }
 
-
-    /* =====================================================
-       STRENGTHS
-    ===================================================== */
-
-    .strengths {
-
-        max-width: 1200px;
-
-        margin: auto;
-
-        padding:
-            80px 20px;
-
-        position: relative;
-
-        z-index: 2;
-
+    .nav-menu li {
+        width: 100%;
     }
 
+    .nav-menu a {
 
-    .section-header {
-
-        text-align: center;
-
-        margin-bottom: 50px;
-
-    }
-
-
-    .section-title {
-
-        font-size: 32px;
-
-        font-weight: 800;
-
-        color: white;
-
-    }
-
-
-    .section-line {
-
-        width: 60px;
-
-        height: 4px;
-
-        background: #FF6B00;
-
-        margin:
-            15px auto;
-
-        border-radius: 2px;
-
-    }
-
-
-    /* =====================================================
-       CARDS
-    ===================================================== */
-
-    .grid-3 {
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        gap: 30px;
-
-    }
-
-
-    .card {
-
-        background:
-            rgba(30,34,43,0.80);
-
-        padding: 30px;
-
-        border-radius: 15px;
-
-        border:
-            1px solid #2D3142;
-
-        transition: 0.3s;
-
-        backdrop-filter:
-            blur(8px);
-
-        position: relative;
-
-        overflow: hidden;
-
-    }
-
-
-    .card::before {
-
-        content: "";
-
-        position: absolute;
-
-        top: 0;
-
-        left: -100%;
+        display: block;
 
         width: 100%;
 
-        height: 2px;
+        padding:
+            15px 16px;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .nav-menu a:hover {
 
         background:
-            linear-gradient(
-                90deg,
-                transparent,
-                #FF6B00,
-                transparent
-            );
-
-        transition: 0.5s;
-
+            rgba(255,107,0,0.08);
     }
 
+    .nav-menu a.active {
 
-    .card:hover::before {
-
-        left: 100%;
-
+        background:
+            rgba(255,107,0,0.10);
     }
 
+    .hero-container {
 
-    .card:hover {
-
-        border-color:
-            #FF6B00;
-
-        transform:
-            translateY(-7px);
-
-        box-shadow:
-            0 15px 40px
-            rgba(0,0,0,0.25);
-
-    }
-
-
-    .card-icon {
-
-        font-size: 28px;
-
-        margin-bottom: 20px;
-
-    }
-
-
-    .card-title {
-
-        font-size: 20px;
-
-        font-weight: 700;
-
-        color: white;
-
-        margin-bottom: 15px;
-
-    }
-
-
-    .card-desc {
-
-        color: #94A3B8;
-
-        font-size: 14px;
-
-        line-height: 1.7;
-
-    }
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    footer {
-
-        border-top:
-            1px solid #252A34;
-
-        padding:
-            30px 20px;
+        grid-template-columns:
+            1fr;
 
         text-align: center;
-
-        color: #475569;
-
-        font-size: 11px;
-
-        line-height: 1.8;
-
-        background:
-            rgba(15,17,21,0.90);
-
-        position: relative;
-
-        z-index: 2;
-
     }
 
+    .hero-desc {
 
-    /* =====================================================
-       TABLET
-    ===================================================== */
+        margin-left: auto;
 
-    @media (max-width: 1000px) {
-
-        .nav-menu {
-
-            gap: 18px;
-
-        }
-
-        .nav-menu a {
-
-            font-size: 13px;
-
-        }
-
-        .btn-admission {
-
-            padding:
-                9px 14px;
-
-            font-size: 12px;
-
-        }
-
+        margin-right: auto;
     }
 
+    .hero-buttons {
 
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 900px) {
-
-        .nav-container {
-
-            min-height: 70px;
-
-        }
-
-
-        .menu-toggle {
-
-            display: flex;
-
-        }
-
-
-        .btn-admission {
-
-            display: none;
-
-        }
-
-
-        .nav-menu {
-
-            position: fixed;
-
-            top: 70px;
-
-            right: 15px;
-
-            left: 15px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: stretch;
-
-            gap: 0;
-
-            background:
-                rgba(20,23,30,0.98);
-
-            border:
-                1px solid #343A46;
-
-            border-top:
-                2px solid #FF6B00;
-
-            border-radius:
-                0 0 14px 14px;
-
-            padding: 10px;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transform:
-                translateY(-15px);
-
-            transition:
-                0.25s ease;
-
-            box-shadow:
-                0 20px 50px
-                rgba(0,0,0,0.45);
-
-            z-index: 101;
-
-        }
-
-
-        .nav-menu.open {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            transform:
-                translateY(0);
-
-        }
-
-
-        .nav-menu li {
-
-            width: 100%;
-
-        }
-
-
-        .nav-menu a {
-
-            display: block;
-
-            width: 100%;
-
-            padding:
-                15px 16px;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-        }
-
-
-        .nav-menu a::after {
-
-            display: none;
-
-        }
-
-
-        .nav-menu a:hover {
-
-            background:
-                rgba(255,107,0,0.08);
-
-        }
-
-
-        .nav-menu a.active {
-
-            background:
-                rgba(255,107,0,0.10);
-
-        }
-
-
-        .hero-container {
-
-            grid-template-columns: 1fr;
-
-            text-align: center;
-
-        }
-
-
-        .hero-desc {
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-        }
-
-
-        .hero-buttons {
-
-            justify-content: center;
-
-        }
-
-
-        .grid-3 {
-
-            grid-template-columns: 1fr;
-
-        }
-
+        justify-content:
+            center;
     }
 
+    .grid-3 {
 
-    /* =====================================================
-       SMALL MOBILE
-    ===================================================== */
-
-    @media (max-width: 500px) {
-
-        .logo-text-main {
-
-            font-size: 15px;
-
-        }
-
-
-        .logo-sub {
-
-            font-size: 8px;
-
-        }
-
-
-        .logo-icon {
-
-            font-size: 17px;
-
-            padding:
-                7px 9px;
-
-        }
-
-
-        .hero {
-
-            padding:
-                60px 20px;
-
-        }
-
-
-        .hero-title {
-
-            font-size: 34px;
-
-        }
-
-
-        .hero-desc {
-
-            font-size: 14px;
-
-        }
-
-
-        .hero-buttons {
-
-            flex-direction: column;
-
-        }
-
-
-        .btn-primary,
-        .btn-secondary {
-
-            text-align: center;
-
-            width: 100%;
-
-        }
-
-
-        .hero-img {
-
-            height: 230px;
-
-        }
-
-
-        .section-title {
-
-            font-size: 26px;
-
-        }
-
+        grid-template-columns:
+            1fr;
     }
 
+    /* ปิด parallax บนมือถือ */
+    .hero-container.parallax-active > div:first-child,
+    .hero-container.parallax-active > div:last-child {
 
-    /* =====================================================
-       REDUCE MOTION
-    ===================================================== */
+        transform: none;
+    }
+}
 
-    @media (prefers-reduced-motion: reduce) {
 
-        * {
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
 
-            scroll-behavior: auto !important;
+@media (max-width: 500px) {
 
-            animation-duration:
-                0.01ms !important;
-
-            transition-duration:
-                0.01ms !important;
-
-        }
-
+    .logo-text-main {
+        font-size: 15px;
     }
 
+    .logo-sub {
+        font-size: 8px;
+    }
+
+    .logo-icon {
+
+        font-size: 17px;
+
+        padding:
+            7px 9px;
+    }
+
+    .hero {
+
+        padding:
+            60px 20px;
+    }
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+
+        text-align:
+            center;
+
+        width:
+            100%;
+    }
+
+    .hero-img {
+        height: 230px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+
+    .section-header,
+    .card,
+    footer {
+
+        opacity:
+            1 !important;
+
+        transform:
+            none !important;
+
+        filter:
+            none !important;
+    }
+}
 
 </style>
 
-
 </head>
+
 
 <body>
 
@@ -1375,9 +1736,7 @@
         </div>
 
 
-        <!-- =================================================
-             MENU
-        ================================================= -->
+        <!-- MENU -->
 
         <ul
             class="nav-menu"
@@ -1395,7 +1754,6 @@
 
             </li>
 
-
             <li>
 
                 <a
@@ -1406,7 +1764,6 @@
                 </a>
 
             </li>
-
 
             <li>
 
@@ -1419,7 +1776,6 @@
 
             </li>
 
-
             <li>
 
                 <a
@@ -1430,7 +1786,6 @@
                 </a>
 
             </li>
-
 
             <li>
 
@@ -1446,13 +1801,12 @@
         </ul>
 
 
-        <!-- =================================================
-             ADMISSION
-        ================================================= -->
+        <!-- ADMISSION -->
 
         <a
             href="https://kmutnb.ac.th"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn-admission">
 
             รับสมัครนักศึกษา
@@ -1460,9 +1814,7 @@
         </a>
 
 
-        <!-- =================================================
-             HAMBURGER
-        ================================================= -->
+        <!-- HAMBURGER -->
 
         <button
             class="menu-toggle"
@@ -1477,7 +1829,6 @@
 
         </button>
 
-
     </div>
 
 </nav>
@@ -1489,7 +1840,9 @@
 
 <header class="hero">
 
-    <div class="hero-container">
+    <div
+        class="hero-container"
+        id="heroContainer">
 
 
         <div>
@@ -1528,7 +1881,6 @@
 
             <div class="hero-buttons">
 
-
                 <a
                     href="curriculum.html"
                     class="btn-primary">
@@ -1537,7 +1889,6 @@
 
                 </a>
 
-
                 <a
                     href="labs.html"
                     class="btn-secondary">
@@ -1545,7 +1896,6 @@
                     ทัวร์ห้องปฏิบัติการ
 
                 </a>
-
 
             </div>
 
@@ -1688,130 +2038,76 @@
 </footer>
 
 
-
-<!-- =====================================================
-     MOBILE MENU JAVASCRIPT
-===================================================== -->
-
 <script>
 
 
-    const menuToggle =
-        document.getElementById(
-            "menuToggle"
-        );
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+const navMenu =
+    document.getElementById(
+        "navMenu"
+    );
+
+const mobileOverlay =
+    document.getElementById(
+        "mobileOverlay"
+    );
 
 
-    const navMenu =
-        document.getElementById(
-            "navMenu"
-        );
+function toggleMenu() {
 
-
-    const mobileOverlay =
-        document.getElementById(
-            "mobileOverlay"
-        );
-
-
-    /* =====================================================
-       OPEN / CLOSE MENU
-    ===================================================== */
-
-    function toggleMenu() {
-
-        const isOpen =
-            navMenu.classList.contains(
-                "open"
-            );
-
-
-        navMenu.classList.toggle(
+    const isOpen =
+        navMenu.classList.contains(
             "open"
         );
 
-        menuToggle.classList.toggle(
-            "active"
-        );
-
-        mobileOverlay.classList.toggle(
-            "active"
-        );
-
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-    }
-
-
-    menuToggle.addEventListener(
-        "click",
-        toggleMenu
+    navMenu.classList.toggle(
+        "open"
     );
 
-
-    /* =====================================================
-       CLOSE WHEN CLICK OVERLAY
-    ===================================================== */
-
-    mobileOverlay.addEventListener(
-        "click",
-        toggleMenu
+    menuToggle.classList.toggle(
+        "active"
     );
 
+    mobileOverlay.classList.toggle(
+        "active"
+    );
 
-    /* =====================================================
-       CLOSE WHEN CLICK MENU LINK
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            ".nav-menu a"
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    navMenu.classList.remove(
-                        "open"
-                    );
-
-                    menuToggle.classList.remove(
-                        "active"
-                    );
-
-                    mobileOverlay.classList.remove(
-                        "active"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
-            );
-
-        });
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+}
 
 
-    /* =====================================================
-       ESCAPE TO CLOSE
-    ===================================================== */
+menuToggle.addEventListener(
+    "click",
+    toggleMenu
+);
 
-    document.addEventListener(
-        "keydown",
-        event => {
 
-            if (
-                event.key === "Escape" &&
-                navMenu.classList.contains("open")
-            ) {
+mobileOverlay.addEventListener(
+    "click",
+    toggleMenu
+);
+
+
+document
+    .querySelectorAll(
+        ".nav-menu a"
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
 
                 navMenu.classList.remove(
                     "open"
@@ -1829,709 +2125,849 @@
                     "aria-expanded",
                     "false"
                 );
-
             }
+        );
+
+    });
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            navMenu.classList.contains("open")
+        ) {
+
+            navMenu.classList.remove(
+                "open"
+            );
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            mobileOverlay.classList.remove(
+                "active"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SCROLL REVEAL ENGINE
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(
+        ".section-header, .card, footer"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "reveal"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15,
+
+            rootMargin:
+                "0px 0px -60px 0px"
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(
+        element
+    );
+
+});
+
+
+/* =====================================================
+   HERO MOUSE PARALLAX
+===================================================== */
+
+const heroContainer =
+    document.getElementById(
+        "heroContainer"
+    );
+
+
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+
+if (
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+) {
+
+    heroContainer.classList.add(
+        "parallax-active"
+    );
+
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            const x =
+                (event.clientX /
+                window.innerWidth) -
+                0.5;
+
+            const y =
+                (event.clientY /
+                window.innerHeight) -
+                0.5;
+
+
+            mouseX =
+                x * 12;
+
+            mouseY =
+                y * 8;
 
         }
     );
 
 
-    /* =====================================================
-       PCB CANVAS
-    ===================================================== */
+    function animateParallax() {
 
-    const canvas =
-        document.getElementById(
-            "circuit-bg"
+        currentX +=
+            (mouseX - currentX)
+            * 0.06;
+
+        currentY +=
+            (mouseY - currentY)
+            * 0.06;
+
+
+        heroContainer.style.setProperty(
+            "--move-x",
+            `${currentX}px`
         );
 
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    let width;
-    let height;
-
-
-    let traces = [];
-    let chips = [];
-    let particles = [];
-
-
-    /* =====================================================
-       RESIZE
-    ===================================================== */
-
-    function resizeCanvas() {
-
-        const ratio =
-            Math.min(
-                window.devicePixelRatio || 1,
-                2
-            );
-
-
-        width =
-            window.innerWidth;
-
-        height =
-            window.innerHeight;
-
-
-        canvas.width =
-            width * ratio;
-
-        canvas.height =
-            height * ratio;
-
-
-        canvas.style.width =
-            width + "px";
-
-        canvas.style.height =
-            height + "px";
-
-
-        ctx.setTransform(
-            ratio,
-            0,
-            0,
-            ratio,
-            0,
-            0
-        );
-
-
-        createPCB();
-
-    }
-
-
-    /* =====================================================
-       CREATE PCB
-    ===================================================== */
-
-    function createPCB() {
-
-        traces = [];
-        chips = [];
-        particles = [];
-
-
-        const mobile =
-            width < 600;
-
-
-        const traceCount =
-            mobile ? 18 : 38;
-
-
-        const chipCount =
-            mobile ? 4 : 8;
-
-
-        /* =================================================
-           TRACES
-        ================================================= */
-
-        for (
-            let i = 0;
-            i < traceCount;
-            i++
-        ) {
-
-
-            const x =
-                Math.random() *
-                width;
-
-
-            const y =
-                Math.random() *
-                height;
-
-
-            const direction =
-                Math.random() > 0.5
-                    ? "horizontal"
-                    : "vertical";
-
-
-            const length =
-                100 +
-                Math.random() * 300;
-
-
-            const color =
-                Math.random() > 0.45
-                    ? "orange"
-                    : "cyan";
-
-
-            traces.push({
-
-                x,
-                y,
-
-                length,
-
-                direction,
-
-                color,
-
-                offset:
-                    Math.random() * 100
-
-            });
-
-
-            /* electron / signal */
-
-            particles.push({
-
-                x,
-                y,
-
-                progress:
-                    Math.random(),
-
-                speed:
-                    0.0008 +
-                    Math.random() *
-                    0.0015,
-
-                direction,
-
-                length,
-
-                color
-
-            });
-
-        }
-
-
-        /* =================================================
-           IC CHIPS
-        ================================================= */
-
-        for (
-            let i = 0;
-            i < chipCount;
-            i++
-        ) {
-
-
-            chips.push({
-
-                x:
-                    50 +
-                    Math.random() *
-                    (width - 100),
-
-                y:
-                    50 +
-                    Math.random() *
-                    (height - 100),
-
-                w:
-                    45 +
-                    Math.random() * 35,
-
-                h:
-                    28 +
-                    Math.random() * 20
-
-            });
-
-        }
-
-    }
-
-
-    /* =====================================================
-       DRAW PCB TRACE
-    ===================================================== */
-
-    function drawTrace(trace) {
-
-        ctx.beginPath();
-
-
-        if (
-            trace.direction ===
-            "horizontal"
-        ) {
-
-
-            ctx.moveTo(
-                trace.x,
-                trace.y
-            );
-
-
-            ctx.lineTo(
-                trace.x +
-                trace.length * 0.45,
-                trace.y
-            );
-
-
-            ctx.lineTo(
-                trace.x +
-                trace.length * 0.55,
-                trace.y + 25
-            );
-
-
-            ctx.lineTo(
-                trace.x +
-                trace.length,
-                trace.y + 25
-            );
-
-
-        } else {
-
-
-            ctx.moveTo(
-                trace.x,
-                trace.y
-            );
-
-
-            ctx.lineTo(
-                trace.x,
-                trace.y +
-                trace.length * 0.45
-            );
-
-
-            ctx.lineTo(
-                trace.x + 25,
-                trace.y +
-                trace.length * 0.55
-            );
-
-
-            ctx.lineTo(
-                trace.x + 25,
-                trace.y +
-                trace.length
-            );
-
-        }
-
-
-        ctx.strokeStyle =
-            trace.color === "orange"
-
-                ? "rgba(255,107,0,0.28)"
-
-                : "rgba(0,229,255,0.20)";
-
-
-        ctx.lineWidth = 1.5;
-
-        ctx.stroke();
-
-
-        /* =================================================
-           SOLDER POINTS
-        ================================================= */
-
-        ctx.beginPath();
-
-
-        ctx.fillStyle =
-            trace.color === "orange"
-
-                ? "rgba(255,107,0,0.55)"
-
-                : "rgba(0,229,255,0.45)";
-
-
-        if (
-            trace.direction ===
-            "horizontal"
-        ) {
-
-            ctx.arc(
-                trace.x,
-                trace.y,
-                2.5,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.arc(
-                trace.x +
-                trace.length,
-                trace.y + 25,
-                2.5,
-                0,
-                Math.PI * 2
-            );
-
-        } else {
-
-            ctx.arc(
-                trace.x,
-                trace.y,
-                2.5,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.arc(
-                trace.x + 25,
-                trace.y +
-                trace.length,
-                2.5,
-                0,
-                Math.PI * 2
-            );
-
-        }
-
-
-        ctx.fill();
-
-    }
-
-
-    /* =====================================================
-       DRAW IC CHIP
-    ===================================================== */
-
-    function drawChip(chip) {
-
-
-        /* body */
-
-        ctx.fillStyle =
-            "rgba(10,13,18,0.85)";
-
-
-        ctx.strokeStyle =
-            "rgba(148,163,184,0.18)";
-
-
-        ctx.lineWidth = 1;
-
-
-        ctx.beginPath();
-
-
-        ctx.roundRect(
-            chip.x,
-            chip.y,
-            chip.w,
-            chip.h,
-            4
-        );
-
-
-        ctx.fill();
-
-        ctx.stroke();
-
-
-        /* center */
-
-        ctx.fillStyle =
-            "rgba(255,107,0,0.35)";
-
-
-        ctx.fillRect(
-
-            chip.x +
-            chip.w * 0.35,
-
-            chip.y +
-            chip.h * 0.30,
-
-            chip.w * 0.30,
-
-            chip.h * 0.40
-
-        );
-
-
-        /* pins */
-
-        ctx.strokeStyle =
-            "rgba(148,163,184,0.28)";
-
-
-        for (
-            let i = 0;
-            i < 5;
-            i++
-        ) {
-
-
-            const py =
-                chip.y +
-                5 +
-                i *
-                (
-                    (chip.h - 10)
-                    / 4
-                );
-
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                chip.x - 7,
-                py
-            );
-
-            ctx.lineTo(
-                chip.x,
-                py
-            );
-
-            ctx.stroke();
-
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                chip.x +
-                chip.w,
-                py
-            );
-
-            ctx.lineTo(
-                chip.x +
-                chip.w + 7,
-                py
-            );
-
-            ctx.stroke();
-
-        }
-
-    }
-
-
-    /* =====================================================
-       DRAW PARTICLE
-    ===================================================== */
-
-    function drawParticle(
-        particle
-    ) {
-
-
-        let px;
-        let py;
-
-
-        if (
-            particle.direction ===
-            "horizontal"
-        ) {
-
-            px =
-                particle.x +
-                particle.length *
-                particle.progress;
-
-            py =
-                particle.y;
-
-        } else {
-
-            px =
-                particle.x;
-
-            py =
-                particle.y +
-                particle.length *
-                particle.progress;
-
-        }
-
-
-        ctx.beginPath();
-
-
-        ctx.fillStyle =
-            particle.color === "orange"
-                ? "#FF6B00"
-                : "#00E5FF";
-
-
-        ctx.shadowColor =
-            ctx.fillStyle;
-
-
-        ctx.shadowBlur = 12;
-
-
-        ctx.arc(
-            px,
-            py,
-            2.2,
-            0,
-            Math.PI * 2
-        );
-
-
-        ctx.fill();
-
-
-        ctx.shadowBlur = 0;
-
-    }
-
-
-    /* =====================================================
-       UPDATE PARTICLE
-    ===================================================== */
-
-    function updateParticle(
-        particle
-    ) {
-
-
-        particle.progress +=
-            particle.speed;
-
-
-        if (
-            particle.progress > 1
-        ) {
-
-            particle.progress = 0;
-
-        }
-
-    }
-
-
-    /* =====================================================
-       PCB DOT MATRIX
-    ===================================================== */
-
-    function drawPCBGrid() {
-
-
-        const spacing =
-            width < 600
-                ? 45
-                : 60;
-
-
-        ctx.fillStyle =
-            "rgba(148,163,184,0.12)";
-
-
-        for (
-            let x = spacing;
-            x < width;
-            x += spacing
-        ) {
-
-            for (
-                let y = spacing;
-                y < height;
-                y += spacing
-            ) {
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    x,
-                    y,
-                    1,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fill();
-
-            }
-
-        }
-
-    }
-
-
-    /* =====================================================
-       ANIMATION
-    ===================================================== */
-
-    function animatePCB() {
-
-
-        ctx.clearRect(
-            0,
-            0,
-            width,
-            height
-        );
-
-
-        drawPCBGrid();
-
-
-        traces.forEach(
-            drawTrace
-        );
-
-
-        chips.forEach(
-            drawChip
-        );
-
-
-        particles.forEach(
-            particle => {
-
-                updateParticle(
-                    particle
-                );
-
-                drawParticle(
-                    particle
-                );
-
-            }
+        heroContainer.style.setProperty(
+            "--move-y",
+            `${currentY}px`
         );
 
 
         requestAnimationFrame(
-            animatePCB
+            animateParallax
+        );
+    }
+
+
+    animateParallax();
+
+}
+
+
+/* =====================================================
+   PCB CANVAS
+===================================================== */
+
+const canvas =
+    document.getElementById(
+        "circuit-bg"
+    );
+
+const ctx =
+    canvas.getContext(
+        "2d"
+    );
+
+
+let width;
+let height;
+
+let traces = [];
+let chips = [];
+let particles = [];
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+function resizeCanvas() {
+
+    const ratio =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
+        );
+
+
+    width =
+        window.innerWidth;
+
+    height =
+        window.innerHeight;
+
+
+    canvas.width =
+        width * ratio;
+
+    canvas.height =
+        height * ratio;
+
+
+    canvas.style.width =
+        width + "px";
+
+    canvas.style.height =
+        height + "px";
+
+
+    ctx.setTransform(
+        ratio,
+        0,
+        0,
+        ratio,
+        0,
+        0
+    );
+
+
+    createPCB();
+}
+
+
+/* =====================================================
+   CREATE PCB
+===================================================== */
+
+function createPCB() {
+
+    traces = [];
+    chips = [];
+    particles = [];
+
+
+    const mobile =
+        width < 600;
+
+
+    const traceCount =
+        mobile
+            ? 18
+            : 38;
+
+
+    const chipCount =
+        mobile
+            ? 4
+            : 8;
+
+
+    /* TRACE */
+
+    for (
+        let i = 0;
+        i < traceCount;
+        i++
+    ) {
+
+        const x =
+            Math.random() *
+            width;
+
+
+        const y =
+            Math.random() *
+            height;
+
+
+        const direction =
+            Math.random() > 0.5
+                ? "horizontal"
+                : "vertical";
+
+
+        const length =
+            100 +
+            Math.random() * 300;
+
+
+        const color =
+            Math.random() > 0.45
+                ? "orange"
+                : "cyan";
+
+
+        traces.push({
+
+            x,
+            y,
+
+            length,
+
+            direction,
+
+            color,
+
+            offset:
+                Math.random() * 100
+        });
+
+
+        particles.push({
+
+            x,
+            y,
+
+            progress:
+                Math.random(),
+
+            speed:
+                0.0008 +
+                Math.random() *
+                0.0015,
+
+            direction,
+
+            length,
+
+            color
+        });
+
+    }
+
+
+    /* IC CHIPS */
+
+    for (
+        let i = 0;
+        i < chipCount;
+        i++
+    ) {
+
+        chips.push({
+
+            x:
+                50 +
+                Math.random() *
+                (width - 100),
+
+            y:
+                50 +
+                Math.random() *
+                (height - 100),
+
+            w:
+                45 +
+                Math.random() * 35,
+
+            h:
+                28 +
+                Math.random() * 20
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   DRAW PCB TRACE
+===================================================== */
+
+function drawTrace(trace) {
+
+    ctx.beginPath();
+
+
+    if (
+        trace.direction ===
+        "horizontal"
+    ) {
+
+        ctx.moveTo(
+            trace.x,
+            trace.y
+        );
+
+        ctx.lineTo(
+            trace.x +
+            trace.length * 0.45,
+            trace.y
+        );
+
+        ctx.lineTo(
+            trace.x +
+            trace.length * 0.55,
+            trace.y + 25
+        );
+
+        ctx.lineTo(
+            trace.x +
+            trace.length,
+            trace.y + 25
+        );
+
+    } else {
+
+        ctx.moveTo(
+            trace.x,
+            trace.y
+        );
+
+        ctx.lineTo(
+            trace.x,
+            trace.y +
+            trace.length * 0.45
+        );
+
+        ctx.lineTo(
+            trace.x + 25,
+            trace.y +
+            trace.length * 0.55
+        );
+
+        ctx.lineTo(
+            trace.x + 25,
+            trace.y +
+            trace.length
         );
 
     }
 
 
-    /* =====================================================
-       START
-    ===================================================== */
+    ctx.strokeStyle =
+        trace.color === "orange"
 
-    window.addEventListener(
-        "resize",
-        resizeCanvas
+            ? "rgba(255,107,0,0.28)"
+
+            : "rgba(0,229,255,0.20)";
+
+
+    ctx.lineWidth = 1.5;
+
+    ctx.stroke();
+
+
+    /* SOLDER */
+
+    ctx.beginPath();
+
+
+    ctx.fillStyle =
+        trace.color === "orange"
+
+            ? "rgba(255,107,0,0.55)"
+
+            : "rgba(0,229,255,0.45)";
+
+
+    if (
+        trace.direction ===
+        "horizontal"
+    ) {
+
+        ctx.arc(
+            trace.x,
+            trace.y,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.arc(
+            trace.x +
+            trace.length,
+            trace.y + 25,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+    } else {
+
+        ctx.arc(
+            trace.x,
+            trace.y,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.arc(
+            trace.x + 25,
+            trace.y +
+            trace.length,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+    }
+
+
+    ctx.fill();
+
+}
+
+
+/* =====================================================
+   DRAW CHIP
+===================================================== */
+
+function drawChip(chip) {
+
+    ctx.fillStyle =
+        "rgba(10,13,18,0.85)";
+
+
+    ctx.strokeStyle =
+        "rgba(148,163,184,0.18)";
+
+
+    ctx.lineWidth = 1;
+
+
+    ctx.beginPath();
+
+
+    ctx.roundRect(
+        chip.x,
+        chip.y,
+        chip.w,
+        chip.h,
+        4
     );
 
 
-    resizeCanvas();
+    ctx.fill();
 
-    animatePCB();
+    ctx.stroke();
+
+
+    /* CENTER */
+
+    ctx.fillStyle =
+        "rgba(255,107,0,0.35)";
+
+
+    ctx.fillRect(
+
+        chip.x +
+        chip.w * 0.35,
+
+        chip.y +
+        chip.h * 0.30,
+
+        chip.w * 0.30,
+
+        chip.h * 0.40
+
+    );
+
+
+    /* PINS */
+
+    ctx.strokeStyle =
+        "rgba(148,163,184,0.28)";
+
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        const py =
+            chip.y +
+            5 +
+            i *
+            (
+                (chip.h - 10)
+                / 4
+            );
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            chip.x - 7,
+            py
+        );
+
+        ctx.lineTo(
+            chip.x,
+            py
+        );
+
+        ctx.stroke();
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            chip.x +
+            chip.w,
+            py
+        );
+
+        ctx.lineTo(
+            chip.x +
+            chip.w + 7,
+            py
+        );
+
+        ctx.stroke();
+
+    }
+
+}
+
+
+/* =====================================================
+   PARTICLE
+===================================================== */
+
+function drawParticle(
+    particle
+) {
+
+    let px;
+    let py;
+
+
+    if (
+        particle.direction ===
+        "horizontal"
+    ) {
+
+        px =
+            particle.x +
+            particle.length *
+            particle.progress;
+
+        py =
+            particle.y;
+
+    } else {
+
+        px =
+            particle.x;
+
+        py =
+            particle.y +
+            particle.length *
+            particle.progress;
+
+    }
+
+
+    ctx.beginPath();
+
+
+    ctx.fillStyle =
+        particle.color === "orange"
+            ? "#FF6B00"
+            : "#00E5FF";
+
+
+    ctx.shadowColor =
+        ctx.fillStyle;
+
+
+    ctx.shadowBlur = 12;
+
+
+    ctx.arc(
+        px,
+        py,
+        2.2,
+        0,
+        Math.PI * 2
+    );
+
+
+    ctx.fill();
+
+
+    ctx.shadowBlur = 0;
+
+}
+
+
+/* =====================================================
+   UPDATE PARTICLE
+===================================================== */
+
+function updateParticle(
+    particle
+) {
+
+    particle.progress +=
+        particle.speed;
+
+
+    if (
+        particle.progress > 1
+    ) {
+
+        particle.progress = 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   PCB GRID
+===================================================== */
+
+function drawPCBGrid() {
+
+    const spacing =
+        width < 600
+            ? 45
+            : 60;
+
+
+    ctx.fillStyle =
+        "rgba(148,163,184,0.12)";
+
+
+    for (
+        let x = spacing;
+        x < width;
+        x += spacing
+    ) {
+
+        for (
+            let y = spacing;
+            y < height;
+            y += spacing
+        ) {
+
+            ctx.beginPath();
+
+            ctx.arc(
+                x,
+                y,
+                1,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   PCB ANIMATION
+===================================================== */
+
+function animatePCB() {
+
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    drawPCBGrid();
+
+
+    traces.forEach(
+        drawTrace
+    );
+
+
+    chips.forEach(
+        drawChip
+    );
+
+
+    particles.forEach(
+        particle => {
+
+            updateParticle(
+                particle
+            );
+
+            drawParticle(
+                particle
+            );
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        animatePCB
+    );
+
+}
+
+
+/* =====================================================
+   START PCB
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+resizeCanvas();
+
+animatePCB();
 
 
 </script>
 
-
 </body>
 
 </html>
+```
