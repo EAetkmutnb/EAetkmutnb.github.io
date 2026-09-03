@@ -1871,7 +1871,7 @@ footer.reveal {
 
             <p class="hero-desc">
 
-                สร้างทักษะ เพิ่มความเชี่ยวชาญ
+                สร้างทักษะ เพิ่มความเชี่ยวชาญ 
                 ระบบไฟฟ้า ระบบควบคุมอัตโนมัติ 
                 หุ่นยนต์อัจฉริยะ 
                 และพลังงานสีเขียวเพื่อตอบโจทย์ วิศวกรยุคอุตสาหกรรม 4.0
@@ -1905,1069 +1905,402 @@ footer.reveal {
         <div>
 
             <img
-                src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg"
-                alt="KMUTNB Automation Engineering"
-                class="hero-img"
-            >
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     STRENGTHS
-===================================================== -->
-
-<section class="strengths">
-
-
-    <div class="section-header">
-
-        <h2 class="section-title">
-
-            Highlights
-
-        </h2>
-
-        <div class="section-line"></div>
-
-    </div>
-
-
-    <div class="grid-3">
-
-
-        <!-- CARD 1 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                🤖
-            </div>
-
-            <h3 class="card-title">
-
-                Industrial Automation
-
-            </h3>
-
-            <p class="card-desc">
-
-                ควบคุมแขนกลหุ่นยนต์,
-                เขียนระบบ PLC ระดับสูง,
-                ระบบ SCADA และการจำลองระบบ
-                สายการผลิตอัจฉริยะแบบโรงงานของจริง
-
-            </p>
-
-        </div>
-
-
-        <!-- CARD 2 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                ⚡
-            </div>
-
-            <h3 class="card-title">
-
-                Smart Power Systems
-
-            </h3>
-
-            <p class="card-desc">
-
-                ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง,
-                สถานีไฟฟ้าย่อย, ระบบป้องกัน
-                และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ
-                (Smart Grid)
-
-            </p>
-
-        </div>
-
-
-        <!-- CARD 3 -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                💡
-            </div>
-
-            <h3 class="card-title">
-
-                IoT & AI Industry
-
-            </h3>
-
-            <p class="card-desc">
-
-                การประยุกต์ใช้เซนเซอร์ IoT ไร้สาย
-                และปัญญาประดิษฐ์ในการตรวจจับ
-                วิเคราะห์ข้อมูล พยากรณ์
-                เพื่อการบำรุงรักษาเครื่องจักร
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    EAet KMUTNB
-
-    <br>
-
-    Electrical & Automation Engineering Technology
-
-</footer>
-
-
-<script>
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-const menuToggle =
-    document.getElementById(
-        "menuToggle"
-    );
-
-const navMenu =
-    document.getElementById(
-        "navMenu"
-    );
-
-const mobileOverlay =
-    document.getElementById(
-        "mobileOverlay"
-    );
-
-
-function toggleMenu() {
-
-    const isOpen =
-        navMenu.classList.contains(
-            "open"
-        );
-
-    navMenu.classList.toggle(
-        "open"
-    );
-
-    menuToggle.classList.toggle(
-        "active"
-    );
-
-    mobileOverlay.classList.toggle(
-        "active"
-    );
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
-    );
-}
-
-
-menuToggle.addEventListener(
-    "click",
-    toggleMenu
-);
-
-
-mobileOverlay.addEventListener(
-    "click",
-    toggleMenu
-);
-
-
-document
-    .querySelectorAll(
-        ".nav-menu a"
-    )
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                navMenu.classList.remove(
-                    "open"
-                );
-
-                menuToggle.classList.remove(
-                    "active"
-                );
-
-                mobileOverlay.classList.remove(
-                    "active"
-                );
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-            }
-        );
-
-    });
-
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape" &&
-            navMenu.classList.contains("open")
-        ) {
-
-            navMenu.classList.remove(
-                "open"
-            );
-
-            menuToggle.classList.remove(
-                "active"
-            );
-
-            mobileOverlay.classList.remove(
-                "active"
-            );
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg" 
+                alt="KMUTNB Automation Engineering" 
+                class="hero-img" 
+            > 
+ 
+        </div> 
+ 
+    </div> 
+ 
+</header> 
+ 
+ 
+<!-- ===================================================== 
+     STRENGTHS 
+===================================================== --> 
+ 
+<section class="strengths"> 
+ 
+ 
+    <div class="section-header"> 
+ 
+        <h2 class="section-title"> 
+ 
+            Highlights 
+ 
+        </h2> 
+ 
+        <div class="section-line"></div> 
+ 
+    </div> 
+ 
+ 
+    <div class="grid-3"> 
+ 
+ 
+        <!-- CARD 1 --> 
+ 
+        <div class="card"> 
+ 
+            <div class="card-icon"> 
+                🤖 
+            </div> 
+ 
+            <h3 class="card-title"> 
+ 
+                Industrial Automation 
+ 
+            </h3> 
+ 
+            <p class="card-desc"> 
+ 
+                ควบคุมแขนกลหุ่นยนต์, 
+                เขียนระบบ PLC ระดับสูง, 
+                ระบบ SCADA และการจำลองระบบ 
+                สายการผลิตอัจฉริยะแบบโรงงานของจริง 
+ 
+            </p> 
+ 
+        </div> 
+ 
+ 
+        <!-- CARD 2 --> 
+ 
+        <div class="card"> 
+ 
+            <div class="card-icon"> 
+                ⚡ 
+            </div> 
+ 
+            <h3 class="card-title"> 
+ 
+                Smart Power Systems 
+ 
+            </h3> 
+ 
+            <p class="card-desc"> 
+ 
+                ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง, 
+                สถานีไฟฟ้าย่อย, ระบบป้องกัน 
+                และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ 
+                (Smart Grid) 
+ 
+            </p> 
+ 
+        </div> 
+ 
+ 
+        <!-- CARD 3 --> 
+ 
+        <div class="card"> 
+ 
+            <div class="card-icon"> 
+                💡 
+            </div> 
+ 
+            <h3 class="card-title"> 
+ 
+                IoT & AI Industry 
+ 
+            </h3> 
+ 
+            <p class="card-desc"> 
+ 
+                การประยุกต์ใช้เซนเซอร์ IoT ไร้สาย 
+                และปัญญาประดิษฐ์ในการตรวจจับ 
+                วิเคราะห์ข้อมูล พยากรณ์ 
+                เพื่อการบำรุงรักษาเครื่องจักร 
+ 
+            </p> 
+ 
+        </div> 
+ 
+ 
+    </div> 
+ 
+</section> 
+ 
+ 
+<!-- ===================================================== 
+     FOOTER 
+===================================================== --> 
+ 
+<footer> 
+ 
+    EAet KMUTNB 
+ 
+    <br> 
+ 
+    Electrical & Automation Engineering Technology 
+ 
+</footer> 
+ 
+ 
+<script> 
+ 
+ 
+/* ===================================================== 
+   MOBILE MENU 
+===================================================== */ 
+ 
+const menuToggle = 
+    document.getElementById( 
+        "menuToggle" 
+    ); 
+ 
+const navMenu = 
+    document.getElementById( 
+        "navMenu" 
+    ); 
+ 
+const mobileOverlay = 
+    document.getElementById( 
+        "mobileOverlay" 
+    ); 
+ 
+ 
+function toggleMenu() { 
+ 
+    const isOpen = 
+        navMenu.classList.contains( 
+            "open" 
+        ); 
+ 
+    navMenu.classList.toggle( 
+        "open" 
+    ); 
+ 
+    menuToggle.classList.toggle( 
+        "active" 
+    ); 
+ 
+    mobileOverlay.classList.toggle( 
+        "active" 
+    ); 
+ 
+    menuToggle.setAttribute( 
+        "aria-expanded", 
+        String(!isOpen) 
+    ); 
+} 
+ 
+ 
+menuToggle.addEventListener( 
+    "click", 
+    toggleMenu 
+); 
+ 
+ 
+mobileOverlay.addEventListener( 
+    "click", 
+    toggleMenu 
+); 
+ 
+ 
+document 
+    .querySelectorAll( 
+        ".nav-menu a" 
+    ) 
+    .forEach(link => { 
+ 
+        link.addEventListener( 
+            "click", 
+            () => { 
+ 
+                navMenu.classList.remove( 
+                    "open" 
+                ); 
+ 
+                menuToggle.classList.remove( 
+                    "active" 
+                ); 
+ 
+                mobileOverlay.classList.remove( 
+                    "active" 
+                ); 
+ 
+                menuToggle.setAttribute( 
+                    "aria-expanded", 
+                    "false" 
+                ); 
+            } 
+        ); 
+ 
+    }); 
+ 
+ 
+document.addEventListener( 
+    "keydown", 
+    event => { 
+ 
+        if ( 
+            event.key === "Escape" && 
+            navMenu.classList.contains("open") 
+        ) { 
+ 
+            navMenu.classList.remove( 
+                "open" 
+            ); 
+ 
+            menuToggle.classList.remove( 
+                "active" 
+            ); 
+ 
+            mobileOverlay.classList.remove( 
+                "active" 
+            ); 
+ 
+            menuToggle.setAttribute( 
+                "aria-expanded", 
+                "false" 
+            ); 
+        } 
+ 
+    } 
+); 
+ 
+ 
+/* ===================================================== 
+   SCROLL REVEAL ENGINE 
+===================================================== */ 
+ 
+const revealElements = 
+    document.querySelectorAll( 
+        ".section-header, .card, footer" 
+    ); 
+ 
+ 
+const revealObserver = 
+    new IntersectionObserver( 
+ 
+        (entries, observer) => { 
+ 
+            entries.forEach(entry => { 
+ 
+                if ( 
+                    entry.isIntersecting 
+                ) { 
+ 
+                    entry.target.classList.add( 
+                        "reveal" 
+                    ); 
+ 
+                    observer.unobserve( 
+                        entry.target 
+                    ); 
+                } 
+ 
+            }); 
+ 
+        }, 
+ 
+        { 
+            threshold: 0.15, 
+ 
+            rootMargin: "0px 0px -50px 0px"
         }
-
-    }
-);
-
-
-/* =====================================================
-   SCROLL REVEAL ENGINE
-===================================================== */
-
-const revealElements =
-    document.querySelectorAll(
-        ".section-header, .card, footer"
     );
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.classList.add(
-                        "reveal"
-                    );
-
-                    observer.unobserve(
-                        entry.target
-                    );
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.15,
-
-            rootMargin:
-                "0px 0px -60px 0px"
-        }
-
-    );
-
 
 revealElements.forEach(element => {
-
-    revealObserver.observe(
-        element
-    );
-
+    revealObserver.observe(element);
 });
 
 
 /* =====================================================
-   HERO MOUSE PARALLAX
+   DYNAMIC MULTI-THEME BACKGROUND ENGINE (CANVAS)
+   Electronics -> Robot & IoT -> High-Volt & Energy (Loop)
 ===================================================== */
 
-const heroContainer =
-    document.getElementById(
-        "heroContainer"
-    );
+const canvas = document.getElementById("circuit-bg");
+const ctx = canvas.getContext("2d");
 
-
-let mouseX = 0;
-let mouseY = 0;
-
-let currentX = 0;
-let currentY = 0;
-
-
-if (
-    window.matchMedia(
-        "(pointer: fine)"
-    ).matches
-) {
-
-    heroContainer.classList.add(
-        "parallax-active"
-    );
-
-
-    document.addEventListener(
-        "mousemove",
-        event => {
-
-            const x =
-                (event.clientX /
-                window.innerWidth) -
-                0.5;
-
-            const y =
-                (event.clientY /
-                window.innerHeight) -
-                0.5;
-
-
-            mouseX =
-                x * 12;
-
-            mouseY =
-                y * 8;
-
-        }
-    );
-
-
-    function animateParallax() {
-
-        currentX +=
-            (mouseX - currentX)
-            * 0.06;
-
-        currentY +=
-            (mouseY - currentY)
-            * 0.06;
-
-
-        heroContainer.style.setProperty(
-            "--move-x",
-            `${currentX}px`
-        );
-
-        heroContainer.style.setProperty(
-            "--move-y",
-            `${currentY}px`
-        );
-
-
-        requestAnimationFrame(
-            animateParallax
-        );
-    }
-
-
-    animateParallax();
-
-}
-
-
-/* =====================================================
-   PCB CANVAS
-===================================================== */
-
-const canvas =
-    document.getElementById(
-        "circuit-bg"
-    );
-
-const ctx =
-    canvas.getContext(
-        "2d"
-    );
-
-
-let width;
-let height;
-
-let traces = [];
-let chips = [];
-let particles = [];
-
-
-/* =====================================================
-   RESIZE
-===================================================== */
-
+let width, height;
 function resizeCanvas() {
-
-    const ratio =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
-
-
-    width =
-        window.innerWidth;
-
-    height =
-        window.innerHeight;
-
-
-    canvas.width =
-        width * ratio;
-
-    canvas.height =
-        height * ratio;
-
-
-    canvas.style.width =
-        width + "px";
-
-    canvas.style.height =
-        height + "px";
-
-
-    ctx.setTransform(
-        ratio,
-        0,
-        0,
-        ratio,
-        0,
-        0
-    );
-
-
-    createPCB();
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
 }
-
-
-/* =====================================================
-   CREATE PCB
-===================================================== */
-
-function createPCB() {
-
-    traces = [];
-    chips = [];
-    particles = [];
-
-
-    const mobile =
-        width < 600;
-
-
-    const traceCount =
-        mobile
-            ? 18
-            : 38;
-
-
-    const chipCount =
-        mobile
-            ? 4
-            : 8;
-
-
-    /* TRACE */
-
-    for (
-        let i = 0;
-        i < traceCount;
-        i++
-    ) {
-
-        const x =
-            Math.random() *
-            width;
-
-
-        const y =
-            Math.random() *
-            height;
-
-
-        const direction =
-            Math.random() > 0.5
-                ? "horizontal"
-                : "vertical";
-
-
-        const length =
-            100 +
-            Math.random() * 300;
-
-
-        const color =
-            Math.random() > 0.45
-                ? "orange"
-                : "cyan";
-
-
-        traces.push({
-
-            x,
-            y,
-
-            length,
-
-            direction,
-
-            color,
-
-            offset:
-                Math.random() * 100
-        });
-
-
-        particles.push({
-
-            x,
-            y,
-
-            progress:
-                Math.random(),
-
-            speed:
-                0.0008 +
-                Math.random() *
-                0.0015,
-
-            direction,
-
-            length,
-
-            color
-        });
-
-    }
-
-
-    /* IC CHIPS */
-
-    for (
-        let i = 0;
-        i < chipCount;
-        i++
-    ) {
-
-        chips.push({
-
-            x:
-                50 +
-                Math.random() *
-                (width - 100),
-
-            y:
-                50 +
-                Math.random() *
-                (height - 100),
-
-            w:
-                45 +
-                Math.random() * 35,
-
-            h:
-                28 +
-                Math.random() * 20
-        });
-
-    }
-
-}
-
-
-/* =====================================================
-   DRAW PCB TRACE
-===================================================== */
-
-function drawTrace(trace) {
-
-    ctx.beginPath();
-
-
-    if (
-        trace.direction ===
-        "horizontal"
-    ) {
-
-        ctx.moveTo(
-            trace.x,
-            trace.y
-        );
-
-        ctx.lineTo(
-            trace.x +
-            trace.length * 0.45,
-            trace.y
-        );
-
-        ctx.lineTo(
-            trace.x +
-            trace.length * 0.55,
-            trace.y + 25
-        );
-
-        ctx.lineTo(
-            trace.x +
-            trace.length,
-            trace.y + 25
-        );
-
-    } else {
-
-        ctx.moveTo(
-            trace.x,
-            trace.y
-        );
-
-        ctx.lineTo(
-            trace.x,
-            trace.y +
-            trace.length * 0.45
-        );
-
-        ctx.lineTo(
-            trace.x + 25,
-            trace.y +
-            trace.length * 0.55
-        );
-
-        ctx.lineTo(
-            trace.x + 25,
-            trace.y +
-            trace.length
-        );
-
-    }
-
-
-    ctx.strokeStyle =
-        trace.color === "orange"
-
-            ? "rgba(255,107,0,0.28)"
-
-            : "rgba(0,229,255,0.20)";
-
-
-    ctx.lineWidth = 1.5;
-
-    ctx.stroke();
-
-
-    /* SOLDER */
-
-    ctx.beginPath();
-
-
-    ctx.fillStyle =
-        trace.color === "orange"
-
-            ? "rgba(255,107,0,0.55)"
-
-            : "rgba(0,229,255,0.45)";
-
-
-    if (
-        trace.direction ===
-        "horizontal"
-    ) {
-
-        ctx.arc(
-            trace.x,
-            trace.y,
-            2.5,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.arc(
-            trace.x +
-            trace.length,
-            trace.y + 25,
-            2.5,
-            0,
-            Math.PI * 2
-        );
-
-    } else {
-
-        ctx.arc(
-            trace.x,
-            trace.y,
-            2.5,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.arc(
-            trace.x + 25,
-            trace.y +
-            trace.length,
-            2.5,
-            0,
-            Math.PI * 2
-        );
-
-    }
-
-
-    ctx.fill();
-
-}
-
-
-/* =====================================================
-   DRAW CHIP
-===================================================== */
-
-function drawChip(chip) {
-
-    ctx.fillStyle =
-        "rgba(10,13,18,0.85)";
-
-
-    ctx.strokeStyle =
-        "rgba(148,163,184,0.18)";
-
-
-    ctx.lineWidth = 1;
-
-
-    ctx.beginPath();
-
-
-    ctx.roundRect(
-        chip.x,
-        chip.y,
-        chip.w,
-        chip.h,
-        4
-    );
-
-
-    ctx.fill();
-
-    ctx.stroke();
-
-
-    /* CENTER */
-
-    ctx.fillStyle =
-        "rgba(255,107,0,0.35)";
-
-
-    ctx.fillRect(
-
-        chip.x +
-        chip.w * 0.35,
-
-        chip.y +
-        chip.h * 0.30,
-
-        chip.w * 0.30,
-
-        chip.h * 0.40
-
-    );
-
-
-    /* PINS */
-
-    ctx.strokeStyle =
-        "rgba(148,163,184,0.28)";
-
-
-    for (
-        let i = 0;
-        i < 5;
-        i++
-    ) {
-
-        const py =
-            chip.y +
-            5 +
-            i *
-            (
-                (chip.h - 10)
-                / 4
-            );
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            chip.x - 7,
-            py
-        );
-
-        ctx.lineTo(
-            chip.x,
-            py
-        );
-
-        ctx.stroke();
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            chip.x +
-            chip.w,
-            py
-        );
-
-        ctx.lineTo(
-            chip.x +
-            chip.w + 7,
-            py
-        );
-
-        ctx.stroke();
-
-    }
-
-}
-
-
-/* =====================================================
-   PARTICLE
-===================================================== */
-
-function drawParticle(
-    particle
-) {
-
-    let px;
-    let py;
-
-
-    if (
-        particle.direction ===
-        "horizontal"
-    ) {
-
-        px =
-            particle.x +
-            particle.length *
-            particle.progress;
-
-        py =
-            particle.y;
-
-    } else {
-
-        px =
-            particle.x;
-
-        py =
-            particle.y +
-            particle.length *
-            particle.progress;
-
-    }
-
-
-    ctx.beginPath();
-
-
-    ctx.fillStyle =
-        particle.color === "orange"
-            ? "#FF6B00"
-            : "#00E5FF";
-
-
-    ctx.shadowColor =
-        ctx.fillStyle;
-
-
-    ctx.shadowBlur = 12;
-
-
-    ctx.arc(
-        px,
-        py,
-        2.2,
-        0,
-        Math.PI * 2
-    );
-
-
-    ctx.fill();
-
-
-    ctx.shadowBlur = 0;
-
-}
-
-
-/* =====================================================
-   UPDATE PARTICLE
-===================================================== */
-
-function updateParticle(
-    particle
-) {
-
-    particle.progress +=
-        particle.speed;
-
-
-    if (
-        particle.progress > 1
-    ) {
-
-        particle.progress = 0;
-
-    }
-
-}
-
-
-/* =====================================================
-   PCB GRID
-===================================================== */
-
-function drawPCBGrid() {
-
-    const spacing =
-        width < 600
-            ? 45
-            : 60;
-
-
-    ctx.fillStyle =
-        "rgba(148,163,184,0.12)";
-
-
-    for (
-        let x = spacing;
-        x < width;
-        x += spacing
-    ) {
-
-        for (
-            let y = spacing;
-            y < height;
-            y += spacing
-        ) {
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                1,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-
-    }
-
-}
-
-
-/* =====================================================
-   PCB ANIMATION
-===================================================== */
-
-function animatePCB() {
-
-    ctx.clearRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    drawPCBGrid();
-
-
-    traces.forEach(
-        drawTrace
-    );
-
-
-    chips.forEach(
-        drawChip
-    );
-
-
-    particles.forEach(
-        particle => {
-
-            updateParticle(
-                particle
-            );
-
-            drawParticle(
-                particle
-            );
-
-        }
-    );
-
-
-    requestAnimationFrame(
-        animatePCB
-    );
-
-}
-
-
-/* =====================================================
-   START PCB
-===================================================== */
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-
+window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
-animatePCB();
+const THEMES = [
+    { name: 'electronics', primary: '#FF6B00', secondary: '#FFD600', particleType: 'circuit' },
+    { name: 'robotics', primary: '#00E5FF', secondary: '#00FF66', particleType: 'network' },
+    { name: 'highvolt', primary: '#A855F7', secondary: '#3B82F6', particleType: 'lightning' }
+];
 
+let currentThemeIdx = 0;
+const SWITCH_INTERVAL = 6000;
 
-</script>
+setInterval(() => {
+    currentThemeIdx = (currentThemeIdx + 1) % THEMES.length;
+}, SWITCH_INTERVAL);
 
-</body>
+const particles = Array.from({ length: 65 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 1.2,
+    vy: (Math.random() - 0.5) * 1.2,
+    size: Math.random() * 3 + 1
+}));
 
+function drawBackground() {
+    ctx.clearRect(0, 0, width, height);
+
+    const theme = THEMES[currentThemeIdx];
+    ctx.strokeStyle = theme.primary;
+    ctx.fillStyle = theme.secondary;
+
+    for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+            let p2 = particles[j];
+            let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+            if (dist < 130) {
+                ctx.beginPath();
+                ctx.lineWidth = (1 - dist / 130) * 1.2;
+                ctx.globalAlpha = (1 - dist / 130) * 0.45;
+                
+                if (theme.particleType === 'circuit') {
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p.x, p2.y);
+                    ctx.lineTo(p2.x, p2.y);
+                } else if (theme.particleType === 'network') {
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                } else if (theme.particleType === 'lightning') {
+                    let midX = (p.x + p2.x) / 2 + (Math.random() - 0.5) * 6;
+                    let midY = (p.y + p2.y) / 2 + (Math.random() - 0.5) * 6;
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(midX, midY);
+                    ctx.lineTo(p2.x, p2.y);
+                }
+                
+                ctx.stroke();
+                ctx.globalAlpha = 1.0;
+            }
+        }
+    }
+
+    requestAnimationFrame(drawBackground);
+}
+
+drawBackground();
+
+</script> 
+</body> 
 </html>
+
 ```
