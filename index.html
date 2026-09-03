@@ -824,14 +824,14 @@ body::after {
    CARDS
 ===================================================== */
 
-.grid-3 {
+.grid-4 {
 
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(4,1fr);
 
-    gap: 30px;
+    gap: 22px;
 }
 
 
@@ -845,7 +845,7 @@ body::after {
         );
 
     padding:
-        30px;
+        28px 24px;
 
     border-radius: 15px;
 
@@ -926,7 +926,7 @@ body::after {
 
 .card-title {
 
-    font-size: 20px;
+    font-size: 19px;
 
     font-weight: 700;
 
@@ -940,7 +940,7 @@ body::after {
 
     color: #94A3B8;
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.8;
 }
@@ -1163,11 +1163,16 @@ footer.reveal {
 }
 
 
+.card:nth-child(4).reveal {
+    transition-delay: 0.35s;
+}
+
+
 /* =====================================================
    TABLET
 ===================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .nav-menu {
         gap: 18px;
@@ -1183,6 +1188,14 @@ footer.reveal {
             9px 14px;
 
         font-size: 12px;
+    }
+
+
+    .grid-4 {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
     }
 
 }
@@ -1327,7 +1340,6 @@ footer.reveal {
     .hero-desc {
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
@@ -1339,7 +1351,7 @@ footer.reveal {
     }
 
 
-    .grid-3 {
+    .grid-4 {
 
         grid-template-columns:
             1fr;
@@ -1657,6 +1669,7 @@ footer.reveal {
                 สร้างทักษะ เพิ่มความเชี่ยวชาญ
                 ระบบไฟฟ้า ระบบควบคุมอัตโนมัติ
                 หุ่นยนต์อัจฉริยะ
+                Embedded System
                 และพลังงานสีเขียวเพื่อตอบโจทย์
                 วิศวกรยุคอุตสาหกรรม 4.0
 
@@ -1712,7 +1725,7 @@ footer.reveal {
 
         <h2 class="section-title">
 
-            Highlights
+            Engineering Highlights
 
         </h2>
 
@@ -1721,8 +1734,10 @@ footer.reveal {
     </div>
 
 
-    <div class="grid-3">
+    <div class="grid-4">
 
+
+        <!-- INDUSTRIAL AUTOMATION -->
 
         <div class="card">
 
@@ -1738,8 +1753,8 @@ footer.reveal {
 
             <p class="card-desc">
 
-                ควบคุมแขนกลหุ่นยนต์,
-                เขียนระบบ PLC ระดับสูง,
+                ควบคุมแขนกลหุ่นยนต์
+                เขียนระบบ PLC ระดับสูง
                 ระบบ SCADA และการจำลองระบบ
                 สายการผลิตอัจฉริยะแบบโรงงานของจริง
 
@@ -1747,6 +1762,8 @@ footer.reveal {
 
         </div>
 
+
+        <!-- SMART POWER -->
 
         <div class="card">
 
@@ -1762,8 +1779,8 @@ footer.reveal {
 
             <p class="card-desc">
 
-                ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง,
-                สถานีไฟฟ้าย่อย, ระบบป้องกัน
+                ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง
+                สถานีไฟฟ้าย่อย ระบบป้องกัน
                 และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ
                 (Smart Grid)
 
@@ -1772,24 +1789,52 @@ footer.reveal {
         </div>
 
 
+        <!-- EMBEDDED SYSTEM -->
+
         <div class="card">
 
             <div class="card-icon">
-                💡
+                🧠
             </div>
 
             <h3 class="card-title">
 
-                IoT & AI Industry
+                Embedded Systems
 
             </h3>
 
             <p class="card-desc">
 
-                การประยุกต์ใช้เซนเซอร์ IoT ไร้สาย
-                และปัญญาประดิษฐ์ในการตรวจจับ
-                วิเคราะห์ข้อมูล พยากรณ์
-                เพื่อการบำรุงรักษาเครื่องจักร
+                พัฒนา Microcontroller
+                ระบบควบคุมแบบ Embedded
+                การเชื่อมต่อ Sensor / Actuator
+                และระบบ IoT สำหรับอุตสาหกรรม
+
+            </p>
+
+        </div>
+
+
+        <!-- ARM ROBOT + AI -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🦾
+            </div>
+
+            <h3 class="card-title">
+
+                Robotics & AI
+
+            </h3>
+
+            <p class="card-desc">
+
+                ออกแบบและควบคุม
+                Robotic Arm ระบบ Machine Vision
+                AI และระบบอัตโนมัติ
+                สำหรับสายการผลิตยุคใหม่
 
             </p>
 
@@ -1996,7 +2041,7 @@ revealElements.forEach(
 
 
 /* =====================================================
-   ADVANCED ENGINEERING BACKGROUND
+   ENGINEERING CANVAS
 ===================================================== */
 
 const canvas =
@@ -2064,7 +2109,6 @@ window.addEventListener(
     resizeCanvas
 );
 
-
 resizeCanvas();
 
 
@@ -2075,7 +2119,6 @@ resizeCanvas();
 const THEMES = [
 
     {
-
         name: "electronics",
 
         primary: "#FF6B00",
@@ -2083,11 +2126,10 @@ const THEMES = [
         secondary: "#FFD600",
 
         accent: "#00E5FF"
-
     },
 
-    {
 
+    {
         name: "robotics",
 
         primary: "#00E5FF",
@@ -2095,11 +2137,21 @@ const THEMES = [
         secondary: "#00FF66",
 
         accent: "#8B5CF6"
-
     },
 
-    {
 
+    {
+        name: "embedded",
+
+        primary: "#00FF9C",
+
+        secondary: "#00E5FF",
+
+        accent: "#7C3AED"
+    },
+
+
+    {
         name: "highvolt",
 
         primary: "#A855F7",
@@ -2107,7 +2159,6 @@ const THEMES = [
         secondary: "#3B82F6",
 
         accent: "#00E5FF"
-
     }
 
 ];
@@ -2254,7 +2305,7 @@ function rgba(
 
 
 /* =====================================================
-   GRID
+   ENGINEERING GRID
 ===================================================== */
 
 function drawEngineeringGrid(
@@ -2265,9 +2316,7 @@ function drawEngineeringGrid(
 
     ctx.lineWidth = 1;
 
-
     const gridSize = 70;
-
 
     ctx.strokeStyle =
         rgba(
@@ -2321,31 +2370,38 @@ function drawEngineeringGrid(
 
     }
 
-
     ctx.restore();
 
 }
 
 
 /* =====================================================
-   GLOW LINE
+   GLOW POLYLINE
 ===================================================== */
 
-function glowLine(
+function drawGlowPath(
     points,
     color,
-    width = 2,
-    glow = 12
+    width = 1.5,
+    glow = 10,
+    alpha = 0.3
 ) {
 
     if (
         points.length < 2
-    )
-        return;
+    ) return;
 
 
     ctx.save();
 
+    ctx.strokeStyle =
+        rgba(
+            color,
+            alpha
+        );
+
+    ctx.lineWidth =
+        width;
 
     ctx.shadowColor =
         color;
@@ -2353,15 +2409,7 @@ function glowLine(
     ctx.shadowBlur =
         glow;
 
-    ctx.strokeStyle =
-        color;
-
-    ctx.lineWidth =
-        width;
-
-
     ctx.beginPath();
-
 
     ctx.moveTo(
         points[0].x,
@@ -2391,35 +2439,299 @@ function glowLine(
 
 
 /* =====================================================
+   MOVING CIRCUIT TRACE
+   ไม่มีจุดวิ่ง
+   ใช้เส้นแสงวิ่งตามวงจรแทน
+===================================================== */
+
+function drawMovingTrace(
+    points,
+    color,
+    time,
+    speed,
+    offset
+) {
+
+    if (
+        points.length < 2
+    ) return;
+
+
+    const lengths = [];
+
+    let totalLength = 0;
+
+
+    for (
+        let i = 1;
+        i < points.length;
+        i++
+    ) {
+
+        const dx =
+            points[i].x -
+            points[i - 1].x;
+
+        const dy =
+            points[i].y -
+            points[i - 1].y;
+
+        const length =
+            Math.hypot(
+                dx,
+                dy
+            );
+
+        lengths.push(
+            length
+        );
+
+        totalLength +=
+            length;
+
+    }
+
+
+    if (
+        totalLength <= 0
+    ) return;
+
+
+    const progress =
+        (
+            time *
+            speed +
+            offset
+        ) % 1;
+
+
+    const center =
+        progress *
+        totalLength;
+
+
+    const segmentLength =
+        Math.min(
+            150,
+            totalLength * 0.32
+        );
+
+
+    let startDistance =
+        center -
+        segmentLength / 2;
+
+
+    let endDistance =
+        center +
+        segmentLength / 2;
+
+
+    if (
+        startDistance < 0
+    ) {
+
+        startDistance = 0;
+
+    }
+
+
+    if (
+        endDistance > totalLength
+    ) {
+
+        endDistance =
+            totalLength;
+
+    }
+
+
+    const tracePoints = [];
+
+
+    let accumulated = 0;
+
+
+    for (
+        let i = 0;
+        i < lengths.length;
+        i++
+    ) {
+
+        const p1 =
+            points[i];
+
+        const p2 =
+            points[i + 1];
+
+        const segStart =
+            accumulated;
+
+        const segEnd =
+            accumulated +
+            lengths[i];
+
+
+        if (
+            segEnd >= startDistance &&
+            segStart <= endDistance
+        ) {
+
+            const localStart =
+                Math.max(
+                    startDistance,
+                    segStart
+                );
+
+            const localEnd =
+                Math.min(
+                    endDistance,
+                    segEnd
+                );
+
+
+            const t1 =
+                (
+                    localStart -
+                    segStart
+                ) /
+                lengths[i];
+
+
+            const t2 =
+                (
+                    localEnd -
+                    segStart
+                ) /
+                lengths[i];
+
+
+            if (
+                tracePoints.length === 0
+            ) {
+
+                tracePoints.push({
+
+                    x:
+                        p1.x +
+                        (
+                            p2.x -
+                            p1.x
+                        ) * t1,
+
+                    y:
+                        p1.y +
+                        (
+                            p2.y -
+                            p1.y
+                        ) * t1
+
+                });
+
+            }
+
+
+            tracePoints.push({
+
+                x:
+                    p1.x +
+                    (
+                        p2.x -
+                        p1.x
+                    ) * t2,
+
+                y:
+                    p1.y +
+                    (
+                        p2.y -
+                        p1.y
+                    ) * t2
+
+            });
+
+        }
+
+
+        accumulated =
+            segEnd;
+
+    }
+
+
+    if (
+        tracePoints.length < 2
+    ) return;
+
+
+    /* เส้นแสงที่เคลื่อนที่ */
+
+    ctx.save();
+
+    ctx.strokeStyle =
+        color;
+
+    ctx.lineWidth =
+        3;
+
+    ctx.shadowColor =
+        color;
+
+    ctx.shadowBlur =
+        22;
+
+    ctx.lineCap =
+        "round";
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        tracePoints[0].x,
+        tracePoints[0].y
+    );
+
+
+    for (
+        let i = 1;
+        i < tracePoints.length;
+        i++
+    ) {
+
+        ctx.lineTo(
+            tracePoints[i].x,
+            tracePoints[i].y
+        );
+
+    }
+
+
+    ctx.stroke();
+
+    ctx.restore();
+
+}
+
+
+/* =====================================================
    PCB DATA
 ===================================================== */
 
 const pcbTracks = [];
-
-const pcbNodes = [];
-
-const pcbICs = [];
 
 
 function createPCB() {
 
     pcbTracks.length = 0;
 
-    pcbNodes.length = 0;
-
-    pcbICs.length = 0;
-
-
-    /* PCB TRACKS */
 
     for (
         let i = 0;
-        i < 20;
+        i < 24;
         i++
     ) {
 
         const y =
-            Math.random() * H;
+            Math.random() *
+            H;
 
 
         const startX =
@@ -2431,7 +2743,7 @@ function createPCB() {
         const length =
             180 +
             Math.random() *
-            500;
+            550;
 
 
         const direction =
@@ -2444,23 +2756,41 @@ function createPCB() {
 
             {
                 x: startX,
-                y
+                y: y
             },
 
             {
                 x:
                     startX +
-                    length * 0.30,
-                y
+                    length * 0.22,
+                y: y
             },
 
             {
                 x:
                     startX +
-                    length * 0.30,
+                    length * 0.22,
                 y:
                     y +
-                    direction * 55
+                    direction * 45
+            },
+
+            {
+                x:
+                    startX +
+                    length * 0.55,
+                y:
+                    y +
+                    direction * 45
+            },
+
+            {
+                x:
+                    startX +
+                    length * 0.55,
+                y:
+                    y +
+                    direction * 85
             },
 
             {
@@ -2469,7 +2799,7 @@ function createPCB() {
                     length,
                 y:
                     y +
-                    direction * 55
+                    direction * 85
             }
 
         ];
@@ -2477,85 +2807,15 @@ function createPCB() {
 
         pcbTracks.push({
 
-            points,
+            points: points,
 
             speed:
-                0.0004 +
+                0.00035 +
                 Math.random() *
-                0.0008,
+                0.0005,
 
             offset:
                 Math.random()
-
-        });
-
-    }
-
-
-    /* NODES */
-
-    for (
-        let i = 0;
-        i < 40;
-        i++
-    ) {
-
-        pcbNodes.push({
-
-            x:
-                Math.random() * W,
-
-            y:
-                Math.random() * H,
-
-            radius:
-                2 +
-                Math.random() * 2.5,
-
-            phase:
-                Math.random() *
-                Math.PI * 2
-
-        });
-
-    }
-
-
-    /* IC */
-
-    for (
-        let i = 0;
-        i < 8;
-        i++
-    ) {
-
-        pcbICs.push({
-
-            x:
-                60 +
-                Math.random() *
-                Math.max(
-                    100,
-                    W - 180
-                ),
-
-            y:
-                80 +
-                Math.random() *
-                Math.max(
-                    100,
-                    H - 160
-                ),
-
-            width:
-                55 +
-                Math.random() *
-                55,
-
-            height:
-                35 +
-                Math.random() *
-                30
 
         });
 
@@ -2579,266 +2839,273 @@ function drawPCB(
     ctx.save();
 
 
-    /* TRACKS */
-
     pcbTracks.forEach(
-        track => {
+        (track, index) => {
 
-            glowLine(
+            /* BASE CIRCUIT */
+
+            drawGlowPath(
+
                 track.points,
 
-                rgba(
-                    theme.primary,
-                    0.22
-                ),
+                theme.primary,
 
-                1.5,
+                1.3,
 
-                9
+                8,
+
+                0.22
+
             );
 
 
-            const first =
-                track.points[0];
-
-            const last =
-                track.points[
-                    track.points.length - 1
-                ];
-
-
-            const progress =
-                (
-                    time *
-                    track.speed +
-                    track.offset
-                ) % 1;
-
-
-            const px =
-                first.x +
-                (
-                    last.x -
-                    first.x
-                ) *
-                progress;
-
-
-            const py =
-                first.y +
-                (
-                    last.y -
-                    first.y
-                ) *
-                progress;
-
-
-            ctx.save();
-
-
-            ctx.shadowColor =
-                theme.secondary;
-
-            ctx.shadowBlur =
-                22;
-
-            ctx.fillStyle =
-                theme.secondary;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                px,
-                py,
-                3.5,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    /* NODES */
-
-    pcbNodes.forEach(
-        node => {
-
-            const pulse =
-                (
-                    Math.sin(
-                        time * 0.0025 +
-                        node.phase
-                    ) + 1
-                ) / 2;
-
-
-            ctx.save();
-
-
-            ctx.shadowColor =
-                theme.primary;
-
-            ctx.shadowBlur =
-                8 +
-                pulse * 16;
-
-            ctx.fillStyle =
-                theme.primary;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                node.x,
-                node.y,
-                node.radius +
-                pulse * 1.4,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    /* IC CHIPS */
-
-    pcbICs.forEach(
-        chip => {
-
-            ctx.save();
-
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.accent,
-                    0.30
-                );
-
-
-            ctx.fillStyle =
-                "rgba(4,7,11,0.82)";
-
-
-            ctx.lineWidth =
-                1.2;
-
-
-            ctx.shadowColor =
-                theme.accent;
-
-            ctx.shadowBlur =
-                10;
-
-
-            ctx.beginPath();
-
+            /* SECONDARY INNER TRACE */
 
             if (
-                ctx.roundRect
+                index % 3 === 0
             ) {
 
-                ctx.roundRect(
-                    chip.x,
-                    chip.y,
-                    chip.width,
-                    chip.height,
-                    5
-                );
+                drawGlowPath(
 
-            } else {
+                    track.points,
 
-                ctx.rect(
-                    chip.x,
-                    chip.y,
-                    chip.width,
-                    chip.height
+                    theme.accent,
+
+                    0.7,
+
+                    5,
+
+                    0.12
+
                 );
 
             }
 
+
+            /* MOVING LIGHT TRACE */
+
+            drawMovingTrace(
+
+                track.points,
+
+                theme.secondary,
+
+                time,
+
+                track.speed,
+
+                track.offset
+
+            );
+
+        }
+    );
+
+
+    /* STATIC PCB CONNECTION PADS */
+
+    for (
+        let i = 0;
+        i < 38;
+        i++
+    ) {
+
+        const x =
+            (
+                i * 137
+            ) %
+            Math.max(
+                W,
+                800
+            );
+
+        const y =
+            (
+                i * 83
+            ) %
+            Math.max(
+                H,
+                600
+            );
+
+
+        ctx.save();
+
+        ctx.fillStyle =
+            rgba(
+                theme.primary,
+                0.45
+            );
+
+        ctx.strokeStyle =
+            rgba(
+                theme.primary,
+                0.5
+            );
+
+        ctx.lineWidth = 1;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            2.5,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+        ctx.stroke();
+
+        ctx.restore();
+
+    }
+
+
+    /* IC CHIPS */
+
+    for (
+        let i = 0;
+        i < 7;
+        i++
+    ) {
+
+        const chipX =
+            60 +
+            (
+                i * 173
+            ) %
+            Math.max(
+                200,
+                W - 180
+            );
+
+
+        const chipY =
+            100 +
+            (
+                i * 113
+            ) %
+            Math.max(
+                150,
+                H - 180
+            );
+
+
+        const width =
+            65 +
+            (
+                i % 3
+            ) * 15;
+
+
+        const height =
+            38;
+
+
+        ctx.save();
+
+
+        ctx.fillStyle =
+            "rgba(4,7,11,0.85)";
+
+
+        ctx.strokeStyle =
+            rgba(
+                theme.accent,
+                0.30
+            );
+
+
+        ctx.shadowColor =
+            theme.accent;
+
+        ctx.shadowBlur = 10;
+
+        ctx.lineWidth = 1.2;
+
+
+        if (
+            ctx.roundRect
+        ) {
+
+            ctx.beginPath();
+
+            ctx.roundRect(
+                chipX,
+                chipY,
+                width,
+                height,
+                5
+            );
 
             ctx.fill();
 
             ctx.stroke();
 
-
-            /* PINS */
-
-            for (
-                let p = 0;
-                p < 5;
-                p++
-            ) {
-
-                const py =
-                    chip.y +
-                    6 +
-                    p *
-                    (
-                        chip.height -
-                        12
-                    ) / 4;
+        }
 
 
-                ctx.strokeStyle =
-                    rgba(
-                        theme.primary,
-                        0.50
-                    );
+        /* CHIP PINS */
+
+        for (
+            let p = 0;
+            p < 4;
+            p++
+        ) {
+
+            const py =
+                chipY +
+                6 +
+                p *
+                8;
 
 
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    chip.x - 14,
-                    py
+            ctx.strokeStyle =
+                rgba(
+                    theme.primary,
+                    0.55
                 );
 
-                ctx.lineTo(
-                    chip.x,
-                    py
-                );
 
-                ctx.stroke();
+            ctx.beginPath();
 
+            ctx.moveTo(
+                chipX - 12,
+                py
+            );
 
-                ctx.beginPath();
+            ctx.lineTo(
+                chipX,
+                py
+            );
 
-                ctx.moveTo(
-                    chip.x +
-                    chip.width,
-                    py
-                );
-
-                ctx.lineTo(
-                    chip.x +
-                    chip.width +
-                    14,
-                    py
-                );
-
-                ctx.stroke();
-
-            }
+            ctx.stroke();
 
 
-            ctx.restore();
+            ctx.beginPath();
+
+            ctx.moveTo(
+                chipX + width,
+                py
+            );
+
+            ctx.lineTo(
+                chipX + width + 12,
+                py
+            );
+
+            ctx.stroke();
 
         }
-    );
+
+
+        ctx.restore();
+
+    }
 
 
     ctx.restore();
@@ -2847,87 +3114,13 @@ function drawPCB(
 
 
 /* =====================================================
-   ROBOT / IoT NETWORK
+   ROBOTICS
+   ไม่มีจุดวิ่ง
+   ไม่มี DATA PACKET
+   ใช้เส้นโครงข่าย + ARM ROBOT
 ===================================================== */
 
-const robotNodes = [];
-
-const dataPackets = [];
-
-
-function createRobotNetwork() {
-
-    robotNodes.length = 0;
-
-    dataPackets.length = 0;
-
-
-    for (
-        let i = 0;
-        i < 30;
-        i++
-    ) {
-
-        robotNodes.push({
-
-            x:
-                Math.random() * W,
-
-            y:
-                Math.random() * H,
-
-            phase:
-                Math.random() *
-                Math.PI * 2
-
-        });
-
-    }
-
-
-    for (
-        let i = 0;
-        i < 14;
-        i++
-    ) {
-
-        dataPackets.push({
-
-            a:
-                Math.floor(
-                    Math.random() *
-                    robotNodes.length
-                ),
-
-            b:
-                Math.floor(
-                    Math.random() *
-                    robotNodes.length
-                ),
-
-            progress:
-                Math.random(),
-
-            speed:
-                0.0005 +
-                Math.random() *
-                0.0007
-
-        });
-
-    }
-
-}
-
-
-createRobotNetwork();
-
-
-/* =====================================================
-   DRAW ROBOT NETWORK
-===================================================== */
-
-function drawRobotNetwork(
+function drawRobotics(
     theme,
     time
 ) {
@@ -2935,115 +3128,151 @@ function drawRobotNetwork(
     ctx.save();
 
 
-    /* CONNECTIONS */
+    /* -------------------------------------------------
+       INDUSTRIAL NETWORK LINES
+    ------------------------------------------------- */
 
-    for (
-        let i = 0;
-        i < robotNodes.length;
-        i++
-    ) {
+    const nodes = [
 
-        for (
-            let j = i + 1;
-            j < robotNodes.length;
-            j++
-        ) {
+        {
+            x: W * 0.14,
+            y: H * 0.25
+        },
 
-            const a =
-                robotNodes[i];
+        {
+            x: W * 0.30,
+            y: H * 0.18
+        },
 
-            const b =
-                robotNodes[j];
+        {
+            x: W * 0.47,
+            y: H * 0.30
+        },
 
+        {
+            x: W * 0.70,
+            y: H * 0.20
+        },
 
-            const distance =
-                Math.hypot(
-                    a.x - b.x,
-                    a.y - b.y
-                );
+        {
+            x: W * 0.85,
+            y: H * 0.35
+        },
 
+        {
+            x: W * 0.22,
+            y: H * 0.62
+        },
 
-            if (
-                distance < 190
-            ) {
+        {
+            x: W * 0.48,
+            y: H * 0.70
+        },
 
-                ctx.strokeStyle =
-                    rgba(
-                        theme.primary,
-                        0.12 *
-                        (
-                            1 -
-                            distance / 190
-                        )
-                    );
-
-
-                ctx.lineWidth =
-                    1;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    a.x,
-                    a.y
-                );
-
-                ctx.lineTo(
-                    b.x,
-                    b.y
-                );
-
-                ctx.stroke();
-
-            }
-
+        {
+            x: W * 0.76,
+            y: H * 0.65
         }
 
-    }
+    ];
 
 
-    /* NODES */
+    const connections = [
 
-    robotNodes.forEach(
+        [0,1],
+        [1,2],
+        [2,3],
+        [3,4],
+        [0,5],
+        [5,6],
+        [6,7],
+        [2,6],
+        [3,7]
+
+    ];
+
+
+    connections.forEach(
+        connection => {
+
+            const a =
+                nodes[
+                    connection[0]
+                ];
+
+            const b =
+                nodes[
+                    connection[1]
+                ];
+
+
+            drawGlowPath(
+
+                [
+                    a,
+                    {
+                        x:
+                            (
+                                a.x +
+                                b.x
+                            ) / 2,
+                        y:
+                            a.y
+                    },
+                    {
+                        x:
+                            (
+                                a.x +
+                                b.x
+                            ) / 2,
+                        y:
+                            b.y
+                    },
+                    b
+                ],
+
+                theme.primary,
+
+                1.4,
+
+                9,
+
+                0.20
+
+            );
+
+        }
+    );
+
+
+    /* -------------------------------------------------
+       STATIC NETWORK TERMINALS
+    ------------------------------------------------- */
+
+    nodes.forEach(
         node => {
 
-            const pulse =
-                (
-                    Math.sin(
-                        time * 0.003 +
-                        node.phase
-                    ) + 1
-                ) / 2;
-
-
             ctx.save();
 
+            ctx.strokeStyle =
+                rgba(
+                    theme.secondary,
+                    0.35
+                );
 
-            ctx.shadowColor =
-                theme.primary;
-
-            ctx.shadowBlur =
-                12 +
-                pulse * 22;
-
-
-            ctx.fillStyle =
-                theme.primary;
+            ctx.lineWidth = 1.2;
 
 
             ctx.beginPath();
 
-            ctx.arc(
-                node.x,
-                node.y,
-                2.5 +
-                pulse * 2,
-                0,
-                Math.PI * 2
+            ctx.rect(
+                node.x - 5,
+                node.y - 5,
+                10,
+                10
             );
 
-            ctx.fill();
+            ctx.stroke();
 
 
             ctx.restore();
@@ -3052,217 +3281,120 @@ function drawRobotNetwork(
     );
 
 
-    /* DATA PACKETS */
-
-    dataPackets.forEach(
-        packet => {
-
-            const a =
-                robotNodes[
-                    packet.a
-                ];
-
-            const b =
-                robotNodes[
-                    packet.b
-                ];
-
-
-            packet.progress +=
-                packet.speed * 16;
-
-
-            if (
-                packet.progress > 1
-            ) {
-
-                packet.progress = 0;
-
-            }
-
-
-            const x =
-                a.x +
-                (
-                    b.x -
-                    a.x
-                ) *
-                packet.progress;
-
-
-            const y =
-                a.y +
-                (
-                    b.y -
-                    a.y
-                ) *
-                packet.progress;
-
-
-            ctx.save();
-
-
-            ctx.shadowColor =
-                theme.secondary;
-
-            ctx.shadowBlur =
-                22;
-
-
-            ctx.fillStyle =
-                theme.secondary;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                3.5,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    /* =================================================
-       ROBOT SCHEMATIC
-    ================================================= */
+    /* -------------------------------------------------
+       INDUSTRIAL ROBOT ARM
+    ------------------------------------------------- */
 
     const rx =
-        W * 0.72;
+        W * 0.68;
 
-    const ry =
-        H * 0.52;
+    const baseY =
+        H * 0.78;
 
+
+    /* Base */
 
     ctx.save();
-
 
     ctx.strokeStyle =
         rgba(
             theme.secondary,
-            0.24
+            0.45
         );
 
+    ctx.fillStyle =
+        "rgba(5,8,12,0.55)";
 
     ctx.lineWidth = 2;
 
-
     ctx.shadowColor =
-        theme.primary;
+        theme.secondary;
 
-    ctx.shadowBlur = 16;
-
-
-    /* HEAD */
-
-    ctx.strokeRect(
-        rx - 45,
-        ry - 90,
-        90,
-        65
-    );
-
-
-    /* EYES */
-
-    ctx.fillStyle =
-        theme.primary;
+    ctx.shadowBlur = 15;
 
 
     ctx.beginPath();
 
-    ctx.arc(
-        rx - 20,
-        ry - 58,
-        6,
+    ctx.ellipse(
+        rx,
+        baseY,
+        75,
+        20,
+        0,
         0,
         Math.PI * 2
     );
 
     ctx.fill();
 
+    ctx.stroke();
+
+
+    /* Vertical joint */
 
     ctx.beginPath();
 
     ctx.arc(
-        rx + 20,
-        ry - 58,
-        6,
+        rx,
+        baseY - 30,
+        28,
         0,
         Math.PI * 2
     );
 
     ctx.fill();
 
-
-    /* BODY */
-
-    ctx.strokeRect(
-        rx - 60,
-        ry - 15,
-        120,
-        100
-    );
-
-
-    /* BODY CIRCUIT */
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        rx - 30,
-        ry + 15
-    );
-
-    ctx.lineTo(
-        rx,
-        ry + 40
-    );
-
-    ctx.lineTo(
-        rx + 30,
-        ry + 15
-    );
-
-    ctx.moveTo(
-        rx,
-        ry + 40
-    );
-
-    ctx.lineTo(
-        rx,
-        ry + 75
-    );
-
     ctx.stroke();
 
 
-    /* ARMS */
+    /* -------------------------------------------------
+       ARM SEGMENT 1
+    ------------------------------------------------- */
+
+    const shoulder = {
+
+        x: rx,
+        y: baseY - 55
+
+    };
+
+
+    const elbow = {
+
+        x:
+            rx - 75,
+        y:
+            baseY - 165
+
+    };
+
+
+    const wrist = {
+
+        x:
+            rx + 20,
+        y:
+            baseY - 245
+
+    };
+
+
+    ctx.lineWidth = 15;
+
+    ctx.lineCap =
+        "round";
+
 
     ctx.beginPath();
 
     ctx.moveTo(
-        rx - 60,
-        ry
+        shoulder.x,
+        shoulder.y
     );
 
     ctx.lineTo(
-        rx - 105,
-        ry + 50
-    );
-
-    ctx.lineTo(
-        rx - 85,
-        ry + 85
+        elbow.x,
+        elbow.y
     );
 
     ctx.stroke();
@@ -3271,35 +3403,110 @@ function drawRobotNetwork(
     ctx.beginPath();
 
     ctx.moveTo(
-        rx + 60,
-        ry
+        elbow.x,
+        elbow.y
     );
 
     ctx.lineTo(
-        rx + 105,
-        ry + 50
-    );
-
-    ctx.lineTo(
-        rx + 85,
-        ry + 85
+        wrist.x,
+        wrist.y
     );
 
     ctx.stroke();
 
 
-    /* ANTENNA */
+    /* Inner arm highlight */
+
+    ctx.strokeStyle =
+        rgba(
+            theme.primary,
+            0.75
+        );
+
+    ctx.lineWidth = 3;
+
 
     ctx.beginPath();
 
     ctx.moveTo(
-        rx,
-        ry - 90
+        shoulder.x,
+        shoulder.y
     );
 
     ctx.lineTo(
-        rx,
-        ry - 120
+        elbow.x,
+        elbow.y
+    );
+
+    ctx.lineTo(
+        wrist.x,
+        wrist.y
+    );
+
+    ctx.stroke();
+
+
+    /* -------------------------------------------------
+       JOINTS
+    ------------------------------------------------- */
+
+    [
+        shoulder,
+        elbow,
+        wrist
+    ].forEach(
+        joint => {
+
+            ctx.fillStyle =
+                "rgba(5,8,12,0.95)";
+
+            ctx.strokeStyle =
+                theme.secondary;
+
+            ctx.lineWidth = 2;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                joint.x,
+                joint.y,
+                13,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+            ctx.stroke();
+
+        }
+    );
+
+
+    /* -------------------------------------------------
+       GRIPPER
+    ------------------------------------------------- */
+
+    ctx.strokeStyle =
+        theme.accent;
+
+    ctx.lineWidth = 5;
+
+    ctx.lineCap =
+        "round";
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        wrist.x,
+        wrist.y
+    );
+
+    ctx.lineTo(
+        wrist.x + 25,
+        wrist.y - 10
     );
 
     ctx.stroke();
@@ -3307,18 +3514,535 @@ function drawRobotNetwork(
 
     ctx.beginPath();
 
-    ctx.arc(
-        rx,
-        ry - 125,
-        5,
-        0,
-        Math.PI * 2
+    ctx.moveTo(
+        wrist.x + 20,
+        wrist.y - 10
+    );
+
+    ctx.lineTo(
+        wrist.x + 35,
+        wrist.y - 25
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        wrist.x + 20,
+        wrist.y - 10
+    );
+
+    ctx.lineTo(
+        wrist.x + 40,
+        wrist.y + 2
+    );
+
+    ctx.stroke();
+
+
+    /* -------------------------------------------------
+       ARM SCAN LINE
+    ------------------------------------------------- */
+
+    const scan =
+        Math.sin(
+            time * 0.001
+        );
+
+
+    ctx.strokeStyle =
+        rgba(
+            theme.accent,
+            0.18 +
+            Math.abs(scan) * 0.16
+        );
+
+    ctx.lineWidth = 1;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        rx - 180,
+        baseY - 250
+    );
+
+    ctx.lineTo(
+        rx + 180,
+        baseY - 250
     );
 
     ctx.stroke();
 
 
     ctx.restore();
+
+}
+
+
+/* =====================================================
+   EMBEDDED SYSTEM
+===================================================== */
+
+function drawEmbedded(
+    theme,
+    time
+) {
+
+    ctx.save();
+
+
+    /* -------------------------------------------------
+       PCB BOARD
+    ------------------------------------------------- */
+
+    const boardX =
+        W * 0.58;
+
+    const boardY =
+        H * 0.24;
+
+    const boardW =
+        Math.min(
+            470,
+            W * 0.40
+        );
+
+    const boardH =
+        Math.min(
+            300,
+            H * 0.46
+        );
+
+
+    ctx.fillStyle =
+        "rgba(4,15,13,0.72)";
+
+    ctx.strokeStyle =
+        rgba(
+            theme.primary,
+            0.38
+        );
+
+    ctx.lineWidth = 2;
+
+    ctx.shadowColor =
+        theme.primary;
+
+    ctx.shadowBlur = 20;
+
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        boardX,
+        boardY,
+        boardW,
+        boardH,
+        10
+    );
+
+    ctx.fill();
+
+    ctx.stroke();
+
+
+    /* -------------------------------------------------
+       MICROCONTROLLER
+    ------------------------------------------------- */
+
+    const mcX =
+        boardX +
+        boardW * 0.36;
+
+    const mcY =
+        boardY +
+        boardH * 0.30;
+
+    const mcW = 125;
+
+    const mcH = 90;
+
+
+    ctx.fillStyle =
+        "rgba(3,7,11,0.95)";
+
+    ctx.strokeStyle =
+        theme.accent;
+
+    ctx.lineWidth = 2;
+
+    ctx.shadowColor =
+        theme.accent;
+
+    ctx.shadowBlur = 14;
+
+
+    ctx.beginPath();
+
+    ctx.roundRect(
+        mcX,
+        mcY,
+        mcW,
+        mcH,
+        6
+    );
+
+    ctx.fill();
+
+    ctx.stroke();
+
+
+    /* MCU CORE */
+
+    ctx.fillStyle =
+        rgba(
+            theme.primary,
+            0.10
+        );
+
+
+    ctx.fillRect(
+        mcX + 25,
+        mcY + 22,
+        75,
+        45
+    );
+
+
+    /* -------------------------------------------------
+       GPIO PINS
+    ------------------------------------------------- */
+
+    for (
+        let i = 0;
+        i < 7;
+        i++
+    ) {
+
+        const py =
+            mcY +
+            10 +
+            i * 12;
+
+
+        ctx.strokeStyle =
+            rgba(
+                theme.secondary,
+                0.55
+            );
+
+        ctx.lineWidth = 1.2;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            mcX - 25,
+            py
+        );
+
+        ctx.lineTo(
+            mcX,
+            py
+        );
+
+        ctx.stroke();
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            mcX + mcW,
+            py
+        );
+
+        ctx.lineTo(
+            mcX + mcW + 25,
+            py
+        );
+
+        ctx.stroke();
+
+    }
+
+
+    /* -------------------------------------------------
+       SENSOR BLOCKS
+    ------------------------------------------------- */
+
+    const sensorPositions = [
+
+        {
+            x:
+                boardX + 35,
+            y:
+                boardY + 45
+        },
+
+        {
+            x:
+                boardX + 35,
+            y:
+                boardY + boardH - 85
+        },
+
+        {
+            x:
+                boardX + boardW - 105,
+            y:
+                boardY + 50
+        },
+
+        {
+            x:
+                boardX + boardW - 105,
+            y:
+                boardY + boardH - 85
+        }
+
+    ];
+
+
+    sensorPositions.forEach(
+        (sensor, index) => {
+
+            ctx.strokeStyle =
+                rgba(
+                    theme.secondary,
+                    0.50
+                );
+
+            ctx.fillStyle =
+                "rgba(3,8,12,0.85)";
+
+            ctx.lineWidth = 1.4;
+
+
+            ctx.beginPath();
+
+            ctx.roundRect(
+                sensor.x,
+                sensor.y,
+                70,
+                40,
+                5
+            );
+
+            ctx.fill();
+
+            ctx.stroke();
+
+
+            /* Sensor lines */
+
+            for (
+                let i = 0;
+                i < 3;
+                i++
+            ) {
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    sensor.x + 12,
+                    sensor.y + 10 +
+                    i * 10
+                );
+
+                ctx.lineTo(
+                    sensor.x + 58,
+                    sensor.y + 10 +
+                    i * 10
+                );
+
+                ctx.stroke();
+
+            }
+
+
+            /* Connecting traces */
+
+            const targetX =
+                mcX +
+                (
+                    index % 2 === 0
+                        ? 0
+                        : mcW
+                );
+
+            const targetY =
+                mcY +
+                20 +
+                (
+                    index * 20
+                );
+
+
+            ctx.strokeStyle =
+                rgba(
+                    theme.primary,
+                    0.38
+                );
+
+            ctx.lineWidth = 1.5;
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                sensor.x + 70,
+                sensor.y + 20
+            );
+
+            ctx.lineTo(
+                targetX,
+                sensor.y + 20
+            );
+
+            ctx.lineTo(
+                targetX,
+                targetY
+            );
+
+            ctx.stroke();
+
+        }
+    );
+
+
+    /* -------------------------------------------------
+       MOVING DATA BUS
+       เป็นเส้น ไม่ใช่จุด
+    ------------------------------------------------- */
+
+    const busY =
+        boardY +
+        boardH +
+        40;
+
+
+    ctx.strokeStyle =
+        rgba(
+            theme.primary,
+            0.22
+        );
+
+    ctx.lineWidth = 2;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        boardX - 80,
+        busY
+    );
+
+    ctx.lineTo(
+        boardX + boardW + 80,
+        busY
+    );
+
+    ctx.stroke();
+
+
+    const busProgress =
+        (
+            time * 0.0004
+        ) % 1;
+
+
+    const busX =
+        boardX -
+        80 +
+        (
+            boardW + 160
+        ) *
+        busProgress;
+
+
+    ctx.save();
+
+    ctx.strokeStyle =
+        theme.accent;
+
+    ctx.lineWidth = 4;
+
+    ctx.shadowColor =
+        theme.accent;
+
+    ctx.shadowBlur = 20;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        Math.max(
+            boardX - 80,
+            busX - 80
+        ),
+        busY
+    );
+
+    ctx.lineTo(
+        busX,
+        busY
+    );
+
+    ctx.stroke();
+
+    ctx.restore();
+
+
+    /* -------------------------------------------------
+       SMALL CAPACITORS / RESISTORS
+    ------------------------------------------------- */
+
+    for (
+        let i = 0;
+        i < 10;
+        i++
+    ) {
+
+        const x =
+            boardX +
+            20 +
+            (
+                i * 47
+            ) %
+            Math.max(
+                100,
+                boardW - 40
+            );
+
+        const y =
+            boardY +
+            boardH -
+            25;
+
+
+        ctx.strokeStyle =
+            rgba(
+                theme.primary,
+                0.45
+            );
+
+        ctx.lineWidth = 1;
+
+
+        ctx.beginPath();
+
+        ctx.rect(
+            x,
+            y,
+            15,
+            7
+        );
+
+        ctx.stroke();
+
+    }
 
 
     ctx.restore();
@@ -3328,57 +4052,6 @@ function drawRobotNetwork(
 
 /* =====================================================
    HIGH VOLTAGE
-===================================================== */
-
-const powerLines = [];
-
-
-function createPowerLines() {
-
-    powerLines.length = 0;
-
-
-    for (
-        let i = 0;
-        i < 9;
-        i++
-    ) {
-
-        powerLines.push({
-
-            y:
-                H *
-                (
-                    0.08 +
-                    i * 0.10
-                ),
-
-            offset:
-                Math.random() *
-                500,
-
-            amplitude:
-                15 +
-                Math.random() *
-                30,
-
-            frequency:
-                0.002 +
-                Math.random() *
-                0.003
-
-        });
-
-    }
-
-}
-
-
-createPowerLines();
-
-
-/* =====================================================
-   DRAW HIGH VOLTAGE
 ===================================================== */
 
 function drawHighVolt(
@@ -3391,57 +4064,67 @@ function drawHighVolt(
 
     /* ENERGY WAVES */
 
-    powerLines.forEach(
-        line => {
+    for (
+        let i = 0;
+        i < 9;
+        i++
+    ) {
 
-            const points = [];
-
-
-            for (
-                let x = -50;
-                x < W + 50;
-                x += 30
-            ) {
-
-                const y =
-                    line.y +
-                    Math.sin(
-                        x *
-                        line.frequency +
-                        time *
-                        0.001 +
-                        line.offset
-                    ) *
-                    line.amplitude;
+        const points = [];
 
 
-                points.push({
-
-                    x,
-                    y
-
-                });
-
-            }
-
-
-            glowLine(
-
-                points,
-
-                rgba(
-                    theme.primary,
-                    0.16
-                ),
-
-                1.5,
-
-                14
-
+        const baseY =
+            H *
+            (
+                0.08 +
+                i * 0.10
             );
 
+
+        for (
+            let x = -50;
+            x < W + 50;
+            x += 30
+        ) {
+
+            const y =
+                baseY +
+                Math.sin(
+                    x * 0.004 +
+                    time * 0.001 +
+                    i
+                ) *
+                (
+                    15 +
+                    i % 3 * 8
+                );
+
+
+            points.push({
+
+                x,
+                y
+
+            });
+
         }
-    );
+
+
+        drawGlowPath(
+
+            points,
+
+            theme.primary,
+
+            1.4,
+
+            14,
+
+            0.16
+
+        );
+
+    }
 
 
     /* POWER TOWERS */
@@ -3468,18 +4151,13 @@ function drawHighVolt(
             H * 0.34;
 
 
-        ctx.save();
-
-
         ctx.strokeStyle =
             rgba(
                 theme.secondary,
                 0.24
             );
 
-
         ctx.lineWidth = 2;
-
 
         ctx.shadowColor =
             theme.secondary;
@@ -3541,9 +4219,6 @@ function drawHighVolt(
         }
 
 
-        ctx.restore();
-
-
         /* POWER CABLES */
 
         if (
@@ -3554,29 +4229,8 @@ function drawHighVolt(
                 W *
                 (
                     0.12 +
-                    (i + 1) *
-                    0.27
+                    (i + 1) * 0.27
                 );
-
-
-            ctx.save();
-
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.primary,
-                    0.28
-                );
-
-
-            ctx.lineWidth =
-                1.5;
-
-
-            ctx.shadowColor =
-                theme.primary;
-
-            ctx.shadowBlur = 15;
 
 
             for (
@@ -3584,6 +4238,20 @@ function drawHighVolt(
                 c <= 1;
                 c++
             ) {
+
+                ctx.strokeStyle =
+                    rgba(
+                        theme.primary,
+                        0.28
+                    );
+
+                ctx.lineWidth = 1.5;
+
+                ctx.shadowColor =
+                    theme.primary;
+
+                ctx.shadowBlur = 15;
+
 
                 ctx.beginPath();
 
@@ -3617,26 +4285,22 @@ function drawHighVolt(
 
             }
 
-
-            ctx.restore();
-
         }
 
     }
 
 
-    /* LIGHTNING */
+    /* LIGHTNING SYMBOLS */
 
     for (
         let i = 0;
-        i < 9;
+        i < 8;
         i++
     ) {
 
         const x =
             (
-                i * 170 +
-                time * 0.035
+                i * 180
             ) %
             (
                 W + 200
@@ -3647,74 +4311,47 @@ function drawHighVolt(
         const y =
             H *
             (
-                0.14 +
+                0.15 +
                 (
                     i % 5
-                ) *
-                0.16
+                ) * 0.15
             );
-
-
-        const pulse =
-            (
-                Math.sin(
-                    time * 0.005 +
-                    i
-                ) + 1
-            ) / 2;
-
-
-        ctx.save();
-
-
-        ctx.shadowColor =
-            theme.accent;
-
-        ctx.shadowBlur =
-            18 +
-            pulse * 25;
 
 
         ctx.strokeStyle =
             theme.accent;
 
+        ctx.lineWidth = 1.4;
 
-        ctx.lineWidth =
-            1 +
-            pulse * 1.5;
+        ctx.shadowColor =
+            theme.accent;
+
+        ctx.shadowBlur = 18;
 
 
         ctx.beginPath();
-
 
         ctx.moveTo(
             x,
             y
         );
 
-
         ctx.lineTo(
             x + 12,
             y + 25
         );
-
 
         ctx.lineTo(
             x + 2,
             y + 25
         );
 
-
         ctx.lineTo(
             x + 18,
             y + 55
         );
 
-
         ctx.stroke();
-
-
-        ctx.restore();
 
     }
 
@@ -3789,6 +4426,79 @@ function drawAmbientLight(
 
 
 /* =====================================================
+   DRAW CURRENT THEME
+===================================================== */
+
+function drawTheme(
+    theme,
+    time
+) {
+
+    drawAmbientLight(
+        theme
+    );
+
+
+    drawEngineeringGrid(
+        theme
+    );
+
+
+    if (
+        theme.name ===
+        "electronics"
+    ) {
+
+        drawPCB(
+            theme,
+            time
+        );
+
+    }
+
+
+    if (
+        theme.name ===
+        "robotics"
+    ) {
+
+        drawRobotics(
+            theme,
+            time
+        );
+
+    }
+
+
+    if (
+        theme.name ===
+        "embedded"
+    ) {
+
+        drawEmbedded(
+            theme,
+            time
+        );
+
+    }
+
+
+    if (
+        theme.name ===
+        "highvolt"
+    ) {
+
+        drawHighVolt(
+            theme,
+            time
+        );
+
+    }
+
+}
+
+
+/* =====================================================
    MAIN RENDER
 ===================================================== */
 
@@ -3824,7 +4534,7 @@ function renderBackground(
 
 
     /* =================================================
-       SMOOTH TRANSITION
+       THEME TRANSITION
     ================================================= */
 
     if (
@@ -3835,122 +4545,32 @@ function renderBackground(
             themeProgress;
 
 
-        /* OLD THEME */
+        /* OLD */
 
         ctx.save();
 
         ctx.globalAlpha =
             1 - fade;
 
-
-        drawAmbientLight(
-            previousTheme
+        drawTheme(
+            previousTheme,
+            time
         );
-
-
-        drawEngineeringGrid(
-            previousTheme
-        );
-
-
-        if (
-            previousTheme.name ===
-            "electronics"
-        ) {
-
-            drawPCB(
-                previousTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            previousTheme.name ===
-            "robotics"
-        ) {
-
-            drawRobotNetwork(
-                previousTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            previousTheme.name ===
-            "highvolt"
-        ) {
-
-            drawHighVolt(
-                previousTheme,
-                time
-            );
-
-        }
-
 
         ctx.restore();
 
 
-        /* NEW THEME */
+        /* NEW */
 
         ctx.save();
 
         ctx.globalAlpha =
             fade;
 
-
-        drawAmbientLight(
-            currentTheme
+        drawTheme(
+            currentTheme,
+            time
         );
-
-
-        drawEngineeringGrid(
-            currentTheme
-        );
-
-
-        if (
-            currentTheme.name ===
-            "electronics"
-        ) {
-
-            drawPCB(
-                currentTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            currentTheme.name ===
-            "robotics"
-        ) {
-
-            drawRobotNetwork(
-                currentTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            currentTheme.name ===
-            "highvolt"
-        ) {
-
-            drawHighVolt(
-                currentTheme,
-                time
-            );
-
-        }
-
 
         ctx.restore();
 
@@ -3958,53 +4578,10 @@ function renderBackground(
 
     else {
 
-        drawAmbientLight(
-            currentTheme
+        drawTheme(
+            currentTheme,
+            time
         );
-
-
-        drawEngineeringGrid(
-            currentTheme
-        );
-
-
-        if (
-            currentTheme.name ===
-            "electronics"
-        ) {
-
-            drawPCB(
-                currentTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            currentTheme.name ===
-            "robotics"
-        ) {
-
-            drawRobotNetwork(
-                currentTheme,
-                time
-            );
-
-        }
-
-
-        if (
-            currentTheme.name ===
-            "highvolt"
-        ) {
-
-            drawHighVolt(
-                currentTheme,
-                time
-            );
-
-        }
 
     }
 
@@ -4022,7 +4599,7 @@ requestAnimationFrame(
 
 
 /* =====================================================
-   RESPONSIVE BACKGROUND OBJECTS
+   RESPONSIVE BACKGROUND
 ===================================================== */
 
 window.addEventListener(
@@ -4030,10 +4607,6 @@ window.addEventListener(
     () => {
 
         createPCB();
-
-        createRobotNetwork();
-
-        createPowerLines();
 
     }
 );
