@@ -19,9 +19,9 @@
 
 <style>
 
-/* =====================================================
+/* =========================================================
    GLOBAL
-===================================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -41,9 +41,9 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    ENGINEERING CANVAS
-===================================================== */
+========================================================= */
 
 #circuit-bg {
 
@@ -58,15 +58,13 @@ body {
 
     pointer-events: none;
 
-    opacity: 1;
-
     background: #050608;
 }
 
 
-/* =====================================================
-   DARK READABILITY OVERLAY
-===================================================== */
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
 
 body::after {
 
@@ -83,20 +81,20 @@ body::after {
     background:
         linear-gradient(
             180deg,
-            rgba(5,6,8,0.10),
-            rgba(5,6,8,0.68)
+            rgba(5,6,8,0.12),
+            rgba(5,6,8,0.72)
         );
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 .navbar {
 
     background:
-        rgba(5,7,10,0.88);
+        rgba(5,7,10,0.90);
 
     border-bottom:
         2px solid #FF6B00;
@@ -140,9 +138,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    LOGO
-===================================================== */
+========================================================= */
 
 .logo-flex {
 
@@ -178,7 +176,7 @@ body::after {
 
     box-shadow:
         0 0 25px
-        rgba(255,107,0,0.35);
+        rgba(255,107,0,0.20);
 }
 
 
@@ -207,9 +205,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    DESKTOP MENU
-===================================================== */
+========================================================= */
 
 .nav-menu {
 
@@ -269,32 +267,28 @@ body::after {
 
 
 .nav-menu a:hover {
-
     color: #FF6B00;
 }
 
 
 .nav-menu a:hover::after {
-
     width: 100%;
 }
 
 
 .nav-menu a.active {
-
     color: #FF6B00;
 }
 
 
 .nav-menu a.active::after {
-
     width: 100%;
 }
 
 
-/* =====================================================
+/* =========================================================
    ADMISSION
-===================================================== */
+========================================================= */
 
 .btn-admission {
 
@@ -335,13 +329,13 @@ body::after {
 
     box-shadow:
         0 8px 30px
-        rgba(255,107,0,0.38);
+        rgba(255,107,0,0.30);
 }
 
 
-/* =====================================================
+/* =========================================================
    HAMBURGER
-===================================================== */
+========================================================= */
 
 .menu-toggle {
 
@@ -399,7 +393,6 @@ body::after {
 
 
 .menu-toggle.active span:nth-child(2) {
-
     opacity: 0;
 }
 
@@ -412,9 +405,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE OVERLAY
-===================================================== */
+========================================================= */
 
 .mobile-overlay {
 
@@ -435,21 +428,20 @@ body::after {
 
 
 .mobile-overlay.active {
-
     display: block;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
 
     background:
         linear-gradient(
             180deg,
-            rgba(5,6,8,0.50),
+            rgba(5,6,8,0.48),
             rgba(10,13,18,0.86)
         );
 
@@ -476,7 +468,7 @@ body::after {
     height: 500px;
 
     background:
-        rgba(255,107,0,0.07);
+        rgba(255,107,0,0.055);
 
     border-radius: 50%;
 
@@ -501,7 +493,7 @@ body::after {
     height: 400px;
 
     background:
-        rgba(0,229,255,0.045);
+        rgba(0,229,255,0.035);
 
     border-radius: 50%;
 
@@ -533,13 +525,12 @@ body::after {
     position: relative;
 
     z-index: 2;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO BADGE
-===================================================== */
+========================================================= */
 
 .hero-badge {
 
@@ -562,16 +553,12 @@ body::after {
         rgba(255,107,0,0.35);
 
     display: inline-block;
-
-    box-shadow:
-        0 0 20px
-        rgba(255,107,0,0.08);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO TITLE
-===================================================== */
+========================================================= */
 
 .hero-title {
 
@@ -608,9 +595,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO DESCRIPTION
-===================================================== */
+========================================================= */
 
 .hero-desc {
 
@@ -626,9 +613,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO BUTTONS
-===================================================== */
+========================================================= */
 
 .hero-buttons {
 
@@ -676,7 +663,7 @@ body::after {
 
     box-shadow:
         0 12px 35px
-        rgba(255,107,0,0.35);
+        rgba(255,107,0,0.30);
 }
 
 
@@ -712,16 +699,12 @@ body::after {
 
     transform:
         translateY(-3px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(0,229,255,0.12);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO IMAGE
-===================================================== */
+========================================================= */
 
 .hero-img {
 
@@ -752,16 +735,16 @@ body::after {
 
     box-shadow:
         0 25px 70px
-        rgba(255,107,0,0.18);
+        rgba(255,107,0,0.15);
 
     transform:
         translateY(-4px);
 }
 
 
-/* =====================================================
+/* =========================================================
    STRENGTHS
-===================================================== */
+========================================================= */
 
 .strengths {
 
@@ -813,16 +796,12 @@ body::after {
         15px auto;
 
     border-radius: 2px;
-
-    box-shadow:
-        0 0 15px
-        rgba(255,107,0,0.4);
 }
 
 
-/* =====================================================
+/* =========================================================
    CARDS
-===================================================== */
+========================================================= */
 
 .grid-4 {
 
@@ -895,7 +874,6 @@ body::after {
 
 
 .card:hover::before {
-
     left: 100%;
 }
 
@@ -910,9 +888,7 @@ body::after {
 
     box-shadow:
         0 20px 60px
-        rgba(0,0,0,0.42),
-        0 0 30px
-        rgba(255,107,0,0.06);
+        rgba(0,0,0,0.42);
 }
 
 
@@ -946,9 +922,9 @@ body::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer {
 
@@ -975,9 +951,9 @@ footer {
 }
 
 
-/* =====================================================
+/* =========================================================
    ENTRANCE ANIMATION
-===================================================== */
+========================================================= */
 
 .nav-container {
 
@@ -997,9 +973,6 @@ footer {
 
         transform:
             translateY(-25px);
-
-        filter:
-            blur(8px);
     }
 
     100% {
@@ -1008,9 +981,6 @@ footer {
 
         transform:
             translateY(0);
-
-        filter:
-            blur(0);
     }
 }
 
@@ -1035,9 +1005,6 @@ footer {
         transform:
             translateX(-60px)
             scale(0.94);
-
-        filter:
-            blur(10px);
     }
 
     100% {
@@ -1047,9 +1014,6 @@ footer {
         transform:
             translateX(0)
             scale(1);
-
-        filter:
-            blur(0);
     }
 }
 
@@ -1074,9 +1038,6 @@ footer {
         transform:
             translateX(60px)
             scale(0.90);
-
-        filter:
-            blur(12px);
     }
 
     100% {
@@ -1086,16 +1047,13 @@ footer {
         transform:
             translateX(0)
             scale(1);
-
-        filter:
-            blur(0);
     }
 }
 
 
-/* =====================================================
+/* =========================================================
    SCROLL REVEAL
-===================================================== */
+========================================================= */
 
 .section-header,
 .card,
@@ -1114,23 +1072,17 @@ footer {
 
 
 .section-header {
-
-    transform:
-        translateY(40px);
+    transform: translateY(40px);
 }
 
 
 .card {
-
-    transform:
-        translateY(60px);
+    transform: translateY(60px);
 }
 
 
 footer {
-
-    transform:
-        translateY(35px);
+    transform: translateY(35px);
 }
 
 
@@ -1168,9 +1120,9 @@ footer.reveal {
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
 @media (max-width: 1100px) {
 
@@ -1190,41 +1142,31 @@ footer.reveal {
         font-size: 12px;
     }
 
-
     .grid-4 {
 
         grid-template-columns:
             repeat(2,1fr);
-
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
     .nav-container {
-
-        min-height:
-            70px;
+        min-height: 70px;
     }
 
-
     .menu-toggle {
-
         display: flex;
     }
 
-
     .btn-admission {
-
         display: none;
     }
-
 
     .nav-menu {
 
@@ -1275,7 +1217,6 @@ footer.reveal {
         z-index: 101;
     }
 
-
     .nav-menu.open {
 
         opacity: 1;
@@ -1286,12 +1227,9 @@ footer.reveal {
             translateY(0);
     }
 
-
     .nav-menu li {
-
         width: 100%;
     }
-
 
     .nav-menu a {
 
@@ -1307,12 +1245,9 @@ footer.reveal {
         font-size: 15px;
     }
 
-
     .nav-menu a::after {
-
         display: none;
     }
-
 
     .nav-menu a:hover {
 
@@ -1320,13 +1255,11 @@ footer.reveal {
             rgba(255,107,0,0.08);
     }
 
-
     .nav-menu a.active {
 
         background:
             rgba(255,107,0,0.10);
     }
-
 
     .hero-container {
 
@@ -1336,13 +1269,12 @@ footer.reveal {
         text-align: center;
     }
 
-
     .hero-desc {
 
         margin-left: auto;
+
         margin-right: auto;
     }
-
 
     .hero-buttons {
 
@@ -1350,33 +1282,27 @@ footer.reveal {
             center;
     }
 
-
     .grid-4 {
 
         grid-template-columns:
             1fr;
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
    SMALL MOBILE
-===================================================== */
+========================================================= */
 
 @media (max-width: 500px) {
 
     .logo-text-main {
-
         font-size: 15px;
     }
 
-
     .logo-sub {
-
         font-size: 8px;
     }
-
 
     .logo-icon {
 
@@ -1386,32 +1312,25 @@ footer.reveal {
             7px 9px;
     }
 
-
     .hero {
 
         padding:
             60px 20px;
     }
 
-
     .hero-title {
-
         font-size: 34px;
     }
 
-
     .hero-desc {
-
         font-size: 14px;
     }
-
 
     .hero-buttons {
 
         flex-direction:
             column;
     }
-
 
     .btn-primary,
     .btn-secondary {
@@ -1423,24 +1342,19 @@ footer.reveal {
             100%;
     }
 
-
     .hero-img {
-
         height: 230px;
     }
 
-
     .section-title {
-
         font-size: 26px;
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
    REDUCE MOTION
-===================================================== */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1458,7 +1372,6 @@ footer.reveal {
             none !important;
     }
 
-
     .section-header,
     .card,
     footer {
@@ -1472,7 +1385,6 @@ footer.reveal {
         filter:
             none !important;
     }
-
 }
 
 </style>
@@ -1483,16 +1395,16 @@ footer.reveal {
 <body>
 
 
-<!-- =====================================================
+<!-- =======================================================
      ENGINEERING BACKGROUND
-===================================================== -->
+======================================================= -->
 
 <canvas id="circuit-bg"></canvas>
 
 
-<!-- =====================================================
+<!-- =======================================================
      MOBILE OVERLAY
-===================================================== -->
+======================================================= -->
 
 <div
     class="mobile-overlay"
@@ -1500,14 +1412,13 @@ footer.reveal {
 </div>
 
 
-<!-- =====================================================
+<!-- =======================================================
      NAVBAR
-===================================================== -->
+======================================================= -->
 
 <nav class="navbar">
 
     <div class="nav-container">
-
 
         <div class="logo-flex">
 
@@ -1542,7 +1453,6 @@ footer.reveal {
             id="navMenu">
 
             <li>
-
                 <a
                     href="index.html"
                     class="active">
@@ -1550,51 +1460,42 @@ footer.reveal {
                     หน้าแรก
 
                 </a>
-
             </li>
 
             <li>
-
                 <a
                     href="curriculum.html">
 
                     โครงสร้างหลักสูตร
 
                 </a>
-
             </li>
 
             <li>
-
                 <a
                     href="labs.html">
 
                     ห้องปฏิบัติการ
 
                 </a>
-
             </li>
 
             <li>
-
                 <a
                     href="research.html">
 
                     ผลงานวิจัย
 
                 </a>
-
             </li>
 
             <li>
-
                 <a
                     href="contact.html">
 
                     ติดต่อภาควิชา
 
                 </a>
-
             </li>
 
         </ul>
@@ -1629,9 +1530,9 @@ footer.reveal {
 </nav>
 
 
-<!-- =====================================================
+<!-- =======================================================
      HERO
-===================================================== -->
+======================================================= -->
 
 <header class="hero">
 
@@ -1714,9 +1615,9 @@ footer.reveal {
 </header>
 
 
-<!-- =====================================================
+<!-- =======================================================
      STRENGTHS
-===================================================== -->
+======================================================= -->
 
 <section class="strengths">
 
@@ -1737,8 +1638,6 @@ footer.reveal {
     <div class="grid-4">
 
 
-        <!-- INDUSTRIAL AUTOMATION -->
-
         <div class="card">
 
             <div class="card-icon">
@@ -1746,9 +1645,7 @@ footer.reveal {
             </div>
 
             <h3 class="card-title">
-
                 Industrial Automation
-
             </h3>
 
             <p class="card-desc">
@@ -1763,8 +1660,6 @@ footer.reveal {
         </div>
 
 
-        <!-- SMART POWER -->
-
         <div class="card">
 
             <div class="card-icon">
@@ -1772,9 +1667,7 @@ footer.reveal {
             </div>
 
             <h3 class="card-title">
-
                 Smart Power Systems
-
             </h3>
 
             <p class="card-desc">
@@ -1789,8 +1682,6 @@ footer.reveal {
         </div>
 
 
-        <!-- EMBEDDED SYSTEM -->
-
         <div class="card">
 
             <div class="card-icon">
@@ -1798,9 +1689,7 @@ footer.reveal {
             </div>
 
             <h3 class="card-title">
-
                 Embedded Systems
-
             </h3>
 
             <p class="card-desc">
@@ -1815,8 +1704,6 @@ footer.reveal {
         </div>
 
 
-        <!-- ARM ROBOT + AI -->
-
         <div class="card">
 
             <div class="card-icon">
@@ -1824,9 +1711,7 @@ footer.reveal {
             </div>
 
             <h3 class="card-title">
-
                 Robotics & AI
-
             </h3>
 
             <p class="card-desc">
@@ -1846,9 +1731,9 @@ footer.reveal {
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 
 <footer>
 
@@ -1863,54 +1748,39 @@ footer.reveal {
 
 <script>
 
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
 const menuToggle =
-    document.getElementById(
-        "menuToggle"
-    );
+    document.getElementById("menuToggle");
 
 const navMenu =
-    document.getElementById(
-        "navMenu"
-    );
+    document.getElementById("navMenu");
 
 const mobileOverlay =
-    document.getElementById(
-        "mobileOverlay"
-    );
+    document.getElementById("mobileOverlay");
 
 
 function closeMenu() {
 
-    navMenu.classList.remove(
-        "open"
-    );
+    navMenu.classList.remove("open");
 
-    menuToggle.classList.remove(
-        "active"
-    );
+    menuToggle.classList.remove("active");
 
-    mobileOverlay.classList.remove(
-        "active"
-    );
+    mobileOverlay.classList.remove("active");
 
     menuToggle.setAttribute(
         "aria-expanded",
         "false"
     );
-
 }
 
 
 function toggleMenu() {
 
     const isOpen =
-        navMenu.classList.contains(
-            "open"
-        );
+        navMenu.classList.contains("open");
 
     if (isOpen) {
 
@@ -1918,25 +1788,17 @@ function toggleMenu() {
 
     } else {
 
-        navMenu.classList.add(
-            "open"
-        );
+        navMenu.classList.add("open");
 
-        menuToggle.classList.add(
-            "active"
-        );
+        menuToggle.classList.add("active");
 
-        mobileOverlay.classList.add(
-            "active"
-        );
+        mobileOverlay.classList.add("active");
 
         menuToggle.setAttribute(
             "aria-expanded",
             "true"
         );
-
     }
-
 }
 
 
@@ -1953,9 +1815,7 @@ mobileOverlay.addEventListener(
 
 
 document
-    .querySelectorAll(
-        ".nav-menu a"
-    )
+    .querySelectorAll(".nav-menu a")
     .forEach(link => {
 
         link.addEventListener(
@@ -1970,9 +1830,7 @@ document.addEventListener(
     "keydown",
     event => {
 
-        if (
-            event.key === "Escape"
-        ) {
+        if (event.key === "Escape") {
 
             closeMenu();
 
@@ -1982,9 +1840,9 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    SCROLL REVEAL
-===================================================== */
+========================================================= */
 
 const revealElements =
     document.querySelectorAll(
@@ -2000,9 +1858,7 @@ const revealObserver =
             entries.forEach(
                 entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    if (entry.isIntersecting) {
 
                         entry.target.classList.add(
                             "reveal"
@@ -2040,14 +1896,12 @@ revealElements.forEach(
 );
 
 
-/* =====================================================
+/* =========================================================
    ENGINEERING CANVAS
-===================================================== */
+========================================================= */
 
 const canvas =
-    document.getElementById(
-        "circuit-bg"
-    );
+    document.getElementById("circuit-bg");
 
 const ctx =
     canvas.getContext("2d");
@@ -2077,20 +1931,17 @@ function resizeCanvas() {
     H =
         window.innerHeight;
 
-
     canvas.width =
         W * DPR;
 
     canvas.height =
         H * DPR;
 
-
     canvas.style.width =
         W + "px";
 
     canvas.style.height =
         H + "px";
-
 
     ctx.setTransform(
         DPR,
@@ -2100,7 +1951,6 @@ function resizeCanvas() {
         0,
         0
     );
-
 }
 
 
@@ -2109,12 +1959,13 @@ window.addEventListener(
     resizeCanvas
 );
 
+
 resizeCanvas();
 
 
-/* =====================================================
+/* =========================================================
    THEMES
-===================================================== */
+========================================================= */
 
 const THEMES = [
 
@@ -2128,7 +1979,6 @@ const THEMES = [
         accent: "#00E5FF"
     },
 
-
     {
         name: "robotics",
 
@@ -2139,7 +1989,6 @@ const THEMES = [
         accent: "#8B5CF6"
     },
 
-
     {
         name: "embedded",
 
@@ -2149,7 +1998,6 @@ const THEMES = [
 
         accent: "#7C3AED"
     },
-
 
     {
         name: "highvolt",
@@ -2178,11 +2026,21 @@ let lastThemeChange =
     performance.now();
 
 
+/*
+    อยู่แต่ละ Theme นานขึ้น
+    12 วินาที
+*/
+
 const THEME_DURATION =
-    6000;
+    12000;
+
+
+/*
+    เวลา Crossfade
+*/
 
 const THEME_TRANSITION =
-    1400;
+    1800;
 
 
 function nextTheme() {
@@ -2203,13 +2061,8 @@ function nextTheme() {
 
     lastThemeChange =
         performance.now();
-
 }
 
-
-/* =====================================================
-   THEME UPDATE
-===================================================== */
 
 function updateTheme(now) {
 
@@ -2218,9 +2071,7 @@ function updateTheme(now) {
         lastThemeChange;
 
 
-    if (
-        themeProgress < 1
-    ) {
+    if (themeProgress < 1) {
 
         themeProgress =
             Math.min(
@@ -2228,7 +2079,6 @@ function updateTheme(now) {
                 THEME_TRANSITION,
                 1
             );
-
     }
 
 
@@ -2245,36 +2095,32 @@ function updateTheme(now) {
 }
 
 
-/* =====================================================
+/* =========================================================
    COLOR HELPERS
-===================================================== */
+========================================================= */
 
 function hexToRgb(hex) {
 
     hex =
-        hex.replace(
-            "#",
-            ""
-        );
-
+        hex.replace("#", "");
 
     return {
 
         r:
             parseInt(
-                hex.substring(0,2),
+                hex.substring(0, 2),
                 16
             ),
 
         g:
             parseInt(
-                hex.substring(2,4),
+                hex.substring(2, 4),
                 16
             ),
 
         b:
             parseInt(
-                hex.substring(4,6),
+                hex.substring(4, 6),
                 16
             )
 
@@ -2291,7 +2137,6 @@ function rgba(
     const c =
         hexToRgb(hex);
 
-
     return `
         rgba(
             ${c.r},
@@ -2300,17 +2145,14 @@ function rgba(
             ${alpha}
         )
     `;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    ENGINEERING GRID
-===================================================== */
+========================================================= */
 
-function drawEngineeringGrid(
-    theme
-) {
+function drawEngineeringGrid(theme) {
 
     ctx.save();
 
@@ -2333,15 +2175,9 @@ function drawEngineeringGrid(
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            x,
-            0
-        );
+        ctx.moveTo(x, 0);
 
-        ctx.lineTo(
-            x,
-            H
-        );
+        ctx.lineTo(x, H);
 
         ctx.stroke();
 
@@ -2356,40 +2192,32 @@ function drawEngineeringGrid(
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            0,
-            y
-        );
+        ctx.moveTo(0, y);
 
-        ctx.lineTo(
-            W,
-            y
-        );
+        ctx.lineTo(W, y);
 
         ctx.stroke();
 
     }
 
     ctx.restore();
-
 }
 
 
-/* =====================================================
-   GLOW POLYLINE
-===================================================== */
+/* =========================================================
+   TECHNICAL LINE
+   ไม่มี glow
+========================================================= */
 
-function drawGlowPath(
+function drawTechLine(
     points,
     color,
-    width = 1.5,
-    glow = 10,
-    alpha = 0.3
+    width = 1,
+    alpha = 0.28
 ) {
 
-    if (
-        points.length < 2
-    ) return;
+    if (points.length < 2)
+        return;
 
 
     ctx.save();
@@ -2403,11 +2231,11 @@ function drawGlowPath(
     ctx.lineWidth =
         width;
 
-    ctx.shadowColor =
-        color;
+    ctx.lineCap =
+        "square";
 
-    ctx.shadowBlur =
-        glow;
+    ctx.lineJoin =
+        "miter";
 
     ctx.beginPath();
 
@@ -2434,27 +2262,27 @@ function drawGlowPath(
     ctx.stroke();
 
     ctx.restore();
-
 }
 
 
-/* =====================================================
-   MOVING CIRCUIT TRACE
-   ไม่มีจุดวิ่ง
-   ใช้เส้นแสงวิ่งตามวงจรแทน
-===================================================== */
+/* =========================================================
+   MOVING TRACE
+   เป็นเส้นสว่างวิ่งตามวงจร
+   ไม่มีจุด
+   ไม่มี glow
+========================================================= */
 
 function drawMovingTrace(
     points,
     color,
     time,
     speed,
-    offset
+    offset,
+    traceLength = 120
 ) {
 
-    if (
-        points.length < 2
-    ) return;
+    if (points.length < 2)
+        return;
 
 
     const lengths = [];
@@ -2482,25 +2310,19 @@ function drawMovingTrace(
                 dy
             );
 
-        lengths.push(
-            length
-        );
+        lengths.push(length);
 
-        totalLength +=
-            length;
-
+        totalLength += length;
     }
 
 
-    if (
-        totalLength <= 0
-    ) return;
+    if (totalLength <= 0)
+        return;
 
 
     const progress =
         (
-            time *
-            speed +
+            time * speed +
             offset
         ) % 1;
 
@@ -2510,105 +2332,192 @@ function drawMovingTrace(
         totalLength;
 
 
-    const segmentLength =
-        Math.min(
-            150,
-            totalLength * 0.32
-        );
-
-
     let startDistance =
         center -
-        segmentLength / 2;
+        traceLength;
 
 
     let endDistance =
-        center +
-        segmentLength / 2;
+        center;
 
 
-    if (
-        startDistance < 0
-    ) {
+    /*
+       ทำให้เส้น wrap กลับไปต้นวงจร
+    */
 
-        startDistance = 0;
+    if (startDistance < 0) {
 
-    }
-
-
-    if (
-        endDistance > totalLength
-    ) {
-
-        endDistance =
+        startDistance +=
             totalLength;
 
     }
 
 
-    const tracePoints = [];
+    function getPointAtDistance(distance) {
+
+        distance =
+            (
+                distance +
+                totalLength
+            ) %
+            totalLength;
 
 
-    let accumulated = 0;
+        let accumulated = 0;
 
 
-    for (
-        let i = 0;
-        i < lengths.length;
-        i++
-    ) {
-
-        const p1 =
-            points[i];
-
-        const p2 =
-            points[i + 1];
-
-        const segStart =
-            accumulated;
-
-        const segEnd =
-            accumulated +
-            lengths[i];
-
-
-        if (
-            segEnd >= startDistance &&
-            segStart <= endDistance
+        for (
+            let i = 0;
+            i < lengths.length;
+            i++
         ) {
 
-            const localStart =
-                Math.max(
-                    startDistance,
-                    segStart
-                );
-
-            const localEnd =
-                Math.min(
-                    endDistance,
-                    segEnd
-                );
-
-
-            const t1 =
-                (
-                    localStart -
-                    segStart
-                ) /
+            const segmentLength =
                 lengths[i];
 
+            if (
+                distance <=
+                accumulated +
+                segmentLength
+            ) {
 
-            const t2 =
-                (
-                    localEnd -
-                    segStart
-                ) /
+                const p1 =
+                    points[i];
+
+                const p2 =
+                    points[i + 1];
+
+                const t =
+                    (
+                        distance -
+                        accumulated
+                    ) /
+                    segmentLength;
+
+                return {
+
+                    x:
+                        p1.x +
+                        (
+                            p2.x -
+                            p1.x
+                        ) * t,
+
+                    y:
+                        p1.y +
+                        (
+                            p2.y -
+                            p1.y
+                        ) * t
+
+                };
+
+            }
+
+            accumulated +=
+                segmentLength;
+        }
+
+
+        return points[
+            points.length - 1
+        ];
+    }
+
+
+    /*
+       ถ้าเส้นไม่ได้ข้ามจุดเริ่มต้น
+    */
+
+    if (startDistance <= endDistance) {
+
+        drawTraceSegment(
+            startDistance,
+            endDistance
+        );
+
+    }
+
+    /*
+       ถ้าข้ามจุดเริ่มต้น
+    */
+
+    else {
+
+        drawTraceSegment(
+            startDistance,
+            totalLength
+        );
+
+        drawTraceSegment(
+            0,
+            endDistance
+        );
+
+    }
+
+
+    function drawTraceSegment(
+        from,
+        to
+    ) {
+
+        const tracePoints = [];
+
+        tracePoints.push(
+            getPointAtDistance(from)
+        );
+
+
+        let accumulated = 0;
+
+
+        for (
+            let i = 0;
+            i < lengths.length;
+            i++
+        ) {
+
+            const segmentStart =
+                accumulated;
+
+            const segmentEnd =
+                accumulated +
                 lengths[i];
 
 
             if (
-                tracePoints.length === 0
+                segmentEnd >= from &&
+                segmentStart <= to
             ) {
+
+                const localStart =
+                    Math.max(
+                        from,
+                        segmentStart
+                    );
+
+                const localEnd =
+                    Math.min(
+                        to,
+                        segmentEnd
+                    );
+
+
+                const p1 =
+                    points[i];
+
+                const p2 =
+                    points[i + 1];
+
+
+                const t =
+                    (
+                        localEnd -
+                        segmentStart
+                    ) /
+                    lengths[i];
+
 
                 tracePoints.push({
 
@@ -2617,103 +2526,83 @@ function drawMovingTrace(
                         (
                             p2.x -
                             p1.x
-                        ) * t1,
+                        ) * t,
 
                     y:
                         p1.y +
                         (
                             p2.y -
                             p1.y
-                        ) * t1
+                        ) * t
 
                 });
 
             }
 
 
-            tracePoints.push({
+            accumulated =
+                segmentEnd;
+        }
 
-                x:
-                    p1.x +
-                    (
-                        p2.x -
-                        p1.x
-                    ) * t2,
 
-                y:
-                    p1.y +
-                    (
-                        p2.y -
-                        p1.y
-                    ) * t2
+        if (
+            tracePoints.length < 2
+        )
+            return;
 
-            });
+
+        ctx.save();
+
+        /*
+           หัวเส้นสว่าง
+        */
+
+        ctx.strokeStyle =
+            color;
+
+        ctx.lineWidth =
+            2.2;
+
+        ctx.lineCap =
+            "round";
+
+        ctx.lineJoin =
+            "round";
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            tracePoints[0].x,
+            tracePoints[0].y
+        );
+
+
+        for (
+            let i = 1;
+            i < tracePoints.length;
+            i++
+        ) {
+
+            ctx.lineTo(
+                tracePoints[i].x,
+                tracePoints[i].y
+            );
 
         }
 
 
-        accumulated =
-            segEnd;
+        ctx.stroke();
+
+        ctx.restore();
 
     }
-
-
-    if (
-        tracePoints.length < 2
-    ) return;
-
-
-    /* เส้นแสงที่เคลื่อนที่ */
-
-    ctx.save();
-
-    ctx.strokeStyle =
-        color;
-
-    ctx.lineWidth =
-        3;
-
-    ctx.shadowColor =
-        color;
-
-    ctx.shadowBlur =
-        22;
-
-    ctx.lineCap =
-        "round";
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        tracePoints[0].x,
-        tracePoints[0].y
-    );
-
-
-    for (
-        let i = 1;
-        i < tracePoints.length;
-        i++
-    ) {
-
-        ctx.lineTo(
-            tracePoints[i].x,
-            tracePoints[i].y
-        );
-
-    }
-
-
-    ctx.stroke();
-
-    ctx.restore();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    PCB DATA
-===================================================== */
+========================================================= */
 
 const pcbTracks = [];
 
@@ -2723,33 +2612,48 @@ function createPCB() {
     pcbTracks.length = 0;
 
 
+    const count =
+        W < 700
+            ? 15
+            : 32;
+
+
     for (
         let i = 0;
-        i < 24;
+        i < count;
         i++
     ) {
 
         const y =
-            Math.random() *
-            H;
+            Math.random() * H;
 
 
         const startX =
             Math.random() *
             W *
-            0.75;
+            0.82;
 
 
         const length =
             180 +
             Math.random() *
-            550;
+            650;
 
 
         const direction =
             Math.random() > 0.5
                 ? 1
                 : -1;
+
+
+        const step1 =
+            startX +
+            length * 0.18;
+
+
+        const step2 =
+            startX +
+            length * 0.46;
 
 
         const points = [
@@ -2760,37 +2664,29 @@ function createPCB() {
             },
 
             {
-                x:
-                    startX +
-                    length * 0.22,
+                x: step1,
                 y: y
             },
 
             {
-                x:
-                    startX +
-                    length * 0.22,
+                x: step1,
                 y:
                     y +
-                    direction * 45
+                    direction * 35
             },
 
             {
-                x:
-                    startX +
-                    length * 0.55,
+                x: step2,
                 y:
                     y +
-                    direction * 45
+                    direction * 35
             },
 
             {
-                x:
-                    startX +
-                    length * 0.55,
+                x: step2,
                 y:
                     y +
-                    direction * 85
+                    direction * 75
             },
 
             {
@@ -2799,7 +2695,7 @@ function createPCB() {
                     length,
                 y:
                     y +
-                    direction * 85
+                    direction * 75
             }
 
         ];
@@ -2807,15 +2703,18 @@ function createPCB() {
 
         pcbTracks.push({
 
-            points: points,
+            points,
 
             speed:
-                0.00035 +
+                0.000025 +
                 Math.random() *
-                0.0005,
+                0.000045,
 
             offset:
-                Math.random()
+                Math.random(),
+
+            colorType:
+                i % 4
 
         });
 
@@ -2827,86 +2726,176 @@ function createPCB() {
 createPCB();
 
 
-/* =====================================================
-   DRAW PCB
-===================================================== */
+/* =========================================================
+   PCB DRAW
+========================================================= */
 
 function drawPCB(
     theme,
     time
 ) {
 
+    /*
+       เส้นแนวตั้งคล้าย PCB ใหญ่กลางภาพ
+    */
+
     ctx.save();
 
+    const verticalCount =
+        W < 700 ? 4 : 8;
+
+
+    for (
+        let i = 0;
+        i < verticalCount;
+        i++
+    ) {
+
+        const x =
+            W * 0.25 +
+            i * 65;
+
+
+        const points = [
+
+            {
+                x: x,
+                y: -50
+            },
+
+            {
+                x: x,
+                y: H * 0.25
+            },
+
+            {
+                x:
+                    x +
+                    30,
+                y:
+                    H * 0.34
+            },
+
+            {
+                x:
+                    x +
+                    30,
+                y:
+                    H + 50
+            }
+
+        ];
+
+
+        drawTechLine(
+            points,
+            i % 2 === 0
+                ? theme.primary
+                : theme.accent,
+            1.1,
+            0.20
+        );
+
+    }
+
+
+    ctx.restore();
+
+
+    /*
+       Main PCB tracks
+    */
 
     pcbTracks.forEach(
         (track, index) => {
 
-            /* BASE CIRCUIT */
+            let baseColor =
+                theme.primary;
 
-            drawGlowPath(
 
+            if (
+                track.colorType === 1
+            ) {
+
+                baseColor =
+                    theme.accent;
+
+            }
+
+
+            if (
+                track.colorType === 2
+            ) {
+
+                baseColor =
+                    theme.secondary;
+
+            }
+
+
+            drawTechLine(
                 track.points,
-
-                theme.primary,
-
-                1.3,
-
-                8,
-
-                0.22
-
+                baseColor,
+                1.15,
+                0.24
             );
 
 
-            /* SECONDARY INNER TRACE */
+            /*
+               เส้นบางคู่ขนาน
+            */
 
             if (
                 index % 3 === 0
             ) {
 
-                drawGlowPath(
+                const offsetPoints =
+                    track.points.map(
+                        p => ({
+                            x: p.x,
+                            y: p.y + 7
+                        })
+                    );
 
-                    track.points,
 
+                drawTechLine(
+                    offsetPoints,
                     theme.accent,
-
-                    0.7,
-
-                    5,
-
-                    0.12
-
+                    0.55,
+                    0.11
                 );
 
             }
 
 
-            /* MOVING LIGHT TRACE */
+            /*
+               Moving trace
+            */
 
             drawMovingTrace(
-
                 track.points,
-
                 theme.secondary,
-
                 time,
-
                 track.speed,
-
-                track.offset
-
+                track.offset,
+                95
             );
 
         }
     );
 
 
-    /* STATIC PCB CONNECTION PADS */
+    /*
+       Connection pads
+    */
+
+    const padCount =
+        W < 700 ? 18 : 48;
+
 
     for (
         let i = 0;
-        i < 38;
+        i < padCount;
         i++
     ) {
 
@@ -2918,6 +2907,7 @@ function drawPCB(
                 W,
                 800
             );
+
 
         const y =
             (
@@ -2931,16 +2921,11 @@ function drawPCB(
 
         ctx.save();
 
-        ctx.fillStyle =
-            rgba(
-                theme.primary,
-                0.45
-            );
 
         ctx.strokeStyle =
             rgba(
                 theme.primary,
-                0.5
+                0.38
             );
 
         ctx.lineWidth = 1;
@@ -2951,30 +2936,54 @@ function drawPCB(
         ctx.arc(
             x,
             y,
-            2.5,
+            3,
             0,
             Math.PI * 2
         );
 
+        ctx.stroke();
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            rgba(
+                theme.secondary,
+                0.65
+            );
+
         ctx.fill();
 
-        ctx.stroke();
 
         ctx.restore();
 
     }
 
 
-    /* IC CHIPS */
+    /*
+       IC chips
+    */
+
+    const chipCount =
+        W < 700 ? 3 : 7;
+
 
     for (
         let i = 0;
-        i < 7;
+        i < chipCount;
         i++
     ) {
 
         const chipX =
-            60 +
+            40 +
             (
                 i * 173
             ) %
@@ -2985,7 +2994,7 @@ function drawPCB(
 
 
         const chipY =
-            100 +
+            80 +
             (
                 i * 113
             ) %
@@ -3010,7 +3019,7 @@ function drawPCB(
 
 
         ctx.fillStyle =
-            "rgba(4,7,11,0.85)";
+            "rgba(4,7,11,0.82)";
 
 
         ctx.strokeStyle =
@@ -3020,19 +3029,13 @@ function drawPCB(
             );
 
 
-        ctx.shadowColor =
-            theme.accent;
-
-        ctx.shadowBlur = 10;
-
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth =
+            1.2;
 
 
-        if (
-            ctx.roundRect
-        ) {
+        ctx.beginPath();
 
-            ctx.beginPath();
+        if (ctx.roundRect) {
 
             ctx.roundRect(
                 chipX,
@@ -3042,14 +3045,25 @@ function drawPCB(
                 5
             );
 
-            ctx.fill();
+        } else {
 
-            ctx.stroke();
+            ctx.rect(
+                chipX,
+                chipY,
+                width,
+                height
+            );
 
         }
 
+        ctx.fill();
 
-        /* CHIP PINS */
+        ctx.stroke();
+
+
+        /*
+           IC pins
+        */
 
         for (
             let p = 0;
@@ -3060,14 +3074,13 @@ function drawPCB(
             const py =
                 chipY +
                 6 +
-                p *
-                8;
+                p * 8;
 
 
             ctx.strokeStyle =
                 rgba(
                     theme.primary,
-                    0.55
+                    0.48
                 );
 
 
@@ -3107,71 +3120,62 @@ function drawPCB(
 
     }
 
-
-    ctx.restore();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    ROBOTICS
-   ไม่มีจุดวิ่ง
-   ไม่มี DATA PACKET
-   ใช้เส้นโครงข่าย + ARM ROBOT
-===================================================== */
+========================================================= */
 
 function drawRobotics(
     theme,
     time
 ) {
 
-    ctx.save();
-
-
-    /* -------------------------------------------------
-       INDUSTRIAL NETWORK LINES
-    ------------------------------------------------- */
+    /*
+       Industrial network
+    */
 
     const nodes = [
 
         {
-            x: W * 0.14,
+            x: W * 0.12,
             y: H * 0.25
         },
 
         {
-            x: W * 0.30,
-            y: H * 0.18
+            x: W * 0.29,
+            y: H * 0.17
         },
 
         {
             x: W * 0.47,
-            y: H * 0.30
+            y: H * 0.29
         },
 
         {
-            x: W * 0.70,
-            y: H * 0.20
+            x: W * 0.69,
+            y: H * 0.18
         },
 
         {
-            x: W * 0.85,
-            y: H * 0.35
+            x: W * 0.87,
+            y: H * 0.34
         },
 
         {
-            x: W * 0.22,
-            y: H * 0.62
+            x: W * 0.21,
+            y: H * 0.63
         },
 
         {
-            x: W * 0.48,
-            y: H * 0.70
+            x: W * 0.47,
+            y: H * 0.71
         },
 
         {
-            x: W * 0.76,
-            y: H * 0.65
+            x: W * 0.77,
+            y: H * 0.64
         }
 
     ];
@@ -3183,9 +3187,11 @@ function drawRobotics(
         [1,2],
         [2,3],
         [3,4],
+
         [0,5],
         [5,6],
         [6,7],
+
         [2,6],
         [3,7]
 
@@ -3193,12 +3199,13 @@ function drawRobotics(
 
 
     connections.forEach(
-        connection => {
+        (connection, index) => {
 
             const a =
                 nodes[
                     connection[0]
                 ];
+
 
             const b =
                 nodes[
@@ -3206,70 +3213,108 @@ function drawRobotics(
                 ];
 
 
-            drawGlowPath(
+            const points = [
 
-                [
-                    a,
-                    {
-                        x:
-                            (
-                                a.x +
-                                b.x
-                            ) / 2,
-                        y:
-                            a.y
-                    },
-                    {
-                        x:
-                            (
-                                a.x +
-                                b.x
-                            ) / 2,
-                        y:
-                            b.y
-                    },
-                    b
-                ],
+                a,
 
-                theme.primary,
+                {
+                    x:
+                        (
+                            a.x +
+                            b.x
+                        ) / 2,
 
-                1.4,
+                    y:
+                        a.y
+                },
 
-                9,
+                {
+                    x:
+                        (
+                            a.x +
+                            b.x
+                        ) / 2,
 
-                0.20
+                    y:
+                        b.y
+                },
 
+                b
+
+            ];
+
+
+            drawTechLine(
+                points,
+                index % 2 === 0
+                    ? theme.primary
+                    : theme.accent,
+                1.2,
+                0.25
             );
 
         }
     );
 
 
-    /* -------------------------------------------------
-       STATIC NETWORK TERMINALS
-    ------------------------------------------------- */
+    /*
+       Network nodes
+    */
 
     nodes.forEach(
-        node => {
+        (node, index) => {
 
             ctx.save();
+
 
             ctx.strokeStyle =
                 rgba(
                     theme.secondary,
-                    0.35
+                    0.42
                 );
 
-            ctx.lineWidth = 1.2;
+
+            ctx.lineWidth =
+                1.2;
 
 
-            ctx.beginPath();
-
-            ctx.rect(
+            ctx.strokeRect(
                 node.x - 5,
                 node.y - 5,
                 10,
                 10
+            );
+
+
+            /*
+               Crosshair
+            */
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                node.x - 11,
+                node.y
+            );
+
+            ctx.lineTo(
+                node.x + 11,
+                node.y
+            );
+
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                node.x,
+                node.y - 11
+            );
+
+            ctx.lineTo(
+                node.x,
+                node.y + 11
             );
 
             ctx.stroke();
@@ -3281,20 +3326,56 @@ function drawRobotics(
     );
 
 
-    /* -------------------------------------------------
-       INDUSTRIAL ROBOT ARM
-    ------------------------------------------------- */
+    /*
+       Robotic arm
+    */
 
     const rx =
         W * 0.68;
 
+
     const baseY =
-        H * 0.78;
+        H * 0.79;
 
 
-    /* Base */
+    const shoulder = {
+
+        x: rx,
+
+        y:
+            baseY - 58
+
+    };
+
+
+    const elbow = {
+
+        x:
+            rx - 78,
+
+        y:
+            baseY - 165
+
+    };
+
+
+    const wrist = {
+
+        x:
+            rx + 20,
+
+        y:
+            baseY - 245
+
+    };
+
+
+    /*
+       Robot base
+    */
 
     ctx.save();
+
 
     ctx.strokeStyle =
         rgba(
@@ -3302,15 +3383,13 @@ function drawRobotics(
             0.45
         );
 
+
     ctx.fillStyle =
-        "rgba(5,8,12,0.55)";
+        "rgba(5,8,12,0.72)";
 
-    ctx.lineWidth = 2;
 
-    ctx.shadowColor =
-        theme.secondary;
-
-    ctx.shadowBlur = 15;
+    ctx.lineWidth =
+        2;
 
 
     ctx.beginPath();
@@ -3330,7 +3409,9 @@ function drawRobotics(
     ctx.stroke();
 
 
-    /* Vertical joint */
+    /*
+       Base center
+    */
 
     ctx.beginPath();
 
@@ -3347,39 +3428,20 @@ function drawRobotics(
     ctx.stroke();
 
 
-    /* -------------------------------------------------
-       ARM SEGMENT 1
-    ------------------------------------------------- */
+    /*
+       Robot arms
+    */
 
-    const shoulder = {
-
-        x: rx,
-        y: baseY - 55
-
-    };
-
-
-    const elbow = {
-
-        x:
-            rx - 75,
-        y:
-            baseY - 165
-
-    };
+    ctx.strokeStyle =
+        rgba(
+            theme.secondary,
+            0.40
+        );
 
 
-    const wrist = {
+    ctx.lineWidth =
+        17;
 
-        x:
-            rx + 20,
-        y:
-            baseY - 245
-
-    };
-
-
-    ctx.lineWidth = 15;
 
     ctx.lineCap =
         "round";
@@ -3415,15 +3477,16 @@ function drawRobotics(
     ctx.stroke();
 
 
-    /* Inner arm highlight */
+    /*
+       Inner technical line
+    */
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.75
-        );
+        theme.primary;
 
-    ctx.lineWidth = 3;
+
+    ctx.lineWidth =
+        2.5;
 
 
     ctx.beginPath();
@@ -3446,9 +3509,9 @@ function drawRobotics(
     ctx.stroke();
 
 
-    /* -------------------------------------------------
-       JOINTS
-    ------------------------------------------------- */
+    /*
+       Joints
+    */
 
     [
         shoulder,
@@ -3460,10 +3523,13 @@ function drawRobotics(
             ctx.fillStyle =
                 "rgba(5,8,12,0.95)";
 
+
             ctx.strokeStyle =
                 theme.secondary;
 
-            ctx.lineWidth = 2;
+
+            ctx.lineWidth =
+                2;
 
 
             ctx.beginPath();
@@ -3484,17 +3550,16 @@ function drawRobotics(
     );
 
 
-    /* -------------------------------------------------
-       GRIPPER
-    ------------------------------------------------- */
+    /*
+       Gripper
+    */
 
     ctx.strokeStyle =
         theme.accent;
 
-    ctx.lineWidth = 5;
 
-    ctx.lineCap =
-        "round";
+    ctx.lineWidth =
+        4;
 
 
     ctx.beginPath();
@@ -3542,36 +3607,71 @@ function drawRobotics(
     ctx.stroke();
 
 
-    /* -------------------------------------------------
-       ARM SCAN LINE
-    ------------------------------------------------- */
-
-    const scan =
-        Math.sin(
-            time * 0.001
-        );
-
+    /*
+       Industrial floor
+    */
 
     ctx.strokeStyle =
         rgba(
-            theme.accent,
-            0.18 +
-            Math.abs(scan) * 0.16
+            theme.primary,
+            0.18
         );
 
-    ctx.lineWidth = 1;
+
+    ctx.lineWidth =
+        1;
 
 
     ctx.beginPath();
 
     ctx.moveTo(
-        rx - 180,
-        baseY - 250
+        rx - 230,
+        baseY + 22
     );
 
     ctx.lineTo(
-        rx + 180,
-        baseY - 250
+        rx + 230,
+        baseY + 22
+    );
+
+    ctx.stroke();
+
+
+    /*
+       Scan line
+    */
+
+    const scan =
+        (
+            Math.sin(
+                time * 0.001
+            ) + 1
+        ) / 2;
+
+
+    const scanY =
+        baseY -
+        280 +
+        scan * 170;
+
+
+    ctx.strokeStyle =
+        rgba(
+            theme.accent,
+            0.18
+        );
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        rx - 190,
+        scanY
+    );
+
+    ctx.lineTo(
+        rx + 190,
+        scanY
     );
 
     ctx.stroke();
@@ -3582,120 +3682,152 @@ function drawRobotics(
 }
 
 
-/* =====================================================
+/* =========================================================
    EMBEDDED SYSTEM
-===================================================== */
+========================================================= */
 
 function drawEmbedded(
     theme,
     time
 ) {
 
-    ctx.save();
-
-
-    /* -------------------------------------------------
-       PCB BOARD
-    ------------------------------------------------- */
-
     const boardX =
-        W * 0.58;
+        W * 0.57;
+
 
     const boardY =
-        H * 0.24;
+        H * 0.23;
+
 
     const boardW =
         Math.min(
-            470,
-            W * 0.40
+            480,
+            W * 0.42
         );
+
 
     const boardH =
         Math.min(
-            300,
-            H * 0.46
+            310,
+            H * 0.48
         );
+
+
+    /*
+       PCB Board
+    */
+
+    ctx.save();
 
 
     ctx.fillStyle =
         "rgba(4,15,13,0.72)";
 
+
     ctx.strokeStyle =
         rgba(
             theme.primary,
-            0.38
+            0.36
         );
 
-    ctx.lineWidth = 2;
 
-    ctx.shadowColor =
-        theme.primary;
-
-    ctx.shadowBlur = 20;
+    ctx.lineWidth =
+        2;
 
 
     ctx.beginPath();
 
-    ctx.roundRect(
-        boardX,
-        boardY,
-        boardW,
-        boardH,
-        10
-    );
+    if (ctx.roundRect) {
+
+        ctx.roundRect(
+            boardX,
+            boardY,
+            boardW,
+            boardH,
+            10
+        );
+
+    } else {
+
+        ctx.rect(
+            boardX,
+            boardY,
+            boardW,
+            boardH
+        );
+
+    }
 
     ctx.fill();
 
     ctx.stroke();
 
 
-    /* -------------------------------------------------
-       MICROCONTROLLER
-    ------------------------------------------------- */
+    /*
+       MCU
+    */
 
     const mcX =
         boardX +
         boardW * 0.36;
 
+
     const mcY =
         boardY +
         boardH * 0.30;
 
-    const mcW = 125;
 
-    const mcH = 90;
+    const mcW =
+        125;
+
+
+    const mcH =
+        90;
 
 
     ctx.fillStyle =
         "rgba(3,7,11,0.95)";
 
+
     ctx.strokeStyle =
         theme.accent;
 
-    ctx.lineWidth = 2;
 
-    ctx.shadowColor =
-        theme.accent;
-
-    ctx.shadowBlur = 14;
+    ctx.lineWidth =
+        2;
 
 
     ctx.beginPath();
 
-    ctx.roundRect(
-        mcX,
-        mcY,
-        mcW,
-        mcH,
-        6
-    );
+    if (ctx.roundRect) {
+
+        ctx.roundRect(
+            mcX,
+            mcY,
+            mcW,
+            mcH,
+            6
+        );
+
+    } else {
+
+        ctx.rect(
+            mcX,
+            mcY,
+            mcW,
+            mcH
+        );
+
+    }
 
     ctx.fill();
 
     ctx.stroke();
 
 
-    /* MCU CORE */
+    /*
+       MCU core
+    */
 
     ctx.fillStyle =
         rgba(
@@ -3712,9 +3844,9 @@ function drawEmbedded(
     );
 
 
-    /* -------------------------------------------------
-       GPIO PINS
-    ------------------------------------------------- */
+    /*
+       GPIO
+    */
 
     for (
         let i = 0;
@@ -3734,7 +3866,9 @@ function drawEmbedded(
                 0.55
             );
 
-        ctx.lineWidth = 1.2;
+
+        ctx.lineWidth =
+            1.2;
 
 
         ctx.beginPath();
@@ -3769,15 +3903,16 @@ function drawEmbedded(
     }
 
 
-    /* -------------------------------------------------
-       SENSOR BLOCKS
-    ------------------------------------------------- */
+    /*
+       Sensors
+    */
 
     const sensorPositions = [
 
         {
             x:
                 boardX + 35,
+
             y:
                 boardY + 45
         },
@@ -3785,22 +3920,33 @@ function drawEmbedded(
         {
             x:
                 boardX + 35,
+
             y:
-                boardY + boardH - 85
+                boardY +
+                boardH -
+                85
         },
 
         {
             x:
-                boardX + boardW - 105,
+                boardX +
+                boardW -
+                105,
+
             y:
                 boardY + 50
         },
 
         {
             x:
-                boardX + boardW - 105,
+                boardX +
+                boardW -
+                105,
+
             y:
-                boardY + boardH - 85
+                boardY +
+                boardH -
+                85
         }
 
     ];
@@ -3815,28 +3961,46 @@ function drawEmbedded(
                     0.50
                 );
 
+
             ctx.fillStyle =
                 "rgba(3,8,12,0.85)";
 
-            ctx.lineWidth = 1.4;
+
+            ctx.lineWidth =
+                1.4;
 
 
             ctx.beginPath();
 
-            ctx.roundRect(
-                sensor.x,
-                sensor.y,
-                70,
-                40,
-                5
-            );
+            if (ctx.roundRect) {
+
+                ctx.roundRect(
+                    sensor.x,
+                    sensor.y,
+                    70,
+                    40,
+                    5
+                );
+
+            } else {
+
+                ctx.rect(
+                    sensor.x,
+                    sensor.y,
+                    70,
+                    40
+                );
+
+            }
 
             ctx.fill();
 
             ctx.stroke();
 
 
-            /* Sensor lines */
+            /*
+               Sensor details
+            */
 
             for (
                 let i = 0;
@@ -3848,13 +4012,15 @@ function drawEmbedded(
 
                 ctx.moveTo(
                     sensor.x + 12,
-                    sensor.y + 10 +
+                    sensor.y +
+                    10 +
                     i * 10
                 );
 
                 ctx.lineTo(
                     sensor.x + 58,
-                    sensor.y + 10 +
+                    sensor.y +
+                    10 +
                     i * 10
                 );
 
@@ -3863,7 +4029,9 @@ function drawEmbedded(
             }
 
 
-            /* Connecting traces */
+            /*
+               Connections
+            */
 
             const targetX =
                 mcX +
@@ -3873,12 +4041,11 @@ function drawEmbedded(
                         : mcW
                 );
 
+
             const targetY =
                 mcY +
                 20 +
-                (
-                    index * 20
-                );
+                index * 20;
 
 
             ctx.strokeStyle =
@@ -3887,7 +4054,9 @@ function drawEmbedded(
                     0.38
                 );
 
-            ctx.lineWidth = 1.5;
+
+            ctx.lineWidth =
+                1.5;
 
 
             ctx.beginPath();
@@ -3913,10 +4082,9 @@ function drawEmbedded(
     );
 
 
-    /* -------------------------------------------------
-       MOVING DATA BUS
-       เป็นเส้น ไม่ใช่จุด
-    ------------------------------------------------- */
+    /*
+       Data bus
+    */
 
     const busY =
         boardY +
@@ -3927,10 +4095,12 @@ function drawEmbedded(
     ctx.strokeStyle =
         rgba(
             theme.primary,
-            0.22
+            0.20
         );
 
-    ctx.lineWidth = 2;
+
+    ctx.lineWidth =
+        2;
 
 
     ctx.beginPath();
@@ -3941,16 +4111,23 @@ function drawEmbedded(
     );
 
     ctx.lineTo(
-        boardX + boardW + 80,
+        boardX +
+        boardW +
+        80,
         busY
     );
 
     ctx.stroke();
 
 
+    /*
+       Moving bus trace
+    */
+
     const busProgress =
         (
-            time * 0.0004
+            time *
+            0.00025
         ) % 1;
 
 
@@ -3958,29 +4135,26 @@ function drawEmbedded(
         boardX -
         80 +
         (
-            boardW + 160
+            boardW +
+            160
         ) *
         busProgress;
 
 
-    ctx.save();
-
     ctx.strokeStyle =
         theme.accent;
 
-    ctx.lineWidth = 4;
 
-    ctx.shadowColor =
-        theme.accent;
+    ctx.lineWidth =
+        3;
 
-    ctx.shadowBlur = 20;
 
     ctx.beginPath();
 
     ctx.moveTo(
         Math.max(
             boardX - 80,
-            busX - 80
+            busX - 100
         ),
         busY
     );
@@ -3992,81 +4166,28 @@ function drawEmbedded(
 
     ctx.stroke();
 
-    ctx.restore();
-
-
-    /* -------------------------------------------------
-       SMALL CAPACITORS / RESISTORS
-    ------------------------------------------------- */
-
-    for (
-        let i = 0;
-        i < 10;
-        i++
-    ) {
-
-        const x =
-            boardX +
-            20 +
-            (
-                i * 47
-            ) %
-            Math.max(
-                100,
-                boardW - 40
-            );
-
-        const y =
-            boardY +
-            boardH -
-            25;
-
-
-        ctx.strokeStyle =
-            rgba(
-                theme.primary,
-                0.45
-            );
-
-        ctx.lineWidth = 1;
-
-
-        ctx.beginPath();
-
-        ctx.rect(
-            x,
-            y,
-            15,
-            7
-        );
-
-        ctx.stroke();
-
-    }
-
 
     ctx.restore();
 
 }
 
 
-/* =====================================================
-   HIGH VOLTAGE
-===================================================== */
+/* =========================================================
+   HIGH VOLTAGE ENERGY
+========================================================= */
 
 function drawHighVolt(
     theme,
     time
 ) {
 
-    ctx.save();
-
-
-    /* ENERGY WAVES */
+    /*
+       Background energy waves
+    */
 
     for (
         let i = 0;
-        i < 9;
+        i < 8;
         i++
     ) {
 
@@ -4077,26 +4198,28 @@ function drawHighVolt(
             H *
             (
                 0.08 +
-                i * 0.10
+                i * 0.105
             );
 
 
         for (
             let x = -50;
             x < W + 50;
-            x += 30
+            x += 28
         ) {
 
             const y =
                 baseY +
                 Math.sin(
                     x * 0.004 +
-                    time * 0.001 +
+                    time * 0.0007 +
                     i
                 ) *
                 (
-                    15 +
-                    i % 3 * 8
+                    14 +
+                    (
+                        i % 3
+                    ) * 7
                 );
 
 
@@ -4110,28 +4233,29 @@ function drawHighVolt(
         }
 
 
-        drawGlowPath(
-
+        drawTechLine(
             points,
-
-            theme.primary,
-
-            1.4,
-
-            14,
-
-            0.16
-
+            i % 2 === 0
+                ? theme.primary
+                : theme.accent,
+            1.1,
+            0.15
         );
 
     }
 
 
-    /* POWER TOWERS */
+    /*
+       Power towers
+    */
+
+    const towerCount =
+        W < 700 ? 3 : 4;
+
 
     for (
         let i = 0;
-        i < 4;
+        i < towerCount;
         i++
     ) {
 
@@ -4139,7 +4263,14 @@ function drawHighVolt(
             W *
             (
                 0.12 +
-                i * 0.27
+                i *
+                (
+                    0.76 /
+                    Math.max(
+                        towerCount - 1,
+                        1
+                    )
+                )
             );
 
 
@@ -4151,21 +4282,23 @@ function drawHighVolt(
             H * 0.34;
 
 
+        ctx.save();
+
+
         ctx.strokeStyle =
             rgba(
                 theme.secondary,
-                0.24
+                0.28
             );
 
-        ctx.lineWidth = 2;
 
-        ctx.shadowColor =
-            theme.secondary;
-
-        ctx.shadowBlur = 12;
+        ctx.lineWidth =
+            2;
 
 
-        /* TOWER */
+        /*
+           Tower
+        */
 
         ctx.beginPath();
 
@@ -4187,11 +4320,16 @@ function drawHighVolt(
         ctx.stroke();
 
 
-        /* CROSS BARS */
+        /*
+           Cross bars
+        */
 
         for (
-            let y = topY + 40;
+            let y =
+                topY + 40;
+
             y < baseY;
+
             y += 55
         ) {
 
@@ -4199,7 +4337,8 @@ function drawHighVolt(
                 (
                     y -
                     topY
-                ) * 0.35;
+                ) *
+                0.35;
 
 
             ctx.beginPath();
@@ -4219,17 +4358,27 @@ function drawHighVolt(
         }
 
 
-        /* POWER CABLES */
+        /*
+           Transmission cables
+        */
 
         if (
-            i < 3
+            i <
+            towerCount - 1
         ) {
 
             const nextX =
                 W *
                 (
                     0.12 +
-                    (i + 1) * 0.27
+                    (i + 1) *
+                    (
+                        0.76 /
+                        Math.max(
+                            towerCount - 1,
+                            1
+                        )
+                    )
                 );
 
 
@@ -4242,15 +4391,12 @@ function drawHighVolt(
                 ctx.strokeStyle =
                     rgba(
                         theme.primary,
-                        0.28
+                        0.27
                     );
 
-                ctx.lineWidth = 1.5;
 
-                ctx.shadowColor =
-                    theme.primary;
-
-                ctx.shadowBlur = 15;
+                ctx.lineWidth =
+                    1.4;
 
 
                 ctx.beginPath();
@@ -4287,14 +4433,85 @@ function drawHighVolt(
 
         }
 
+
+        ctx.restore();
+
     }
 
 
-    /* LIGHTNING SYMBOLS */
+    /*
+       Animated energy pulse along power line
+    */
+
+    const energyProgress =
+        (
+            time *
+            0.00006
+        ) % 1;
+
+
+    const energyX =
+        W *
+        0.12 +
+        (
+            W *
+            0.76
+        ) *
+        energyProgress;
+
+
+    const energyY =
+        H *
+        0.34 +
+        Math.sin(
+            energyProgress *
+            Math.PI *
+            3
+        ) *
+        18;
+
+
+    ctx.save();
+
+
+    ctx.strokeStyle =
+        theme.accent;
+
+
+    ctx.lineWidth =
+        2.5;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        energyX - 45,
+        energyY
+    );
+
+    ctx.lineTo(
+        energyX,
+        energyY
+    );
+
+    ctx.lineTo(
+        energyX + 45,
+        energyY
+    );
+
+    ctx.stroke();
+
+
+    ctx.restore();
+
+
+    /*
+       Lightning technical symbols
+    */
 
     for (
         let i = 0;
-        i < 8;
+        i < 7;
         i++
     ) {
 
@@ -4311,22 +4528,26 @@ function drawHighVolt(
         const y =
             H *
             (
-                0.15 +
+                0.16 +
                 (
                     i % 5
-                ) * 0.15
+                ) *
+                0.14
             );
 
 
+        ctx.save();
+
+
         ctx.strokeStyle =
-            theme.accent;
+            rgba(
+                theme.accent,
+                0.34
+            );
 
-        ctx.lineWidth = 1.4;
 
-        ctx.shadowColor =
-            theme.accent;
-
-        ctx.shadowBlur = 18;
+        ctx.lineWidth =
+            1.4;
 
 
         ctx.beginPath();
@@ -4353,21 +4574,20 @@ function drawHighVolt(
 
         ctx.stroke();
 
+
+        ctx.restore();
+
     }
-
-
-    ctx.restore();
 
 }
 
 
-/* =====================================================
+/* =========================================================
    AMBIENT LIGHT
-===================================================== */
+   เบามาก ไม่ทำให้เป็น neon
+========================================================= */
 
-function drawAmbientLight(
-    theme
-) {
+function drawAmbientLight(theme) {
 
     const gradient =
         ctx.createRadialGradient(
@@ -4391,16 +4611,16 @@ function drawAmbientLight(
         0,
         rgba(
             theme.primary,
-            0.045
+            0.018
         )
     );
 
 
     gradient.addColorStop(
-        0.5,
+        0.55,
         rgba(
             theme.secondary,
-            0.015
+            0.008
         )
     );
 
@@ -4425,9 +4645,9 @@ function drawAmbientLight(
 }
 
 
-/* =====================================================
-   DRAW CURRENT THEME
-===================================================== */
+/* =========================================================
+   DRAW THEME
+========================================================= */
 
 function drawTheme(
     theme,
@@ -4498,18 +4718,20 @@ function drawTheme(
 }
 
 
-/* =====================================================
+/* =========================================================
    MAIN RENDER
-===================================================== */
+========================================================= */
 
-function renderBackground(
-    time
-) {
+function renderBackground(time) {
 
     updateTheme(
         time
     );
 
+
+    /*
+       Clear
+    */
 
     ctx.clearRect(
         0,
@@ -4519,7 +4741,9 @@ function renderBackground(
     );
 
 
-    /* BLACK BASE */
+    /*
+       Dark base
+    */
 
     ctx.fillStyle =
         "#050608";
@@ -4533,19 +4757,31 @@ function renderBackground(
     );
 
 
-    /* =================================================
-       THEME TRANSITION
-    ================================================= */
+    /*
+       Theme transition
+    */
 
     if (
         themeProgress < 1
     ) {
 
+        /*
+           Smooth easing
+        */
+
         const fade =
-            themeProgress;
+            themeProgress *
+            themeProgress *
+            (
+                3 -
+                2 *
+                themeProgress
+            );
 
 
-        /* OLD */
+        /*
+           Previous
+        */
 
         ctx.save();
 
@@ -4560,7 +4796,9 @@ function renderBackground(
         ctx.restore();
 
 
-        /* NEW */
+        /*
+           Current
+        */
 
         ctx.save();
 
@@ -4598,9 +4836,9 @@ requestAnimationFrame(
 );
 
 
-/* =====================================================
-   RESPONSIVE BACKGROUND
-===================================================== */
+/* =========================================================
+   RESPONSIVE PCB
+========================================================= */
 
 window.addEventListener(
     "resize",
