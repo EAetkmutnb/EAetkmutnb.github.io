@@ -5,9 +5,9 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050608">
+<meta name="theme-color" content="#050a10">
 
-<title>เทคโนโลยีวิศวกรรมไฟฟ้าและอัตโนมัติ | KMUTNB</title>
+<title>เทคโนโลยีวิศวกรรมไฟฟ้าและระบบอัตโนมัติ | KMUTNB</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,956 +19,1003 @@
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Prompt', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #050608;
-    color: #E2E8F0;
-    overflow-x: hidden;
-}
-
 /* =========================================================
-   ENGINEERING CANVAS
+   RESET
 ========================================================= */
 
-#circuit-bg {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    pointer-events: none;
-    background: #050608;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Prompt",sans-serif;
 }
 
-/* =========================================================
-   DARK OVERLAY
-========================================================= */
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -8;
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5,6,8,0.12),
-            rgba(5,6,8,0.72)
-        );
+html{
+    scroll-behavior:smooth;
 }
+
+body{
+    background:#04080d;
+    color:#e8edf3;
+    overflow-x:hidden;
+}
+
 
 /* =========================================================
    NAVBAR
 ========================================================= */
 
-.navbar {
-    background: rgba(5,7,10,0.90);
-    border-bottom: 2px solid #FF6B00;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+.navbar{
+    height:78px;
+    background:rgba(4,8,13,.94);
+    border-bottom:1px solid rgba(255,107,0,.28);
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
     box-shadow:
-        0 5px 30px
-        rgba(0,0,0,0.25);
+        0 10px 35px rgba(0,0,0,.28);
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 14px 20px;
+.nav-container{
+    max-width:1200px;
+    height:100%;
+    margin:auto;
+    padding:0 20px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo-flex {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 102;
+.logo-flex{
+    display:flex;
+    align-items:center;
+    gap:11px;
 }
 
-.logo-icon {
+.logo-icon{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     background:
         linear-gradient(
             135deg,
-            #FF6B00,
-            #FFD600
+            #ff6b00,
+            #ff8a32
         );
 
-    padding: 8px 12px;
-    border-radius: 10px;
-    color: #050608;
-    font-weight: 900;
-    font-size: 20px;
+    border-radius:7px;
+
+    color:#fff;
+    font-size:23px;
+    font-weight:900;
 
     box-shadow:
-        0 0 25px
-        rgba(255,107,0,0.20);
+        0 0 25px rgba(255,107,0,.18);
 }
 
-.logo-text-main {
-    font-weight: 700;
-    font-size: 18px;
-    color: white;
+.logo-text-main{
+    display:block;
+    color:#fff;
+    font-size:18px;
+    line-height:1.15;
+    font-weight:700;
 }
 
-.logo-text-orange {
-    color: #FF6B00;
+.logo-text-orange{
+    color:#ff6b00;
 }
 
-.logo-sub {
-    font-size: 11px;
-    color: #00E5FF;
-    display: block;
+.logo-sub{
+    display:block;
+    color:#8e9aaa;
+    font-size:9px;
+    margin-top:3px;
+    letter-spacing:.15px;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    align-items: center;
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:31px;
+    list-style:none;
 }
 
-.nav-menu a {
-    color: #CBD5E1;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.25s ease;
-    padding-bottom: 5px;
-    position: relative;
+.nav-menu a{
+    position:relative;
+
+    color:#d0d7df;
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:500;
+
+    transition:.25s ease;
 }
 
-.nav-menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
+.nav-menu a::after{
+    content:"";
 
-    background:
-        linear-gradient(
-            90deg,
-            #FF6B00,
-            #FFD600
-        );
+    position:absolute;
+    left:0;
+    bottom:-9px;
 
-    transition: width 0.25s ease;
+    width:0;
+    height:2px;
+
+    background:#ff6b00;
+
+    transition:.3s ease;
 }
 
-.nav-menu a:hover {
-    color: #FF6B00;
+.nav-menu a:hover,
+.nav-menu a.active{
+    color:#ff781b;
 }
 
 .nav-menu a:hover::after,
-.nav-menu a.active::after {
-    width: 100%;
+.nav-menu a.active::after{
+    width:100%;
 }
 
-.nav-menu a.active {
-    color: #FF6B00;
-}
+.btn-admission{
+    text-decoration:none;
+    color:#fff;
 
-.btn-admission {
     background:
         linear-gradient(
-            90deg,
-            #FF6B00,
-            #FF8833
+            135deg,
+            #ff6810,
+            #ff8331
         );
 
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s ease;
+    padding:11px 21px;
+
+    border-radius:7px;
+
+    font-size:13px;
+    font-weight:600;
 
     box-shadow:
-        0 5px 20px
-        rgba(255,107,0,0.18);
+        0 7px 25px rgba(255,107,0,.18);
+
+    transition:.3s ease;
 }
 
-.btn-admission:hover {
-    transform:
-        translateY(-2px)
-        scale(1.03);
-
+.btn-admission:hover{
+    transform:translateY(-2px);
     box-shadow:
-        0 8px 30px
-        rgba(255,107,0,0.30);
+        0 10px 30px rgba(255,107,0,.3);
 }
 
-.menu-toggle {
-    display: none;
-    width: 48px;
-    height: 48px;
 
-    border:
-        1px solid
-        rgba(255,107,0,0.4);
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    border-radius: 10px;
+.menu-toggle{
+    display:none;
 
-    background:
-        rgba(20,24,31,0.85);
+    width:45px;
+    height:45px;
 
-    cursor: pointer;
+    border:1px solid rgba(255,107,0,.35);
+    border-radius:8px;
 
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
+    background:#0b1118;
 
-    z-index: 102;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
 }
 
-.menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: #FF6B00;
-    border-radius: 5px;
-    transition: 0.3s;
+.menu-toggle span{
+    width:22px;
+    height:2px;
+    background:#ff7417;
+    transition:.3s;
 }
 
-.menu-toggle.active span:nth-child(1) {
-    transform:
-        translateY(7px)
-        rotate(45deg);
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
 }
 
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
 }
 
-.menu-toggle.active span:nth-child(3) {
-    transform:
-        translateY(-7px)
-        rotate(-45deg);
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
 }
 
-.mobile-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
-    z-index: 90;
-
-    backdrop-filter:
-        blur(4px);
+.mobile-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:90;
+    background:rgba(0,0,0,.62);
+    backdrop-filter:blur(3px);
 }
 
-.mobile-overlay.active {
-    display: block;
+.mobile-overlay.active{
+    display:block;
 }
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
-.hero {
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5,6,8,0.48),
-            rgba(10,13,18,0.86)
-        );
+.hero{
+    min-height:735px;
 
-    padding: 80px 20px;
+    position:relative;
+    overflow:hidden;
 
-    border-bottom:
-        1px solid #252A34;
+    border-bottom:1px solid #1a2632;
 
-    position: relative;
-    overflow: hidden;
+    background:#061019;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    background:
-        rgba(255,107,0,0.055);
-
-    border-radius: 50%;
-    filter: blur(100px);
-
-    top: -220px;
-    right: -150px;
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-
-    width: 400px;
-    height: 400px;
-
-    background:
-        rgba(0,229,255,0.035);
-
-    border-radius: 50%;
-    filter: blur(100px);
-
-    bottom: -220px;
-    left: -150px;
-
-    pointer-events: none;
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 50px;
-    align-items: center;
-
-    position: relative;
-    z-index: 2;
-}
-
-.hero-badge {
-    background:
-        rgba(255,107,0,0.08);
-
-    color: #FF8A3D;
-    font-size: 12px;
-    font-weight: 700;
-
-    padding: 6px 12px;
-    border-radius: 20px;
-
-    border:
-        1px solid
-        rgba(255,107,0,0.35);
-
-    display: inline-block;
-}
-
-.hero-title {
-    font-size: 48px;
-    font-weight: 900;
-    margin-top: 20px;
-    line-height: 1.2;
-    color: white;
-}
-
-.hero-title-orange {
-    background:
-        linear-gradient(
-            90deg,
-            #FF6B00,
-            #FFD600,
-            #FF8A3D
-        );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-desc {
-    color: #94A3B8;
-    font-size: 16px;
-    margin-top: 20px;
-    line-height: 1.8;
-    max-width: 650px;
-}
-
-.hero-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-}
-
-.btn-primary {
-    background:
-        linear-gradient(
-            90deg,
-            #FF6B00,
-            #E65C00
-        );
-
-    color: white;
-    padding: 12px 28px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.3s ease;
-
-    box-shadow:
-        0 8px 25px
-        rgba(255,107,0,0.18);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 35px
-        rgba(255,107,0,0.30);
-}
-
-.btn-secondary {
-    background:
-        rgba(20,24,31,0.78);
-
-    color: #E2E8F0;
-
-    padding: 12px 28px;
-    border-radius: 10px;
-    text-decoration: none;
-
-    border:
-        1px solid #334155;
-
-    transition: 0.3s ease;
-}
-
-.btn-secondary:hover {
-    border-color: #00E5FF;
-    color: #00E5FF;
-    transform: translateY(-3px);
-}
-
-.hero-img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 15px;
-
-    border:
-        2px solid #2D3142;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.45);
-
-    transition: 0.4s ease;
-}
-
-.hero-img:hover {
-    border-color: #FF6B00;
-
-    box-shadow:
-        0 25px 70px
-        rgba(255,107,0,0.15);
-
-    transform:
-        translateY(-4px);
-}
 
 /* =========================================================
-   STRENGTHS
+   ENGINEERING BACKGROUND
 ========================================================= */
 
-.strengths {
-    max-width: 1200px;
-    margin: auto;
-    padding: 80px 20px;
+#engineeringCanvas{
+    position:absolute;
+    inset:0;
 
-    position: relative;
-    z-index: 2;
+    width:100%;
+    height:100%;
+
+    z-index:0;
+    pointer-events:none;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
 
-.section-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: white;
-}
+/* dark cinematic overlay */
 
-.section-line {
-    width: 60px;
-    height: 4px;
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    z-index:1;
+    pointer-events:none;
 
     background:
         linear-gradient(
             90deg,
-            #FF6B00,
-            #FFD600
+            rgba(3,8,14,.58) 0%,
+            rgba(3,8,14,.25) 43%,
+            rgba(3,8,14,.04) 75%,
+            rgba(3,8,14,.24) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(3,7,12,.16),
+            rgba(3,7,12,.42)
+        );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-container{
+    max-width:1200px;
+    min-height:735px;
+
+    margin:auto;
+    padding:80px 20px 115px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+    z-index:3;
+}
+
+.hero-content{
+    width:58%;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    color:#dbe2e9;
+
+    padding:7px 14px;
+
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:20px;
+
+    background:rgba(5,10,15,.35);
+
+    font-size:12px;
+    font-weight:500;
+
+    backdrop-filter:blur(5px);
+
+    animation:
+        fadeUp .9s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+.hero-badge::first-letter{
+    color:#ff6b00;
+}
+
+.hero-title{
+    margin-top:22px;
+
+    color:#f7f9fb;
+
+    font-size:50px;
+    line-height:1.2;
+
+    font-weight:800;
+
+    letter-spacing:-1.2px;
+
+    text-shadow:
+        0 5px 35px rgba(0,0,0,.5);
+
+    animation:
+        fadeUp 1s
+        .08s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+.hero-title-orange{
+    color:#ff6b00;
+
+    text-shadow:
+        0 0 30px rgba(255,107,0,.12);
+}
+
+.hero-desc{
+    max-width:650px;
+
+    margin-top:22px;
+
+    color:#aeb9c5;
+
+    font-size:15px;
+    line-height:1.85;
+
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.65);
+
+    animation:
+        fadeUp 1s
+        .18s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:16px;
+
+    margin-top:31px;
+
+    animation:
+        fadeUp 1s
+        .28s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+.btn-primary,
+.btn-secondary{
+    min-width:170px;
+
+    padding:13px 25px;
+
+    border-radius:7px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s ease;
+}
+
+.btn-primary{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6410,
+            #ff7c25
         );
 
-    margin: 15px auto;
-    border-radius: 2px;
+    box-shadow:
+        0 9px 25px rgba(255,107,0,.2);
 }
 
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 22px;
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 13px 35px rgba(255,107,0,.32);
 }
 
-.card {
+.btn-secondary{
+    color:#dbe3eb;
+
+    border:1px solid #374553;
+
+    background:rgba(5,11,17,.48);
+
+    backdrop-filter:blur(5px);
+}
+
+.btn-secondary:hover{
+    color:#fff;
+    border-color:#ff6b00;
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO BOTTOM CATEGORY BAR
+========================================================= */
+
+.hero-categories{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:25px;
+
+    z-index:4;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    padding:0 20px;
+}
+
+.category{
+    position:relative;
+
+    text-align:center;
+
+    color:#8f9ba8;
+
+    font-size:11px;
+
+    padding-top:10px;
+}
+
+.category::before{
+    content:"";
+
+    position:absolute;
+
+    left:15%;
+    right:15%;
+    top:0;
+
+    height:2px;
+
+    background:#1e303e;
+}
+
+.category::after{
+    content:"";
+
+    position:absolute;
+
+    left:35%;
+    width:30%;
+    top:0;
+
+    height:2px;
+
+    background:#ff6b00;
+
+    box-shadow:
+        0 0 12px rgba(255,107,0,.4);
+}
+
+.category:nth-child(2)::after{
+    background:#00e5ff;
+    box-shadow:0 0 12px rgba(0,229,255,.35);
+}
+
+.category:nth-child(3)::after{
+    background:#00e6a0;
+    box-shadow:0 0 12px rgba(0,230,160,.35);
+}
+
+.category:nth-child(4)::after{
+    background:#a855f7;
+    box-shadow:0 0 12px rgba(168,85,247,.35);
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.strengths{
+    position:relative;
+    z-index:5;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:65px 20px 60px;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:42px;
+}
+
+.section-title{
+    color:#f4f6f8;
+
+    font-size:29px;
+    font-weight:700;
+}
+
+.section-line{
+    width:56px;
+    height:3px;
+
+    margin:13px auto 0;
+
+    background:#ff6b00;
+
+    border-radius:3px;
+
+    box-shadow:
+        0 0 14px rgba(255,107,0,.3);
+}
+
+.grid-4{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.card{
+    min-height:275px;
+
+    padding:28px 23px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(25,29,37,0.92),
-            rgba(11,14,19,0.90)
+            rgba(10,18,27,.94),
+            rgba(5,10,16,.94)
         );
 
-    padding: 28px 24px;
-    border-radius: 15px;
+    border:1px solid #253441;
 
-    border:
-        1px solid #2D3142;
+    border-radius:8px;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
 
     transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.5s ease;
+        transform .45s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 
-    backdrop-filter: blur(10px);
-
-    position: relative;
-    overflow: hidden;
+    opacity:0;
+    transform:translateY(35px);
 }
 
-.card::before {
-    content: "";
-    position: absolute;
+.card.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-    top: 0;
-    left: -100%;
+.card:hover{
+    transform:translateY(-7px);
 
-    width: 100%;
-    height: 2px;
+    border-color:#506070;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.35);
+}
+
+.card:nth-child(1):hover{
+    border-color:rgba(255,107,0,.7);
+}
+
+.card:nth-child(2):hover{
+    border-color:rgba(255,210,0,.65);
+}
+
+.card:nth-child(3):hover{
+    border-color:rgba(0,229,180,.65);
+}
+
+.card:nth-child(4):hover{
+    border-color:rgba(168,85,247,.65);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:1px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #FF6B00,
-            #FFD600,
+            rgba(255,107,0,.7),
             transparent
         );
 
-    transition: 0.6s ease;
+    opacity:.6;
 }
 
-.card:hover::before {
-    left: 100%;
+.card-icon{
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:13px;
+
+    font-size:43px;
 }
 
-.card:hover {
-    border-color:
-        rgba(255,107,0,0.75);
+.card-title{
+    color:#f3f5f7;
 
-    transform:
-        translateY(-10px);
+    font-size:18px;
 
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.42);
+    font-weight:700;
+
+    margin-bottom:13px;
 }
 
-.card-icon {
-    font-size: 28px;
-    margin-bottom: 20px;
+.card-desc{
+    color:#8996a4;
+
+    font-size:12px;
+
+    line-height:1.85;
 }
 
-.card-title {
-    font-size: 19px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.card-desc {
-    color: #94A3B8;
-    font-size: 13px;
-    line-height: 1.8;
-}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer {
-    border-top: 1px solid #252A34;
-    padding: 30px 20px;
+footer{
+    border-top:1px solid #17222c;
 
-    text-align: center;
+    padding:23px 20px;
 
-    color: #64748B;
-    font-size: 11px;
-    line-height: 1.8;
+    text-align:center;
 
-    background:
-        rgba(5,6,8,0.90);
+    color:#6f7d8b;
 
-    position: relative;
-    z-index: 2;
+    font-size:11px;
+
+    background:#071019;
 }
+
 
 /* =========================================================
    ANIMATION
 ========================================================= */
 
-.nav-container {
-    animation:
-        navReveal
-        0.8s
-        cubic-bezier(0.16,1,0.3,1)
-        both;
-}
+@keyframes fadeUp{
 
-@keyframes navReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(-25px);
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-container > div:first-child {
-    animation:
-        heroLeft
-        1s
-        cubic-bezier(0.16,1,0.3,1)
-        0.15s
-        both;
-}
-
-@keyframes heroLeft {
-    0% {
-        opacity: 0;
-        transform:
-            translateX(-60px)
-            scale(0.94);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
-    100% {
-        opacity: 1;
-        transform:
-            translateX(0)
-            scale(1);
-    }
 }
 
-.hero-container > div:last-child {
-    animation:
-        heroRight
-        1.1s
-        cubic-bezier(0.16,1,0.3,1)
-        0.3s
-        both;
-}
-
-@keyframes heroRight {
-    0% {
-        opacity: 0;
-        transform:
-            translateX(60px)
-            scale(0.90);
-    }
-
-    100% {
-        opacity: 1;
-        transform:
-            translateX(0)
-            scale(1);
-    }
-}
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.section-header,
-.card,
-footer {
-    opacity: 0;
-    filter: blur(8px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease,
-        filter 0.8s ease;
-}
-
-.section-header {
-    transform: translateY(40px);
-}
-
-.card {
-    transform: translateY(60px);
-}
-
-footer {
-    transform: translateY(35px);
-}
-
-.section-header.reveal,
-.card.reveal,
-footer.reveal {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-}
-
-.card:nth-child(1).reveal {
-    transition-delay: 0.05s;
-}
-
-.card:nth-child(2).reveal {
-    transition-delay: 0.15s;
-}
-
-.card:nth-child(3).reveal {
-    transition-delay: 0.25s;
-}
-
-.card:nth-child(4).reveal {
-    transition-delay: 0.35s;
-}
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media(max-width:1050px){
 
-    .nav-menu {
-        gap: 18px;
+    .nav-menu{
+        gap:18px;
     }
 
-    .nav-menu a {
-        font-size: 13px;
+    .nav-menu a{
+        font-size:12px;
     }
 
-    .btn-admission {
-        padding: 9px 14px;
-        font-size: 12px;
+    .hero-title{
+        font-size:43px;
     }
 
-    .grid-4 {
-        grid-template-columns: repeat(2,1fr);
+    .grid-4{
+        grid-template-columns:
+            repeat(2,1fr);
     }
+
 }
 
-@media (max-width: 900px) {
 
-    .nav-container {
-        min-height: 70px;
+@media(max-width:850px){
+
+    .menu-toggle{
+        display:flex;
     }
 
-    .menu-toggle {
-        display: flex;
+    .btn-admission{
+        display:none;
     }
 
-    .btn-admission {
-        display: none;
-    }
+    .nav-menu{
 
-    .nav-menu {
-        position: fixed;
+        position:fixed;
 
-        top: 70px;
-        right: 15px;
-        left: 15px;
+        top:78px;
+        left:15px;
+        right:15px;
 
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
 
-        gap: 0;
+        gap:3px;
+
+        padding:10px;
 
         background:
-            rgba(10,13,18,0.98);
+            rgba(6,11,17,.98);
 
         border:
-            1px solid #343A46;
+            1px solid #263541;
 
         border-top:
-            2px solid #FF6B00;
+            2px solid #ff6b00;
 
         border-radius:
-            0 0 14px 14px;
-
-        padding: 10px;
-
-        opacity: 0;
-        visibility: hidden;
-
-        transform:
-            translateY(-15px);
-
-        transition: 0.25s ease;
+            0 0 10px 10px;
 
         box-shadow:
-            0 20px 50px
-            rgba(0,0,0,0.55);
+            0 20px 50px rgba(0,0,0,.55);
 
-        z-index: 101;
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-15px);
+
+        transition:.25s ease;
+
+        z-index:101;
     }
 
-    .nav-menu.open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    .nav-menu.open{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
     }
 
-    .nav-menu li {
-        width: 100%;
+    .nav-menu a{
+        display:block;
+        padding:14px;
+        font-size:14px;
+        border-radius:6px;
     }
 
-    .nav-menu a {
-        display: block;
-        width: 100%;
-        padding: 15px 16px;
-        border-radius: 8px;
-        font-size: 15px;
+    .nav-menu a:hover,
+    .nav-menu a.active{
+        background:rgba(255,107,0,.08);
     }
 
-    .nav-menu a::after {
-        display: none;
+    .nav-menu a::after{
+        display:none;
     }
 
-    .nav-menu a:hover {
-        background:
-            rgba(255,107,0,0.08);
+    .hero{
+        min-height:720px;
     }
 
-    .nav-menu a.active {
-        background:
-            rgba(255,107,0,0.10);
+    .hero-container{
+        min-height:720px;
+        padding-top:65px;
     }
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .hero-content{
+        width:100%;
+        text-align:center;
     }
 
-    .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
+    .hero-desc{
+        margin-left:auto;
+        margin-right:auto;
     }
 
-    .hero-buttons {
-        justify-content: center;
+    .hero-buttons{
+        justify-content:center;
     }
 
-    .grid-4 {
-        grid-template-columns: 1fr;
+    .hero-categories{
+        gap:5px;
     }
+
 }
 
-@media (max-width: 500px) {
 
-    .logo-text-main {
-        font-size: 15px;
+@media(max-width:600px){
+
+    .navbar{
+        height:68px;
     }
 
-    .logo-sub {
-        font-size: 8px;
+    .logo-icon{
+        width:40px;
+        height:40px;
+        font-size:20px;
     }
 
-    .logo-icon {
-        font-size: 17px;
-        padding: 7px 9px;
+    .logo-text-main{
+        font-size:15px;
     }
 
-    .hero {
-        padding: 60px 20px;
+    .logo-sub{
+        font-size:7px;
     }
 
-    .hero-title {
-        font-size: 34px;
+    .nav-menu{
+        top:68px;
     }
 
-    .hero-desc {
-        font-size: 14px;
+    .hero{
+        min-height:680px;
     }
 
-    .hero-buttons {
-        flex-direction: column;
+    .hero-container{
+        min-height:680px;
+        padding:
+            55px
+            18px
+            100px;
+    }
+
+    .hero-title{
+        font-size:34px;
+        line-height:1.22;
+    }
+
+    .hero-desc{
+        font-size:13px;
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
     }
 
     .btn-primary,
-    .btn-secondary {
-        text-align: center;
-        width: 100%;
+    .btn-secondary{
+        width:100%;
+        max-width:280px;
     }
 
-    .hero-img {
-        height: 230px;
+    .hero-categories{
+        bottom:18px;
+        grid-template-columns:
+            repeat(4,1fr);
+        gap:0;
+        padding:0 8px;
     }
 
-    .section-title {
-        font-size: 26px;
+    .category{
+        font-size:7px;
     }
+
+    .grid-4{
+        grid-template-columns:1fr;
+    }
+
+    .strengths{
+        padding-top:50px;
+    }
+
 }
 
-@media (prefers-reduced-motion: reduce) {
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
 
     *,
     *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
+    *::after{
+        animation:none!important;
+        transition:none!important;
     }
 
-    .section-header,
-    .card,
-    footer {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-    }
 }
+
+
+/* =========================================================
+   ENGINEERING CANVAS
+========================================================= */
 
 </style>
 
 </head>
 
+
 <body>
 
-<canvas id="circuit-bg"></canvas>
+
+<!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
 
 <div
     class="mobile-overlay"
     id="mobileOverlay">
 </div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav class="navbar">
 
@@ -983,10 +1030,12 @@ footer.reveal {
             <div>
 
                 <span class="logo-text-main">
+
                     EAet
                     <span class="logo-text-orange">
                         KMUTNB
                     </span>
+
                 </span>
 
                 <span class="logo-sub">
@@ -996,6 +1045,7 @@ footer.reveal {
             </div>
 
         </div>
+
 
         <ul
             class="nav-menu"
@@ -1035,6 +1085,7 @@ footer.reveal {
 
         </ul>
 
+
         <a
             href="https://kmutnb.ac.th"
             target="_blank"
@@ -1045,12 +1096,11 @@ footer.reveal {
 
         </a>
 
+
         <button
             class="menu-toggle"
             id="menuToggle"
-            aria-label="เปิดเมนู"
-            aria-expanded="false"
-            aria-controls="navMenu">
+            aria-label="เปิดเมนู">
 
             <span></span>
             <span></span>
@@ -1062,17 +1112,39 @@ footer.reveal {
 
 </nav>
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <header class="hero">
 
-    <div
-        class="hero-container"
-        id="heroContainer">
 
-        <div>
+    <!-- ENGINEERING CANVAS -->
+
+    <canvas id="engineeringCanvas"></canvas>
+
+
+    <!-- DARK OVERLAY -->
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- HERO CONTENT -->
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
 
             <span class="hero-badge">
-                ⚡ มุ่งเน้นการปฏิบัติจริง สไตล์เยอรมัน
+
+                ⚡
+                มุ่งเน้นการปฏิบัติจริง
+                สไตล์เยอรมัน
+
             </span>
+
 
             <h1 class="hero-title">
 
@@ -1086,16 +1158,17 @@ footer.reveal {
 
             </h1>
 
+
             <p class="hero-desc">
 
                 สร้างทักษะ เพิ่มความเชี่ยวชาญ
                 ระบบไฟฟ้า ระบบควบคุมอัตโนมัติ
-                หุ่นยนต์อัจฉริยะ
-                Embedded System
-                และพลังงานสีเขียวเพื่อตอบโจทย์
-                วิศวกรยุคอุตสาหกรรม 4.0
+                หุ่นยนต์อัจฉริยะ Embedded System
+                และพลังงานสีเขียว
+                เพื่อตอบโจทย์วิศวกรยุคอุตสาหกรรม 4.0
 
             </p>
+
 
             <div class="hero-buttons">
 
@@ -1104,6 +1177,7 @@ footer.reveal {
                     class="btn-primary">
 
                     ดูแผนการเรียน
+                    <span>›</span>
 
                 </a>
 
@@ -1112,6 +1186,7 @@ footer.reveal {
                     class="btn-secondary">
 
                     ทัวร์ห้องปฏิบัติการ
+                    <span>›</span>
 
                 </a>
 
@@ -1119,19 +1194,37 @@ footer.reveal {
 
         </div>
 
-        <div>
+    </div>
 
-            <img
-                src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg"
-                alt="KMUTNB Automation Engineering"
-                class="hero-img"
-            >
 
+    <!-- CATEGORY -->
+
+    <div class="hero-categories">
+
+        <div class="category">
+            Electronics PCB
+        </div>
+
+        <div class="category">
+            Robotics Automation
+        </div>
+
+        <div class="category">
+            Embedded Systems
+        </div>
+
+        <div class="category">
+            High Voltage Energy
         </div>
 
     </div>
 
 </header>
+
+
+<!-- =====================================================
+     ENGINEERING HIGHLIGHTS
+===================================================== -->
 
 <section class="strengths">
 
@@ -1145,7 +1238,9 @@ footer.reveal {
 
     </div>
 
+
     <div class="grid-4">
+
 
         <div class="card">
 
@@ -1168,6 +1263,7 @@ footer.reveal {
 
         </div>
 
+
         <div class="card">
 
             <div class="card-icon">
@@ -1188,6 +1284,7 @@ footer.reveal {
             </p>
 
         </div>
+
 
         <div class="card">
 
@@ -1210,6 +1307,7 @@ footer.reveal {
 
         </div>
 
+
         <div class="card">
 
             <div class="card-icon">
@@ -1231,19 +1329,24 @@ footer.reveal {
 
         </div>
 
+
     </div>
 
 </section>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
     EAet KMUTNB
-
-    <br>
-
+    &nbsp; • &nbsp;
     Electrical & Automation Engineering Technology
 
 </footer>
+
 
 <script>
 
@@ -1260,7 +1363,8 @@ const navMenu =
 const mobileOverlay =
     document.getElementById("mobileOverlay");
 
-function closeMenu() {
+
+function closeMenu(){
 
     navMenu.classList.remove("open");
 
@@ -1268,45 +1372,28 @@ function closeMenu() {
 
     mobileOverlay.classList.remove("active");
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-    );
 }
 
-function toggleMenu() {
-
-    const isOpen =
-        navMenu.classList.contains("open");
-
-    if (isOpen) {
-
-        closeMenu();
-
-    } else {
-
-        navMenu.classList.add("open");
-
-        menuToggle.classList.add("active");
-
-        mobileOverlay.classList.add("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-    }
-}
 
 menuToggle.addEventListener(
     "click",
-    toggleMenu
+    () => {
+
+        navMenu.classList.toggle("open");
+
+        menuToggle.classList.toggle("active");
+
+        mobileOverlay.classList.toggle("active");
+
+    }
 );
+
 
 mobileOverlay.addEventListener(
     "click",
     closeMenu
 );
+
 
 document
     .querySelectorAll(".nav-menu a")
@@ -1319,101 +1406,121 @@ document
 
     });
 
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Escape") {
-            closeMenu();
-        }
-
-    }
-);
 
 /* =========================================================
-   SCROLL REVEAL
+   CARD REVEAL
 ========================================================= */
 
-const revealElements =
-    document.querySelectorAll(
-        ".section-header, .card, footer"
-    );
+const cards =
+    document.querySelectorAll(".card");
 
-const revealObserver =
+
+const cardObserver =
     new IntersectionObserver(
 
-        (entries, observer) => {
+        entries => {
 
-            entries.forEach(
-                entry => {
+            entries.forEach(entry => {
 
-                    if (entry.isIntersecting) {
+                if(entry.isIntersecting){
 
-                        entry.target.classList.add(
-                            "reveal"
-                        );
+                    entry.target.classList.add("show");
 
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
+                    cardObserver.unobserve(
+                        entry.target
+                    );
 
                 }
-            );
+
+            });
 
         },
 
         {
-            threshold: 0.12,
-            rootMargin:
-                "0px 0px -40px 0px"
+            threshold:.12
         }
 
     );
 
-revealElements.forEach(
-    element => {
 
-        revealObserver.observe(
-            element
-        );
+cards.forEach(card => {
 
-    }
-);
+    cardObserver.observe(card);
+
+});
 
 
 /* =========================================================
    ENGINEERING CANVAS
-   PCB / ROBOTICS / EMBEDDED / HIGH VOLTAGE
 ========================================================= */
 
 const canvas =
-    document.getElementById("circuit-bg");
+    document.getElementById(
+        "engineeringCanvas"
+    );
 
 const ctx =
-    canvas.getContext("2d", {
-        alpha: true
-    });
+    canvas.getContext("2d");
+
 
 let W = 0;
 let H = 0;
+let DPR = 1;
 
-let DPR =
-    Math.min(
-        window.devicePixelRatio || 1,
-        2
-    );
 
-let isMobile =
-    window.innerWidth < 700;
+/* =========================================================
+   COLOR HELPERS
+========================================================= */
+
+function hexToRGB(hex){
+
+    hex =
+        hex.replace("#","");
+
+    return {
+
+        r:parseInt(
+            hex.substring(0,2),
+            16
+        ),
+
+        g:parseInt(
+            hex.substring(2,4),
+            16
+        ),
+
+        b:parseInt(
+            hex.substring(4,6),
+            16
+        )
+
+    };
+
+}
+
+
+function rgba(hex,a){
+
+    const c =
+        hexToRGB(hex);
+
+    return `
+        rgba(
+            ${c.r},
+            ${c.g},
+            ${c.b},
+            ${a}
+        )
+    `;
+
+}
 
 
 /* =========================================================
    RESIZE
 ========================================================= */
 
-function resizeCanvas() {
+function resize(){
 
     DPR =
         Math.min(
@@ -1422,25 +1529,16 @@ function resizeCanvas() {
         );
 
     W =
-        window.innerWidth;
+        canvas.clientWidth;
 
     H =
-        window.innerHeight;
-
-    isMobile =
-        W < 700;
+        canvas.clientHeight;
 
     canvas.width =
         W * DPR;
 
     canvas.height =
         H * DPR;
-
-    canvas.style.width =
-        W + "px";
-
-    canvas.style.height =
-        H + "px";
 
     ctx.setTransform(
         DPR,
@@ -1451,208 +1549,51 @@ function resizeCanvas() {
         0
     );
 
-    buildPCB();
-
 }
 
 window.addEventListener(
     "resize",
-    resizeCanvas
+    resize
 );
 
-
-/* =========================================================
-   COLOR
-========================================================= */
-
-function hexToRgb(hex) {
-
-    hex =
-        hex.replace("#","");
-
-    return {
-
-        r:
-            parseInt(
-                hex.substring(0,2),
-                16
-            ),
-
-        g:
-            parseInt(
-                hex.substring(2,4),
-                16
-            ),
-
-        b:
-            parseInt(
-                hex.substring(4,6),
-                16
-            )
-
-    };
-
-}
-
-function rgba(hex, alpha) {
-
-    const c =
-        hexToRgb(hex);
-
-    return `
-        rgba(
-            ${c.r},
-            ${c.g},
-            ${c.b},
-            ${alpha}
-        )
-    `;
-}
+resize();
 
 
 /* =========================================================
-   THEMES
+   DRAW LINE
 ========================================================= */
 
-const THEMES = [
-
-    {
-        name: "electronics",
-
-        primary: "#FF6B00",
-
-        secondary: "#FFD600",
-
-        accent: "#00E5FF"
-    },
-
-    {
-        name: "robotics",
-
-        primary: "#00E5FF",
-
-        secondary: "#00FF66",
-
-        accent: "#8B5CF6"
-    },
-
-    {
-        name: "embedded",
-
-        primary: "#00FF9C",
-
-        secondary: "#00E5FF",
-
-        accent: "#7C3AED"
-    },
-
-    {
-        name: "highvolt",
-
-        primary: "#A855F7",
-
-        secondary: "#3B82F6",
-
-        accent: "#00E5FF"
-    }
-
-];
-
-let themeIndex = 0;
-
-let previousTheme =
-    THEMES[0];
-
-let currentTheme =
-    THEMES[0];
-
-let themeProgress = 1;
-
-let lastThemeChange =
-    performance.now();
-
-const THEME_DURATION =
-    11000;
-
-const THEME_TRANSITION =
-    2200;
-
-
-/* =========================================================
-   THEME SWITCH
-========================================================= */
-
-function nextTheme() {
-
-    previousTheme =
-        currentTheme;
-
-    themeIndex =
-        (
-            themeIndex + 1
-        ) %
-        THEMES.length;
-
-    currentTheme =
-        THEMES[themeIndex];
-
-    themeProgress = 0;
-
-    lastThemeChange =
-        performance.now();
-
-}
-
-function updateTheme(now) {
-
-    const elapsed =
-        now -
-        lastThemeChange;
-
-    if (
-        themeProgress < 1
-    ) {
-
-        themeProgress =
-            Math.min(
-                elapsed /
-                THEME_TRANSITION,
-                1
-            );
-
-    }
-
-    if (
-        elapsed >
-        THEME_DURATION +
-        THEME_TRANSITION
-    ) {
-
-        nextTheme();
-
-    }
-
-}
-
-
-/* =========================================================
-   BASIC LINE
-========================================================= */
-
-function drawLine(
+function line(
     points,
     color,
-    width = 1,
-    alpha = 0.25
-) {
+    width,
+    alpha
+){
 
-    if (
-        !points ||
-        points.length < 2
-    )
+    if(points.length < 2)
         return;
 
     ctx.save();
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        points[0].x,
+        points[0].y
+    );
+
+    for(
+        let i=1;
+        i<points.length;
+        i++
+    ){
+
+        ctx.lineTo(
+            points[i].x,
+            points[i].y
+        );
+
+    }
 
     ctx.strokeStyle =
         rgba(
@@ -1669,26 +1610,6 @@ function drawLine(
     ctx.lineJoin =
         "round";
 
-    ctx.beginPath();
-
-    ctx.moveTo(
-        points[0].x,
-        points[0].y
-    );
-
-    for (
-        let i = 1;
-        i < points.length;
-        i++
-    ) {
-
-        ctx.lineTo(
-            points[i].x,
-            points[i].y
-        );
-
-    }
-
     ctx.stroke();
 
     ctx.restore();
@@ -1697,31 +1618,137 @@ function drawLine(
 
 
 /* =========================================================
+   HERO PANEL BACKGROUND
+========================================================= */
+
+function drawPanels(){
+
+    /*
+       Electronics
+    */
+
+    const p1 =
+        W * .42;
+
+    ctx.fillStyle =
+        "rgba(2,13,21,.28)";
+
+    ctx.fillRect(
+        0,
+        0,
+        p1,
+        H
+    );
+
+
+    /*
+       Robotics
+    */
+
+    const p2 =
+        W * .68;
+
+    ctx.fillStyle =
+        "rgba(0,25,29,.19)";
+
+    ctx.fillRect(
+        p1,
+        0,
+        p2-p1,
+        H
+    );
+
+
+    /*
+       Embedded
+    */
+
+    const p3 =
+        W * .82;
+
+    ctx.fillStyle =
+        "rgba(0,20,19,.13)";
+
+    ctx.fillRect(
+        p2,
+        0,
+        p3-p2,
+        H
+    );
+
+
+    /*
+       High voltage
+    */
+
+    ctx.fillStyle =
+        "rgba(17,12,42,.23)";
+
+    ctx.fillRect(
+        p3,
+        0,
+        W-p3,
+        H
+    );
+
+
+    /*
+       Vertical separators
+    */
+
+    [
+        p1,
+        p2,
+        p3
+    ].forEach(x => {
+
+        ctx.strokeStyle =
+            "rgba(75,120,140,.18)";
+
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x,
+            0
+        );
+
+        ctx.lineTo(
+            x,
+            H
+        );
+
+        ctx.stroke();
+
+    });
+
+}
+
+
+/* =========================================================
    ENGINEERING GRID
 ========================================================= */
 
-function drawGrid(theme) {
+function drawGrid(){
 
     const spacing =
-        isMobile
-            ? 60
-            : 72;
+        W < 700
+            ? 58
+            : 70;
 
     ctx.save();
 
+    ctx.strokeStyle =
+        "rgba(0,180,220,.028)";
+
     ctx.lineWidth = 1;
 
-    ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.025
-        );
-
-    for (
-        let x = 0;
-        x <= W;
-        x += spacing
-    ) {
+    for(
+        let x=0;
+        x<W;
+        x+=spacing
+    ){
 
         ctx.beginPath();
 
@@ -1733,11 +1760,11 @@ function drawGrid(theme) {
 
     }
 
-    for (
-        let y = 0;
-        y <= H;
-        y += spacing
-    ) {
+    for(
+        let y=0;
+        y<H;
+        y+=spacing
+    ){
 
         ctx.beginPath();
 
@@ -1755,288 +1782,108 @@ function drawGrid(theme) {
 
 
 /* =========================================================
-   PCB DATA
+   PCB TRACE
 ========================================================= */
 
-const pcb = {
-
-    tracks: [],
-    vias: [],
-    components: []
-
-};
+let pcbTraces = [];
 
 
-/* =========================================================
-   PCB TRACE CREATOR
-   เส้นแบบ 45° / Manhattan routing
-========================================================= */
+function createPCB(){
 
-function makePCBTrace(
-    startX,
-    startY,
-    endX,
-    endY,
-    bendCount = 2
-) {
+    pcbTraces = [];
 
-    const points = [
-
-        {
-            x: startX,
-            y: startY
-        }
-
-    ];
-
-    let x =
-        startX;
-
-    let y =
-        startY;
-
-
-    const dx =
-        endX -
-        startX;
-
-    const dy =
-        endY -
-        startY;
-
-
-    for (
-        let i = 0;
-        i < bendCount;
-        i++
-    ) {
-
-        const ratio =
-            (
-                i + 1
-            ) /
-            (
-                bendCount + 1
-            );
-
-
-        if (
-            i % 2 === 0
-        ) {
-
-            x =
-                startX +
-                dx * ratio;
-
-        } else {
-
-            y =
-                startY +
-                dy * ratio;
-
-        }
-
-
-        points.push({
-
-            x,
-            y
-
-        });
-
-    }
-
-
-    points.push({
-
-        x: endX,
-        y: endY
-
-    });
-
-
-    return points;
-
-}
-
-
-/* =========================================================
-   BUILD PCB
-========================================================= */
-
-function buildPCB() {
-
-    pcb.tracks.length = 0;
-
-    pcb.vias.length = 0;
-
-    pcb.components.length = 0;
-
-
-    const trackCount =
-        isMobile
-            ? 20
+    const count =
+        W < 700
+            ? 22
             : 48;
 
+    const maxX =
+        W * .57;
 
-    /*
-       Main traces
-    */
-
-    for (
-        let i = 0;
-        i < trackCount;
+    for(
+        let i=0;
+        i<count;
         i++
-    ) {
+    ){
 
-        const startX =
+        let x =
             Math.random() *
-            W;
+            maxX;
 
-        const startY =
-            Math.random() *
-            H;
-
-        const endX =
-            Math.random() *
-            W;
-
-        const endY =
+        let y =
             Math.random() *
             H;
 
-
-        const points =
-            makePCBTrace(
-                startX,
-                startY,
-                endX,
-                endY,
-                2 +
-                Math.floor(
-                    Math.random() * 2
-                )
-            );
+        const points = [
+            {
+                x,
+                y
+            }
+        ];
 
 
-        pcb.tracks.push({
+        const length =
+            80 +
+            Math.random()*260;
+
+
+        const direction =
+            Math.random() > .5
+                ? 1
+                : -1;
+
+
+        /*
+           45 degree / Manhattan
+        */
+
+        x +=
+            length *
+            .35 *
+            direction;
+
+        points.push({
+            x,
+            y
+        });
+
+
+        y +=
+            (Math.random()-.5) *
+            100;
+
+        points.push({
+            x,
+            y
+        });
+
+
+        x +=
+            length *
+            .65 *
+            direction;
+
+        points.push({
+            x,
+            y
+        });
+
+
+        pcbTraces.push({
 
             points,
 
-            width:
-                Math.random() > 0.82
-                    ? 2.0
-                    : 1.1,
-
             speed:
-                0.000025 +
-                Math.random() *
-                0.000045,
+                .000025 +
+                Math.random()*.000025,
 
             offset:
                 Math.random(),
 
-            layer:
-                Math.random() > 0.75
-                    ? 1
-                    : 0
-
-        });
-
-    }
-
-
-    /*
-       Via holes
-    */
-
-    const viaCount =
-        isMobile
-            ? 35
-            : 90;
-
-
-    for (
-        let i = 0;
-        i < viaCount;
-        i++
-    ) {
-
-        pcb.vias.push({
-
-            x:
-                20 +
-                Math.random() *
-                Math.max(
-                    20,
-                    W - 40
-                ),
-
-            y:
-                20 +
-                Math.random() *
-                Math.max(
-                    20,
-                    H - 40
-                ),
-
-            r:
-                Math.random() > 0.7
-                    ? 3.2
-                    : 2.2
-
-        });
-
-    }
-
-
-    /*
-       SMD / IC components
-    */
-
-    const componentCount =
-        isMobile
-            ? 5
-            : 11;
-
-
-    for (
-        let i = 0;
-        i < componentCount;
-        i++
-    ) {
-
-        pcb.components.push({
-
-            x:
-                70 +
-                Math.random() *
-                Math.max(
-                    100,
-                    W - 140
-                ),
-
-            y:
-                80 +
-                Math.random() *
-                Math.max(
-                    100,
-                    H - 160
-                ),
-
-            w:
-                45 +
-                Math.random() * 35,
-
-            h:
-                24 +
-                Math.random() * 18,
-
-            rotation:
-                Math.random() >
-                0.5
-                    ? 0
-                    : Math.PI / 2
+            color:
+                i%3===0
+                    ? "#00cfe8"
+                    : "#1486a0"
 
         });
 
@@ -2046,25 +1893,25 @@ function buildPCB() {
 
 
 /* =========================================================
-   PCB TRACE LENGTH
+   TRACE LENGTH
 ========================================================= */
 
-function traceLength(points) {
+function traceLength(points){
 
-    let total = 0;
+    let total=0;
 
-    for (
-        let i = 1;
-        i < points.length;
+    for(
+        let i=1;
+        i<points.length;
         i++
-    ) {
+    ){
 
         total +=
             Math.hypot(
-                points[i].x -
+                points[i].x-
                 points[i-1].x,
 
-                points[i].y -
+                points[i].y-
                 points[i-1].y
             );
 
@@ -2082,17 +1929,16 @@ function traceLength(points) {
 function pointOnTrace(
     points,
     distance
-) {
+){
 
-    let remaining =
+    let remain =
         distance;
 
-
-    for (
-        let i = 1;
-        i < points.length;
+    for(
+        let i=1;
+        i<points.length;
         i++
-    ) {
+    ){
 
         const a =
             points[i-1];
@@ -2100,13 +1946,11 @@ function pointOnTrace(
         const b =
             points[i];
 
-
         const dx =
-            b.x - a.x;
+            b.x-a.x;
 
         const dy =
-            b.y - a.y;
-
+            b.y-a.y;
 
         const len =
             Math.hypot(
@@ -2114,765 +1958,214 @@ function pointOnTrace(
                 dy
             );
 
-
-        if (
-            remaining <= len
-        ) {
+        if(remain<=len){
 
             const t =
-                remaining /
-                len;
-
+                remain/len;
 
             return {
 
                 x:
-                    a.x +
-                    dx * t,
+                    a.x+
+                    dx*t,
 
                 y:
-                    a.y +
-                    dy * t
+                    a.y+
+                    dy*t
 
             };
 
         }
 
-
-        remaining -=
-            len;
+        remain -= len;
 
     }
 
-
     return points[
-        points.length - 1
+        points.length-1
     ];
 
 }
 
 
 /* =========================================================
-   MOVING PCB SIGNAL
+   PCB DRAW
 ========================================================= */
 
-function drawPCBSignal(
-    track,
-    color,
-    time
-) {
+function drawPCB(time){
 
-    const total =
-        traceLength(
-            track.points
-        );
+    if(
+        !pcbTraces.length
+    ){
 
+        createPCB();
 
-    if (
-        total <= 0
-    )
-        return;
+    }
 
 
-    const position =
-        (
-            track.offset +
-            time *
-            track.speed
-        ) % 1;
-
-
-    const center =
-        position *
-        total;
+    const maxX =
+        W*.58;
 
 
     /*
-       Short signal packet
-       ไม่ลากยาวเหมือนเดิม
+       Large central IC
     */
 
-    const packetLength =
-        Math.min(
-            70,
-            total * 0.25
-        );
+    const chipX =
+        maxX*.58;
 
-
-    const samples = 8;
+    const chipY =
+        H*.50;
 
     ctx.save();
 
-    ctx.lineCap =
-        "round";
-
-    ctx.lineJoin =
-        "round";
-
-
-    /*
-       soft glow
-    */
-
-    ctx.shadowBlur = 8;
-
-    ctx.shadowColor =
-        color;
+    ctx.fillStyle =
+        "rgba(3,9,14,.94)";
 
     ctx.strokeStyle =
-        rgba(
-            color,
-            0.75
-        );
+        "rgba(0,210,235,.24)";
 
-    ctx.lineWidth =
-        track.width +
-        0.7;
-
+    ctx.lineWidth=1.5;
 
     ctx.beginPath();
 
+    ctx.roundRect(
+        chipX-55,
+        chipY-70,
+        110,
+        140,
+        5
+    );
 
-    for (
-        let i = 0;
-        i <= samples;
-        i++
-    ) {
-
-        const d =
-            center -
-            packetLength +
-            (
-                packetLength *
-                i /
-                samples
-            );
-
-
-        const p =
-            pointOnTrace(
-                track.points,
-                (
-                    d +
-                    total
-                ) % total
-            );
-
-
-        if (i === 0) {
-
-            ctx.moveTo(
-                p.x,
-                p.y
-            );
-
-        } else {
-
-            ctx.lineTo(
-                p.x,
-                p.y
-            );
-
-        }
-
-    }
-
+    ctx.fill();
 
     ctx.stroke();
 
-    ctx.restore();
-
-}
-
-
-/* =========================================================
-   PCB
-========================================================= */
-
-function drawPCB(
-    theme,
-    time
-) {
 
     /*
-       Subtle board fields
+       chip center
     */
 
-    ctx.save();
+    ctx.strokeStyle =
+        "rgba(0,210,235,.16)";
 
-    const boardGlow =
-        ctx.createRadialGradient(
-            W * 0.5,
-            H * 0.5,
-            0,
-            W * 0.5,
-            H * 0.5,
-            Math.max(W,H) * 0.7
+    ctx.strokeRect(
+        chipX-32,
+        chipY-43,
+        64,
+        86
+    );
+
+
+    /*
+       chip pins
+    */
+
+    for(
+        let i=0;
+        i<9;
+        i++
+    ){
+
+        const yy =
+            chipY-
+            48+
+            i*12;
+
+        ctx.strokeStyle =
+            "rgba(0,200,230,.35)";
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            chipX-55,
+            yy
         );
 
-    boardGlow.addColorStop(
-        0,
-        rgba(
-            theme.primary,
-            0.035
-        )
-    );
+        ctx.lineTo(
+            chipX-72,
+            yy
+        );
 
-    boardGlow.addColorStop(
-        1,
-        "rgba(0,0,0,0)"
-    );
+        ctx.stroke();
 
-    ctx.fillStyle =
-        boardGlow;
 
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
+        ctx.beginPath();
+
+        ctx.moveTo(
+            chipX+55,
+            yy
+        );
+
+        ctx.lineTo(
+            chipX+72,
+            yy
+        );
+
+        ctx.stroke();
+
+    }
 
     ctx.restore();
 
 
     /*
-       Copper traces
+       traces
     */
 
-    pcb.tracks.forEach(
-        (track, index) => {
+    pcbTraces.forEach(
+        (trace,index)=>{
 
-            const color =
-                track.layer
-                    ? theme.accent
-                    : (
-                        index % 3 === 0
-                            ? theme.secondary
-                            : theme.primary
-                    );
-
-
-            /*
-               Main copper
-            */
-
-            drawLine(
-                track.points,
-                color,
-                track.width,
-                track.layer
-                    ? 0.17
-                    : 0.23
+            line(
+                trace.points,
+                trace.color,
+                index%5===0 ? 1.6 : .8,
+                .20
             );
 
 
             /*
-               Thin solder-mask highlight
-            */
-
-            if (
-                index % 4 === 0
-            ) {
-
-                drawLine(
-                    track.points,
-                    theme.accent,
-                    0.45,
-                    0.10
-                );
-
-            }
-
-
-            /*
-               Moving electrical signal
-            */
-
-            drawPCBSignal(
-                track,
-                color,
-                time
-            );
-
-        }
-    );
-
-
-    /*
-       VIA
-    */
-
-    pcb.vias.forEach(
-        (via, index) => {
-
-            ctx.save();
-
-            ctx.lineWidth =
-                1;
-
-            ctx.strokeStyle =
-                rgba(
-                    index % 2 === 0
-                        ? theme.primary
-                        : theme.accent,
-                    0.35
-                );
-
-            ctx.fillStyle =
-                "rgba(3,6,9,0.95)";
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                via.x,
-                via.y,
-                via.r,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-            ctx.stroke();
-
-
-            /*
-               Copper center
-            */
-
-            ctx.fillStyle =
-                rgba(
-                    theme.secondary,
-                    0.55
-                );
-
-            ctx.beginPath();
-
-            ctx.arc(
-                via.x,
-                via.y,
-                Math.max(
-                    0.7,
-                    via.r * 0.35
-                ),
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    /*
-       SMD components
-    */
-
-    pcb.components.forEach(
-        (component, index) => {
-
-            ctx.save();
-
-            ctx.translate(
-                component.x,
-                component.y
-            );
-
-            ctx.rotate(
-                component.rotation
-            );
-
-
-            /*
-               Component body
-            */
-
-            ctx.fillStyle =
-                "rgba(5,8,12,0.94)";
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.accent,
-                    0.28
-                );
-
-            ctx.lineWidth = 1;
-
-
-            ctx.beginPath();
-
-            if (
-                ctx.roundRect
-            ) {
-
-                ctx.roundRect(
-                    -component.w / 2,
-                    -component.h / 2,
-                    component.w,
-                    component.h,
-                    3
-                );
-
-            } else {
-
-                ctx.rect(
-                    -component.w / 2,
-                    -component.h / 2,
-                    component.w,
-                    component.h
-                );
-
-            }
-
-            ctx.fill();
-
-            ctx.stroke();
-
-
-            /*
-               SMD terminals
-            */
-
-            const terminalCount =
-                4;
-
-
-            for (
-                let p = 0;
-                p < terminalCount;
-                p++
-            ) {
-
-                const py =
-                    -component.h / 2 +
-                    5 +
-                    p * 5;
-
-
-                if (
-                    py >
-                    component.h / 2
-                )
-                    break;
-
-
-                ctx.strokeStyle =
-                    rgba(
-                        theme.primary,
-                        0.45
-                    );
-
-                ctx.lineWidth =
-                    2;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    -component.w / 2 - 5,
-                    py
-                );
-
-                ctx.lineTo(
-                    -component.w / 2,
-                    py
-                );
-
-                ctx.stroke();
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    component.w / 2,
-                    py
-                );
-
-                ctx.lineTo(
-                    component.w / 2 + 5,
-                    py
-                );
-
-                ctx.stroke();
-
-            }
-
-
-            /*
-               Component marking
-            */
-
-            ctx.fillStyle =
-                rgba(
-                    theme.secondary,
-                    0.35
-                );
-
-            ctx.fillRect(
-                -4,
-                -3,
-                8,
-                6
-            );
-
-
-            ctx.restore();
-
-        }
-    );
-
-
-    /*
-       PCB mounting holes
-    */
-
-    const holes = [
-
-        [35,35],
-        [W-35,35],
-        [35,H-35],
-        [W-35,H-35]
-
-    ];
-
-
-    holes.forEach(
-        hole => {
-
-            if (
-                hole[0] < 0 ||
-                hole[1] < 0
-            )
-                return;
-
-
-            ctx.save();
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.secondary,
-                    0.20
-                );
-
-            ctx.lineWidth = 1.2;
-
-            ctx.beginPath();
-
-            ctx.arc(
-                hole[0],
-                hole[1],
-                8,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.stroke();
-
-            ctx.beginPath();
-
-            ctx.arc(
-                hole[0],
-                hole[1],
-                3,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.stroke();
-
-            ctx.restore();
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   ROBOTICS
-========================================================= */
-
-function drawRobotics(
-    theme,
-    time
-) {
-
-    /*
-       Industrial network
-    */
-
-    const nodes = [
-
-        {
-            x: W * 0.10,
-            y: H * 0.25
-        },
-
-        {
-            x: W * 0.28,
-            y: H * 0.16
-        },
-
-        {
-            x: W * 0.47,
-            y: H * 0.29
-        },
-
-        {
-            x: W * 0.69,
-            y: H * 0.18
-        },
-
-        {
-            x: W * 0.88,
-            y: H * 0.32
-        },
-
-        {
-            x: W * 0.19,
-            y: H * 0.62
-        },
-
-        {
-            x: W * 0.46,
-            y: H * 0.70
-        },
-
-        {
-            x: W * 0.77,
-            y: H * 0.62
-        }
-
-    ];
-
-
-    const links = [
-
-        [0,1],
-        [1,2],
-        [2,3],
-        [3,4],
-
-        [0,5],
-        [5,6],
-        [6,7],
-
-        [2,6],
-        [3,7]
-
-    ];
-
-
-    /*
-       Network lines
-    */
-
-    links.forEach(
-        (link,index) => {
-
-            const a =
-                nodes[
-                    link[0]
-                ];
-
-            const b =
-                nodes[
-                    link[1]
-                ];
-
-
-            const points = [
-
-                a,
-
-                {
-                    x:
-                        a.x +
-                        (
-                            b.x-a.x
-                        ) * 0.5,
-
-                    y:
-                        a.y
-                },
-
-                {
-                    x:
-                        a.x +
-                        (
-                            b.x-a.x
-                        ) * 0.5,
-
-                    y:
-                        b.y
-                },
-
-                b
-
-            ];
-
-
-            drawLine(
-                points,
-                index % 2
-                    ? theme.accent
-                    : theme.primary,
-                1,
-                0.18
-            );
-
-
-            /*
-               Tiny moving data pulse
+               moving signal
             */
 
             const total =
                 traceLength(
-                    points
+                    trace.points
                 );
-
 
             const progress =
                 (
-                    time *
-                    0.000035 +
-                    index *
-                    0.13
-                ) % 1;
+                    trace.offset+
+                    time*
+                    trace.speed
+                )%1;
 
-
-            const p =
+            const pos =
                 pointOnTrace(
-                    points,
-                    total *
+                    trace.points,
+                    total*
                     progress
                 );
 
 
             ctx.save();
 
-            ctx.shadowBlur = 7;
+            ctx.shadowBlur=8;
 
-            ctx.shadowColor =
-                theme.secondary;
+            ctx.shadowColor=
+                trace.color;
 
-            ctx.fillStyle =
-                theme.secondary;
+            ctx.fillStyle=
+                trace.color;
 
             ctx.beginPath();
 
             ctx.arc(
-                p.x,
-                p.y,
-                2,
+                pos.x,
+                pos.y,
+                1.7,
                 0,
-                Math.PI * 2
+                Math.PI*2
             );
 
             ctx.fill();
@@ -2884,159 +2177,128 @@ function drawRobotics(
 
 
     /*
-       Nodes
+       vias
     */
 
-    nodes.forEach(
-        (node,index) => {
+    for(
+        let i=0;
+        i<55;
+        i++
+    ){
 
-            ctx.save();
+        const x =
+            Math.random()*
+            maxX;
 
-            ctx.strokeStyle =
-                rgba(
-                    theme.secondary,
-                    0.40
-                );
+        const y =
+            Math.random()*
+            H;
 
-            ctx.lineWidth = 1;
+        ctx.strokeStyle =
+            "rgba(0,190,220,.18)";
 
+        ctx.lineWidth=1;
 
-            ctx.strokeRect(
-                node.x - 5,
-                node.y - 5,
-                10,
-                10
-            );
+        ctx.beginPath();
 
+        ctx.arc(
+            x,
+            y,
+            2.4,
+            0,
+            Math.PI*2
+        );
 
-            ctx.beginPath();
+        ctx.stroke();
 
-            ctx.moveTo(
-                node.x - 10,
-                node.y
-            );
+    }
 
-            ctx.lineTo(
-                node.x + 10,
-                node.y
-            );
-
-            ctx.stroke();
-
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                node.x,
-                node.y - 10
-            );
-
-            ctx.lineTo(
-                node.x,
-                node.y + 10
-            );
-
-            ctx.stroke();
+}
 
 
-            ctx.restore();
+/* =========================================================
+   ROBOT ARM
+========================================================= */
 
-        }
-    );
+function drawRobot(time){
 
+    const areaStart =
+        W*.42;
 
-    /* =====================================================
-       ROBOT ARM
-    ===================================================== */
+    const areaEnd =
+        W*.72;
 
     const rx =
-        W * 0.70;
+        areaStart+
+        (areaEnd-areaStart)*.55;
 
     const baseY =
-        H * 0.79;
+        H*.77;
 
 
     /*
-       Smooth mechanical movement
+       very slow movement
     */
 
     const t =
-        time *
-        0.00065;
+        time*.00042;
 
 
-    const shoulderAngle =
-        -1.72 +
-        Math.sin(t) *
-        0.16;
+    const a1 =
+        -1.55+
+        Math.sin(t)*.10;
 
-
-    const elbowAngle =
-        1.05 +
+    const a2 =
+        .92+
         Math.sin(
-            t * 0.72 +
-            1.2
-        ) *
-        0.20;
+            t*.72+1
+        )*.14;
 
 
-    const upperLength =
-        112;
+    const upper=92;
+    const lower=82;
 
 
-    const lowerLength =
-        105;
-
-
-    const shoulder = {
-
-        x: rx,
-
-        y:
-            baseY - 55
-
+    const shoulder={
+        x:rx,
+        y:baseY-30
     };
 
 
-    const elbow = {
+    const elbow={
 
         x:
-            shoulder.x +
-            Math.cos(
-                shoulderAngle
-            ) *
-            upperLength,
+            shoulder.x+
+            Math.cos(a1)*
+            upper,
 
         y:
-            shoulder.y +
-            Math.sin(
-                shoulderAngle
-            ) *
-            upperLength
+            shoulder.y+
+            Math.sin(a1)*
+            upper
 
     };
 
 
     const wristAngle =
-        shoulderAngle +
-        elbowAngle;
+        a1+a2;
 
 
-    const wrist = {
+    const wrist={
 
         x:
-            elbow.x +
+            elbow.x+
             Math.cos(
                 wristAngle
-            ) *
-            lowerLength,
+            )*
+            lower,
 
         y:
-            elbow.y +
+            elbow.y+
             Math.sin(
                 wristAngle
-            ) *
-            lowerLength
+            )*
+            lower
 
     };
 
@@ -3045,79 +2307,51 @@ function drawRobotics(
 
 
     /*
-       Floor
+       floor
     */
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.13
-        );
+        "rgba(0,220,220,.14)";
 
-    ctx.lineWidth = 1;
+    ctx.lineWidth=1;
 
     ctx.beginPath();
 
     ctx.moveTo(
-        rx - 260,
-        baseY + 25
+        areaStart+20,
+        baseY+35
     );
 
     ctx.lineTo(
-        rx + 230,
-        baseY + 25
+        areaEnd-10,
+        baseY+35
     );
 
     ctx.stroke();
 
 
     /*
-       Robot base shadow
+       base
     */
 
     ctx.fillStyle =
-        "rgba(0,0,0,0.22)";
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-        rx,
-        baseY + 6,
-        80,
-        19,
-        0,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-
-
-    /*
-       Base
-    */
-
-    ctx.fillStyle =
-        "rgba(5,8,12,0.90)";
+        "rgba(3,10,14,.92)";
 
     ctx.strokeStyle =
-        rgba(
-            theme.secondary,
-            0.38
-        );
+        "rgba(0,220,225,.40)";
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth=1.5;
 
     ctx.beginPath();
 
     ctx.ellipse(
         rx,
         baseY,
-        72,
-        19,
+        53,
+        14,
         0,
         0,
-        Math.PI * 2
+        Math.PI*2
     );
 
     ctx.fill();
@@ -3126,20 +2360,20 @@ function drawRobotics(
 
 
     /*
-       Shoulder housing
+       shoulder
     */
 
     ctx.fillStyle =
-        "rgba(5,8,12,0.95)";
+        "rgba(3,9,13,.96)";
 
     ctx.beginPath();
 
     ctx.arc(
         shoulder.x,
         shoulder.y,
-        29,
+        23,
         0,
-        Math.PI * 2
+        Math.PI*2
     );
 
     ctx.fill();
@@ -3148,16 +2382,15 @@ function drawRobotics(
 
 
     /*
-       Mechanical arm shadow
+       arm shadow
     */
 
     ctx.strokeStyle =
-        "rgba(0,0,0,0.40)";
+        "rgba(0,0,0,.45)";
 
-    ctx.lineWidth = 22;
+    ctx.lineWidth=19;
 
-    ctx.lineCap =
-        "round";
+    ctx.lineCap="round";
 
     ctx.beginPath();
 
@@ -3180,16 +2413,13 @@ function drawRobotics(
 
 
     /*
-       Main robot links
+       robot links
     */
 
     ctx.strokeStyle =
-        rgba(
-            theme.secondary,
-            0.38
-        );
+        "rgba(0,220,225,.38)";
 
-    ctx.lineWidth = 17;
+    ctx.lineWidth=14;
 
     ctx.beginPath();
 
@@ -3212,13 +2442,13 @@ function drawRobotics(
 
 
     /*
-       Inner engineering line
+       inner line
     */
 
     ctx.strokeStyle =
-        theme.primary;
+        "#00d9df";
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth=1.5;
 
     ctx.beginPath();
 
@@ -3241,35 +2471,34 @@ function drawRobotics(
 
 
     /*
-       Joint rings
+       joints
     */
 
     [
         shoulder,
         elbow,
         wrist
-
     ].forEach(
-        (joint,index) => {
+        (p,i)=>{
 
             ctx.fillStyle =
-                "rgba(4,7,10,0.96)";
+                "#061017";
 
             ctx.strokeStyle =
-                index === 1
-                    ? theme.accent
-                    : theme.secondary;
+                i===1
+                    ? "#00e5ff"
+                    : "#00b8c8";
 
-            ctx.lineWidth = 2;
+            ctx.lineWidth=1.5;
 
             ctx.beginPath();
 
             ctx.arc(
-                joint.x,
-                joint.y,
-                13,
+                p.x,
+                p.y,
+                10,
                 0,
-                Math.PI * 2
+                Math.PI*2
             );
 
             ctx.fill();
@@ -3277,25 +2506,18 @@ function drawRobotics(
             ctx.stroke();
 
 
-            /*
-               inner bearing
-            */
-
             ctx.beginPath();
 
             ctx.arc(
-                joint.x,
-                joint.y,
-                4,
+                p.x,
+                p.y,
+                3,
                 0,
-                Math.PI * 2
+                Math.PI*2
             );
 
             ctx.fillStyle =
-                rgba(
-                    theme.primary,
-                    0.65
-                );
+                "#00dfe5";
 
             ctx.fill();
 
@@ -3304,31 +2526,28 @@ function drawRobotics(
 
 
     /*
-       Gripper
+       gripper
     */
 
-    const gripAngle =
-        wristAngle;
-
-
     const gx =
-        wrist.x +
-        Math.cos(gripAngle) *
-        24;
+        wrist.x+
+        Math.cos(
+            wristAngle
+        )*21;
 
     const gy =
-        wrist.y +
-        Math.sin(gripAngle) *
-        24;
+        wrist.y+
+        Math.sin(
+            wristAngle
+        )*21;
 
 
     ctx.strokeStyle =
-        theme.accent;
+        "#00e5ff";
 
-    ctx.lineWidth = 4;
+    ctx.lineWidth=3;
 
-    ctx.lineCap =
-        "round";
+    ctx.lineCap="round";
 
 
     ctx.beginPath();
@@ -3346,9 +2565,7 @@ function drawRobotics(
     ctx.stroke();
 
 
-    const clawAngle =
-        gripAngle +
-        0.7;
+    const claw=.62;
 
 
     ctx.beginPath();
@@ -3359,13 +2576,15 @@ function drawRobotics(
     );
 
     ctx.lineTo(
-        gx +
-        Math.cos(clawAngle) *
-        25,
+        gx+
+        Math.cos(
+            wristAngle+claw
+        )*20,
 
-        gy +
-        Math.sin(clawAngle) *
-        25
+        gy+
+        Math.sin(
+            wristAngle+claw
+        )*20
     );
 
     ctx.stroke();
@@ -3379,59 +2598,52 @@ function drawRobotics(
     );
 
     ctx.lineTo(
-        gx +
+        gx+
         Math.cos(
-            gripAngle - 0.7
-        ) *
-        25,
+            wristAngle-claw
+        )*20,
 
-        gy +
+        gy+
         Math.sin(
-            gripAngle - 0.7
-        ) *
-        25
+            wristAngle-claw
+        )*20
     );
 
     ctx.stroke();
 
 
     /*
-       Robot scanning field
+       subtle scanner
     */
 
-    const scanProgress =
+    const scan =
         (
             Math.sin(
-                time *
-                0.001
-            ) + 1
-        ) / 2;
+                time*.0007
+            )+1
+        )/2;
 
 
     const scanY =
-        baseY -
-        280 +
-        scanProgress *
-        180;
+        H*.28+
+        scan*
+        H*.32;
 
 
     ctx.strokeStyle =
-        rgba(
-            theme.accent,
-            0.12
-        );
+        "rgba(0,229,255,.08)";
 
-    ctx.lineWidth = 1;
+    ctx.lineWidth=1;
 
     ctx.beginPath();
 
     ctx.moveTo(
-        rx - 200,
+        areaStart+20,
         scanY
     );
 
     ctx.lineTo(
-        rx + 200,
+        areaEnd,
         scanY
     );
 
@@ -3447,73 +2659,48 @@ function drawRobotics(
    EMBEDDED SYSTEM
 ========================================================= */
 
-function drawEmbedded(
-    theme,
-    time
-) {
+function drawEmbedded(time){
 
-    const boardW =
+    const x =
+        W*.70;
+
+    const y =
+        H*.23;
+
+    const bw =
         Math.min(
-            500,
-            W * 0.43
+            W*.23,
+            270
         );
 
-    const boardH =
-        Math.min(
-            330,
-            H * 0.48
-        );
-
-    const boardX =
-        W * 0.56;
-
-    const boardY =
-        H * 0.22;
+    const bh =
+        210;
 
 
     ctx.save();
 
 
     /*
-       PCB body
+       board
     */
 
     ctx.fillStyle =
-        "rgba(3,13,12,0.75)";
+        "rgba(2,17,16,.72)";
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.35
-        );
+        "rgba(0,230,165,.28)";
 
-    ctx.lineWidth = 2;
-
+    ctx.lineWidth=1.5;
 
     ctx.beginPath();
 
-    if (
-        ctx.roundRect
-    ) {
-
-        ctx.roundRect(
-            boardX,
-            boardY,
-            boardW,
-            boardH,
-            10
-        );
-
-    } else {
-
-        ctx.rect(
-            boardX,
-            boardY,
-            boardW,
-            boardH
-        );
-
-    }
+    ctx.roundRect(
+        x,
+        y,
+        bw,
+        bh,
+        8
+    );
 
     ctx.fill();
 
@@ -3524,52 +2711,33 @@ function drawEmbedded(
        MCU
     */
 
-    const mcW = 130;
+    const mcx =
+        x+bw*.36;
 
-    const mcH = 92;
+    const mcy =
+        y+bh*.31;
 
-    const mcX =
-        boardX +
-        boardW * 0.35;
-
-    const mcY =
-        boardY +
-        boardH * 0.30;
+    const mcw=85;
+    const mch=65;
 
 
     ctx.fillStyle =
-        "rgba(3,7,11,0.96)";
+        "rgba(2,8,13,.95)";
 
     ctx.strokeStyle =
-        theme.accent;
+        "#00dca0";
 
-    ctx.lineWidth = 2;
-
+    ctx.lineWidth=1.5;
 
     ctx.beginPath();
 
-    if (
-        ctx.roundRect
-    ) {
-
-        ctx.roundRect(
-            mcX,
-            mcY,
-            mcW,
-            mcH,
-            6
-        );
-
-    } else {
-
-        ctx.rect(
-            mcX,
-            mcY,
-            mcW,
-            mcH
-        );
-
-    }
+    ctx.roundRect(
+        mcx,
+        mcy,
+        mcw,
+        mch,
+        5
+    );
 
     ctx.fill();
 
@@ -3581,16 +2749,13 @@ function drawEmbedded(
     */
 
     ctx.fillStyle =
-        rgba(
-            theme.primary,
-            0.08
-        );
+        "rgba(0,225,160,.08)";
 
     ctx.fillRect(
-        mcX + 26,
-        mcY + 23,
-        78,
-        45
+        mcx+20,
+        mcy+17,
+        45,
+        30
     );
 
 
@@ -3598,36 +2763,29 @@ function drawEmbedded(
        GPIO
     */
 
-    for (
-        let i = 0;
-        i < 7;
+    for(
+        let i=0;
+        i<6;
         i++
-    ) {
+    ){
 
         const py =
-            mcY +
-            10 +
-            i * 12;
-
+            mcy+
+            9+
+            i*10;
 
         ctx.strokeStyle =
-            rgba(
-                theme.secondary,
-                0.45
-            );
-
-        ctx.lineWidth = 1;
-
+            "rgba(0,220,180,.42)";
 
         ctx.beginPath();
 
         ctx.moveTo(
-            mcX - 24,
+            mcx-17,
             py
         );
 
         ctx.lineTo(
-            mcX,
+            mcx,
             py
         );
 
@@ -3637,12 +2795,12 @@ function drawEmbedded(
         ctx.beginPath();
 
         ctx.moveTo(
-            mcX + mcW,
+            mcx+mcw,
             py
         );
 
         ctx.lineTo(
-            mcX + mcW + 24,
+            mcx+mcw+17,
             py
         );
 
@@ -3652,125 +2810,64 @@ function drawEmbedded(
 
 
     /*
-       Sensors
+       sensors
     */
 
-    const sensors = [
+    const sensors=[
 
-        {
-            x:
-                boardX + 30,
-
-            y:
-                boardY + 40
-        },
-
-        {
-            x:
-                boardX + 30,
-
-            y:
-                boardY +
-                boardH - 82
-        },
-
-        {
-            x:
-                boardX +
-                boardW - 100,
-
-            y:
-                boardY + 40
-        },
-
-        {
-            x:
-                boardX +
-                boardW - 100,
-
-            y:
-                boardY +
-                boardH - 82
-        }
+        [x+18,y+22],
+        [x+18,y+bh-52],
+        [x+bw-72,y+22],
+        [x+bw-72,y+bh-52]
 
     ];
 
 
     sensors.forEach(
-        (sensor,index) => {
+        (s,i)=>{
 
             ctx.fillStyle =
-                "rgba(3,8,12,0.85)";
+                "rgba(2,8,12,.85)";
 
             ctx.strokeStyle =
-                rgba(
-                    theme.secondary,
-                    0.42
-                );
+                "rgba(0,230,180,.34)";
 
-            ctx.lineWidth = 1;
-
+            ctx.lineWidth=1;
 
             ctx.beginPath();
 
-            if (
-                ctx.roundRect
-            ) {
-
-                ctx.roundRect(
-                    sensor.x,
-                    sensor.y,
-                    70,
-                    40,
-                    5
-                );
-
-            } else {
-
-                ctx.rect(
-                    sensor.x,
-                    sensor.y,
-                    70,
-                    40
-                );
-
-            }
+            ctx.roundRect(
+                s[0],
+                s[1],
+                54,
+                30,
+                4
+            );
 
             ctx.fill();
 
             ctx.stroke();
 
 
-            /*
-               Sensor bars
-            */
-
-            for (
-                let i = 0;
-                i < 3;
-                i++
-            ) {
+            for(
+                let k=0;
+                k<3;
+                k++
+            ){
 
                 ctx.strokeStyle =
-                    rgba(
-                        theme.accent,
-                        0.30
-                    );
+                    "rgba(0,220,190,.22)";
 
                 ctx.beginPath();
 
                 ctx.moveTo(
-                    sensor.x + 12,
-                    sensor.y +
-                    10 +
-                    i * 10
+                    s[0]+9,
+                    s[1]+8+k*7
                 );
 
                 ctx.lineTo(
-                    sensor.x + 58,
-                    sensor.y +
-                    10 +
-                    i * 10
+                    s[0]+45,
+                    s[1]+8+k*7
                 );
 
                 ctx.stroke();
@@ -3779,77 +2876,63 @@ function drawEmbedded(
 
 
             /*
-               Smooth data pulse
+               sensor pulse
             */
 
             const pulse =
                 (
-                    time *
-                    0.00015 +
-                    index * 0.23
-                ) % 1;
-
-
-            const pulseX =
-                sensor.x +
-                70 * pulse;
+                    time*.00018+
+                    i*.22
+                )%1;
 
 
             ctx.fillStyle =
-                theme.accent;
+                "#00e0a0";
 
-            ctx.shadowBlur = 6;
+            ctx.shadowBlur=7;
 
             ctx.shadowColor =
-                theme.accent;
+                "#00e0a0";
 
             ctx.beginPath();
 
             ctx.arc(
-                pulseX,
-                sensor.y + 20,
-                2,
+                s[0]+54*pulse,
+                s[1]+15,
+                1.7,
                 0,
-                Math.PI * 2
+                Math.PI*2
             );
 
             ctx.fill();
 
-            ctx.shadowBlur = 0;
+            ctx.shadowBlur=0;
 
         }
     );
 
 
     /*
-       Data bus
+       data bus
     */
 
     const busY =
-        boardY +
-        boardH +
-        38;
-
+        y+bh+30;
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.18
-        );
+        "rgba(0,220,170,.20)";
 
-    ctx.lineWidth = 2;
+    ctx.lineWidth=1;
 
     ctx.beginPath();
 
     ctx.moveTo(
-        boardX - 90,
+        x-50,
         busY
     );
 
     ctx.lineTo(
-        boardX +
-        boardW +
-        90,
+        x+bw+50,
         busY
     );
 
@@ -3857,57 +2940,45 @@ function drawEmbedded(
 
 
     /*
-       Data packet
+       moving data packet
     */
 
-    const packetProgress =
+    const progress =
         (
-            time *
-            0.00018
-        ) % 1;
+            time*.00017
+        )%1;
 
+    const px =
+        x-50+
+        (bw+100)*
+        progress;
 
-    const packetX =
-        boardX -
-        90 +
-        (
-            boardW +
-            180
-        ) *
-        packetProgress;
-
-
-    ctx.save();
-
-    ctx.shadowBlur = 8;
-
-    ctx.shadowColor =
-        theme.accent;
 
     ctx.strokeStyle =
-        theme.accent;
+        "#00e0a0";
 
-    ctx.lineWidth = 3;
+    ctx.lineWidth=2;
 
-    ctx.lineCap =
-        "round";
+    ctx.shadowBlur=8;
 
+    ctx.shadowColor =
+        "#00e0a0";
 
     ctx.beginPath();
 
     ctx.moveTo(
-        packetX - 60,
+        px-28,
         busY
     );
 
     ctx.lineTo(
-        packetX,
+        px,
         busY
     );
 
     ctx.stroke();
 
-    ctx.restore();
+    ctx.shadowBlur=0;
 
 
     ctx.restore();
@@ -3917,293 +2988,191 @@ function drawEmbedded(
 
 /* =========================================================
    HIGH VOLTAGE
-   Smooth field + transmission towers
 ========================================================= */
 
-function drawHighVolt(
-    theme,
-    time
-) {
+function drawHighVoltage(time){
+
+    const start =
+        W*.80;
+
+
+    const towerXs =
+        W<700
+            ? [
+                W*.84,
+                W*.97
+            ]
+            : [
+                W*.82,
+                W*.93,
+                W*1.04
+            ];
+
 
     /*
-       Subtle electromagnetic field
-       แทนเส้นสายไฟที่วิ่งมั่ว
+       waveform
     */
 
-    for (
-        let i = 0;
-        i < (
-            isMobile
-                ? 4
-                : 7
-        );
-        i++
-    ) {
+    for(
+        let k=0;
+        k<4;
+        k++
+    ){
 
-        const baseY =
-            H *
-            (
-                0.10 +
-                i * 0.13
-            );
+        const points=[];
 
+        for(
+            let x=start-40;
+            x<W+30;
+            x+=8
+        ){
 
-        const points = [];
-
-
-        for (
-            let x = -40;
-            x <= W + 40;
-            x += 34
-        ) {
-
-            const wave =
+            const yy =
+                H*.58+
+                k*32+
                 Math.sin(
-                    x * 0.006 +
-                    time *
-                    0.00035 +
-                    i * 0.8
-                );
-
-
-            const wave2 =
-                Math.sin(
-                    x * 0.0027 +
-                    time *
-                    0.00020
-                );
+                    x*.018+
+                    time*.0005+
+                    k*.8
+                )*7;
 
 
             points.push({
-
                 x,
-
-                y:
-                    baseY +
-                    wave * 8 +
-                    wave2 * 5
-
+                y:yy
             });
 
         }
 
 
-        drawLine(
+        line(
             points,
-            i % 2 === 0
-                ? theme.primary
-                : theme.accent,
-            0.7,
-            0.07
+            k%2===0
+                ? "#6072e8"
+                : "#4256b8",
+            .7,
+            .16
         );
 
     }
 
 
     /*
-       Transmission towers
+       transmission towers
     */
 
-    const towerCount =
-        isMobile
-            ? 3
-            : 4;
+    towerXs.forEach(
+        (tx,index)=>{
+
+            const topY =
+                H*.18;
+
+            const baseY =
+                H*.82;
+
+            const bottomW =
+                37;
 
 
-    const towerPositions = [];
+            ctx.save();
 
 
-    for (
-        let i = 0;
-        i < towerCount;
-        i++
-    ) {
+            /*
+               main tower
+            */
 
-        const x =
-            W *
-            (
-                0.12 +
-                i *
-                (
-                    0.76 /
-                    Math.max(
-                        towerCount - 1,
-                        1
-                    )
-                )
-            );
+            ctx.strokeStyle =
+                "rgba(115,135,230,.38)";
 
-
-        towerPositions.push(x);
-
-
-        const topY =
-            H * 0.31;
-
-        const baseY =
-            H * 0.82;
-
-
-        ctx.save();
-
-
-        /*
-           Tower body
-        */
-
-        ctx.strokeStyle =
-            rgba(
-                theme.secondary,
-                0.27
-            );
-
-        ctx.lineWidth = 1.7;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            x - 48,
-            baseY
-        );
-
-        ctx.lineTo(
-            x,
-            topY
-        );
-
-        ctx.lineTo(
-            x + 48,
-            baseY
-        );
-
-        ctx.stroke();
-
-
-        /*
-           Tower diagonal structure
-        */
-
-        for (
-            let j = 0;
-            j < 7;
-            j++
-        ) {
-
-            const y1 =
-                topY +
-                45 +
-                j * 55;
-
-
-            if (
-                y1 >= baseY
-            )
-                continue;
-
-
-            const ratio =
-                (
-                    y1 -
-                    topY
-                ) /
-                (
-                    baseY -
-                    topY
-                );
-
-
-            const width =
-                6 +
-                ratio * 40;
+            ctx.lineWidth=1.3;
 
 
             ctx.beginPath();
 
             ctx.moveTo(
-                x - width,
-                y1
+                tx-bottomW,
+                baseY
             );
 
             ctx.lineTo(
-                x + width,
-                y1
+                tx,
+                topY
+            );
+
+            ctx.lineTo(
+                tx+bottomW,
+                baseY
             );
 
             ctx.stroke();
 
 
             /*
-               X bracing
+               horizontal structure
             */
 
-            ctx.beginPath();
+            for(
+                let i=0;
+                i<7;
+                i++
+            ){
 
-            ctx.moveTo(
-                x - width,
-                y1
-            );
-
-            ctx.lineTo(
-                x + width * 0.7,
-                y1 + 35
-            );
-
-            ctx.stroke();
+                const yy =
+                    topY+
+                    45+
+                    i*48;
 
 
-            ctx.beginPath();
-
-            ctx.moveTo(
-                x + width,
-                y1
-            );
-
-            ctx.lineTo(
-                x - width * 0.7,
-                y1 + 35
-            );
-
-            ctx.stroke();
-
-        }
+                if(
+                    yy>=baseY
+                )
+                    continue;
 
 
-        /*
-           Top insulators
-        */
-
-        [-1,0,1].forEach(
-            side => {
-
-                const iy =
-                    topY +
-                    5;
-
-                const ix =
-                    x +
-                    side * 22;
-
-
-                ctx.strokeStyle =
-                    rgba(
-                        theme.accent,
-                        0.35
+                const ratio =
+                    (
+                        yy-topY
+                    )/
+                    (
+                        baseY-topY
                     );
 
-                ctx.lineWidth = 1;
+
+                const width =
+                    5+
+                    ratio*
+                    32;
 
 
                 ctx.beginPath();
 
                 ctx.moveTo(
-                    x,
-                    iy
+                    tx-width,
+                    yy
                 );
 
                 ctx.lineTo(
-                    ix,
-                    iy
+                    tx+width,
+                    yy
+                );
+
+                ctx.stroke();
+
+
+                /*
+                   X brace
+                */
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    tx-width,
+                    yy
+                );
+
+                ctx.lineTo(
+                    tx+width*.72,
+                    yy+30
                 );
 
                 ctx.stroke();
@@ -4211,382 +3180,245 @@ function drawHighVolt(
 
                 ctx.beginPath();
 
-                ctx.arc(
-                    ix,
-                    iy,
-                    4,
-                    0,
-                    Math.PI * 2
+                ctx.moveTo(
+                    tx+width,
+                    yy
+                );
+
+                ctx.lineTo(
+                    tx-width*.72,
+                    yy+30
                 );
 
                 ctx.stroke();
 
             }
-        );
 
 
-        ctx.restore();
+            /*
+               insulators
+            */
 
-    }
+            [-1,0,1].forEach(
+                side=>{
+
+                    const ix =
+                        tx+
+                        side*17;
+
+
+                    const iy =
+                        topY+8;
+
+
+                    ctx.strokeStyle =
+                        "rgba(0,170,255,.35)";
+
+
+                    ctx.beginPath();
+
+                    ctx.moveTo(
+                        tx,
+                        iy
+                    );
+
+                    ctx.lineTo(
+                        ix,
+                        iy
+                    );
+
+                    ctx.stroke();
+
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        ix,
+                        iy,
+                        3,
+                        0,
+                        Math.PI*2
+                    );
+
+                    ctx.stroke();
+
+                }
+            );
+
+
+            ctx.restore();
+
+        }
+    );
 
 
     /*
-       Transmission cables
-       STATIC — ไม่มีเส้นวิ่ง
+       cables
     */
 
-    for (
-        let i = 0;
-        i < towerPositions.length - 1;
+    for(
+        let i=0;
+        i<towerXs.length-1;
         i++
-    ) {
+    ){
 
         const x1 =
-            towerPositions[i];
+            towerXs[i];
 
         const x2 =
-            towerPositions[i+1];
+            towerXs[i+1];
 
 
-        const topY =
-            H * 0.31;
-
-
-        for (
-            let conductor = -1;
-            conductor <= 1;
-            conductor++
-        ) {
-
-            ctx.save();
+        for(
+            let c=-1;
+            c<=1;
+            c++
+        ){
 
             ctx.strokeStyle =
-                rgba(
-                    theme.primary,
-                    0.20
-                );
+                "rgba(85,110,220,.26)";
 
-            ctx.lineWidth = 1.3;
+            ctx.lineWidth=1;
 
 
             ctx.beginPath();
 
             ctx.moveTo(
                 x1,
-                topY +
-                conductor * 18
+                H*.18+
+                c*12
             );
 
 
             ctx.quadraticCurveTo(
 
-                (
-                    x1 +
-                    x2
-                ) / 2,
+                (x1+x2)/2,
 
-                topY +
-                70 +
-                conductor * 13,
+                H*.18+
+                55+
+                c*8,
 
                 x2,
 
-                topY +
-                conductor * 18
+                H*.18+
+                c*12
 
             );
 
 
             ctx.stroke();
 
-            ctx.restore();
-
         }
 
     }
 
 
     /*
-       Smooth energy pulses
-       จุดสว่างเล็ก ๆ ไม่ใช่เส้น
+       energy pulses
     */
 
-    for (
-        let i = 0;
-        i < towerPositions.length - 1;
+    for(
+        let i=0;
+        i<towerXs.length-1;
         i++
-    ) {
-
-        const x1 =
-            towerPositions[i];
-
-        const x2 =
-            towerPositions[i+1];
-
+    ){
 
         const progress =
             (
-                time *
-                0.000035 +
-                i * 0.25
-            ) % 1;
+                time*.000035+
+                i*.27
+            )%1;
 
 
-        const curveY =
-            H * 0.31 +
-            70 *
-            4 *
-            progress *
-            (
-                1 -
-                progress
-            );
+        const x1 =
+            towerXs[i];
+
+        const x2 =
+            towerXs[i+1];
 
 
         const px =
-            x1 +
-            (
-                x2 -
-                x1
-            ) *
+            x1+
+            (x2-x1)*
             progress;
 
 
-        /*
-           Three conductors
-        */
-
-        for (
-            let c = -1;
-            c <= 1;
-            c++
-        ) {
-
-            const py =
-                curveY +
-                c * 18;
-
-
-            ctx.save();
-
-            ctx.shadowBlur = 12;
-
-            ctx.shadowColor =
-                theme.accent;
-
-            ctx.fillStyle =
-                theme.accent;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                px,
-                py,
-                2.2,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-            ctx.restore();
-
-        }
-
-    }
-
-
-    /*
-       Electric field rings
-    */
-
-    const fieldX =
-        W * 0.50;
-
-    const fieldY =
-        H * 0.42;
-
-
-    const fieldPulse =
-        (
-            Math.sin(
-                time *
-                0.0008
-            ) + 1
-        ) / 2;
-
-
-    for (
-        let i = 0;
-        i < 4;
-        i++
-    ) {
-
-        const radius =
-            45 +
-            i * 34 +
-            fieldPulse * 12;
+        const py =
+            H*.18+
+            55*
+            4*
+            progress*
+            (1-progress);
 
 
         ctx.save();
 
-        ctx.strokeStyle =
-            rgba(
-                theme.accent,
-                0.045 -
-                i * 0.007
-            );
+        ctx.fillStyle =
+            "#7b8cff";
 
-        ctx.lineWidth = 1;
+        ctx.shadowBlur=10;
+
+        ctx.shadowColor =
+            "#6274ff";
 
 
         ctx.beginPath();
 
-        ctx.ellipse(
-            fieldX,
-            fieldY,
-            radius * 1.8,
-            radius,
+        ctx.arc(
+            px,
+            py,
+            1.8,
             0,
-            0,
-            Math.PI * 2
+            Math.PI*2
         );
 
-        ctx.stroke();
+        ctx.fill();
 
         ctx.restore();
 
     }
 
-
-    /*
-       Lightning symbol — static technical decoration
-    */
-
-    for (
-        let i = 0;
-        i < (
-            isMobile
-                ? 3
-                : 6
-        );
-        i++
-    ) {
-
-        const x =
-            (
-                i * 220
-            ) %
-            (
-                W + 150
-            ) - 75;
-
-
-        const y =
-            H *
-            (
-                0.15 +
-                (
-                    i % 4
-                ) * 0.18
-            );
-
-
-        ctx.save();
-
-        ctx.strokeStyle =
-            rgba(
-                theme.accent,
-                0.22
-            );
-
-        ctx.lineWidth = 1.2;
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            x,
-            y
-        );
-
-        ctx.lineTo(
-            x + 11,
-            y + 20
-        );
-
-        ctx.lineTo(
-            x + 3,
-            y + 20
-        );
-
-        ctx.lineTo(
-            x + 17,
-            y + 45
-        );
-
-        ctx.stroke();
-
-        ctx.restore();
-
-    }
 
 }
 
 
 /* =========================================================
-   AMBIENT
+   AMBIENT LIGHT
 ========================================================= */
 
-function drawAmbient(
-    theme
-) {
+function drawAmbient(){
 
-    const gradient =
+    const g =
         ctx.createRadialGradient(
 
-            W * 0.5,
-            H * 0.45,
+            W*.48,
+            H*.45,
             0,
 
-            W * 0.5,
-            H * 0.45,
-
-            Math.max(
-                W,
-                H
-            ) * 0.78
+            W*.48,
+            H*.45,
+            Math.max(W,H)*.75
 
         );
 
 
-    gradient.addColorStop(
+    g.addColorStop(
         0,
-        rgba(
-            theme.primary,
-            0.018
-        )
+        "rgba(0,190,220,.035)"
     );
 
-
-    gradient.addColorStop(
-        0.5,
-        rgba(
-            theme.secondary,
-            0.006
-        )
+    g.addColorStop(
+        .45,
+        "rgba(0,100,150,.012)"
     );
 
-
-    gradient.addColorStop(
+    g.addColorStop(
         1,
         "rgba(0,0,0,0)"
     );
 
 
-    ctx.fillStyle =
-        gradient;
-
+    ctx.fillStyle=g;
 
     ctx.fillRect(
         0,
@@ -4599,93 +3431,26 @@ function drawAmbient(
 
 
 /* =========================================================
-   THEME DRAW
-========================================================= */
-
-function drawTheme(
-    theme,
-    time
-) {
-
-    drawAmbient(
-        theme
-    );
-
-    drawGrid(
-        theme
-    );
-
-
-    if (
-        theme.name ===
-        "electronics"
-    ) {
-
-        drawPCB(
-            theme,
-            time
-        );
-
-    }
-
-
-    else if (
-        theme.name ===
-        "robotics"
-    ) {
-
-        drawRobotics(
-            theme,
-            time
-        );
-
-    }
-
-
-    else if (
-        theme.name ===
-        "embedded"
-    ) {
-
-        drawEmbedded(
-            theme,
-            time
-        );
-
-    }
-
-
-    else if (
-        theme.name ===
-        "highvolt"
-    ) {
-
-        drawHighVolt(
-            theme,
-            time
-        );
-
-    }
-
-}
-
-
-/* =========================================================
    MAIN RENDER
 ========================================================= */
 
-function renderBackground(
-    time
-) {
+let lastTime=0;
 
-    updateTheme(
-        time
-    );
 
+function render(time){
 
     /*
-       Dark background
+       smooth delta
     */
+
+    const delta =
+        Math.min(
+            time-lastTime,
+            40
+        );
+
+    lastTime=time;
+
 
     ctx.clearRect(
         0,
@@ -4695,9 +3460,12 @@ function renderBackground(
     );
 
 
-    ctx.fillStyle =
-        "#050608";
+    /*
+       base
+    */
 
+    ctx.fillStyle =
+        "#061019";
 
     ctx.fillRect(
         0,
@@ -4708,83 +3476,77 @@ function renderBackground(
 
 
     /*
-       Crossfade
+       panels
     */
 
-    if (
-        themeProgress < 1
-    ) {
-
-        const smooth =
-            themeProgress *
-            themeProgress *
-            (
-                3 -
-                2 *
-                themeProgress
-            );
+    drawPanels();
 
 
-        /*
-           Previous
-        */
+    /*
+       grid
+    */
 
-        ctx.save();
-
-        ctx.globalAlpha =
-            1 - smooth;
-
-        drawTheme(
-            previousTheme,
-            time
-        );
-
-        ctx.restore();
+    drawGrid();
 
 
-        /*
-           Current
-        */
+    /*
+       PCB
+    */
 
-        ctx.save();
+    drawPCB(time);
 
-        ctx.globalAlpha =
-            smooth;
 
-        drawTheme(
-            currentTheme,
-            time
-        );
+    /*
+       Robot
+    */
 
-        ctx.restore();
+    drawRobot(time);
 
-    }
 
-    else {
+    /*
+       Embedded
+    */
 
-        drawTheme(
-            currentTheme,
-            time
-        );
+    drawEmbedded(time);
 
-    }
+
+    /*
+       High voltage
+    */
+
+    drawHighVoltage(time);
+
+
+    /*
+       ambient
+    */
+
+    drawAmbient();
 
 
     requestAnimationFrame(
-        renderBackground
+        render
     );
 
 }
 
 
+requestAnimationFrame(
+    render
+);
+
+
 /* =========================================================
-   START
+   REBUILD PCB WHEN RESIZE
 ========================================================= */
 
-resizeCanvas();
+window.addEventListener(
+    "resize",
+    () => {
 
-requestAnimationFrame(
-    renderBackground
+        pcbTraces=[];
+
+    }
 );
 
 </script>
