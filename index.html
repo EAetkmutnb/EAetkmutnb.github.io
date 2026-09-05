@@ -743,13 +743,410 @@ body::after {
 
 
 /* =========================================================
-   CANVAS ENGINEERING BACKGROUND
+   STRENGTHS
 ========================================================= */
 
-#circuit-bg {
+.strengths {
 
-    opacity: 0.95;
+    max-width: 1200px;
 
+    margin: auto;
+
+    padding:
+        80px 20px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.section-header {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.section-title {
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    color: white;
+}
+
+
+.section-line {
+
+    width: 60px;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #FF6B00,
+            #FFD600
+        );
+
+    margin:
+        15px auto;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid-4 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 22px;
+}
+
+
+.card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,29,37,0.92),
+            rgba(11,14,19,0.90)
+        );
+
+    padding:
+        28px 24px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid #2D3142;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.5s ease;
+
+    backdrop-filter:
+        blur(10px);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -100%;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #FF6B00,
+            #FFD600,
+            transparent
+        );
+
+    transition:
+        0.6s ease;
+}
+
+
+.card:hover::before {
+    left: 100%;
+}
+
+
+.card:hover {
+
+    border-color:
+        rgba(255,107,0,0.75);
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.42);
+}
+
+
+.card-icon {
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+
+.card-title {
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+
+.card-desc {
+
+    color: #94A3B8;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    border-top:
+        1px solid #252A34;
+
+    padding:
+        30px 20px;
+
+    text-align: center;
+
+    color: #64748B;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    background:
+        rgba(5,6,8,0.90);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+========================================================= */
+
+.nav-container {
+
+    animation:
+        navReveal
+        0.8s
+        cubic-bezier(0.16,1,0.3,1)
+        both;
+}
+
+
+@keyframes navReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.hero-container > div:first-child {
+
+    animation:
+        heroLeft
+        1s
+        cubic-bezier(0.16,1,0.3,1)
+        0.15s
+        both;
+}
+
+
+@keyframes heroLeft {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-60px)
+            scale(0.94);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+.hero-container > div:last-child {
+
+    animation:
+        heroRight
+        1.1s
+        cubic-bezier(0.16,1,0.3,1)
+        0.3s
+        both;
+}
+
+
+@keyframes heroRight {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(60px)
+            scale(0.90);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.section-header,
+.card,
+footer {
+
+    opacity: 0;
+
+    filter:
+        blur(8px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+.section-header {
+    transform: translateY(40px);
+}
+
+
+.card {
+    transform: translateY(60px);
+}
+
+
+footer {
+    transform: translateY(35px);
+}
+
+
+.section-header.reveal,
+.card.reveal,
+footer.reveal {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    filter:
+        blur(0);
+}
+
+
+.card:nth-child(1).reveal {
+    transition-delay: 0.05s;
+}
+
+
+.card:nth-child(2).reveal {
+    transition-delay: 0.15s;
+}
+
+
+.card:nth-child(3).reveal {
+    transition-delay: 0.25s;
+}
+
+
+.card:nth-child(4).reveal {
+    transition-delay: 0.35s;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .btn-admission {
+
+        padding:
+            9px 14px;
+
+        font-size: 12px;
+    }
+
+    .grid-4 {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 }
 
 
@@ -759,114 +1156,235 @@ body::after {
 
 @media (max-width: 900px) {
 
+    .nav-container {
+        min-height: 70px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .btn-admission {
+        display: none;
+    }
+
     .nav-menu {
 
         position: fixed;
 
-        top: 0;
+        top: 70px;
 
-        right: -100%;
+        right: 15px;
 
-        width: 280px;
-
-        height: 100vh;
-
-        background:
-            rgba(8,10,14,0.97);
-
-        flex-direction: column;
-
-        justify-content:
-            flex-start;
-
-        align-items:
-            flex-start;
-
-        padding:
-            100px 30px 30px;
-
-        gap: 24px;
-
-        transition:
-            right 0.35s ease;
-
-        z-index: 101;
-
-        border-left:
-            1px solid
-            rgba(255,107,0,0.25);
-    }
-
-
-    .nav-menu.active {
-
-        right: 0;
-
-    }
-
-
-    .menu-toggle {
+        left: 15px;
 
         display: flex;
 
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background:
+            rgba(10,13,18,0.98);
+
+        border:
+            1px solid #343A46;
+
+        border-top:
+            2px solid #FF6B00;
+
+        border-radius:
+            0 0 14px 14px;
+
+        padding: 10px;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+            translateY(-15px);
+
+        transition:
+            0.25s ease;
+
+        box-shadow:
+            0 20px 50px
+            rgba(0,0,0,0.55);
+
+        z-index: 101;
     }
 
+    .nav-menu.open {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+            translateY(0);
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+
+        display: block;
+
+        width: 100%;
+
+        padding:
+            15px 16px;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .nav-menu a:hover {
+
+        background:
+            rgba(255,107,0,0.08);
+    }
+
+    .nav-menu a.active {
+
+        background:
+            rgba(255,107,0,0.10);
+    }
 
     .hero-container {
 
         grid-template-columns:
             1fr;
 
+        text-align: center;
     }
 
+    .hero-desc {
 
-    .hero-title {
+        margin-left: auto;
 
-        font-size: 38px;
-
+        margin-right: auto;
     }
 
+    .hero-buttons {
+
+        justify-content:
+            center;
+    }
+
+    .grid-4 {
+
+        grid-template-columns:
+            1fr;
+    }
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .logo-text-main {
+        font-size: 15px;
+    }
+
+    .logo-sub {
+        font-size: 8px;
+    }
+
+    .logo-icon {
+
+        font-size: 17px;
+
+        padding:
+            7px 9px;
+    }
 
     .hero {
 
         padding:
-            60px 18px;
-
+            60px 20px;
     }
-
 
     .hero-title {
-
-        font-size: 31px;
-
+        font-size: 34px;
     }
-
 
     .hero-desc {
-
         font-size: 14px;
-
     }
-
 
     .hero-buttons {
 
         flex-direction:
             column;
-
     }
 
+    .btn-primary,
+    .btn-secondary {
+
+        text-align:
+            center;
+
+        width:
+            100%;
+    }
 
     .hero-img {
-
-        height: 260px;
-
+        height: 230px;
     }
 
+    .section-title {
+        font-size: 26px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+
+    .section-header,
+    .card,
+    footer {
+
+        opacity:
+            1 !important;
+
+        transform:
+            none !important;
+
+        filter:
+            none !important;
+    }
 }
 
 </style>
@@ -877,16 +1395,26 @@ body::after {
 <body>
 
 
-<!-- =========================================================
-     CANVAS
-========================================================= -->
+<!-- =======================================================
+     ENGINEERING BACKGROUND
+======================================================= -->
 
 <canvas id="circuit-bg"></canvas>
 
 
-<!-- =========================================================
+<!-- =======================================================
+     MOBILE OVERLAY
+======================================================= -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay">
+</div>
+
+
+<!-- =======================================================
      NAVBAR
-========================================================= -->
+======================================================= -->
 
 <nav class="navbar">
 
@@ -895,22 +1423,24 @@ body::after {
         <div class="logo-flex">
 
             <div class="logo-icon">
-                EE
+                ⚡
             </div>
 
             <div>
 
-                <div class="logo-text-main">
+                <span class="logo-text-main">
 
-                    วิศวกรรมไฟฟ้า
+                    EAet
                     <span class="logo-text-orange">
-                        & Automation
+                        KMUTNB
                     </span>
 
-                </div>
+                </span>
 
                 <span class="logo-sub">
-                    KMUTNB
+
+                    Electrical & Automation Engineering Technology
+
                 </span>
 
             </div>
@@ -918,56 +1448,76 @@ body::after {
         </div>
 
 
-        <ul class="nav-menu" id="navMenu">
+        <ul
+            class="nav-menu"
+            id="navMenu">
 
             <li>
-                <a href="#home" class="active">
-                    หน้าหลัก
+                <a
+                    href="index.html"
+                    class="active">
+
+                    หน้าแรก
+
                 </a>
             </li>
 
             <li>
-                <a href="#about">
-                    เกี่ยวกับสาขา
+                <a
+                    href="curriculum.html">
+
+                    โครงสร้างหลักสูตร
+
                 </a>
             </li>
 
             <li>
-                <a href="#program">
-                    หลักสูตร
+                <a
+                    href="labs.html">
+
+                    ห้องปฏิบัติการ
+
                 </a>
             </li>
 
             <li>
-                <a href="#career">
-                    อาชีพ
+                <a
+                    href="research.html">
+
+                    ผลงานวิจัย
+
                 </a>
             </li>
 
             <li>
-                <a href="#contact">
-                    ติดต่อ
-                </a>
-            </li>
+                <a
+                    href="contact.html">
 
-            <li>
-
-                <a href="#admission"
-                   class="btn-admission">
-
-                    สมัครเรียน
+                    ติดต่อภาควิชา
 
                 </a>
-
             </li>
 
         </ul>
 
 
+        <a
+            href="https://kmutnb.ac.th"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-admission">
+
+            รับสมัครนักศึกษา
+
+        </a>
+
+
         <button
             class="menu-toggle"
             id="menuToggle"
-            aria-label="เปิดเมนู">
+            aria-label="เปิดเมนู"
+            aria-expanded="false"
+            aria-controls="navMenu">
 
             <span></span>
             <span></span>
@@ -980,39 +1530,35 @@ body::after {
 </nav>
 
 
-<div
-    class="mobile-overlay"
-    id="mobileOverlay">
-</div>
-
-
-<!-- =========================================================
+<!-- =======================================================
      HERO
-========================================================= -->
+======================================================= -->
 
-<section class="hero" id="home">
+<header class="hero">
 
-    <div class="hero-container">
+    <div
+        class="hero-container"
+        id="heroContainer">
 
 
-        <div class="hero-content">
+        <div>
 
             <span class="hero-badge">
 
-                ⚡ ELECTRICAL ENGINEERING
+                ⚡ มุ่งเน้นการปฏิบัติจริง สไตล์เยอรมัน
 
             </span>
 
 
             <h1 class="hero-title">
 
-                วิศวกรรมไฟฟ้า
+                เทคโนโลยีวิศวกรรมไฟฟ้า
 
                 <br>
 
                 <span class="hero-title-orange">
 
-                    & Automation
+                    และระบบอัตโนมัติ
 
                 </span>
 
@@ -1021,11 +1567,12 @@ body::after {
 
             <p class="hero-desc">
 
-                เรียนรู้ตั้งแต่ระบบไฟฟ้า
-                ระบบควบคุมอัตโนมัติ
+                สร้างทักษะ เพิ่มความเชี่ยวชาญ
+                ระบบไฟฟ้า ระบบควบคุมอัตโนมัติ
+                หุ่นยนต์อัจฉริยะ
                 Embedded System
-                Robotics
-                ไปจนถึงเทคโนโลยีอุตสาหกรรมสมัยใหม่
+                และพลังงานสีเขียวเพื่อตอบโจทย์
+                วิศวกรยุคอุตสาหกรรม 4.0
 
             </p>
 
@@ -1033,19 +1580,18 @@ body::after {
             <div class="hero-buttons">
 
                 <a
-                    href="#program"
+                    href="curriculum.html"
                     class="btn-primary">
 
-                    ดูหลักสูตร
+                    ดูแผนการเรียน
 
                 </a>
 
-
                 <a
-                    href="#about"
+                    href="labs.html"
                     class="btn-secondary">
 
-                    เรียนรู้เพิ่มเติม
+                    ทัวร์ห้องปฏิบัติการ
 
                 </a>
 
@@ -1057,9 +1603,125 @@ body::after {
         <div>
 
             <img
+                src="https://eat.kmutnb.ac.th/webeat/admin/course/img/5.jpg"
+                alt="KMUTNB Automation Engineering"
                 class="hero-img"
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80"
-                alt="Electrical Engineering">
+            >
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     STRENGTHS
+======================================================= -->
+
+<section class="strengths">
+
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+
+            Engineering Highlights
+
+        </h2>
+
+        <div class="section-line"></div>
+
+    </div>
+
+
+    <div class="grid-4">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🤖
+            </div>
+
+            <h3 class="card-title">
+                Industrial Automation
+            </h3>
+
+            <p class="card-desc">
+
+                ควบคุมแขนกลหุ่นยนต์
+                เขียนระบบ PLC ระดับสูง
+                ระบบ SCADA และการจำลองระบบ
+                สายการผลิตอัจฉริยะแบบโรงงานของจริง
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+            <h3 class="card-title">
+                Smart Power Systems
+            </h3>
+
+            <p class="card-desc">
+
+                ออกแบบระบบวิศวกรรมไฟฟ้ากำลัง
+                สถานีไฟฟ้าย่อย ระบบป้องกัน
+                และเทคโนโลยีโครงข่ายไฟฟ้าอัจฉริยะ
+                (Smart Grid)
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧠
+            </div>
+
+            <h3 class="card-title">
+                Embedded Systems
+            </h3>
+
+            <p class="card-desc">
+
+                พัฒนา Microcontroller
+                ระบบควบคุมแบบ Embedded
+                การเชื่อมต่อ Sensor / Actuator
+                และระบบ IoT สำหรับอุตสาหกรรม
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🦾
+            </div>
+
+            <h3 class="card-title">
+                Robotics & AI
+            </h3>
+
+            <p class="card-desc">
+
+                ออกแบบและควบคุม
+                Robotic Arm ระบบ Machine Vision
+                AI และระบบอัตโนมัติ
+                สำหรับสายการผลิตยุคใหม่
+
+            </p>
 
         </div>
 
@@ -1069,169 +1731,20 @@ body::after {
 </section>
 
 
-<!-- =========================================================
-     DEMO CONTENT
-========================================================= -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
-<section
-    id="about"
-    style="
-        min-height:500px;
-        padding:100px 20px;
-        background:rgba(5,7,10,0.92);
-    ">
+<footer>
 
-    <div
-        style="
-            max-width:1200px;
-            margin:auto;
-        ">
+    EAet KMUTNB
 
-        <h2
-            style="
-                font-size:36px;
-                color:white;
-                margin-bottom:20px;
-            ">
+    <br>
 
-            เกี่ยวกับสาขา
+    Electrical & Automation Engineering Technology
 
-        </h2>
+</footer>
 
-        <p
-            style="
-                color:#94A3B8;
-                line-height:2;
-                max-width:800px;
-            ">
-
-            ศึกษาเทคโนโลยีทางวิศวกรรมไฟฟ้า
-            ระบบควบคุม ระบบอัตโนมัติ
-            Embedded System
-            Robotics และระบบไฟฟ้าอุตสาหกรรม
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<section
-    id="program"
-    style="
-        min-height:500px;
-        padding:100px 20px;
-        background:#090C11;
-    ">
-
-    <div
-        style="
-            max-width:1200px;
-            margin:auto;
-        ">
-
-        <h2
-            style="
-                font-size:36px;
-                color:white;
-                margin-bottom:20px;
-            ">
-
-            หลักสูตร
-
-        </h2>
-
-        <p
-            style="
-                color:#94A3B8;
-                line-height:2;
-            ">
-
-            Electrical Engineering • Embedded System
-            • Automation • Robotics • High Voltage
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<section
-    id="career"
-    style="
-        min-height:500px;
-        padding:100px 20px;
-        background:rgba(5,7,10,0.94);
-    ">
-
-    <div
-        style="
-            max-width:1200px;
-            margin:auto;
-        ">
-
-        <h2
-            style="
-                font-size:36px;
-                color:white;
-                margin-bottom:20px;
-            ">
-
-            เส้นทางอาชีพ
-
-        </h2>
-
-        <p
-            style="
-                color:#94A3B8;
-                line-height:2;
-            ">
-
-            Automation Engineer • Control Engineer
-            • Electrical Engineer • Embedded Engineer
-            • Robotics Engineer • Instrumentation Engineer
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<section
-    id="contact"
-    style="
-        min-height:400px;
-        padding:100px 20px;
-        background:#090C11;
-    ">
-
-    <div
-        style="
-            max-width:1200px;
-            margin:auto;
-        ">
-
-        <h2
-            style="
-                font-size:36px;
-                color:white;
-            ">
-
-            ติดต่อ
-
-        </h2>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
@@ -1240,55 +1753,58 @@ body::after {
 ========================================================= */
 
 const menuToggle =
-    document.getElementById(
-        "menuToggle"
-    );
+    document.getElementById("menuToggle");
 
 const navMenu =
-    document.getElementById(
-        "navMenu"
-    );
+    document.getElementById("navMenu");
 
 const mobileOverlay =
-    document.getElementById(
-        "mobileOverlay"
-    );
+    document.getElementById("mobileOverlay");
 
 
 function closeMenu() {
 
-    menuToggle.classList.remove(
-        "active"
-    );
+    navMenu.classList.remove("open");
 
-    navMenu.classList.remove(
-        "active"
-    );
+    menuToggle.classList.remove("active");
 
-    mobileOverlay.classList.remove(
-        "active"
-    );
+    mobileOverlay.classList.remove("active");
 
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+}
+
+
+function toggleMenu() {
+
+    const isOpen =
+        navMenu.classList.contains("open");
+
+    if (isOpen) {
+
+        closeMenu();
+
+    } else {
+
+        navMenu.classList.add("open");
+
+        menuToggle.classList.add("active");
+
+        mobileOverlay.classList.add("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+    }
 }
 
 
 menuToggle.addEventListener(
     "click",
-    () => {
-
-        menuToggle.classList.toggle(
-            "active"
-        );
-
-        navMenu.classList.toggle(
-            "active"
-        );
-
-        mobileOverlay.classList.toggle(
-            "active"
-        );
-
-    }
+    toggleMenu
 );
 
 
@@ -1299,19 +1815,85 @@ mobileOverlay.addEventListener(
 
 
 document
-    .querySelectorAll(
-        ".nav-menu a"
-    )
-    .forEach(
-        link => {
+    .querySelectorAll(".nav-menu a")
+    .forEach(link => {
 
-            link.addEventListener(
-                "click",
-                closeMenu
-            );
+        link.addEventListener(
+            "click",
+            closeMenu
+        );
+
+    });
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
 
         }
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".section-header, .card, footer"
     );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(
+                entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "reveal"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: 0.12,
+
+            rootMargin:
+                "0px 0px -40px 0px"
+        }
+
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -1319,120 +1901,21 @@ document
 ========================================================= */
 
 const canvas =
-    document.getElementById(
-        "circuit-bg"
-    );
+    document.getElementById("circuit-bg");
 
 const ctx =
-    canvas.getContext(
-        "2d"
-    );
+    canvas.getContext("2d");
 
 
 let W = 0;
 let H = 0;
-let DPR = 1;
 
+let DPR =
+    Math.min(
+        window.devicePixelRatio || 1,
+        2
+    );
 
-/* =========================================================
-   THEMES
-
-   Animation ยังคงมี
-   แต่ลดความสว่างลงมาก
-========================================================= */
-
-const themes = [
-
-    {
-        name: "electronics",
-
-        primary: "#D95C08",
-
-        secondary: "#7C3F18",
-
-        accent: "#6F8790",
-
-        grid: "#263039"
-    },
-
-
-    {
-        name: "embedded",
-
-        primary: "#00AFC2",
-
-        secondary: "#176B76",
-
-        accent: "#526F78",
-
-        grid: "#223238"
-    },
-
-
-    {
-        name: "highvolt",
-
-        primary: "#D7A900",
-
-        secondary: "#776F25",
-
-        accent: "#9B5E18",
-
-        grid: "#35351F"
-    },
-
-
-    {
-        name: "robotics",
-
-        primary: "#7A7CFF",
-
-        secondary: "#40428D",
-
-        accent: "#8A8EA8",
-
-        grid: "#282B3D"
-    }
-
-];
-
-
-let currentTheme =
-    themes[0];
-
-let previousTheme =
-    themes[0];
-
-let themeIndex =
-    0;
-
-
-/*
-   Theme อยู่ประมาณ 12 วินาที
-*/
-
-const THEME_DURATION =
-    12000;
-
-
-/*
-   Crossfade 2.6 วินาที
-*/
-
-const TRANSITION_DURATION =
-    2600;
-
-
-let themeStart =
-    performance.now();
-
-let themeProgress =
-    1;
-
-
-/* =========================================================
-   RESIZE
-========================================================= */
 
 function resizeCanvas() {
 
@@ -1442,13 +1925,11 @@ function resizeCanvas() {
             2
         );
 
-
     W =
         window.innerWidth;
 
     H =
         window.innerHeight;
-
 
     canvas.width =
         W * DPR;
@@ -1456,13 +1937,11 @@ function resizeCanvas() {
     canvas.height =
         H * DPR;
 
-
     canvas.style.width =
         W + "px";
 
     canvas.style.height =
         H + "px";
-
 
     ctx.setTransform(
         DPR,
@@ -1472,7 +1951,6 @@ function resizeCanvas() {
         0,
         0
     );
-
 }
 
 
@@ -1486,173 +1964,208 @@ resizeCanvas();
 
 
 /* =========================================================
-   HELPERS
+   THEMES
 ========================================================= */
+
+const THEMES = [
+
+    {
+        name: "electronics",
+        primary: "#FF6B00",
+        secondary: "#FFD600",
+        accent: "#00E5FF"
+    },
+
+    {
+        name: "embedded",
+        primary: "#00FF9C",
+        secondary: "#00E5FF",
+        accent: "#7C3AED"
+    },
+
+    {
+        name: "highvolt",
+        primary: "#A855F7",
+        secondary: "#3B82F6",
+        accent: "#00E5FF"
+    },
+
+    {
+        name: "robotics",
+        primary: "#00E5FF",
+        secondary: "#00FF66",
+        accent: "#8B5CF6"
+    }
+
+];
+
+
+let themeIndex = 0;
+
+let previousTheme =
+    THEMES[0];
+
+let currentTheme =
+    THEMES[0];
+
+let themeProgress = 1;
+
+let lastThemeChange =
+    performance.now();
+
+
+/*
+    อยู่แต่ละ Theme นานขึ้น
+    12 วินาที
+*/
+
+const THEME_DURATION =
+    12000;
+
+
+/*
+    เวลา Crossfade
+*/
+
+const THEME_TRANSITION =
+    2600;
+
+
+function nextTheme() {
+
+    previousTheme =
+        currentTheme;
+
+    themeIndex =
+        (
+            themeIndex + 1
+        ) %
+        THEMES.length;
+
+    currentTheme =
+        THEMES[themeIndex];
+
+    themeProgress = 0;
+
+    lastThemeChange =
+        performance.now();
+}
+
+
+function updateTheme(now) {
+
+    const elapsed =
+        now -
+        lastThemeChange;
+
+
+    if (themeProgress < 1) {
+
+        themeProgress =
+            Math.min(
+                elapsed /
+                THEME_TRANSITION,
+                1
+            );
+    }
+
+
+    if (
+        elapsed >
+        THEME_DURATION +
+        THEME_TRANSITION
+    ) {
+
+        nextTheme();
+
+    }
+
+}
+
+
+/* =========================================================
+   COLOR HELPERS
+========================================================= */
+
+function hexToRgb(hex) {
+
+    hex =
+        hex.replace("#", "");
+
+    return {
+
+        r:
+            parseInt(
+                hex.substring(0, 2),
+                16
+            ),
+
+        g:
+            parseInt(
+                hex.substring(2, 4),
+                16
+            ),
+
+        b:
+            parseInt(
+                hex.substring(4, 6),
+                16
+            )
+
+    };
+
+}
+
 
 function rgba(
     hex,
     alpha
 ) {
 
-    const value =
-        hex.replace(
-            "#",
-            ""
-        );
+    const c =
+        hexToRgb(hex);
 
-
-    const r =
-        parseInt(
-            value.substring(0,2),
-            16
-        );
-
-    const g =
-        parseInt(
-            value.substring(2,4),
-            16
-        );
-
-    const b =
-        parseInt(
-            value.substring(4,6),
-            16
-        );
-
-
-    return `rgba(${r},${g},${b},${alpha})`;
-
-}
-
-
-function lerp(
-    a,
-    b,
-    t
-) {
-
-    return a +
-        (
-            b - a
-        ) * t;
-
+    return `
+        rgba(
+            ${c.r},
+            ${c.g},
+            ${c.b},
+            ${alpha}
+        )
+    `;
 }
 
 
 /* =========================================================
-   THEME UPDATE
+   ENGINEERING GRID
 ========================================================= */
 
-function updateTheme(
-    time
-) {
-
-    const elapsed =
-        time -
-        themeStart;
-
-
-    if (
-        elapsed >=
-        THEME_DURATION
-    ) {
-
-        previousTheme =
-            currentTheme;
-
-
-        themeIndex =
-            (
-                themeIndex +
-                1
-            ) %
-            themes.length;
-
-
-        currentTheme =
-            themes[
-                themeIndex
-            ];
-
-
-        themeStart =
-            time;
-
-
-        themeProgress =
-            0;
-
-    }
-
-
-    if (
-        themeProgress <
-        1
-    ) {
-
-        themeProgress =
-            Math.min(
-                1,
-                (
-                    time -
-                    themeStart
-                ) /
-                TRANSITION_DURATION
-            );
-
-    }
-
-}
-
-
-/* =========================================================
-   TECH GRID
-========================================================= */
-
-function drawEngineeringGrid(
-    theme
-) {
+function drawEngineeringGrid(theme) {
 
     ctx.save();
 
+    ctx.lineWidth = 1;
 
-    /*
-       Grid หลัก
-       จางมาก
-    */
-
-    const spacing =
-        70;
-
-
-    ctx.lineWidth =
-        0.6;
-
+    const gridSize = 70;
 
     ctx.strokeStyle =
         rgba(
-            theme.grid,
-            0.16
+            theme.primary,
+            0.022
         );
 
 
     for (
         let x = 0;
-        x <= W;
-        x += spacing
+        x < W;
+        x += gridSize
     ) {
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            x,
-            0
-        );
+        ctx.moveTo(x, 0);
 
-        ctx.lineTo(
-            x,
-            H
-        );
+        ctx.lineTo(x, H);
 
         ctx.stroke();
 
@@ -1661,93 +2174,41 @@ function drawEngineeringGrid(
 
     for (
         let y = 0;
-        y <= H;
-        y += spacing
+        y < H;
+        y += gridSize
     ) {
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            0,
-            y
-        );
+        ctx.moveTo(0, y);
 
-        ctx.lineTo(
-            W,
-            y
-        );
+        ctx.lineTo(W, y);
 
         ctx.stroke();
 
     }
 
-
-    /*
-       จุด grid
-    */
-
-    ctx.fillStyle =
-        rgba(
-            theme.secondary,
-            0.20
-        );
-
-
-    for (
-        let x = 0;
-        x <= W;
-        x += spacing
-    ) {
-
-        for (
-            let y = 0;
-            y <= H;
-            y += spacing
-        ) {
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                1.1,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-
-    }
-
-
     ctx.restore();
-
 }
 
 
 /* =========================================================
-   TECH LINE
+   TECHNICAL LINE
+   ไม่มี glow
 ========================================================= */
 
 function drawTechLine(
     points,
     color,
     width = 1,
-    alpha = 0.12
+    alpha = 0.28
 ) {
 
-    if (
-        points.length <
-        2
-    ) {
+    if (points.length < 2)
         return;
-    }
 
 
     ctx.save();
-
 
     ctx.strokeStyle =
         rgba(
@@ -1755,20 +2216,16 @@ function drawTechLine(
             alpha
         );
 
-
     ctx.lineWidth =
         width;
 
-
     ctx.lineCap =
-        "round";
+        "square";
 
     ctx.lineJoin =
-        "round";
-
+        "miter";
 
     ctx.beginPath();
-
 
     ctx.moveTo(
         points[0].x,
@@ -1792,14 +2249,475 @@ function drawTechLine(
 
     ctx.stroke();
 
-
     ctx.restore();
+}
+
+
+/* =========================================================
+   MOVING TRACE
+   เป็นเส้นสว่างวิ่งตามวงจร
+   ไม่มีจุด
+   ไม่มี glow
+========================================================= */
+
+function drawMovingTrace(
+    points,
+    color,
+    time,
+    speed,
+    offset,
+    traceLength = 120
+) {
+
+    if (points.length < 2)
+        return;
+
+
+    const lengths = [];
+
+    let totalLength = 0;
+
+
+    for (
+        let i = 1;
+        i < points.length;
+        i++
+    ) {
+
+        const dx =
+            points[i].x -
+            points[i - 1].x;
+
+        const dy =
+            points[i].y -
+            points[i - 1].y;
+
+        const length =
+            Math.hypot(
+                dx,
+                dy
+            );
+
+        lengths.push(length);
+
+        totalLength += length;
+    }
+
+
+    if (totalLength <= 0)
+        return;
+
+
+    const progress =
+        (
+            time * speed +
+            offset
+        ) % 1;
+
+
+    const center =
+        progress *
+        totalLength;
+
+
+    let startDistance =
+        center -
+        traceLength;
+
+
+    let endDistance =
+        center;
+
+
+    /*
+       ทำให้เส้น wrap กลับไปต้นวงจร
+    */
+
+    if (startDistance < 0) {
+
+        startDistance +=
+            totalLength;
+
+    }
+
+
+    function getPointAtDistance(distance) {
+
+        distance =
+            (
+                distance +
+                totalLength
+            ) %
+            totalLength;
+
+
+        let accumulated = 0;
+
+
+        for (
+            let i = 0;
+            i < lengths.length;
+            i++
+        ) {
+
+            const segmentLength =
+                lengths[i];
+
+            if (
+                distance <=
+                accumulated +
+                segmentLength
+            ) {
+
+                const p1 =
+                    points[i];
+
+                const p2 =
+                    points[i + 1];
+
+                const t =
+                    (
+                        distance -
+                        accumulated
+                    ) /
+                    segmentLength;
+
+                return {
+
+                    x:
+                        p1.x +
+                        (
+                            p2.x -
+                            p1.x
+                        ) * t,
+
+                    y:
+                        p1.y +
+                        (
+                            p2.y -
+                            p1.y
+                        ) * t
+
+                };
+
+            }
+
+            accumulated +=
+                segmentLength;
+        }
+
+
+        return points[
+            points.length - 1
+        ];
+    }
+
+
+    /*
+       ถ้าเส้นไม่ได้ข้ามจุดเริ่มต้น
+    */
+
+    if (startDistance <= endDistance) {
+
+        drawTraceSegment(
+            startDistance,
+            endDistance
+        );
+
+    }
+
+    /*
+       ถ้าข้ามจุดเริ่มต้น
+    */
+
+    else {
+
+        drawTraceSegment(
+            startDistance,
+            totalLength
+        );
+
+        drawTraceSegment(
+            0,
+            endDistance
+        );
+
+    }
+
+
+    function drawTraceSegment(
+        from,
+        to
+    ) {
+
+        const tracePoints = [];
+
+        tracePoints.push(
+            getPointAtDistance(from)
+        );
+
+
+        let accumulated = 0;
+
+
+        for (
+            let i = 0;
+            i < lengths.length;
+            i++
+        ) {
+
+            const segmentStart =
+                accumulated;
+
+            const segmentEnd =
+                accumulated +
+                lengths[i];
+
+
+            if (
+                segmentEnd >= from &&
+                segmentStart <= to
+            ) {
+
+                const localStart =
+                    Math.max(
+                        from,
+                        segmentStart
+                    );
+
+                const localEnd =
+                    Math.min(
+                        to,
+                        segmentEnd
+                    );
+
+
+                const p1 =
+                    points[i];
+
+                const p2 =
+                    points[i + 1];
+
+
+                const t =
+                    (
+                        localEnd -
+                        segmentStart
+                    ) /
+                    lengths[i];
+
+
+                tracePoints.push({
+
+                    x:
+                        p1.x +
+                        (
+                            p2.x -
+                            p1.x
+                        ) * t,
+
+                    y:
+                        p1.y +
+                        (
+                            p2.y -
+                            p1.y
+                        ) * t
+
+                });
+
+            }
+
+
+            accumulated =
+                segmentEnd;
+        }
+
+
+        if (
+            tracePoints.length < 2
+        )
+            return;
+
+
+        ctx.save();
+
+        /*
+           หัวเส้นสว่าง
+        */
+
+        ctx.strokeStyle =
+            rgba(color, 0.22);
+
+        ctx.globalAlpha = 0.72;
+
+        ctx.lineWidth =
+            1.15;
+
+        ctx.lineCap =
+            "round";
+
+        ctx.lineJoin =
+            "round";
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            tracePoints[0].x,
+            tracePoints[0].y
+        );
+
+
+        for (
+            let i = 1;
+            i < tracePoints.length;
+            i++
+        ) {
+
+            ctx.lineTo(
+                tracePoints[i].x,
+                tracePoints[i].y
+            );
+
+        }
+
+
+        ctx.stroke();
+
+        ctx.restore();
+
+    }
 
 }
 
 
 /* =========================================================
-   PCB
+   PCB DATA
+========================================================= */
+
+const pcbTracks = [];
+
+
+function createPCB() {
+
+    pcbTracks.length = 0;
+
+
+    const count =
+        W < 700
+            ? 15
+            : 32;
+
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        const y =
+            Math.random() * H;
+
+
+        const startX =
+            Math.random() *
+            W *
+            0.82;
+
+
+        const length =
+            180 +
+            Math.random() *
+            650;
+
+
+        const direction =
+            Math.random() > 0.5
+                ? 1
+                : -1;
+
+
+        const step1 =
+            startX +
+            length * 0.18;
+
+
+        const step2 =
+            startX +
+            length * 0.46;
+
+
+        const points = [
+
+            {
+                x: startX,
+                y: y
+            },
+
+            {
+                x: step1,
+                y: y
+            },
+
+            {
+                x: step1,
+                y:
+                    y +
+                    direction * 35
+            },
+
+            {
+                x: step2,
+                y:
+                    y +
+                    direction * 35
+            },
+
+            {
+                x: step2,
+                y:
+                    y +
+                    direction * 75
+            },
+
+            {
+                x:
+                    startX +
+                    length,
+                y:
+                    y +
+                    direction * 75
+            }
+
+        ];
+
+
+        pcbTracks.push({
+
+            points,
+
+            speed:
+                0.000025 +
+                Math.random() *
+                0.000045,
+
+            offset:
+                Math.random(),
+
+            colorType:
+                i % 4
+
+        });
+
+    }
+
+}
+
+
+createPCB();
+
+
+/* =========================================================
+   PCB DRAW
 ========================================================= */
 
 function drawPCB(
@@ -1807,796 +2725,953 @@ function drawPCB(
     time
 ) {
 
+    /*
+       เส้นแนวตั้งคล้าย PCB ใหญ่กลางภาพ
+    */
+
     ctx.save();
 
-
-    /*
-       PCB อยู่กลางภาพ
-    */
-
-    const boardW =
-        Math.min(
-            W * 0.66,
-            850
-        );
-
-    const boardH =
-        Math.min(
-            H * 0.60,
-            480
-        );
-
-
-    const boardX =
-        (
-            W -
-            boardW
-        ) / 2;
-
-
-    const boardY =
-        (
-            H -
-            boardH
-        ) / 2;
-
-
-    /*
-       Shadow
-    */
-
-    ctx.shadowBlur =
-        35;
-
-    ctx.shadowColor =
-        rgba(
-            theme.primary,
-            0.08
-        );
-
-
-    ctx.fillStyle =
-        "rgba(8,15,17,0.78)";
-
-
-    ctx.fillRect(
-        boardX,
-        boardY,
-        boardW,
-        boardH
-    );
-
-
-    ctx.shadowBlur =
-        0;
-
-
-    /*
-       Board outline
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.22
-        );
-
-    ctx.lineWidth =
-        1.2;
-
-
-    ctx.strokeRect(
-        boardX,
-        boardY,
-        boardW,
-        boardH
-    );
-
-
-    /*
-       PCB inner border
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.secondary,
-            0.18
-        );
-
-    ctx.strokeRect(
-        boardX + 12,
-        boardY + 12,
-        boardW - 24,
-        boardH - 24
-    );
-
-
-    /*
-       Decorative mounting holes
-    */
-
-    const holes = [
-
-        [boardX + 22, boardY + 22],
-
-        [
-            boardX +
-            boardW -
-            22,
-
-            boardY + 22
-        ],
-
-        [
-            boardX + 22,
-
-            boardY +
-            boardH -
-            22
-        ],
-
-        [
-            boardX +
-            boardW -
-            22,
-
-            boardY +
-            boardH -
-            22
-        ]
-
-    ];
-
-
-    holes.forEach(
-        ([x,y]) => {
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.accent,
-                    0.18
-                );
-
-            ctx.lineWidth =
-                1;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                6,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.stroke();
-
-
-            ctx.fillStyle =
-                rgba(
-                    theme.secondary,
-                    0.20
-                );
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                2,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-    );
-
-
-    /*
-       CHIP จำนวน 10 ตัว
-    */
-
-    const chips = [
-
-        {
-            x: 0.18,
-            y: 0.24,
-            w: 82,
-            h: 54
-        },
-
-        {
-            x: 0.42,
-            y: 0.22,
-            w: 110,
-            h: 66
-        },
-
-        {
-            x: 0.73,
-            y: 0.25,
-            w: 82,
-            h: 54
-        },
-
-        {
-            x: 0.25,
-            y: 0.52,
-            w: 90,
-            h: 60
-        },
-
-        {
-            x: 0.52,
-            y: 0.48,
-            w: 130,
-            h: 78
-        },
-
-        {
-            x: 0.79,
-            y: 0.53,
-            w: 74,
-            h: 50
-        },
-
-        {
-            x: 0.18,
-            y: 0.76,
-            w: 78,
-            h: 48
-        },
-
-        {
-            x: 0.41,
-            y: 0.78,
-            w: 86,
-            h: 52
-        },
-
-        {
-            x: 0.66,
-            y: 0.76,
-            w: 90,
-            h: 54
-        },
-
-        {
-            x: 0.86,
-            y: 0.76,
-            w: 60,
-            h: 44
-        }
-
-    ];
-
-
-    chips.forEach(
-        (chip,index) => {
-
-            const x =
-                boardX +
-                boardW *
-                chip.x -
-                chip.w / 2;
-
-
-            const y =
-                boardY +
-                boardH *
-                chip.y -
-                chip.h / 2;
-
-
-            /*
-               Chip body
-            */
-
-            ctx.fillStyle =
-                "rgba(11,18,20,0.86)";
-
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.primary,
-                    0.20
-                );
-
-
-            ctx.lineWidth =
-                1;
-
-
-            ctx.fillRect(
-                x,
-                y,
-                chip.w,
-                chip.h
-            );
-
-
-            ctx.strokeRect(
-                x,
-                y,
-                chip.w,
-                chip.h
-            );
-
-
-            /*
-               Chip inner circuit
-            */
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.accent,
-                    0.13
-                );
-
-
-            ctx.lineWidth =
-                0.8;
-
-
-            const cx =
-                x +
-                chip.w / 2;
-
-
-            const cy =
-                y +
-                chip.h / 2;
-
-
-            /*
-               Core
-            */
-
-            ctx.strokeRect(
-                cx - chip.w * 0.19,
-                cy - chip.h * 0.22,
-                chip.w * 0.38,
-                chip.h * 0.44
-            );
-
-
-            /*
-               Internal buses
-            */
-
-            for (
-                let b = 1;
-                b < 4;
-                b++
-            ) {
-
-                const yy =
-                    y +
-                    (
-                        chip.h /
-                        4
-                    ) *
-                    b;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    x + 8,
-                    yy
-                );
-
-                ctx.lineTo(
-                    cx -
-                    chip.w * 0.19,
-                    yy
-                );
-
-                ctx.stroke();
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    cx +
-                    chip.w * 0.19,
-                    yy
-                );
-
-                ctx.lineTo(
-                    x +
-                    chip.w -
-                    8,
-                    yy
-                );
-
-                ctx.stroke();
-
-            }
-
-
-            /*
-               Internal vertical connections
-            */
-
-            for (
-                let v = 1;
-                v < 4;
-                v++
-            ) {
-
-                const xx =
-                    x +
-                    (
-                        chip.w /
-                        4
-                    ) *
-                    v;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    xx,
-                    y + 7
-                );
-
-                ctx.lineTo(
-                    xx,
-                    cy -
-                    chip.h * 0.22
-                );
-
-                ctx.stroke();
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    xx,
-                    cy +
-                    chip.h * 0.22
-                );
-
-                ctx.lineTo(
-                    xx,
-                    y +
-                    chip.h -
-                    7
-                );
-
-                ctx.stroke();
-
-            }
-
-
-            /*
-               Pin lines
-            */
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.primary,
-                    0.16
-                );
-
-
-            const pinCount =
-                6;
-
-
-            for (
-                let p = 0;
-                p < pinCount;
-                p++
-            ) {
-
-                const py =
-                    y +
-                    10 +
-                    p *
-                    (
-                        (
-                            chip.h -
-                            20
-                        ) /
-                        (
-                            pinCount -
-                            1
-                        )
-                    );
-
-
-                /*
-                   Left
-                */
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    x,
-                    py
-                );
-
-                ctx.lineTo(
-                    x - 10,
-                    py
-                );
-
-                ctx.stroke();
-
-
-                /*
-                   Right
-                */
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    x + chip.w,
-                    py
-                );
-
-                ctx.lineTo(
-                    x + chip.w + 10,
-                    py
-                );
-
-                ctx.stroke();
-
-            }
-
-
-            /*
-               Tiny status node
-            */
-
-            ctx.fillStyle =
-                rgba(
-                    theme.primary,
-                    0.24
-                );
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x + chip.w - 10,
-                y + 9,
-                1.6,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-    );
-
-
-    /*
-       PCB traces
-    */
-
-    const traceCount =
-        16;
+    const verticalCount =
+        W < 700 ? 4 : 8;
 
 
     for (
         let i = 0;
-        i < traceCount;
+        i < verticalCount;
         i++
     ) {
 
-        const startY =
-            boardY +
-            35 +
-            i *
-            (
-                (
-                    boardH -
-                    70
-                ) /
-                traceCount
-            );
+        const x =
+            W * 0.25 +
+            i * 65;
 
 
-        const side =
-            i % 2 === 0
-                ? 1
-                : -1;
+        const points = [
 
+            {
+                x: x,
+                y: -50
+            },
 
-        const points = [];
+            {
+                x: x,
+                y: H * 0.25
+            },
 
+            {
+                x:
+                    x +
+                    30,
+                y:
+                    H * 0.34
+            },
 
-        const startX =
-            side === 1
-                ? boardX + 30
-                : boardX + boardW - 30;
+            {
+                x:
+                    x +
+                    30,
+                y:
+                    H + 50
+            }
 
-
-        points.push({
-            x: startX,
-            y: startY
-        });
-
-
-        points.push({
-            x:
-                startX +
-                side * 45,
-
-            y: startY
-        });
-
-
-        points.push({
-            x:
-                startX +
-                side * 45,
-
-            y:
-                startY +
-                (
-                    (
-                        i % 3
-                    ) -
-                    1
-                ) *
-                22
-        });
-
-
-        points.push({
-            x:
-                startX +
-                side * 100,
-
-            y:
-                startY +
-                (
-                    (
-                        i % 3
-                    ) -
-                    1
-                ) *
-                22
-        });
+        ];
 
 
         drawTechLine(
             points,
             i % 2 === 0
                 ? theme.primary
-                : theme.secondary,
-            0.8,
-            0.12
+                : theme.accent,
+            1.1,
+            0.20
         );
 
     }
 
 
+    ctx.restore();
+
+
     /*
-       Connection paths ระหว่าง chip
+       Main PCB tracks
     */
+
+    pcbTracks.forEach(
+        (track, index) => {
+
+            let baseColor =
+                theme.primary;
+
+
+            if (
+                track.colorType === 1
+            ) {
+
+                baseColor =
+                    theme.accent;
+
+            }
+
+
+            if (
+                track.colorType === 2
+            ) {
+
+                baseColor =
+                    theme.secondary;
+
+            }
+
+
+            drawTechLine(
+                track.points,
+                baseColor,
+                0.9,
+                0.12
+            );
+
+
+            /*
+               เส้นบางคู่ขนาน
+            */
+
+            if (
+                index % 3 === 0
+            ) {
+
+                const offsetPoints =
+                    track.points.map(
+                        p => ({
+                            x: p.x,
+                            y: p.y + 7
+                        })
+                    );
+
+
+                drawTechLine(
+                    offsetPoints,
+                    theme.accent,
+                    0.40,
+                    0.045
+                );
+
+            }
+
+
+            /*
+               Moving trace
+            */
+
+            /* Static PCB trace — no bright moving line */
+
+        }
+    );
+
+
+    /*
+       Connection pads
+    */
+
+    const padCount =
+        W < 700 ? 18 : 48;
+
 
     for (
         let i = 0;
-        i < 8;
+        i < padCount;
         i++
     ) {
 
+        const x =
+            (
+                i * 137
+            ) %
+            Math.max(
+                W,
+                800
+            );
+
+
         const y =
-            boardY +
-            70 +
-            i *
-            45;
+            (
+                i * 83
+            ) %
+            Math.max(
+                H,
+                600
+            );
+
+
+        ctx.save();
 
 
         ctx.strokeStyle =
             rgba(
                 theme.primary,
-                0.10
+                0.24
             );
 
-
-        ctx.lineWidth =
-            0.8;
+        ctx.lineWidth = 1;
 
 
         ctx.beginPath();
 
-        ctx.moveTo(
-            boardX + 100,
-            y
+        ctx.arc(
+            x,
+            y,
+            3,
+            0,
+            Math.PI * 2
         );
-
-
-        ctx.lineTo(
-            boardX + 180,
-            y
-        );
-
-
-        ctx.lineTo(
-            boardX + 220,
-            y + 18
-        );
-
-
-        ctx.lineTo(
-            boardX + 330,
-            y + 18
-        );
-
 
         ctx.stroke();
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            1,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            rgba(
+                theme.secondary,
+                0.36
+            );
+
+        ctx.fill();
+
+
+        ctx.restore();
 
     }
 
 
     /*
-       Animated signal
-       เบามาก
+       IC chips
     */
 
-    const signalTime =
-        (
-            time * 0.000035
-        ) %
-        1;
+    const chipCount =
+        W < 700 ? 3 : 9;
 
 
-    const signalY =
-        boardY +
-        90 +
-        signalTime *
-        (
-            boardH -
-            180
+    for (
+        let i = 0;
+        i < chipCount;
+        i++
+    ) {
+
+        const chipX =
+            40 +
+            (
+                i * 173
+            ) %
+            Math.max(
+                200,
+                W - 180
+            );
+
+
+        const chipY =
+            80 +
+            (
+                i * 113
+            ) %
+            Math.max(
+                150,
+                H - 180
+            );
+
+
+        const width =
+            65 +
+            (
+                i % 3
+            ) * 15;
+
+
+        const height =
+            38;
+
+
+        ctx.save();
+
+
+        ctx.fillStyle =
+            "rgba(4,7,11,0.82)";
+
+
+        ctx.strokeStyle =
+            rgba(
+                theme.accent,
+                0.20
+            );
+
+
+        ctx.lineWidth =
+            1.2;
+
+
+        ctx.beginPath();
+
+        if (ctx.roundRect) {
+
+            ctx.roundRect(
+                chipX,
+                chipY,
+                width,
+                height,
+                5
+            );
+
+        } else {
+
+            ctx.rect(
+                chipX,
+                chipY,
+                width,
+                height
+            );
+
+        }
+
+        ctx.fill();
+
+        ctx.stroke();
+
+        /* subtle IC core + internal traces */
+        ctx.fillStyle = rgba(theme.primary, 0.055);
+        ctx.fillRect(chipX + 17, chipY + 9, width - 34, height - 18);
+        ctx.strokeStyle = rgba(theme.primary, 0.10);
+        ctx.lineWidth = 0.7;
+        ctx.beginPath();
+        ctx.moveTo(chipX + 20, chipY + height / 2);
+        ctx.lineTo(chipX + width - 20, chipY + height / 2);
+        ctx.moveTo(chipX + width / 2, chipY + 8);
+        ctx.lineTo(chipX + width / 2, chipY + height - 8);
+        ctx.stroke();
+        ctx.fillStyle = rgba(theme.secondary, 0.12);
+        ctx.beginPath();
+        ctx.arc(chipX + width / 2, chipY + height / 2, 2, 0, Math.PI * 2);
+        ctx.fill();
+
+
+        /*
+           IC pins
+        */
+
+        for (
+            let p = 0;
+            p < 4;
+            p++
+        ) {
+
+            const py =
+                chipY +
+                6 +
+                p * 8;
+
+
+            ctx.strokeStyle =
+                rgba(
+                    theme.primary,
+                    0.30
+                );
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                chipX - 12,
+                py
+            );
+
+            ctx.lineTo(
+                chipX,
+                py
+            );
+
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                chipX + width,
+                py
+            );
+
+            ctx.lineTo(
+                chipX + width + 12,
+                py
+            );
+
+            ctx.stroke();
+
+        }
+
+
+        ctx.restore();
+
+    }
+
+    /* Very subtle signal flow — animation remains part of the PCB, not above it */
+    for (let i = 0; i < Math.min(2, pcbTracks.length); i++) {
+        drawMovingTrace(
+            pcbTracks[i].points,
+            i % 2 === 0 ? theme.secondary : theme.accent,
+            time,
+            0.000055,
+            i * 0.47,
+            42
         );
+    }
 
+}
+
+
+/* =========================================================
+   ROBOTICS
+========================================================= */
+
+function drawRobotics(
+    theme,
+    time
+) {
+
+    /*
+       Industrial network
+    */
+
+    const nodes = [
+
+        {
+            x: W * 0.12,
+            y: H * 0.25
+        },
+
+        {
+            x: W * 0.29,
+            y: H * 0.17
+        },
+
+        {
+            x: W * 0.47,
+            y: H * 0.29
+        },
+
+        {
+            x: W * 0.69,
+            y: H * 0.18
+        },
+
+        {
+            x: W * 0.87,
+            y: H * 0.34
+        },
+
+        {
+            x: W * 0.21,
+            y: H * 0.63
+        },
+
+        {
+            x: W * 0.47,
+            y: H * 0.71
+        },
+
+        {
+            x: W * 0.77,
+            y: H * 0.64
+        }
+
+    ];
+
+
+    const connections = [
+
+        [0,1],
+        [1,2],
+        [2,3],
+        [3,4],
+
+        [0,5],
+        [5,6],
+        [6,7],
+
+        [2,6],
+        [3,7]
+
+    ];
+
+
+    connections.forEach(
+        (connection, index) => {
+
+            const a =
+                nodes[
+                    connection[0]
+                ];
+
+
+            const b =
+                nodes[
+                    connection[1]
+                ];
+
+
+            const points = [
+
+                a,
+
+                {
+                    x:
+                        (
+                            a.x +
+                            b.x
+                        ) / 2,
+
+                    y:
+                        a.y
+                },
+
+                {
+                    x:
+                        (
+                            a.x +
+                            b.x
+                        ) / 2,
+
+                    y:
+                        b.y
+                },
+
+                b
+
+            ];
+
+
+            drawTechLine(
+                points,
+                index % 2 === 0
+                    ? theme.primary
+                    : theme.accent,
+                1.0,
+                0.16
+            );
+
+        }
+    );
+
+
+    /*
+       Network nodes
+    */
+
+    nodes.forEach(
+        (node, index) => {
+
+            ctx.save();
+
+
+            ctx.strokeStyle =
+                rgba(
+                    theme.secondary,
+                    0.26
+                );
+
+
+            ctx.lineWidth =
+                1.2;
+
+
+            ctx.strokeRect(
+                node.x - 5,
+                node.y - 5,
+                10,
+                10
+            );
+
+
+            /*
+               Crosshair
+            */
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                node.x - 11,
+                node.y
+            );
+
+            ctx.lineTo(
+                node.x + 11,
+                node.y
+            );
+
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                node.x,
+                node.y - 11
+            );
+
+            ctx.lineTo(
+                node.x,
+                node.y + 11
+            );
+
+            ctx.stroke();
+
+
+            ctx.restore();
+
+        }
+    );
+
+
+    /*
+       Robotic arm
+    */
+
+    const rx =
+        W * 0.68;
+
+
+    const baseY =
+        H * 0.79;
+
+
+    const shoulder = {
+
+        x: rx,
+
+        y:
+            baseY - 58
+
+    };
+
+
+    const elbow = {
+
+        x:
+            rx - 78,
+
+        y:
+            baseY - 165
+
+    };
+
+
+    const wrist = {
+
+        x:
+            rx + 20,
+
+        y:
+            baseY - 245
+
+    };
+
+
+    /*
+       Robot base
+    */
 
     ctx.save();
 
 
+    ctx.strokeStyle =
+        rgba(
+            theme.secondary,
+            0.30
+        );
+
+
     ctx.fillStyle =
-        rgba(
-            theme.accent,
-            0.20
-        );
+        "rgba(5,8,12,0.72)";
 
 
-    ctx.shadowBlur =
-        4;
-
-    ctx.shadowColor =
-        rgba(
-            theme.accent,
-            0.10
-        );
+    ctx.lineWidth =
+        2;
 
 
     ctx.beginPath();
 
-    ctx.arc(
-        boardX + boardW * 0.48,
-        signalY,
-        1.8,
+    ctx.ellipse(
+        rx,
+        baseY,
+        75,
+        20,
+        0,
         0,
         Math.PI * 2
     );
 
     ctx.fill();
 
+    ctx.stroke();
 
+
+    /*
+       Base center
+    */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        rx,
+        baseY - 30,
+        28,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.stroke();
+
+
+    /*
+       Robot arms
+    */
+
+    ctx.strokeStyle =
+        rgba(
+            theme.secondary,
+            0.28
+        );
+
+
+    ctx.lineWidth =
+        17;
+
+
+    ctx.lineCap =
+        "round";
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        shoulder.x,
+        shoulder.y
+    );
+
+    ctx.lineTo(
+        elbow.x,
+        elbow.y
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        elbow.x,
+        elbow.y
+    );
+
+    ctx.lineTo(
+        wrist.x,
+        wrist.y
+    );
+
+    ctx.stroke();
+
+
+    /*
+       Inner technical line
+    */
+
+    ctx.strokeStyle =
+        rgba(theme.primary, 0.48);
+
+
+    ctx.lineWidth =
+        2.0;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        shoulder.x,
+        shoulder.y
+    );
+
+    ctx.lineTo(
+        elbow.x,
+        elbow.y
+    );
+
+    ctx.lineTo(
+        wrist.x,
+        wrist.y
+    );
+
+    ctx.stroke();
+
+
+    /*
+       Joints
+    */
+
+    [
+        shoulder,
+        elbow,
+        wrist
+    ].forEach(
+        joint => {
+
+            ctx.fillStyle =
+                "rgba(5,8,12,0.95)";
+
+
+            ctx.strokeStyle =
+                theme.secondary;
+
+
+            ctx.lineWidth =
+                2;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                joint.x,
+                joint.y,
+                13,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+            ctx.stroke();
+
+        }
+    );
+
+
+    /*
+       Gripper
+    */
+
+    ctx.strokeStyle =
+        rgba(theme.accent, 0.48);
+
+
+    ctx.lineWidth =
+        3;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        wrist.x,
+        wrist.y
+    );
+
+    ctx.lineTo(
+        wrist.x + 25,
+        wrist.y - 10
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        wrist.x + 20,
+        wrist.y - 10
+    );
+
+    ctx.lineTo(
+        wrist.x + 35,
+        wrist.y - 25
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        wrist.x + 20,
+        wrist.y - 10
+    );
+
+    ctx.lineTo(
+        wrist.x + 40,
+        wrist.y + 2
+    );
+
+    ctx.stroke();
+
+
+    /*
+       Industrial floor
+    */
+
+    ctx.strokeStyle =
+        rgba(
+            theme.primary,
+            0.18
+        );
+
+
+    ctx.lineWidth =
+        1;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        rx - 230,
+        baseY + 22
+    );
+
+    ctx.lineTo(
+        rx + 230,
+        baseY + 22
+    );
+
+    ctx.stroke();
+
+
+    /*
+       Subtle static inspection guide — no moving scanner
+    */
+
+    ctx.strokeStyle =
+        rgba(theme.accent, 0.10);
+
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+    ctx.moveTo(rx - 210, baseY - 150);
+    ctx.lineTo(rx + 180, baseY - 150);
+    ctx.stroke();
+
+    /* Soft diagnostic pulse on one network node */
+    const pulseNode = nodes[Math.floor((time * 0.00018) % nodes.length)];
+    const pulse = 1.5 + (Math.sin(time * 0.002) + 1) * 1.2;
+    ctx.save();
+    ctx.strokeStyle = rgba(theme.accent, 0.16);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(pulseNode.x, pulseNode.y, 7 + pulse, 0, Math.PI * 2);
+    ctx.stroke();
     ctx.restore();
-
 
     ctx.restore();
 
@@ -2612,177 +3687,162 @@ function drawEmbedded(
     time
 ) {
 
+    const boardX =
+        W * 0.57;
+
+
+    const boardY =
+        H * 0.23;
+
+
+    const boardW =
+        Math.min(
+            480,
+            W * 0.42
+        );
+
+
+    const boardH =
+        Math.min(
+            310,
+            H * 0.48
+        );
+
+
+    /*
+       PCB Board
+    */
+
     ctx.save();
 
 
-    /*
-       Central MCU
-    */
-
-    const cx =
-        W * 0.5;
-
-    const cy =
-        H * 0.50;
+    ctx.fillStyle =
+        "rgba(4,15,13,0.72)";
 
 
-    const chipW =
-        Math.min(
-            210,
-            W * 0.26
-        );
-
-
-    const chipH =
-        Math.min(
-            150,
-            H * 0.24
-        );
-
-
-    /*
-       Soft halo
-    */
-
-    const halo =
-        ctx.createRadialGradient(
-            cx,
-            cy,
-            0,
-            cx,
-            cy,
-            180
-        );
-
-
-    halo.addColorStop(
-        0,
+    ctx.strokeStyle =
         rgba(
             theme.primary,
-            0.06
-        )
-    );
+            0.25
+        );
 
 
-    halo.addColorStop(
-        1,
-        "rgba(0,0,0,0)"
-    );
+    ctx.lineWidth =
+        2;
 
 
-    ctx.fillStyle =
-        halo;
+    ctx.beginPath();
 
+    if (ctx.roundRect) {
 
-    ctx.fillRect(
-        0,
-        0,
-        W,
-        H
-    );
+        ctx.roundRect(
+            boardX,
+            boardY,
+            boardW,
+            boardH,
+            10
+        );
+
+    } else {
+
+        ctx.rect(
+            boardX,
+            boardY,
+            boardW,
+            boardH
+        );
+
+    }
+
+    ctx.fill();
+
+    ctx.stroke();
 
 
     /*
        MCU
     */
 
+    const mcX =
+        boardX +
+        boardW * 0.36;
+
+
+    const mcY =
+        boardY +
+        boardH * 0.30;
+
+
+    const mcW =
+        125;
+
+
+    const mcH =
+        90;
+
+
     ctx.fillStyle =
-        "rgba(9,14,17,0.90)";
+        "rgba(3,7,11,0.95)";
 
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.23
-        );
+        rgba(theme.accent, 0.46);
 
 
     ctx.lineWidth =
-        1.2;
+        1.5;
 
 
-    ctx.fillRect(
-        cx -
-        chipW / 2,
-        cy -
-        chipH / 2,
-        chipW,
-        chipH
-    );
+    ctx.beginPath();
 
+    if (ctx.roundRect) {
 
-    ctx.strokeRect(
-        cx -
-        chipW / 2,
-        cy -
-        chipH / 2,
-        chipW,
-        chipH
-    );
-
-
-    /*
-       Inner core
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.accent,
-            0.14
+        ctx.roundRect(
+            mcX,
+            mcY,
+            mcW,
+            mcH,
+            6
         );
 
+    } else {
 
-    ctx.strokeRect(
-        cx - 55,
-        cy - 38,
-        110,
-        76
-    );
-
-
-    /*
-       CPU internal lines
-    */
-
-    for (
-        let i = 0;
-        i < 5;
-        i++
-    ) {
-
-        const yy =
-            cy -
-            25 +
-            i * 12;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            cx - 42,
-            yy
+        ctx.rect(
+            mcX,
+            mcY,
+            mcW,
+            mcH
         );
-
-        ctx.lineTo(
-            cx + 42,
-            yy
-        );
-
-        ctx.stroke();
 
     }
 
+    ctx.fill();
+
+    ctx.stroke();
+
 
     /*
-       Pins
+       MCU core
     */
 
-    ctx.strokeStyle =
+    ctx.fillStyle =
         rgba(
             theme.primary,
-            0.15
+            0.10
         );
 
+
+    ctx.fillRect(
+        mcX + 25,
+        mcY + 22,
+        75,
+        45
+    );
+
+
+    /*
+       GPIO
+    */
 
     for (
         let i = 0;
@@ -2791,23 +3851,31 @@ function drawEmbedded(
     ) {
 
         const py =
-            cy -
-            50 +
-            i * 16;
+            mcY +
+            10 +
+            i * 12;
+
+
+        ctx.strokeStyle =
+            rgba(
+                theme.secondary,
+                0.30
+            );
+
+
+        ctx.lineWidth =
+            1.2;
 
 
         ctx.beginPath();
 
         ctx.moveTo(
-            cx -
-            chipW / 2,
+            mcX - 25,
             py
         );
 
         ctx.lineTo(
-            cx -
-            chipW / 2 -
-            45,
+            mcX,
             py
         );
 
@@ -2817,15 +3885,12 @@ function drawEmbedded(
         ctx.beginPath();
 
         ctx.moveTo(
-            cx +
-            chipW / 2,
+            mcX + mcW,
             py
         );
 
         ctx.lineTo(
-            cx +
-            chipW / 2 +
-            45,
+            mcX + mcW + 25,
             py
         );
 
@@ -2835,165 +3900,176 @@ function drawEmbedded(
 
 
     /*
-       Peripheral blocks
+       Sensors
     */
 
-    const blocks = [
+    const sensorPositions = [
 
         {
-            x: cx - 330,
-            y: cy - 145,
-            w: 90,
-            h: 55
+            x:
+                boardX + 35,
+
+            y:
+                boardY + 45
         },
 
         {
-            x: cx + 240,
-            y: cy - 145,
-            w: 90,
-            h: 55
+            x:
+                boardX + 35,
+
+            y:
+                boardY +
+                boardH -
+                85
         },
 
         {
-            x: cx - 350,
-            y: cy + 90,
-            w: 110,
-            h: 60
+            x:
+                boardX +
+                boardW -
+                105,
+
+            y:
+                boardY + 50
         },
 
         {
-            x: cx + 240,
-            y: cy + 90,
-            w: 110,
-            h: 60
+            x:
+                boardX +
+                boardW -
+                105,
+
+            y:
+                boardY +
+                boardH -
+                85
         }
 
     ];
 
 
-    blocks.forEach(
-        (block,index) => {
-
-            ctx.fillStyle =
-                "rgba(9,14,17,0.70)";
-
+    sensorPositions.forEach(
+        (sensor, index) => {
 
             ctx.strokeStyle =
                 rgba(
                     theme.secondary,
-                    0.22
+                    0.50
                 );
+
+
+            ctx.fillStyle =
+                "rgba(3,8,12,0.85)";
 
 
             ctx.lineWidth =
-                1;
+                1.4;
 
 
-            ctx.fillRect(
-                block.x,
-                block.y,
-                block.w,
-                block.h
-            );
+            ctx.beginPath();
 
+            if (ctx.roundRect) {
 
-            ctx.strokeRect(
-                block.x,
-                block.y,
-                block.w,
-                block.h
-            );
+                ctx.roundRect(
+                    sensor.x,
+                    sensor.y,
+                    70,
+                    40,
+                    5
+                );
+
+            } else {
+
+                ctx.rect(
+                    sensor.x,
+                    sensor.y,
+                    70,
+                    40
+                );
+
+            }
+
+            ctx.fill();
+
+            ctx.stroke();
 
 
             /*
-               Internal block lines
+               Sensor details
             */
 
-            ctx.strokeStyle =
-                rgba(
-                    theme.accent,
-                    0.11
-                );
-
-
             for (
-                let j = 1;
-                j < 4;
-                j++
+                let i = 0;
+                i < 3;
+                i++
             ) {
-
-                const yy =
-                    block.y +
-                    j *
-                    (
-                        block.h /
-                        4
-                    );
-
 
                 ctx.beginPath();
 
                 ctx.moveTo(
-                    block.x + 10,
-                    yy
+                    sensor.x + 12,
+                    sensor.y +
+                    10 +
+                    i * 10
                 );
 
                 ctx.lineTo(
-                    block.x +
-                    block.w -
-                    10,
-                    yy
+                    sensor.x + 58,
+                    sensor.y +
+                    10 +
+                    i * 10
                 );
 
                 ctx.stroke();
 
             }
 
-        }
-    );
+
+            /*
+               Connections
+            */
+
+            const targetX =
+                mcX +
+                (
+                    index % 2 === 0
+                        ? 0
+                        : mcW
+                );
 
 
-    /*
-       Data bus
-       ไม่เรือง
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.12
-        );
-
-    ctx.lineWidth =
-        1;
+            const targetY =
+                mcY +
+                20 +
+                index * 20;
 
 
-    blocks.forEach(
-        block => {
-
-            const bx =
-                block.x <
-                cx
-                    ? block.x +
-                      block.w
-                    : block.x;
+            ctx.strokeStyle =
+                rgba(
+                    theme.primary,
+                    0.22
+                );
 
 
-            const by =
-                block.y +
-                block.h / 2;
+            ctx.lineWidth =
+                1.5;
 
 
             ctx.beginPath();
 
             ctx.moveTo(
-                bx,
-                by
+                sensor.x + 70,
+                sensor.y + 20
             );
 
             ctx.lineTo(
-                cx,
-                cy
+                targetX,
+                sensor.y + 20
+            );
+
+            ctx.lineTo(
+                targetX,
+                targetY
             );
 
             ctx.stroke();
@@ -3003,181 +4079,21 @@ function drawEmbedded(
 
 
     /*
-       Subtle moving data pulse
+       Data bus
     */
 
-    const progress =
-        (
-            time *
-            0.000025
-        ) %
-        1;
+    const busY =
+        boardY +
+        boardH +
+        40;
 
-
-    const pulseX =
-        cx -
-        160 +
-        progress *
-        320;
-
-
-    ctx.fillStyle =
-        rgba(
-            theme.accent,
-            0.18
-        );
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-        pulseX,
-        cy,
-        1.8,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-
-
-    ctx.restore();
-
-}
-
-
-/* =========================================================
-   ROBOTICS
-========================================================= */
-
-function drawRobotics(
-    theme,
-    time
-) {
-
-    ctx.save();
-
-
-    const baseX =
-        W * 0.50;
-
-
-    const baseY =
-        H * 0.78;
-
-
-    /*
-       Robot arm
-    */
-
-    const shoulderX =
-        baseX - 100;
-
-    const shoulderY =
-        baseY - 150;
-
-
-    const elbowX =
-        baseX + 30;
-
-    const elbowY =
-        baseY - 230;
-
-
-    const wristX =
-        baseX + 145;
-
-    const wristY =
-        baseY - 165;
-
-
-    /*
-       Soft platform
-    */
-
-    ctx.fillStyle =
-        "rgba(10,12,20,0.62)";
-
-
-    ctx.strokeStyle =
-        rgba(
-            theme.secondary,
-            0.20
-        );
-
-
-    ctx.lineWidth =
-        1;
-
-
-    ctx.fillRect(
-        baseX - 180,
-        baseY,
-        360,
-        25
-    );
-
-
-    ctx.strokeRect(
-        baseX - 180,
-        baseY,
-        360,
-        25
-    );
-
-
-    /*
-       Arm links
-    */
 
     ctx.strokeStyle =
         rgba(
             theme.primary,
-            0.23
+            0.20
         );
 
-
-    ctx.lineWidth =
-        14;
-
-    ctx.lineCap =
-        "round";
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-        baseX,
-        baseY
-    );
-
-    ctx.lineTo(
-        shoulderX,
-        shoulderY
-    );
-
-    ctx.lineTo(
-        elbowX,
-        elbowY
-    );
-
-    ctx.lineTo(
-        wristX,
-        wristY
-    );
-
-    ctx.stroke();
-
-
-    /*
-       Inner arm lines
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.accent,
-            0.18
-        );
 
     ctx.lineWidth =
         2;
@@ -3186,253 +4102,44 @@ function drawRobotics(
     ctx.beginPath();
 
     ctx.moveTo(
-        baseX,
-        baseY
+        boardX - 80,
+        busY
     );
 
     ctx.lineTo(
-        shoulderX,
-        shoulderY
-    );
-
-    ctx.lineTo(
-        elbowX,
-        elbowY
-    );
-
-    ctx.lineTo(
-        wristX,
-        wristY
+        boardX +
+        boardW +
+        80,
+        busY
     );
 
     ctx.stroke();
 
 
     /*
-       Joints
-    */
-
-    [
-        [baseX,baseY],
-        [shoulderX,shoulderY],
-        [elbowX,elbowY],
-        [wristX,wristY]
-
-    ].forEach(
-        ([x,y]) => {
-
-            ctx.fillStyle =
-                "rgba(9,13,18,0.95)";
-
-
-            ctx.strokeStyle =
-                rgba(
-                    theme.primary,
-                    0.28
-                );
-
-
-            ctx.lineWidth =
-                1.2;
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                18,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-            ctx.stroke();
-
-
-            ctx.fillStyle =
-                rgba(
-                    theme.accent,
-                    0.20
-                );
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                x,
-                y,
-                5,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-    );
-
-
-    /*
-       Gripper
+       Quiet data bus — static, integrated with the PCB
     */
 
     ctx.strokeStyle =
-        rgba(
-            theme.primary,
-            0.24
-        );
+        rgba(theme.accent, 0.10);
 
-    ctx.lineWidth =
-        6;
-
+    ctx.lineWidth = 1;
 
     ctx.beginPath();
-
-    ctx.moveTo(
-        wristX,
-        wristY
-    );
-
-    ctx.lineTo(
-        wristX + 30,
-        wristY + 15
-    );
-
-    ctx.moveTo(
-        wristX + 30,
-        wristY + 15
-    );
-
-    ctx.lineTo(
-        wristX + 48,
-        wristY
-    );
-
-    ctx.moveTo(
-        wristX + 30,
-        wristY + 15
-    );
-
-    ctx.lineTo(
-        wristX + 48,
-        wristY + 30
-    );
-
+    ctx.moveTo(boardX - 80, busY);
+    ctx.lineTo(boardX + boardW + 80, busY);
     ctx.stroke();
 
-
-    /*
-       Ground network
-    */
-
-    ctx.strokeStyle =
-        rgba(
-            theme.secondary,
-            0.12
-        );
-
-    ctx.lineWidth =
-        1;
-
-
-    for (
-        let i = 0;
-        i < 9;
-        i++
-    ) {
-
-        const y =
-            H * 0.20 +
-            i *
-            42;
-
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            0,
-            y
-        );
-
-        ctx.lineTo(
-            W * 0.28,
-            y
-        );
-
-        ctx.lineTo(
-            W * 0.34,
-            y + 18
-        );
-
-        ctx.lineTo(
-            W * 0.66,
-            y + 18
-        );
-
-        ctx.lineTo(
-            W * 0.72,
-            y
-        );
-
-        ctx.lineTo(
-            W,
-            y
-        );
-
-        ctx.stroke();
-
-    }
-
-
-    /*
-       Small animated node
-       ช้ามาก + opacity ต่ำ
-    */
-
-    const nodeProgress =
-        (
-            time *
-            0.000018
-        ) % 1;
-
-
-    const nodeX =
-        W * 0.20 +
-        nodeProgress *
-        W * 0.60;
-
-
-    const nodeY =
-        H * 0.20 +
-        (
-            Math.floor(
-                nodeProgress * 8
-            ) *
-            42
-        );
-
-
-    ctx.fillStyle =
-        rgba(
-            theme.accent,
-            0.16
-        );
-
-
+    /* Quiet embedded-system data pulse */
+    const pulseX = boardX + ((time * 0.045) % (boardW + 70)) - 35;
+    ctx.save();
+    ctx.strokeStyle = rgba(theme.accent, 0.14);
+    ctx.lineWidth = 1;
     ctx.beginPath();
-
-    ctx.arc(
-        nodeX,
-        nodeY,
-        2,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-
+    ctx.moveTo(pulseX, boardY + boardH + 28);
+    ctx.lineTo(Math.min(pulseX + 18, boardX + boardW + 55), boardY + boardH + 28);
+    ctx.stroke();
+    ctx.restore();
 
     ctx.restore();
 
@@ -3440,7 +4147,7 @@ function drawRobotics(
 
 
 /* =========================================================
-   HIGH VOLTAGE
+   HIGH VOLTAGE ENERGY
 ========================================================= */
 
 function drawHighVolt(
@@ -3448,17 +4155,75 @@ function drawHighVolt(
     time
 ) {
 
-    ctx.save();
+    /*
+       Background energy waves
+    */
+
+    for (
+        let i = 0;
+        i < 8;
+        i++
+    ) {
+
+        const points = [];
+
+
+        const baseY =
+            H *
+            (
+                0.08 +
+                i * 0.105
+            );
+
+
+        for (
+            let x = -50;
+            x < W + 50;
+            x += 28
+        ) {
+
+            const y =
+                baseY +
+                Math.sin(
+                    x * 0.004 +
+                    i
+                ) *
+                (
+                    14 +
+                    (
+                        i % 3
+                    ) * 7
+                );
+
+
+            points.push({
+
+                x,
+                y
+
+            });
+
+        }
+
+
+        drawTechLine(
+            points,
+            i % 2 === 0
+                ? theme.primary
+                : theme.accent,
+            0.8,
+            0.055
+        );
+
+    }
 
 
     /*
-       Transmission towers
+       Power towers
     */
 
     const towerCount =
-        W < 700
-            ? 3
-            : 4;
+        W < 700 ? 3 : 4;
 
 
     for (
@@ -3490,9 +4255,8 @@ function drawHighVolt(
             H * 0.34;
 
 
-        /*
-           Tower
-        */
+        ctx.save();
+
 
         ctx.strokeStyle =
             rgba(
@@ -3502,8 +4266,12 @@ function drawHighVolt(
 
 
         ctx.lineWidth =
-            1.6;
+            2;
 
+
+        /*
+           Tower
+        */
 
         ctx.beginPath();
 
@@ -3564,7 +4332,7 @@ function drawHighVolt(
 
 
         /*
-           Power cables
+           Transmission cables
         */
 
         if (
@@ -3596,12 +4364,12 @@ function drawHighVolt(
                 ctx.strokeStyle =
                     rgba(
                         theme.primary,
-                        0.13
+                        0.18
                     );
 
 
                 ctx.lineWidth =
-                    1;
+                    1.4;
 
 
                 ctx.beginPath();
@@ -3638,111 +4406,108 @@ function drawHighVolt(
 
         }
 
+
+        ctx.restore();
+
     }
 
 
     /*
-       Subtle voltage waveform
+       Subtle conductor markers — static, not animated
+    */
+
+    for (let i = 0; i < 5; i++) {
+        const x = W * 0.18 + i * (W * 0.16);
+        const y = H * 0.34 + ((i % 2) * 8 - 4);
+        ctx.fillStyle = rgba(theme.accent, 0.16);
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    /*
+       Lightning technical symbols
     */
 
     for (
         let i = 0;
-        i < 5;
+        i < 7;
         i++
     ) {
 
-        const baseY =
+        const x =
+            (
+                i * 180
+            ) %
+            (
+                W + 200
+            ) -
+            100;
+
+
+        const y =
             H *
             (
-                0.12 +
-                i * 0.16
+                0.16 +
+                (
+                    i % 5
+                ) *
+                0.14
             );
 
 
-        const points = [];
+        ctx.save();
 
 
-        for (
-            let x = -30;
-            x < W + 30;
-            x += 35
-        ) {
-
-            const y =
-                baseY +
-                Math.sin(
-                    x * 0.006 +
-                    i
-                ) *
-                10;
+        ctx.strokeStyle =
+            rgba(
+                theme.accent,
+                0.18
+            );
 
 
-            points.push({
-                x,
-                y
-            });
-
-        }
+        ctx.lineWidth =
+            1.4;
 
 
-        drawTechLine(
-            points,
-            theme.accent,
-            0.7,
-            0.07
+        ctx.beginPath();
+
+        ctx.moveTo(
+            x,
+            y
         );
+
+        ctx.lineTo(
+            x + 12,
+            y + 25
+        );
+
+        ctx.lineTo(
+            x + 2,
+            y + 25
+        );
+
+        ctx.lineTo(
+            x + 18,
+            y + 55
+        );
+
+        ctx.stroke();
+
+
+        ctx.restore();
 
     }
 
-
-    /*
-       Animated electrical flow
-       จุดเล็กมาก
-    */
-
-    const flow =
-        (
-            time *
-            0.000025
-        ) % 1;
-
-
-    const fx =
-        W * 0.12 +
-        flow *
-        W * 0.76;
-
-
-    const fy =
-        H * 0.34 +
-        Math.sin(
-            flow *
-            Math.PI *
-            2
-        ) *
-        2;
-
-
-    ctx.fillStyle =
-        rgba(
-            theme.accent,
-            0.18
-        );
-
-
+    /* Slow conductor pulse — deliberately dim */
+    const flow = (time * 0.000035) % 1;
+    const fx = W * 0.12 + flow * (W * 0.76);
+    const fy = H * 0.34 + Math.sin(flow * Math.PI * 2) * 2;
+    ctx.save();
+    ctx.fillStyle = rgba(theme.accent, 0.18);
     ctx.beginPath();
-
-    ctx.arc(
-        fx,
-        fy,
-        1.8,
-        0,
-        Math.PI * 2
-    );
-
+    ctx.arc(fx, fy, 2, 0, Math.PI * 2);
     ctx.fill();
-
-
     ctx.restore();
 
 }
@@ -3750,11 +4515,10 @@ function drawHighVolt(
 
 /* =========================================================
    AMBIENT LIGHT
+   เบามาก ไม่ทำให้เป็น neon
 ========================================================= */
 
-function drawAmbientLight(
-    theme
-) {
+function drawAmbientLight(theme) {
 
     const gradient =
         ctx.createRadialGradient(
@@ -3778,7 +4542,7 @@ function drawAmbientLight(
         0,
         rgba(
             theme.primary,
-            0.018
+            0.012
         )
     );
 
@@ -3787,7 +4551,7 @@ function drawAmbientLight(
         0.55,
         rgba(
             theme.secondary,
-            0.008
+            0.005
         )
     );
 
@@ -3889,9 +4653,7 @@ function drawTheme(
    MAIN RENDER
 ========================================================= */
 
-function renderBackground(
-    time
-) {
+function renderBackground(time) {
 
     updateTheme(
         time
@@ -3934,6 +4696,10 @@ function renderBackground(
         themeProgress < 1
     ) {
 
+        /*
+           Smooth easing
+        */
+
         const fade =
             themeProgress *
             themeProgress *
@@ -3945,7 +4711,7 @@ function renderBackground(
 
 
         /*
-           Previous Theme
+           Previous
         */
 
         ctx.save();
@@ -3953,18 +4719,16 @@ function renderBackground(
         ctx.globalAlpha =
             1 - fade;
 
-
         drawTheme(
             previousTheme,
             time
         );
 
-
         ctx.restore();
 
 
         /*
-           Current Theme
+           Current
         */
 
         ctx.save();
@@ -3972,12 +4736,10 @@ function renderBackground(
         ctx.globalAlpha =
             fade;
 
-
         drawTheme(
             currentTheme,
             time
         );
-
 
         ctx.restore();
 
@@ -4006,76 +4768,14 @@ requestAnimationFrame(
 
 
 /* =========================================================
-   ACTIVE NAVIGATION
+   RESPONSIVE PCB
 ========================================================= */
 
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
+window.addEventListener(
+    "resize",
+    () => {
 
-
-const navLinks =
-    document.querySelectorAll(
-        ".nav-menu a"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        navLinks.forEach(
-                            link => {
-
-                                link.classList.remove(
-                                    "active"
-                                );
-
-                                if (
-                                    link.getAttribute(
-                                        "href"
-                                    ) ===
-                                    "#" +
-                                    entry.target.id
-                                ) {
-
-                                    link.classList.add(
-                                        "active"
-                                    );
-
-                                }
-
-                            }
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: 0.35
-        }
-
-    );
-
-
-sections.forEach(
-    section => {
-
-        observer.observe(
-            section
-        );
+        createPCB();
 
     }
 );
